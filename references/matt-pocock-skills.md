@@ -54,7 +54,10 @@ Each project task should behave like an issue:
 
 - it has an id
 - it has a status
+- it has a Matt phase
 - it has acceptance criteria
+- it records ECC concepts applied
+- it has a context snapshot for resuming
 - it can be independently implemented or reviewed
 - it links to the workflow files, skills, chains, fixtures, and evals it changes
 

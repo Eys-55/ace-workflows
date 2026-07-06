@@ -9,6 +9,7 @@ Forward the user's arguments unchanged to `$initiate-task`, for example:
 
 ```text
 /initiate-task project:health title:"Build referral intake workflow"
-/initiate-task project:health task:health-001
-/initiate-task project:health task:health-001 proceed:grilling
 ```
+
+This command starts new tasks only. Use `/continue-task` to resume existing
+tasks.

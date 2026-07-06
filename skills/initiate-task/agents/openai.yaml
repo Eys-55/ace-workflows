@@ -1,4 +1,4 @@
 interface:
   display_name: "Initiate Task"
-  short_description: "Start or resume JSON-tracked workflow tasks"
-  default_prompt: "Use $initiate-task to start or resume a project workflow task with explicit Matt phase control."
+  short_description: "Start or continue JSON workflow tasks"
+  default_prompt: "Use $initiate-task to initiate or continue a JSON-tracked workflow task."

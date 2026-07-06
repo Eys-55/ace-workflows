@@ -1,0 +1,4 @@
+interface:
+  display_name: "Setup Workflow Project"
+  short_description: "Create JSON workflow project scaffolds"
+  default_prompt: "Use $setup-workflow-project to initialize a JSON-tracked workflow project."

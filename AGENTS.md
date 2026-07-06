@@ -105,7 +105,8 @@ projects/
 ```
 
 `project.json` stores the project objective, target users, workflow scope,
-source materials, and acceptance bar.
+source materials, project lifecycle state, ECC concepts applied, and acceptance
+bar.
 
 `tasks/index.json` is the project task index. Each task also has its own
 `tasks/<task-id>.json` file. Task JSON must show, at minimum:
@@ -116,6 +117,8 @@ source materials, and acceptance bar.
 - Matt phase: `intake`, `grilling`, `prd`, `issues`, `implement`,
   `code-review`, `done`
 - explicit next action required
+- ECC concepts applied
+- context snapshot for resume
 - owner or session
 - linked files/artifacts
 - acceptance checks
@@ -133,11 +136,15 @@ First:
 1. Identify the project. If ambiguous, ask which project.
 2. Read the project's `project.json`.
 3. Read the full project `tasks/index.json`.
-4. Review all open, blocked, in-progress, and recently completed tasks.
+4. Query the project state with `scripts/query-workflow-state.mjs` when present.
 5. Read every non-done task JSON file before acting.
-6. Check whether the requested edit conflicts with unfinished work.
-7. Identify the exact task being edited, or create a new tracked task if needed.
-8. Only then edit the workflow artifact.
+6. Review all open, blocked, in-progress, and recently completed tasks.
+7. Check whether the requested edit conflicts with unfinished work.
+8. Identify the exact task being edited, or create a new tracked task if needed.
+9. Only then edit the workflow artifact.
+
+Load, load, load, load, load before doing task work. For task workflows, loading
+the whole project state is not optional.
 
 If the user asks for a new session for a project, preserve the same project
 tracker and handoff state. A new session does not mean a new project brain.
@@ -163,6 +170,15 @@ workflow text to pass, then the next slice. It closes with `code-review`.
 
 For this repo, project-local JSON task trackers act as the issue tracker until a
 GitHub remote and issue workflow are configured.
+
+Task operation has only two user-facing modes:
+
+- `initiate-task`: create a new task at `matt_phase: "intake"`.
+- `continue-task`: load all project/task state and resume a selected task from
+  its saved snapshot.
+
+Do not create separate repo-local skills for Matt's PRD, issue, implement, or
+review phases. Those remain Matt Pocock phase behavior inside the selected task.
 
 ## Grilling Mode
 
@@ -304,4 +320,4 @@ When building here, remind yourself:
 > the Matt Pocock reference files for local style and ECC for workflow
 > construction. I must read `project.json`, `tasks/index.json`, and every
 > non-done task JSON before editing because every project has unfinished context
-> that can change the correct edit.
+> that can change the correct edit. Load, load, load, load, load.

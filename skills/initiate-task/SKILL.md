@@ -1,12 +1,18 @@
 ---
 name: initiate-task
-description: Start or resume a project workflow task in this repo using the JSON task tracker, Matt Pocock flow, and ECC workflow discipline. Use when the user invokes initiate-task, /initiate-task, asks to start a task, resume a task, proceed to a Matt phase, or coordinate parallel workflow tasks inside projects/<project-slug>/.
+description: Canonical task workflow skill for this repo. Use when the user invokes initiate-task, /initiate-task, /continue-task, asks to start a new project task, continue an existing task, resume a task snapshot, query current task state, or coordinate parallel tasks inside projects/<project-slug>/ using JSON state, Matt Pocock phases, and ECC concepts.
 ---
 
 # Initiate Task
 
-Use this skill as the canonical entrypoint for starting or resuming workflow
-tasks in this repository.
+Use this skill as the canonical task workflow entrypoint. The only task
+operations are:
+
+- initiate a new task
+- continue an existing task
+
+Matt Pocock phases are task state. Do not split them into separate repo-local
+skills.
 
 ## Required Reading
 
@@ -15,71 +21,46 @@ Before acting:
 1. Read the root `AGENTS.md`.
 2. Read `references/matt-pocock-skills.md`.
 3. Read this skill completely.
-4. If the task enters a Matt phase, inspect the matching upstream Matt Pocock
-   skill named in `references/matt-pocock-skills.md`.
+4. If work enters or continues a Matt phase, inspect the matching upstream Matt
+   Pocock skill named in `references/matt-pocock-skills.md`.
 
-## Operating Contract
+## Load Everything First
 
-The task tracker is JSON. The workflow instructions and artifacts are Markdown.
-Python is forbidden. `.mjs` may be used only for JSON validation and query
-helpers.
+Load, load, load, load, load before doing anything with a task.
 
-Matt phases:
+For every initiate or continue request:
 
-```text
-intake -> grilling -> prd -> issues -> implement -> code-review -> done
-```
+1. Read `projects/<project-slug>/project.json`.
+2. Read `projects/<project-slug>/tasks/index.json`.
+3. Run `node scripts/query-workflow-state.mjs --project <project-slug> --list-tasks`
+   if the script exists.
+4. Read every task JSON listed in the index whose status is not `done`.
+5. Read the selected task JSON if a task id is provided.
+6. Review active, blocked, in-progress, and recently completed work.
+7. Report conflicts or state gaps before taking any task action.
 
-Never auto-continue across phases. Report the current phase and stop unless the
-user explicitly requested the phase action in this turn.
+If project state is missing, only create it when the request is explicitly to
+set up a project or initiate the first task in that project.
 
-Explicit phase action examples:
+## State Model
 
-```text
-/initiate-task project:health task:health-001 proceed:grilling
-/initiate-task project:health task:health-001 proceed:prd
-proceed to issues for health-001
-continue code-review for health-001
-```
-
-## Project Shape
-
-Use this structure:
-
-```text
-projects/
-  <project-slug>/
-    project.json
-    tasks/
-      index.json
-      <task-id>.json
-    artifacts/
-      prds/
-      issues/
-      reviews/
-      handoffs/
-```
-
-Create missing directories only when starting a new task or when the user
-explicitly asks to initialize the project.
-
-## JSON Contracts
-
-`project.json`:
+Project state lives in `project.json`:
 
 ```json
 {
   "project_slug": "health",
   "name": "Health",
+  "project_state": "active",
   "goal": "",
   "domain": "",
   "active_conventions": [],
+  "ecc_concepts_applied": [],
   "created_at": "YYYY-MM-DD",
   "updated_at": "YYYY-MM-DD"
 }
 ```
 
-`tasks/index.json`:
+Task index lives in `tasks/index.json`:
 
 ```json
 {
@@ -96,7 +77,7 @@ explicitly asks to initialize the project.
 }
 ```
 
-Task file:
+Each task lives in `tasks/<task-id>.json`:
 
 ```json
 {
@@ -108,6 +89,11 @@ Task file:
   "explicit_next_action_required": true,
   "summary": "What this task is trying to build",
   "acceptance_criteria": [],
+  "ecc_concepts_applied": [],
+  "context_snapshot": {
+    "summary": "",
+    "must_load": []
+  },
   "dependencies": [],
   "related_tasks": [],
   "linked_artifacts": [],
@@ -117,7 +103,13 @@ Task file:
 }
 ```
 
-Allowed statuses:
+Allowed project states:
+
+```text
+active, paused, archived
+```
+
+Allowed task statuses:
 
 ```text
 todo, in-progress, blocked, done
@@ -129,86 +121,85 @@ Allowed Matt phases:
 intake, grilling, prd, issues, implement, code-review, done
 ```
 
-## Preflight
+## ECC Concepts
 
-For every invocation:
+Document ECC concepts applied at project and task level. Use these names unless
+there is a clear reason to add a more specific concept:
 
-1. Parse `project:<slug>`, `task:<id>`, `title:"..."`, and `proceed:<phase>`
-   if present.
-2. If no project is clear, ask for the project and stop.
-3. Read `projects/<project-slug>/project.json` if it exists.
-4. Read `projects/<project-slug>/tasks/index.json` if it exists.
-5. Read every task JSON listed in the index whose status is not `done`.
-6. Report active, blocked, and in-progress tasks before acting.
-7. Check whether the requested task conflicts with parallel work.
-8. If a needed tracker file is missing, create it only for a new task or an
-   explicit project initialization.
+```text
+workflow contract
+input contract
+output artifact
+eval gate
+human boundary
+handoff
+reviewer lane
+parallel task context
+project state preload
+```
 
-## Starting A New Task
+## Initiate A Task
 
-When the user provides a project and title but no task id:
+Use when the user invokes `/initiate-task` or asks to create/start a new task.
 
-1. Create the project scaffold if missing.
-2. Generate the next task id as `<project-slug>-NNN` using the highest existing
-   numeric suffix plus one.
-3. Create the task at `matt_phase: "intake"`.
-4. Set `status: "todo"` and `explicit_next_action_required: true`.
-5. Add the lightweight summary to `tasks/index.json`.
-6. Report the created task id, current phase, and required next explicit action.
-7. Stop. Do not enter `grilling` unless the user explicitly requested
-   `proceed:grilling` in the same invocation.
+Required input:
 
-## Resuming A Task
+- `project:<slug>`
+- `title:"..."`
 
-When the user provides a task id:
+Process:
 
-1. Read that task file after the project-wide preflight.
-2. Report the task title, status, current Matt phase, linked artifacts, and
-   parallel task context.
-3. If no explicit `proceed:<phase>` or equivalent user instruction is present,
-   stop and ask for explicit phase instruction.
-4. If the requested phase is neither the current phase nor the next phase in the
-   Matt sequence, stop and explain the valid next action.
-5. If the requested phase is valid, run only that phase.
+1. Load the whole project state first.
+2. Create missing project scaffold only if the project is new.
+3. Generate the next id as `<project-slug>-NNN`.
+4. Create the task at `status: "todo"` and `matt_phase: "intake"`.
+5. Set `explicit_next_action_required: true`.
+6. Populate `ecc_concepts_applied` with at least `workflow contract`,
+   `human boundary`, and `project state preload`.
+7. Populate `context_snapshot.must_load` with the project JSON, index JSON, and
+   all non-done task JSON files known at creation time.
+8. Update `tasks/index.json`.
+9. Report the created task and stop.
 
-## Phase Rules
+Do not enter grilling, PRD, issues, implementation, or review in the same turn
+unless the user explicitly asks to continue that task after creation.
 
-`grilling`:
+## Continue A Task
 
-- Use Matt's grilling primitive through `grill-with-docs`.
-- Ask one blocking question at a time.
-- Update task JSON only with session notes or linked artifacts produced in this
-  phase.
-- Do not synthesize a PRD until the user explicitly requests `proceed:prd`.
+Use when the user invokes `/continue-task`, asks to continue a task, or asks to
+resume/revert back to a task.
 
-`prd`:
+Process:
 
-- Use Matt's `to-prd` behavior.
-- Synthesize from already settled conversation and tracker context.
-- Write or link the PRD under `projects/<project-slug>/artifacts/prds/`.
-- Do not create issues until the user explicitly requests `proceed:issues`.
+1. Load the whole project state first.
+2. If no task id is provided, list selectable tasks using
+   `scripts/query-workflow-state.mjs` when available and ask the user to choose.
+3. Load the selected task's `context_snapshot` and linked artifacts.
+4. Report current `status`, `matt_phase`, ECC concepts, open dependencies,
+   related tasks, and conflicts.
+5. Ask for the next explicit instruction if the user did not provide one.
 
-`issues`:
+Resume/revert means resume snapshot only:
 
-- Use Matt's `to-issues` behavior.
-- Split the PRD into independently grabbable vertical slices.
-- Write or link issue artifacts under `projects/<project-slug>/artifacts/issues/`.
-- Do not implement until the user explicitly requests `proceed:implement`.
+- Load all project and task context.
+- Continue from the saved Matt phase.
+- Do not run `git revert`.
+- Do not mark artifacts superseded unless the user explicitly asks.
 
-`implement`:
+## Matt Phase Handling
 
-- Use Matt's `implement` behavior.
-- Drive work with `tdd`: one red slice, one green slice, then the next.
-- Keep changes scoped to the selected task.
-- Do not enter review until the user explicitly requests `proceed:code-review`.
+Matt phases are allowed only inside a selected task.
 
-`code-review`:
+- `grilling`: use Matt's `grill-with-docs` and ask one blocking question at a
+  time.
+- `prd`: use Matt's `to-prd` and write/link the PRD under project artifacts.
+- `issues`: use Matt's `to-issues` and write/link issue artifacts under project
+  artifacts.
+- `implement`: use Matt's `implement`, which drives `tdd`.
+- `code-review`: use Matt's `code-review` against standards and spec.
 
-- Use Matt's `code-review` behavior.
-- Review against both standards and spec.
-- Write or link review artifacts under
-  `projects/<project-slug>/artifacts/reviews/`.
-- Mark `done` only after the user explicitly accepts completion.
+Never create repo-local phase substitute skills such as `write-workflow-prd`,
+`split-workflow-issues`, or `advance-task-phase`.
 
 ## Output Contract
 
@@ -217,29 +208,37 @@ Every invocation must report:
 ```text
 PROJECT
 - slug
+- project_state
 - tracker files read
 
-TASK
-- id or new-task candidate
-- title
-- status
-- current Matt phase
-
-PARALLEL WORK
-- active / blocked / in-progress tasks reviewed
+PROJECT TASK STATE
+- active / blocked / in-progress / recently completed tasks reviewed
 - conflicts or none found
 
+TASK
+- id
+- title
+- status
+- matt_phase
+- ECC concepts applied
+- context snapshot loaded
+
 ACTION
-- created / resumed / blocked / phase action
+- initiated / continued / waiting for task selection / blocked
 - explicit next instruction required
 ```
 
 ## Validation
 
-If `scripts/validate-workflow-state.mjs` exists, run:
+Run before committing workflow-state changes:
 
 ```bash
 node scripts/validate-workflow-state.mjs
 ```
 
-Fix validation failures before committing tracker or workflow changes.
+Use query helper when selecting or inspecting tasks:
+
+```bash
+node scripts/query-workflow-state.mjs --project health --list-tasks
+node scripts/query-workflow-state.mjs --project health --task health-001
+```

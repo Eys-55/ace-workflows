@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Project State"
+  short_description: "Inspect all workflow project task state"
+  default_prompt: "Use $review-project-state to load and review every active task in a workflow project."

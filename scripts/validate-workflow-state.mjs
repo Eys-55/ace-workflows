@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 
 const root = process.cwd();
+const allowedProjectStates = new Set(["active", "paused", "archived"]);
 const allowedStatuses = new Set(["todo", "in-progress", "blocked", "done"]);
 const allowedPhases = new Set([
   "intake",
@@ -67,6 +68,21 @@ function requireArray(object, key, filePath) {
   }
 }
 
+function requireObject(object, key, filePath) {
+  const value = object?.[key];
+  if (typeof value !== "object" || value === null || Array.isArray(value)) {
+    errors.push(`${relative(filePath)} must include object field "${key}"`);
+  }
+}
+
+function validateContextSnapshot(task, filePath) {
+  requireObject(task, "context_snapshot", filePath);
+  if (!task.context_snapshot) return;
+
+  requireString(task.context_snapshot, "summary", filePath);
+  requireArray(task.context_snapshot, "must_load", filePath);
+}
+
 function validateTask(task, filePath, projectSlug) {
   requireString(task, "task_id", filePath);
   requireString(task, "project_slug", filePath);
@@ -79,6 +95,7 @@ function validateTask(task, filePath, projectSlug) {
 
   for (const key of [
     "acceptance_criteria",
+    "ecc_concepts_applied",
     "dependencies",
     "related_tasks",
     "linked_artifacts",
@@ -86,6 +103,8 @@ function validateTask(task, filePath, projectSlug) {
   ]) {
     requireArray(task, key, filePath);
   }
+
+  validateContextSnapshot(task, filePath);
 
   if (task.project_slug !== projectSlug) {
     errors.push(`${relative(filePath)} project_slug must equal "${projectSlug}"`);
@@ -123,8 +142,24 @@ async function validateProject(projectDir) {
   const index = await readJson(indexFile);
   if (!project || !index) return;
 
+  requireString(project, "project_slug", projectFile);
+  requireString(project, "name", projectFile);
+  requireString(project, "project_state", projectFile);
+  requireString(project, "goal", projectFile);
+  requireString(project, "domain", projectFile);
+  requireString(project, "created_at", projectFile);
+  requireString(project, "updated_at", projectFile);
+  requireArray(project, "active_conventions", projectFile);
+  requireArray(project, "ecc_concepts_applied", projectFile);
+
   if (project.project_slug !== projectSlug) {
     errors.push(`${relative(projectFile)} project_slug must equal "${projectSlug}"`);
+  }
+
+  if (!allowedProjectStates.has(project.project_state)) {
+    errors.push(
+      `${relative(projectFile)} has invalid project_state "${project.project_state}"`,
+    );
   }
 
   if (index.project_slug !== projectSlug) {
@@ -148,6 +183,11 @@ async function validateProject(projectDir) {
     }
     taskIds.add(item.task_id);
 
+    requireString(item, "title", indexFile);
+    requireString(item, "status", indexFile);
+    requireString(item, "matt_phase", indexFile);
+    requireString(item, "updated_at", indexFile);
+
     if (!allowedStatuses.has(item.status)) {
       errors.push(`${relative(indexFile)} has invalid status for ${item.task_id}`);
     }
@@ -163,7 +203,21 @@ async function validateProject(projectDir) {
     }
 
     const task = await readJson(taskFile);
-    if (task) validateTask(task, taskFile, projectSlug);
+    if (!task) continue;
+
+    validateTask(task, taskFile, projectSlug);
+
+    if (task.title !== item.title) {
+      errors.push(`${relative(indexFile)} title mismatch for ${item.task_id}`);
+    }
+
+    if (task.status !== item.status) {
+      errors.push(`${relative(indexFile)} status mismatch for ${item.task_id}`);
+    }
+
+    if (task.matt_phase !== item.matt_phase) {
+      errors.push(`${relative(indexFile)} matt_phase mismatch for ${item.task_id}`);
+    }
   }
 }
 
