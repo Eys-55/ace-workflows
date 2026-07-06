@@ -5,6 +5,7 @@ import process from "node:process";
 const root = process.cwd();
 const allowedProjectStates = new Set(["active", "paused", "archived"]);
 const allowedStatuses = new Set(["todo", "in-progress", "blocked", "done"]);
+const allowedTaskKinds = new Set(["workflow-change", "tracker-maintenance"]);
 const allowedPhases = new Set([
   "intake",
   "grilling",
@@ -28,6 +29,12 @@ const projectAgentsForbiddenPatterns = [
 ];
 
 const errors = [];
+const trackerArtifactPatterns = [
+  /^registry\/agents-md\.json$/,
+  /^projects\/[^/]+\/project\.json$/,
+  /^projects\/[^/]+\/tasks\/index\.json$/,
+  /^projects\/[^/]+\/tasks\/[^/]+\.json$/,
+];
 
 async function exists(filePath) {
   try {
@@ -104,6 +111,10 @@ function validateContextSnapshot(task, filePath) {
   requireArray(task.context_snapshot, "must_load", filePath);
 }
 
+function isTrackerArtifact(filePath) {
+  return trackerArtifactPatterns.some((pattern) => pattern.test(filePath));
+}
+
 function validateTask(task, filePath, projectSlug, requiredMustLoadPaths) {
   requireString(task, "task_id", filePath);
   requireString(task, "project_slug", filePath);
@@ -126,6 +137,18 @@ function validateTask(task, filePath, projectSlug, requiredMustLoadPaths) {
   }
 
   validateContextSnapshot(task, filePath);
+
+  const taskKind = task.task_kind ?? "workflow-change";
+  if (!allowedTaskKinds.has(taskKind)) {
+    errors.push(`${relative(filePath)} has invalid task_kind "${taskKind}"`);
+  }
+
+  if (
+    taskKind === "tracker-maintenance" &&
+    !task.linked_artifacts?.some((artifactPath) => isTrackerArtifact(artifactPath))
+  ) {
+    errors.push(`${relative(filePath)} tracker-maintenance task must link a tracker artifact`);
+  }
 
   if (Array.isArray(task.context_snapshot?.must_load)) {
     for (const requiredPath of requiredMustLoadPaths) {
@@ -345,6 +368,11 @@ async function validateProject(projectDir, agentsEntries) {
     requireString(item, "matt_phase", indexFile);
     requireString(item, "updated_at", indexFile);
 
+    const itemTaskKind = item.task_kind ?? "workflow-change";
+    if (!allowedTaskKinds.has(itemTaskKind)) {
+      errors.push(`${relative(indexFile)} has invalid task_kind for ${item.task_id}`);
+    }
+
     if (!allowedStatuses.has(item.status)) {
       errors.push(`${relative(indexFile)} has invalid status for ${item.task_id}`);
     }
@@ -374,6 +402,10 @@ async function validateProject(projectDir, agentsEntries) {
 
     if (task.matt_phase !== item.matt_phase) {
       errors.push(`${relative(indexFile)} matt_phase mismatch for ${item.task_id}`);
+    }
+
+    if ((task.task_kind ?? "workflow-change") !== itemTaskKind) {
+      errors.push(`${relative(indexFile)} task_kind mismatch for ${item.task_id}`);
     }
   }
 }

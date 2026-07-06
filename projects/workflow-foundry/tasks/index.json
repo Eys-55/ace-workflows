@@ -4,6 +4,15 @@
     {
       "task_id": "workflow-foundry-001",
       "title": "Connect workflow skills and handoffs",
+      "task_kind": "workflow-change",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-06"
+    },
+    {
+      "task_id": "workflow-foundry-002",
+      "title": "Add tracker-edit tasks",
+      "task_kind": "tracker-maintenance",
       "status": "todo",
       "matt_phase": "intake",
       "updated_at": "2026-07-06"

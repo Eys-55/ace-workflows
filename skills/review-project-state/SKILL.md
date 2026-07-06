@@ -60,6 +60,7 @@ TASK STATE
 - blocked
 - in-progress
 - todo
+- tracker-maintenance
 - recently completed
 
 CONFLICTS

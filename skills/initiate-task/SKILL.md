@@ -1,6 +1,6 @@
 ---
 name: initiate-task
-description: Canonical task workflow skill for this repo. Use when the user invokes initiate-task, /initiate-task, /continue-task, asks to start a new project task, continue an existing task, resume a task snapshot, query current task state, or coordinate parallel tasks inside projects/<project-slug>/ using JSON state, Matt Pocock phases, and ECC concepts.
+description: Canonical task workflow skill for this repo. Use when the user invokes initiate-task, /initiate-task, /continue-task, asks to start a new project task, create a tracker-maintenance task with target:tracker, continue an existing task, resume a task snapshot, query current task state, or coordinate parallel tasks inside projects/<project-slug>/ using JSON state, Matt Pocock phases, and ECC concepts.
 ---
 
 # Initiate Task
@@ -77,6 +77,7 @@ Task index lives in `tasks/index.json`:
     {
       "task_id": "health-001",
       "title": "Short task title",
+      "task_kind": "workflow-change",
       "status": "todo",
       "matt_phase": "intake",
       "updated_at": "YYYY-MM-DD"
@@ -92,6 +93,7 @@ Each task lives in `tasks/<task-id>.json`:
   "task_id": "health-001",
   "project_slug": "health",
   "title": "Short task title",
+  "task_kind": "workflow-change",
   "status": "todo",
   "matt_phase": "intake",
   "explicit_next_action_required": true,
@@ -121,6 +123,12 @@ Allowed task statuses:
 
 ```text
 todo, in-progress, blocked, done
+```
+
+Allowed task kinds:
+
+```text
+workflow-change, tracker-maintenance
 ```
 
 Allowed Matt phases:
@@ -155,23 +163,36 @@ Required input:
 - `project:<slug>`
 - `title:"..."`
 
+Accept:
+
+- `target:tracker` to create a tracker-maintenance task
+
 Process:
 
 1. Load the whole project state first.
 2. If the project is missing, hand off to `$setup-workflow-project` and stop.
 3. Generate the next id as `<project-slug>-NNN`.
 4. Create the task at `status: "todo"` and `matt_phase: "intake"`.
-5. Set `explicit_next_action_required: true`.
-6. Populate `ecc_concepts_applied` with at least `workflow contract`,
+5. Set `task_kind` to `tracker-maintenance` when `target:tracker` is provided;
+   otherwise set it to `workflow-change`.
+6. Set `explicit_next_action_required: true`.
+7. Populate `ecc_concepts_applied` with at least `workflow contract`,
    `human boundary`, and `project state preload`.
-7. Populate `context_snapshot.must_load` with root `AGENTS.md`,
+8. For `tracker-maintenance`, add tracker files expected to change to
+   `linked_artifacts`, such as `project.json`, `tasks/index.json`, task JSON
+   files, or `registry/agents-md.json`.
+9. Populate `context_snapshot.must_load` with root `AGENTS.md`,
    `registry/agents-md.json`, project `AGENTS.md`, project JSON, index JSON, and
    all non-done task JSON files known at creation time.
-8. Update `tasks/index.json`.
-9. Report the created task and stop.
+10. Update `tasks/index.json`.
+11. Report the created task and stop.
 
 Do not enter grilling, PRD, issues, implementation, or review in the same turn
 unless the user explicitly asks to continue that task after creation.
+
+Creating a `tracker-maintenance` task is the allowed bootstrap tracker write.
+After that task exists, further tracker edits must happen through
+`/continue-task` on that task.
 
 ## Continue A Task
 
@@ -236,6 +257,7 @@ TASK
 - id
 - title
 - status
+- task_kind
 - matt_phase
 - ECC concepts applied
 - context snapshot loaded

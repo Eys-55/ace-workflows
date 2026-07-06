@@ -137,6 +137,7 @@ bar. It also records the project `AGENTS.md` path.
 
 - task id
 - task title
+- task kind: `workflow-change` or `tracker-maintenance`
 - status: `todo`, `in-progress`, `blocked`, `done`
 - Matt phase: `intake`, `grilling`, `prd`, `issues`, `implement`,
   `code-review`, `done`
@@ -202,6 +203,13 @@ Task operation has only two user-facing modes:
 - `initiate-task`: create a new task at `matt_phase: "intake"`.
 - `continue-task`: load all project/task state and resume a selected task from
   its saved snapshot.
+
+Tasks may be normal `workflow-change` tasks or `tracker-maintenance` tasks.
+Use `target:tracker` with `/initiate-task` when the task exists to edit tracker
+state such as `project.json`, `tasks/index.json`, task JSON files, or
+`registry/agents-md.json`. Creating the tracker-maintenance task itself is the
+only allowed bootstrap tracker write; further tracker edits must continue that
+task.
 
 Do not create separate repo-local skills for Matt's PRD, issue, implement, or
 review phases. Those remain Matt Pocock phase behavior inside the selected task.

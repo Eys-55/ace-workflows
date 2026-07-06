@@ -149,7 +149,7 @@ async function listTasks(projectSlug) {
 
   for (const task of filtered) {
     console.log(
-      `${task.task_id}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
+      `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
     );
   }
 }
@@ -201,7 +201,7 @@ async function printProjectSnapshot(projectSlug) {
 
   for (const task of tasks) {
     console.log(
-      `${task.task_id}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
+      `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
     );
   }
 }

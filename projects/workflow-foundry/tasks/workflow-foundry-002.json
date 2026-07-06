@@ -1,0 +1,71 @@
+{
+  "task_id": "workflow-foundry-002",
+  "project_slug": "workflow-foundry",
+  "title": "Add tracker-edit tasks",
+  "task_kind": "tracker-maintenance",
+  "status": "todo",
+  "matt_phase": "intake",
+  "explicit_next_action_required": true,
+  "summary": "Extend the task workflow so tracker edits can be represented as auditable tracker-maintenance tasks created through the canonical initiate-task surface.",
+  "acceptance_criteria": [
+    "task JSON and task index summaries support task_kind",
+    "target:tracker is documented as the route for tracker-maintenance tasks",
+    "tracker-maintenance tasks must link tracker files they expect to edit",
+    "query output shows task_kind for task lists and snapshots",
+    "validation fails tracker-maintenance tasks without tracker linked artifacts"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry project state, both open tasks, and the task workflow surfaces before continuing tracker-edit task support.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "skills/workflow-help/SKILL.md",
+      "skills/review-project-state/SKILL.md",
+      "skills/initiate-task/SKILL.md",
+      "commands/initiate-task.md",
+      "scripts/query-workflow-state.mjs",
+      "scripts/validate-workflow-state.mjs"
+    ]
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-001"
+  ],
+  "linked_artifacts": [
+    "AGENTS.md",
+    "registry/agents-md.json",
+    "commands/initiate-task.md",
+    "skills/workflow-help/SKILL.md",
+    "skills/review-project-state/SKILL.md",
+    "skills/initiate-task/SKILL.md",
+    "scripts/query-workflow-state.mjs",
+    "scripts/validate-workflow-state.mjs",
+    "projects/workflow-foundry/project.json",
+    "projects/workflow-foundry/tasks/index.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-002.json"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-06",
+      "event": "Created tracker-maintenance task to audit implementation of target:tracker task support."
+    }
+  ],
+  "created_at": "2026-07-06",
+  "updated_at": "2026-07-06"
+}

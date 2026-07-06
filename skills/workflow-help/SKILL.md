@@ -75,6 +75,7 @@ CONNECTED FLOW
 - Start a new task at `matt_phase: "intake"`.
 - Requires `project:<slug>` and `title:"..."`.
 - Loads all project state before creating task state.
+- Use `target:tracker` when creating a task specifically to edit tracker files.
 
 `/continue-task`
 
@@ -99,6 +100,7 @@ CONNECTED FLOW
 - Canonical skill behind `/initiate-task` and `/continue-task`.
 - Owns task state, task resume, Matt phase handling, and the load-everything
   invariant.
+- Creates normal `workflow-change` tasks and `tracker-maintenance` tasks.
 
 `$review-project-state`
 
@@ -111,6 +113,10 @@ CONNECTED FLOW
 - Read-only help surface.
 
 ## Matt Flow Reminder
+
+`target:tracker` is not a Matt phase. It creates a `tracker-maintenance` task at
+`intake` for auditable changes to `project.json`, `tasks/index.json`, task JSON
+files, or `registry/agents-md.json`.
 
 Matt Pocock phases are not separate repo-local skills:
 

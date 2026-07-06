@@ -9,6 +9,7 @@ Forward the user's arguments unchanged to `$initiate-task`, for example:
 
 ```text
 /initiate-task project:health title:"Build referral intake workflow"
+/initiate-task project:health title:"Fix stale tracker links" target:tracker
 ```
 
 This command starts new tasks only. Use `/continue-task` to resume existing
@@ -20,3 +21,6 @@ Before creating any task, the canonical skill must load root `AGENTS.md`,
 
 Next surface: after creation, stop at `intake`; use `/continue-task` for any
 Matt phase work.
+
+Use `target:tracker` for tracker-maintenance tasks; do not add a separate
+create-task command.

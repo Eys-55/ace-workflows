@@ -9,7 +9,8 @@
     "skills-first workflow surface",
     "slash commands remain thin shims",
     "JSON task state is source of truth",
-    "project AGENTS.md files are domain-only"
+    "project AGENTS.md files are domain-only",
+    "tracker-maintenance tasks audit tracker edits"
   ],
   "ecc_concepts_applied": [
     "workflow contract",
