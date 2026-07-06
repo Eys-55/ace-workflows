@@ -72,6 +72,14 @@ Only create optional folders when they are genuinely needed. Keep `SKILL.md`
 focused and concise; move detailed, conditional, or domain-heavy material into
 directly linked reference files.
 
+## Allowed File Types
+
+Python is not allowed in this repository.
+
+Workflow artifacts should be Markdown and JSON. `.mjs` files are allowed only
+for JSON validation or query helpers. Do not use `.mjs` to replace skill logic,
+prompt chains, or workflow instructions.
+
 ## Repository Model
 
 Use a GitHub-style project workflow.
@@ -85,23 +93,29 @@ Expected shape:
 ```text
 projects/
   project-slug/
-    PROJECT.md
-    TASKS.md
-    decisions/
-    skills/
-    chains/
-    evals/
-    fixtures/
+    project.json
+    tasks/
+      index.json
+      task-id.json
+    artifacts/
+      prds/
+      issues/
+      reviews/
+      handoffs/
 ```
 
-`PROJECT.md` explains the project objective, target users, workflow scope,
+`project.json` stores the project objective, target users, workflow scope,
 source materials, and acceptance bar.
 
-`TASKS.md` is the project tracker. It must show, at minimum:
+`tasks/index.json` is the project task index. Each task also has its own
+`tasks/<task-id>.json` file. Task JSON must show, at minimum:
 
 - task id
 - task title
 - status: `todo`, `in-progress`, `blocked`, `done`
+- Matt phase: `intake`, `grilling`, `prd`, `issues`, `implement`,
+  `code-review`, `done`
+- explicit next action required
 - owner or session
 - linked files/artifacts
 - acceptance checks
@@ -117,12 +131,13 @@ When the user asks for an edit, do not jump straight to the named file.
 First:
 
 1. Identify the project. If ambiguous, ask which project.
-2. Read the project's `PROJECT.md`.
-3. Read the full project `TASKS.md`.
+2. Read the project's `project.json`.
+3. Read the full project `tasks/index.json`.
 4. Review all open, blocked, in-progress, and recently completed tasks.
-5. Check whether the requested edit conflicts with unfinished work.
-6. Identify the exact task being edited, or create a new tracked task if needed.
-7. Only then edit the workflow artifact.
+5. Read every non-done task JSON file before acting.
+6. Check whether the requested edit conflicts with unfinished work.
+7. Identify the exact task being edited, or create a new tracked task if needed.
+8. Only then edit the workflow artifact.
 
 If the user asks for a new session for a project, preserve the same project
 tracker and handoff state. A new session does not mean a new project brain.
@@ -146,7 +161,7 @@ grill-with-docs -> to-prd -> to-issues -> fresh session per issue -> implement
 `implement` must drive `tdd` internally: one red test, just enough code or
 workflow text to pass, then the next slice. It closes with `code-review`.
 
-For this repo, project-local `TASKS.md` files act as the issue tracker until a
+For this repo, project-local JSON task trackers act as the issue tracker until a
 GitHub remote and issue workflow are configured.
 
 ## Grilling Mode
@@ -287,5 +302,6 @@ When building here, remind yourself:
 
 > I am not allowed to improvise agent workflows from confidence. I must look at
 > the Matt Pocock reference files for local style and ECC for workflow
-> construction. I must read the project tracker before editing because every
-> project has unfinished context that can change the correct edit.
+> construction. I must read `project.json`, `tasks/index.json`, and every
+> non-done task JSON before editing because every project has unfinished context
+> that can change the correct edit.

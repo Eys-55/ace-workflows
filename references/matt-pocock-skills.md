@@ -42,11 +42,12 @@ When building or editing workflows, inspect the matching upstream skill or doc:
 
 ## Local Interpretation For This Repo
 
-Until a GitHub remote and issue tracker are configured, use project-local
+Until a GitHub remote and issue tracker are configured, use project-local JSON
 trackers as the issue tracker:
 
 ```text
-projects/<project-slug>/TASKS.md
+projects/<project-slug>/tasks/index.json
+projects/<project-slug>/tasks/<task-id>.json
 ```
 
 Each project task should behave like an issue:
