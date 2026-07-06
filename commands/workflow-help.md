@@ -11,3 +11,6 @@ Forward the user's request unchanged to `$workflow-help`, for example:
 /workflow-help
 /workflow-help what can I do here?
 ```
+
+Next surface: use the command recommended by `$workflow-help` from live project
+and registry state.

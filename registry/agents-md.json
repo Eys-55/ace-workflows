@@ -13,6 +13,19 @@
         "Matt Pocock and ECC process rules",
         "repo validation and file-type rules"
       ]
+    },
+    {
+      "path": "projects/workflow-foundry/AGENTS.md",
+      "role": "project-domain",
+      "scope": "projects/workflow-foundry",
+      "owning_project": "workflow-foundry",
+      "live": true,
+      "allowed_content": [
+        "workflow system maintenance vocabulary",
+        "repo-control project source rules",
+        "workflow skill connection guidance",
+        "validation surface ownership notes"
+      ]
     }
   ]
 }

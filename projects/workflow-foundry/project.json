@@ -1,0 +1,26 @@
+{
+  "project_slug": "workflow-foundry",
+  "name": "Workflow Foundry",
+  "project_state": "active",
+  "goal": "Maintain the repo-local workflow system that creates, connects, validates, and resumes agent workflow projects.",
+  "domain": "workflow-system-maintenance",
+  "agents_md": "projects/workflow-foundry/AGENTS.md",
+  "active_conventions": [
+    "skills-first workflow surface",
+    "slash commands remain thin shims",
+    "JSON task state is source of truth",
+    "project AGENTS.md files are domain-only"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "created_at": "2026-07-06",
+  "updated_at": "2026-07-06"
+}

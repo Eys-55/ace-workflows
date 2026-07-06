@@ -16,3 +16,6 @@ must load the whole project state before any task action:
 Required load set: root `AGENTS.md`, `registry/agents-md.json`, selected
 project `AGENTS.md`, `project.json`, `tasks/index.json`, the selected task,
 and every non-done task JSON.
+
+Next surface: report the current Matt phase and wait for an explicit phase
+instruction unless the user already provided one.

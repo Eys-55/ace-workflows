@@ -104,7 +104,7 @@ function validateContextSnapshot(task, filePath) {
   requireArray(task.context_snapshot, "must_load", filePath);
 }
 
-function validateTask(task, filePath, projectSlug) {
+function validateTask(task, filePath, projectSlug, requiredMustLoadPaths) {
   requireString(task, "task_id", filePath);
   requireString(task, "project_slug", filePath);
   requireString(task, "title", filePath);
@@ -126,6 +126,16 @@ function validateTask(task, filePath, projectSlug) {
   }
 
   validateContextSnapshot(task, filePath);
+
+  if (Array.isArray(task.context_snapshot?.must_load)) {
+    for (const requiredPath of requiredMustLoadPaths) {
+      if (!task.context_snapshot.must_load.includes(requiredPath)) {
+        errors.push(
+          `${relative(filePath)} context_snapshot.must_load must include "${requiredPath}"`,
+        );
+      }
+    }
+  }
 
   if (task.project_slug !== projectSlug) {
     errors.push(`${relative(filePath)} project_slug must equal "${projectSlug}"`);
@@ -307,6 +317,17 @@ async function validateProject(projectDir, agentsEntries) {
     return;
   }
 
+  const requiredMustLoadPaths = [
+    "AGENTS.md",
+    "registry/agents-md.json",
+    projectAgentsPath,
+    `projects/${projectSlug}/project.json`,
+    `projects/${projectSlug}/tasks/index.json`,
+    ...index.tasks
+      .filter((item) => item.status !== "done" && typeof item.task_id === "string")
+      .map((item) => `projects/${projectSlug}/tasks/${item.task_id}.json`),
+  ];
+
   const taskIds = new Set();
   for (const item of index.tasks) {
     if (typeof item.task_id !== "string") {
@@ -341,7 +362,7 @@ async function validateProject(projectDir, agentsEntries) {
     const task = await readJson(taskFile);
     if (!task) continue;
 
-    validateTask(task, taskFile, projectSlug);
+    validateTask(task, taskFile, projectSlug, requiredMustLoadPaths);
 
     if (task.title !== item.title) {
       errors.push(`${relative(indexFile)} title mismatch for ${item.task_id}`);

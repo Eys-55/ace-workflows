@@ -49,7 +49,9 @@ projects/<project-slug>/
 ```
 
 Do not overwrite existing project files. If the project already exists, load it,
-report its state, and ask for explicit instructions before changing it.
+report its state, and hand off to `$review-project-state` before changing it.
+Do not modify an existing project from this skill unless the user explicitly
+asks after reviewing the project state.
 
 Register `projects/<project-slug>/AGENTS.md` in `registry/agents-md.json` with:
 
@@ -139,6 +141,18 @@ ECC CONCEPTS
 
 NEXT ACTION
 - initiate a task with /initiate-task
+```
+
+For a newly created project, the next surface is:
+
+```text
+/initiate-task project:<project-slug> title:"..."
+```
+
+For an existing project, the next surface is:
+
+```text
+$review-project-state project:<project-slug>
 ```
 
 ## Validation

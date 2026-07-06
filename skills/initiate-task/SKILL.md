@@ -45,8 +45,9 @@ For every initiate or continue request:
 10. Review active, blocked, in-progress, and recently completed work.
 11. Report conflicts or state gaps before taking any task action.
 
-If project state is missing, only create it when the request is explicitly to
-set up a project or initiate the first task in that project.
+If project state is missing, do not create a separate scaffold from this skill.
+Hand off to `$setup-workflow-project` first, then stop. After setup succeeds,
+the next invocation may initiate the first task.
 
 ## State Model
 
@@ -157,7 +158,7 @@ Required input:
 Process:
 
 1. Load the whole project state first.
-2. Create missing project scaffold only if the project is new.
+2. If the project is missing, hand off to `$setup-workflow-project` and stop.
 3. Generate the next id as `<project-slug>-NNN`.
 4. Create the task at `status: "todo"` and `matt_phase: "intake"`.
 5. Set `explicit_next_action_required: true`.

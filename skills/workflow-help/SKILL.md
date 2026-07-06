@@ -14,8 +14,11 @@ Before answering:
 
 1. Read root `AGENTS.md`.
 2. Read `references/matt-pocock-skills.md`.
-3. Inspect `commands/`, `skills/`, and `scripts/` so the answer reflects the
+3. Read `registry/agents-md.json`.
+4. Inspect `commands/`, `skills/`, and `scripts/` so the answer reflects the
    actual repo.
+5. Run `node scripts/query-workflow-state.mjs --list-projects` and
+   `node scripts/query-workflow-state.mjs --list-agents-md` when available.
 
 Do not mutate project or task state from this skill.
 
@@ -41,6 +44,7 @@ SCRIPTS
 - node scripts/query-workflow-state.mjs --list-projects
 - node scripts/query-workflow-state.mjs --list-agents-md
 - node scripts/query-workflow-state.mjs --project <slug> --agents-md
+- node scripts/query-workflow-state.mjs --project <slug> --snapshot
 - node scripts/query-workflow-state.mjs --project <slug> --list-tasks
 - node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
 
@@ -50,6 +54,10 @@ TASK FLOW
 - continue task
 - review project state
 - follow Matt Pocock phases inside the selected task
+
+CONNECTED FLOW
+- /workflow-help -> /setup-workflow-project -> /initiate-task -> /continue-task
+- use /continue-task or $review-project-state when project state already exists
 ```
 
 ## Command Guide
@@ -78,6 +86,7 @@ TASK FLOW
 
 - Show this command/skill/script guide.
 - Read-only. Do not change workflow state.
+- Use live registry and project query output when recommending the next command.
 
 ## Skill Guide
 
@@ -95,6 +104,7 @@ TASK FLOW
 
 - Load and report complete project state before deciding what to do next.
 - Use when the user asks for the dashboard or wants to understand ongoing work.
+- Use as mandatory preflight when a project already exists or task work is risky.
 
 `$workflow-help`
 
@@ -142,8 +152,14 @@ When invoked, answer in this shape:
 AVAILABLE COMMANDS
 - command: when to use it
 
+CONNECTED FLOW
+- current recommended path
+
 AVAILABLE SKILLS
 - skill: when to use it
+
+LIVE STATE
+- projects and registered AGENTS.md files seen
 
 STATE HELPERS
 - script: what it shows or validates

@@ -7,6 +7,8 @@ description: Load and review the complete JSON state for a workflow project befo
 
 Use this skill to inspect a workflow project before task work. This is the
 project dashboard: load everything before recommending or editing anything.
+Use it as mandatory preflight when a project already exists, the task is risky,
+or the next action could conflict with unfinished work.
 
 ## Required Reading
 
@@ -67,7 +69,8 @@ CONFLICTS
 - unregistered or misplaced AGENTS.md files
 
 NEXT SAFE ACTION
-- initiate task / continue task / fix tracker state / ask user
+- one exact command: /initiate-task, /continue-task, /setup-workflow-project,
+  or a tracker-state fix
 ```
 
 Do not edit project state from this skill unless the user explicitly asks for a

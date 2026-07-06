@@ -1,0 +1,12 @@
+{
+  "project_slug": "workflow-foundry",
+  "tasks": [
+    {
+      "task_id": "workflow-foundry-001",
+      "title": "Connect workflow skills and handoffs",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-06"
+    }
+  ]
+}

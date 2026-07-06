@@ -20,6 +20,7 @@ function usage() {
   node scripts/query-workflow-state.mjs --list-projects
   node scripts/query-workflow-state.mjs --list-agents-md
   node scripts/query-workflow-state.mjs --project <slug> --agents-md
+  node scripts/query-workflow-state.mjs --project <slug> --snapshot
   node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>] [--phase <phase>]
   node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
 `);
@@ -50,11 +51,22 @@ async function loadAgentsRegistry() {
 
 async function listAgentsMd(projectSlug = null) {
   const entries = await loadAgentsRegistry();
+  if (projectSlug) {
+    await loadProject(projectSlug);
+  }
+
   const filtered = projectSlug
     ? entries.filter(
         (entry) => entry.owning_project === projectSlug || entry.role === "root-workflow-foundry",
       )
     : entries;
+
+  if (
+    projectSlug &&
+    !filtered.some((entry) => entry.role === "project-domain" && entry.owning_project === projectSlug)
+  ) {
+    throw new Error(`Missing registered project AGENTS.md for ${projectSlug}`);
+  }
 
   if (filtered.length === 0) {
     console.log("No matching AGENTS.md registry entries found.");
@@ -154,6 +166,46 @@ async function printTask(projectSlug, taskId) {
   console.log(JSON.stringify(task, null, 2));
 }
 
+async function printProjectSnapshot(projectSlug) {
+  const { project, index } = await loadProject(projectSlug);
+  const agentsEntries = await loadAgentsRegistry();
+  const projectAgents = agentsEntries.filter(
+    (entry) => entry.owning_project === projectSlug || entry.role === "root-workflow-foundry",
+  );
+
+  if (!projectAgents.some((entry) => entry.role === "project-domain")) {
+    throw new Error(`Missing registered project AGENTS.md for ${projectSlug}`);
+  }
+
+  console.log("PROJECT");
+  console.log(`${project.project_slug}\t${project.project_state}\t${project.name}`);
+  console.log(`goal\t${project.goal ?? ""}`);
+  console.log(`domain\t${project.domain ?? ""}`);
+  console.log(`agents_md\t${project.agents_md ?? ""}`);
+
+  console.log("\nAGENTS_MD");
+  for (const entry of projectAgents) {
+    console.log(
+      `${entry.path}\t${entry.role}\t${entry.scope}\t${entry.owning_project ?? "-"}\t${
+        entry.live ? "live" : "inactive"
+      }`,
+    );
+  }
+
+  console.log("\nTASKS");
+  const tasks = Array.isArray(index.tasks) ? index.tasks : [];
+  if (tasks.length === 0) {
+    console.log("No tasks found.");
+    return;
+  }
+
+  for (const task of tasks) {
+    console.log(
+      `${task.task_id}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
+    );
+  }
+}
+
 try {
   if (hasFlag("--help") || args.length === 0) {
     usage();
@@ -167,6 +219,8 @@ try {
 
     if (hasFlag("--agents-md")) {
       await listAgentsMd(project);
+    } else if (hasFlag("--snapshot")) {
+      await printProjectSnapshot(project);
     } else if (hasFlag("--list-tasks")) {
       await listTasks(project);
     } else if (getArg("--task")) {

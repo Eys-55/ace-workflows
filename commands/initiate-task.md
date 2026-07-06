@@ -17,3 +17,6 @@ tasks.
 Before creating any task, the canonical skill must load root `AGENTS.md`,
 `registry/agents-md.json`, the selected project `AGENTS.md`, `project.json`,
 `tasks/index.json`, and every non-done task JSON.
+
+Next surface: after creation, stop at `intake`; use `/continue-task` for any
+Matt phase work.

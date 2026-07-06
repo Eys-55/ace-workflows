@@ -15,3 +15,6 @@ example:
 Project setup must create and register `projects/<slug>/AGENTS.md` as a
 domain-only project AGENTS file. Root workflow mechanics stay in root
 `AGENTS.md`.
+
+Next surface: new projects go to `/initiate-task`; existing projects go to
+`$review-project-state`.

@@ -88,6 +88,11 @@ This repository is organized around projects. Each project is a workflow product
 line, such as health, education, finance, research, or another domain the user
 names.
 
+The `workflow-foundry` project is the meta project for maintaining this repo's
+root workflow system: skills, command shims, JSON helpers, registry entries, and
+validation behavior. Use it when an edit changes how this repo builds or
+connects workflows.
+
 ## AGENTS.md Boundaries
 
 There are two kinds of `AGENTS.md` in this repository.
