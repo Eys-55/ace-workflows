@@ -18,6 +18,8 @@ function hasFlag(name) {
 function usage() {
   console.log(`Usage:
   node scripts/query-workflow-state.mjs --list-projects
+  node scripts/query-workflow-state.mjs --list-agents-md
+  node scripts/query-workflow-state.mjs --project <slug> --agents-md
   node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>] [--phase <phase>]
   node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
 `);
@@ -34,6 +36,38 @@ async function exists(filePath) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+async function loadAgentsRegistry() {
+  const registryFile = path.join(root, "registry", "agents-md.json");
+  if (!(await exists(registryFile))) {
+    throw new Error(`Missing ${path.relative(root, registryFile)}`);
+  }
+
+  const registry = await readJson(registryFile);
+  return Array.isArray(registry.agents_md) ? registry.agents_md : [];
+}
+
+async function listAgentsMd(projectSlug = null) {
+  const entries = await loadAgentsRegistry();
+  const filtered = projectSlug
+    ? entries.filter(
+        (entry) => entry.owning_project === projectSlug || entry.role === "root-workflow-foundry",
+      )
+    : entries;
+
+  if (filtered.length === 0) {
+    console.log("No matching AGENTS.md registry entries found.");
+    return;
+  }
+
+  for (const entry of filtered) {
+    console.log(
+      `${entry.path}\t${entry.role}\t${entry.scope}\t${entry.owning_project ?? "-"}\t${
+        entry.live ? "live" : "inactive"
+      }`,
+    );
+  }
 }
 
 async function listProjects() {
@@ -125,11 +159,15 @@ try {
     usage();
   } else if (hasFlag("--list-projects")) {
     await listProjects();
+  } else if (hasFlag("--list-agents-md")) {
+    await listAgentsMd();
   } else {
     const project = getArg("--project");
     if (!project) throw new Error("Missing --project <slug>");
 
-    if (hasFlag("--list-tasks")) {
+    if (hasFlag("--agents-md")) {
+      await listAgentsMd(project);
+    } else if (hasFlag("--list-tasks")) {
       await listTasks(project);
     } else if (getArg("--task")) {
       await printTask(project, getArg("--task"));

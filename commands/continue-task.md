@@ -12,3 +12,7 @@ must load the whole project state before any task action:
 /continue-task project:health
 /continue-task project:health task:health-001
 ```
+
+Required load set: root `AGENTS.md`, `registry/agents-md.json`, selected
+project `AGENTS.md`, `project.json`, `tasks/index.json`, the selected task,
+and every non-done task JSON.

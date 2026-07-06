@@ -21,7 +21,8 @@ Before acting:
 1. Read the root `AGENTS.md`.
 2. Read `references/matt-pocock-skills.md`.
 3. Read this skill completely.
-4. If work enters or continues a Matt phase, inspect the matching upstream Matt
+4. Read `registry/agents-md.json`.
+5. If work enters or continues a Matt phase, inspect the matching upstream Matt
    Pocock skill named in `references/matt-pocock-skills.md`.
 
 ## Load Everything First
@@ -30,14 +31,19 @@ Load, load, load, load, load before doing anything with a task.
 
 For every initiate or continue request:
 
-1. Read `projects/<project-slug>/project.json`.
-2. Read `projects/<project-slug>/tasks/index.json`.
-3. Run `node scripts/query-workflow-state.mjs --project <project-slug> --list-tasks`
+1. Read root `AGENTS.md`.
+2. Read `registry/agents-md.json`.
+3. Read `projects/<project-slug>/AGENTS.md`.
+4. Read `projects/<project-slug>/project.json`.
+5. Read `projects/<project-slug>/tasks/index.json`.
+6. Run `node scripts/query-workflow-state.mjs --project <project-slug> --list-tasks`
    if the script exists.
-4. Read every task JSON listed in the index whose status is not `done`.
-5. Read the selected task JSON if a task id is provided.
-6. Review active, blocked, in-progress, and recently completed work.
-7. Report conflicts or state gaps before taking any task action.
+7. Run `node scripts/query-workflow-state.mjs --project <project-slug> --agents-md`
+   if the script exists.
+8. Read every task JSON listed in the index whose status is not `done`.
+9. Read the selected task JSON if a task id is provided.
+10. Review active, blocked, in-progress, and recently completed work.
+11. Report conflicts or state gaps before taking any task action.
 
 If project state is missing, only create it when the request is explicitly to
 set up a project or initiate the first task in that project.
@@ -53,6 +59,7 @@ Project state lives in `project.json`:
   "project_state": "active",
   "goal": "",
   "domain": "",
+  "agents_md": "projects/health/AGENTS.md",
   "active_conventions": [],
   "ecc_concepts_applied": [],
   "created_at": "YYYY-MM-DD",
@@ -156,7 +163,8 @@ Process:
 5. Set `explicit_next_action_required: true`.
 6. Populate `ecc_concepts_applied` with at least `workflow contract`,
    `human boundary`, and `project state preload`.
-7. Populate `context_snapshot.must_load` with the project JSON, index JSON, and
+7. Populate `context_snapshot.must_load` with root `AGENTS.md`,
+   `registry/agents-md.json`, project `AGENTS.md`, project JSON, index JSON, and
    all non-done task JSON files known at creation time.
 8. Update `tasks/index.json`.
 9. Report the created task and stop.
@@ -174,7 +182,8 @@ Process:
 1. Load the whole project state first.
 2. If no task id is provided, list selectable tasks using
    `scripts/query-workflow-state.mjs` when available and ask the user to choose.
-3. Load the selected task's `context_snapshot` and linked artifacts.
+3. Load root `AGENTS.md`, the registry, project `AGENTS.md`, the selected task's
+   `context_snapshot`, and linked artifacts.
 4. Report current `status`, `matt_phase`, ECC concepts, open dependencies,
    related tasks, and conflicts.
 5. Ask for the next explicit instruction if the user did not provide one.
@@ -185,6 +194,10 @@ Resume/revert means resume snapshot only:
 - Continue from the saved Matt phase.
 - Do not run `git revert`.
 - Do not mark artifacts superseded unless the user explicitly asks.
+
+If the task changes project agent behavior, target
+`projects/<project-slug>/AGENTS.md`, add it to `linked_artifacts`, and keep it
+in `context_snapshot.must_load`.
 
 ## Matt Phase Handling
 
@@ -209,6 +222,9 @@ Every invocation must report:
 PROJECT
 - slug
 - project_state
+- root AGENTS.md loaded
+- registry loaded
+- project AGENTS.md loaded
 - tracker files read
 
 PROJECT TASK STATE

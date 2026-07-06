@@ -15,6 +15,7 @@ Before acting:
 1. Read root `AGENTS.md`.
 2. Read `references/matt-pocock-skills.md`.
 3. Read `skills/initiate-task/SKILL.md` for the task state contract.
+4. Read `registry/agents-md.json`.
 
 ## Inputs
 
@@ -36,6 +37,7 @@ Create:
 
 ```text
 projects/<project-slug>/
+  AGENTS.md
   project.json
   tasks/
     index.json
@@ -49,6 +51,27 @@ projects/<project-slug>/
 Do not overwrite existing project files. If the project already exists, load it,
 report its state, and ask for explicit instructions before changing it.
 
+Register `projects/<project-slug>/AGENTS.md` in `registry/agents-md.json` with:
+
+```json
+{
+  "path": "projects/health/AGENTS.md",
+  "role": "project-domain",
+  "scope": "projects/health",
+  "owning_project": "health",
+  "live": true,
+  "allowed_content": [
+    "project domain behavior",
+    "project vocabulary",
+    "project source rules",
+    "project agent workflow guidance"
+  ]
+}
+```
+
+Project `AGENTS.md` is domain-only. Root `AGENTS.md` owns workflow/task
+mechanics.
+
 ## JSON Contract
 
 Create `project.json`:
@@ -60,6 +83,7 @@ Create `project.json`:
   "project_state": "active",
   "goal": "",
   "domain": "",
+  "agents_md": "projects/health/AGENTS.md",
   "active_conventions": [],
   "ecc_concepts_applied": [
     "workflow contract",
@@ -69,6 +93,25 @@ Create `project.json`:
   "created_at": "YYYY-MM-DD",
   "updated_at": "YYYY-MM-DD"
 }
+```
+
+Create `AGENTS.md`:
+
+```markdown
+# Health Project AGENTS.md
+
+This file contains live project/domain instructions for the `health` workflow
+project only.
+
+Root `AGENTS.md` owns task tracking, JSON state, Matt Pocock flow, ECC workflow
+rules, validation, and repo-wide safety. Do not redefine those mechanics here.
+
+Use this file for:
+
+- domain vocabulary
+- project-specific source rules
+- project-specific output expectations
+- agent behavior for this project domain
 ```
 
 Create `tasks/index.json`:
@@ -89,6 +132,7 @@ PROJECT
 - slug
 - project_state
 - files created or already present
+- registered AGENTS.md path
 
 ECC CONCEPTS
 - concepts recorded

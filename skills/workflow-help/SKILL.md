@@ -39,6 +39,8 @@ SKILLS
 SCRIPTS
 - node scripts/validate-workflow-state.mjs
 - node scripts/query-workflow-state.mjs --list-projects
+- node scripts/query-workflow-state.mjs --list-agents-md
+- node scripts/query-workflow-state.mjs --project <slug> --agents-md
 - node scripts/query-workflow-state.mjs --project <slug> --list-tasks
 - node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
 
@@ -55,7 +57,9 @@ TASK FLOW
 `/setup-workflow-project`
 
 - Create a new `projects/<slug>/` workspace.
-- Create `project.json`, `tasks/index.json`, and artifact folders.
+- Create project `AGENTS.md`, `project.json`, `tasks/index.json`, and artifact
+  folders.
+- Register project `AGENTS.md` in `registry/agents-md.json`.
 - Use before the first task in a project.
 
 `/initiate-task`
@@ -107,6 +111,18 @@ intake -> grilling -> prd -> issues -> implement -> code-review -> done
 They happen inside the selected task. Do not create separate local helper skills
 for PRD, issues, implementation, or review phases.
 
+## AGENTS.md Boundary Reminder
+
+Root `AGENTS.md` owns workflow-foundry mechanics: tasks, JSON state, Matt/ECC
+flow, validation, file policy, and checkpoints.
+
+Project `AGENTS.md` files live under `projects/<slug>/AGENTS.md` and are
+project/domain-only. For example, a healthcare project AGENTS.md may define
+healthcare vocabulary and lung-specific guidance, but it must not redefine task
+tracking or root workflow mechanics.
+
+Every live `AGENTS.md` must be registered in `registry/agents-md.json`.
+
 ## Safety Rules
 
 - Python is forbidden.
@@ -115,6 +131,8 @@ for PRD, issues, implementation, or review phases.
 - `.mjs` is allowed only for JSON query/validation helpers.
 - Task work must load `project.json`, `tasks/index.json`, and every non-done
   task JSON first.
+- Task work must load root `AGENTS.md`, the registry, and project `AGENTS.md`
+  first.
 
 ## Output Contract
 

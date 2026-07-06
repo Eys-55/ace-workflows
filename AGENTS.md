@@ -88,11 +88,30 @@ This repository is organized around projects. Each project is a workflow product
 line, such as health, education, finance, research, or another domain the user
 names.
 
+## AGENTS.md Boundaries
+
+There are two kinds of `AGENTS.md` in this repository.
+
+Root `AGENTS.md` is the workflow-foundry control plane. It owns task mechanics,
+JSON state, Matt Pocock flow, ECC workflow rules, validation, file policy, git
+checkpoint policy, and repo-wide safety.
+
+Project `AGENTS.md` files live at `projects/<project-slug>/AGENTS.md`. They are
+live instructions for that project subtree only. They must contain
+project/domain behavior, vocabulary, source rules, and agent workflow guidance
+for that project. They must not redefine task tracker mechanics, registry
+policy, root validation policy, GitHub checkpoint policy, or the Matt/ECC
+control-plane flow.
+
+Every live `AGENTS.md` must be registered in `registry/agents-md.json`. Treat
+unregistered `AGENTS.md` files as validation failures.
+
 Expected shape:
 
 ```text
 projects/
   project-slug/
+    AGENTS.md
     project.json
     tasks/
       index.json
@@ -106,7 +125,7 @@ projects/
 
 `project.json` stores the project objective, target users, workflow scope,
 source materials, project lifecycle state, ECC concepts applied, and acceptance
-bar.
+bar. It also records the project `AGENTS.md` path.
 
 `tasks/index.json` is the project task index. Each task also has its own
 `tasks/<task-id>.json` file. Task JSON must show, at minimum:
@@ -134,14 +153,16 @@ When the user asks for an edit, do not jump straight to the named file.
 First:
 
 1. Identify the project. If ambiguous, ask which project.
-2. Read the project's `project.json`.
-3. Read the full project `tasks/index.json`.
-4. Query the project state with `scripts/query-workflow-state.mjs` when present.
-5. Read every non-done task JSON file before acting.
-6. Review all open, blocked, in-progress, and recently completed tasks.
-7. Check whether the requested edit conflicts with unfinished work.
-8. Identify the exact task being edited, or create a new tracked task if needed.
-9. Only then edit the workflow artifact.
+2. Read `registry/agents-md.json`.
+3. Read the project's `AGENTS.md`.
+4. Read the project's `project.json`.
+5. Read the full project `tasks/index.json`.
+6. Query the project state with `scripts/query-workflow-state.mjs` when present.
+7. Read every non-done task JSON file before acting.
+8. Review all open, blocked, in-progress, and recently completed tasks.
+9. Check whether the requested edit conflicts with unfinished work.
+10. Identify the exact task being edited, or create a new tracked task if needed.
+11. Only then edit the workflow artifact.
 
 Load, load, load, load, load before doing task work. For task workflows, loading
 the whole project state is not optional.

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "agents_md": [
+    {
+      "path": "AGENTS.md",
+      "role": "root-workflow-foundry",
+      "scope": ".",
+      "owning_project": null,
+      "live": true,
+      "allowed_content": [
+        "workflow foundry control plane",
+        "task and project state mechanics",
+        "Matt Pocock and ECC process rules",
+        "repo validation and file-type rules"
+      ]
+    }
+  ]
+}

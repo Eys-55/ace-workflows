@@ -14,6 +14,18 @@ const allowedPhases = new Set([
   "code-review",
   "done",
 ]);
+const allowedAgentRoles = new Set(["root-workflow-foundry", "project-domain"]);
+const projectAgentsForbiddenPatterns = [
+  "## Project Preflight",
+  "## Matt Pocock Flow",
+  "## GitHub Checkpoints",
+  "## Canonical Workflow Surface",
+  "tasks/index.json",
+  "validate-workflow-state.mjs",
+  "query-workflow-state.mjs",
+  "Load, load, load",
+  "workflow-foundry control plane",
+];
 
 const errors = [];
 
@@ -49,6 +61,15 @@ async function readJson(filePath) {
   } catch (error) {
     errors.push(`${relative(filePath)} is not valid JSON: ${error.message}`);
     return null;
+  }
+}
+
+async function readText(filePath) {
+  try {
+    return await readFile(filePath, "utf8");
+  } catch (error) {
+    errors.push(`${relative(filePath)} cannot be read: ${error.message}`);
+    return "";
   }
 }
 
@@ -123,10 +144,110 @@ function validateTask(task, filePath, projectSlug) {
   }
 }
 
-async function validateProject(projectDir) {
+async function loadAgentsRegistry() {
+  const registryFile = path.join(root, "registry", "agents-md.json");
+  if (!(await exists(registryFile))) {
+    errors.push(`${relative(registryFile)} is missing`);
+    return { registryFile, entries: [] };
+  }
+
+  const registry = await readJson(registryFile);
+  if (!registry) return { registryFile, entries: [] };
+
+  if (!Array.isArray(registry.agents_md)) {
+    errors.push(`${relative(registryFile)} must include array field "agents_md"`);
+    return { registryFile, entries: [] };
+  }
+
+  return { registryFile, entries: registry.agents_md };
+}
+
+async function validateAgentsRegistry(files) {
+  const { registryFile, entries } = await loadAgentsRegistry();
+  const registryPaths = new Set();
+  const discoveredAgents = files
+    .filter((file) => !file.includes(`${path.sep}.git${path.sep}`))
+    .filter((file) => path.basename(file) === "AGENTS.md")
+    .map(relative)
+    .sort();
+
+  for (const entry of entries) {
+    requireString(entry, "path", registryFile);
+    requireString(entry, "role", registryFile);
+    requireString(entry, "scope", registryFile);
+    requireArray(entry, "allowed_content", registryFile);
+
+    if (typeof entry.live !== "boolean") {
+      errors.push(`${relative(registryFile)} entry ${entry.path} must include boolean field "live"`);
+    }
+
+    if (entry.owning_project !== null && typeof entry.owning_project !== "string") {
+      errors.push(
+        `${relative(registryFile)} entry ${entry.path} owning_project must be string or null`,
+      );
+    }
+
+    if (!allowedAgentRoles.has(entry.role)) {
+      errors.push(`${relative(registryFile)} entry ${entry.path} has invalid role "${entry.role}"`);
+    }
+
+    if (registryPaths.has(entry.path)) {
+      errors.push(`${relative(registryFile)} repeats AGENTS.md path "${entry.path}"`);
+    }
+    registryPaths.add(entry.path);
+
+    const absoluteAgentsPath = path.join(root, entry.path);
+    if (!(await exists(absoluteAgentsPath))) {
+      errors.push(`${entry.path} is registered but missing`);
+      continue;
+    }
+
+    if (entry.role === "root-workflow-foundry") {
+      if (entry.path !== "AGENTS.md") {
+        errors.push(`${entry.path} root-workflow-foundry entry must be AGENTS.md`);
+      }
+      if (entry.owning_project !== null) {
+        errors.push(`${entry.path} root-workflow-foundry owning_project must be null`);
+      }
+    }
+
+    if (entry.role === "project-domain") {
+      const expectedPath = `projects/${entry.owning_project}/AGENTS.md`;
+      const expectedScope = `projects/${entry.owning_project}`;
+      if (entry.path !== expectedPath) {
+        errors.push(`${entry.path} project-domain path must equal ${expectedPath}`);
+      }
+      if (entry.scope !== expectedScope) {
+        errors.push(`${entry.path} project-domain scope must equal ${expectedScope}`);
+      }
+
+      const contents = await readText(absoluteAgentsPath);
+      for (const pattern of projectAgentsForbiddenPatterns) {
+        if (contents.includes(pattern)) {
+          errors.push(`${entry.path} contains root workflow/control-plane pattern "${pattern}"`);
+        }
+      }
+    }
+  }
+
+  for (const agentsPath of discoveredAgents) {
+    if (!registryPaths.has(agentsPath)) {
+      errors.push(`${agentsPath} exists but is not registered in registry/agents-md.json`);
+    }
+  }
+
+  if (!registryPaths.has("AGENTS.md")) {
+    errors.push("root AGENTS.md must be registered in registry/agents-md.json");
+  }
+
+  return entries;
+}
+
+async function validateProject(projectDir, agentsEntries) {
   const projectSlug = path.basename(projectDir);
   const projectFile = path.join(projectDir, "project.json");
   const indexFile = path.join(projectDir, "tasks", "index.json");
+  const projectAgentsPath = `projects/${projectSlug}/AGENTS.md`;
 
   if (!(await exists(projectFile))) {
     errors.push(`${relative(projectFile)} is missing`);
@@ -147,6 +268,7 @@ async function validateProject(projectDir) {
   requireString(project, "project_state", projectFile);
   requireString(project, "goal", projectFile);
   requireString(project, "domain", projectFile);
+  requireString(project, "agents_md", projectFile);
   requireString(project, "created_at", projectFile);
   requireString(project, "updated_at", projectFile);
   requireArray(project, "active_conventions", projectFile);
@@ -154,6 +276,20 @@ async function validateProject(projectDir) {
 
   if (project.project_slug !== projectSlug) {
     errors.push(`${relative(projectFile)} project_slug must equal "${projectSlug}"`);
+  }
+
+  if (project.agents_md !== projectAgentsPath) {
+    errors.push(`${relative(projectFile)} agents_md must equal "${projectAgentsPath}"`);
+  }
+
+  const projectAgentsEntry = agentsEntries.find(
+    (entry) =>
+      entry.path === projectAgentsPath &&
+      entry.role === "project-domain" &&
+      entry.owning_project === projectSlug,
+  );
+  if (!projectAgentsEntry) {
+    errors.push(`${projectAgentsPath} must be registered as project-domain`);
   }
 
   if (!allowedProjectStates.has(project.project_state)) {
@@ -229,12 +365,14 @@ for (const file of files) {
   }
 }
 
+const agentsEntries = await validateAgentsRegistry(files);
+
 const projectsDir = path.join(root, "projects");
 if (await exists(projectsDir)) {
   const projectEntries = await readdir(projectsDir, { withFileTypes: true });
   for (const entry of projectEntries) {
     if (entry.isDirectory()) {
-      await validateProject(path.join(projectsDir, entry.name));
+      await validateProject(path.join(projectsDir, entry.name), agentsEntries);
     }
   }
 }

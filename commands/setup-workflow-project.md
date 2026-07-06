@@ -11,3 +11,7 @@ example:
 ```text
 /setup-workflow-project project:health name:"Health"
 ```
+
+Project setup must create and register `projects/<slug>/AGENTS.md` as a
+domain-only project AGENTS file. Root workflow mechanics stay in root
+`AGENTS.md`.

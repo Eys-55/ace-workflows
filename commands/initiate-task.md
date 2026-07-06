@@ -13,3 +13,7 @@ Forward the user's arguments unchanged to `$initiate-task`, for example:
 
 This command starts new tasks only. Use `/continue-task` to resume existing
 tasks.
+
+Before creating any task, the canonical skill must load root `AGENTS.md`,
+`registry/agents-md.json`, the selected project `AGENTS.md`, `project.json`,
+`tasks/index.json`, and every non-done task JSON.
