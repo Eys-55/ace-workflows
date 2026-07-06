@@ -9,19 +9,20 @@ For every change in this repository, including the smallest edit, follow the
 Matt Pocock process and reference files used by this repo. Before changing a
 workflow, skill, markdown file, prompt chain, command, or supporting script:
 
-1. Locate the relevant Matt Pocock source material in this repository.
+1. Locate the relevant Matt Pocock source material. The canonical source is
+   `mattpocock/skills`: https://github.com/mattpocock/skills
 2. Read it before editing.
 3. Mirror its structure, naming, examples, and quality bar unless the user asks
    for a deliberate deviation.
-4. If no Matt Pocock reference file exists yet, say that explicitly and proceed
-   only after naming the gap and using the closest ECC-compatible structure.
+4. If no local Matt Pocock mirror or reference file exists yet, inspect the
+   upstream repository before editing and record the source used.
 
-Do not invent a workflow style from memory when repo-local reference files are
+Do not invent a workflow style from memory when Matt Pocock source material is
 available.
 
 If the user says "call Matt", "use Matt", "Matt process", "Mat process", or
-"Matt Pocock process", first search this repository for the relevant Matt
-Pocock files. If they are missing, report that they are missing before editing.
+"Matt Pocock process", first read [references/matt-pocock-skills.md](references/matt-pocock-skills.md),
+then inspect the relevant upstream skill files from `mattpocock/skills`.
 
 ## ECC Is The Build System For Workflows
 
@@ -126,6 +127,28 @@ First:
 If the user asks for a new session for a project, preserve the same project
 tracker and handoff state. A new session does not mean a new project brain.
 
+## Matt Pocock Flow
+
+Use Matt Pocock's `ask-matt` flow as the process router.
+
+Main build path:
+
+```text
+grill-with-docs -> to-prd -> to-issues -> implement -> code-review
+```
+
+For multi-session project work:
+
+```text
+grill-with-docs -> to-prd -> to-issues -> fresh session per issue -> implement
+```
+
+`implement` must drive `tdd` internally: one red test, just enough code or
+workflow text to pass, then the next slice. It closes with `code-review`.
+
+For this repo, project-local `TASKS.md` files act as the issue tracker until a
+GitHub remote and issue workflow are configured.
+
 ## Grilling Mode
 
 When requirements are vague, apply a strict preflight instead of politely
@@ -137,7 +160,7 @@ Default grilling questions:
 - Which project does this belong to?
 - What task id or tracker item is this changing?
 - What should be true when this workflow is done?
-- Which Matt Pocock reference file should govern the structure?
+- Which Matt Pocock upstream skill should govern the structure?
 - Which ECC workflow pattern or skill is the source of truth?
 - What fixture or eval proves this works?
 
@@ -151,7 +174,7 @@ Before implementing a workflow artifact:
 1. Define the concrete target artifact.
 2. Identify the user-visible job the workflow must perform.
 3. Identify the project and read its tracker.
-4. Find the closest existing Matt Pocock reference in this repo.
+4. Find the closest Matt Pocock upstream skill or local reference.
 5. Read the relevant ECC guidance for workflow, skill, or prompt-chain design.
 6. Define the acceptance checks before writing the implementation.
 7. Build the smallest verifiable version.
