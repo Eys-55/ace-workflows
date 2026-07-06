@@ -33,6 +33,12 @@ COMMANDS
 - /initiate-task
 - /continue-task
 
+CODEX APP PROMPTS
+- .codex/prompts/workflow-help.md
+- .codex/prompts/setup-workflow-project.md
+- .codex/prompts/initiate-task.md
+- .codex/prompts/continue-task.md
+
 SKILLS
 - workflow-help
 - setup-workflow-project

@@ -10,7 +10,8 @@
     "slash commands remain thin shims",
     "JSON task state is source of truth",
     "project AGENTS.md files are domain-only",
-    "tracker-maintenance tasks audit tracker edits"
+    "tracker-maintenance tasks audit tracker edits",
+    "Codex app slash prompts live in .codex/prompts"
   ],
   "ecc_concepts_applied": [
     "workflow contract",

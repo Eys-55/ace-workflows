@@ -35,6 +35,7 @@
       "projects/workflow-foundry/tasks/index.json",
       "projects/workflow-foundry/tasks/workflow-foundry-001.json",
       "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-003.json",
       "skills/workflow-help/SKILL.md",
       "skills/setup-workflow-project/SKILL.md",
       "skills/review-project-state/SKILL.md",
@@ -67,6 +68,10 @@
     {
       "date": "2026-07-06",
       "event": "Updated snapshot to include workflow-foundry-002 after adding tracker-maintenance task support."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Updated snapshot to include workflow-foundry-003 after adding Codex app slash prompt shims."
     }
   ],
   "created_at": "2026-07-06",

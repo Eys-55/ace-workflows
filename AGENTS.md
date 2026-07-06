@@ -56,6 +56,10 @@ Add new reusable workflow contributions under `skills/` first. Only create or
 update `commands/` when a legacy slash-command shim is required for migration or
 cross-harness parity.
 
+Codex app slash prompts live under `.codex/prompts/`. Keep them thin: they must
+route to the canonical repo-local skill and must not contain independent
+workflow logic.
+
 Expected skill shape:
 
 ```text

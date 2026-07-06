@@ -16,6 +16,14 @@
       "status": "todo",
       "matt_phase": "intake",
       "updated_at": "2026-07-06"
+    },
+    {
+      "task_id": "workflow-foundry-003",
+      "title": "Expose workflow slash prompts in Codex app",
+      "task_kind": "workflow-change",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-06"
     }
   ]
 }
