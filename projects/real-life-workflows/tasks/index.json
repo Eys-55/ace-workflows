@@ -29,8 +29,8 @@
       "task_id": "real-life-workflows-004",
       "title": "Create real-life workflows README",
       "task_kind": "workflow-change",
-      "status": "in-progress",
-      "matt_phase": "implement",
+      "status": "done",
+      "matt_phase": "done",
       "updated_at": "2026-07-08"
     }
   ]

@@ -3,8 +3,8 @@
   "project_slug": "real-life-workflows",
   "title": "Create real-life workflows README",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "implement",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "owner": "codex",
   "summary": "Create a product-like README and npm-style installable skill package for real-life-workflows, including a generated hero, count proof, the first callable real-life-workflow-search skill, package validation, and quarantine-safe workflow packet behavior.",
@@ -75,7 +75,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "code-review",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": "projects/real-life-workflows/artifacts/prds/real-life-workflows-004-readme-package-surface-prd.md",
@@ -308,6 +308,14 @@
     {
       "date": "2026-07-08",
       "event": "Wrote implementation review with no blocking findings and kept task open for workflow-state validation while changed artifacts remain uncommitted."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Committed the implementation checkpoint as acd883e after README/package validation, finder validation, workflow-state validation, npm pack dry-run, install smoke test, and whitespace checks passed."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Marked task done after the implementation commit made the new artifacts no longer require an open task for changed-file validation."
     }
   ],
   "created_at": "2026-07-08",
