@@ -1,0 +1,35 @@
+{
+  "name": "@ace-workflows/real-life-workflows",
+  "version": "0.1.0",
+  "description": "Installable workflow search skill pack for real-world operator workflows.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "bin": {
+    "real-life-workflow-search": "./skills/real-life-workflow-search/scripts/write-workflow-packet.mjs"
+  },
+  "exports": {
+    "./skill-manifest": "./skill-manifest.json",
+    "./skills/real-life-workflow-search": "./skills/real-life-workflow-search/SKILL.md",
+    "./counts": "./artifacts/counts/upstream-source-universe-counts.json"
+  },
+  "files": [
+    "README.md",
+    "package.json",
+    "skill-manifest.json",
+    "assets/hero.png",
+    "artifacts/counts/upstream-source-universe-counts.json",
+    "artifacts/finder/workflow-understanding-finder.md",
+    "artifacts/package/validate-readme-package-surface.mjs",
+    "skills/real-life-workflow-search/**",
+    "quarantine/imports/2026-07-07-market-research-agent/MANIFEST.md",
+    "quarantine/imports/2026-07-07-market-research-agent/quarantine.json",
+    "quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+    "quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-door-catalog.json",
+    "quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-link-seed.json"
+  ],
+  "scripts": {
+    "validate:surface": "node artifacts/package/validate-readme-package-surface.mjs",
+    "pack:check": "npm pack --dry-run --json"
+  }
+}

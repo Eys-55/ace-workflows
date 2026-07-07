@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-07-08",
+  "source_snapshot": {
+    "path": "/Users/acecanacan/Documents/workflow-search-catalog/.worktrees/pretty-readme/data/upstream-source-universe-counts.json",
+    "generated_at": "2026-07-06",
+    "snapshot_as_of": "2026-07-05",
+    "baseline_verified_at": "2026-07-05"
+  },
+  "purpose": "Document the count methodology behind the Real Life Workflows README claim of a 19,000+ upstream-flow source universe.",
+  "count_method": {
+    "curated_doors": "Exact row count from the checked workflow search index.",
+    "source_repos": "Exact unique source_repo count from the checked workflow search index.",
+    "direct_skill_or_agent_templates": "Count of SKILL.md plus SOUL.md files across the indexed source repos.",
+    "workflow_json_templates": "Count of .json files for the two template-heavy workflow repos.",
+    "headline_total": "direct_skill_or_agent_templates + workflow_json_templates, rounded down to 19,000+ for product display."
+  },
+  "totals": {
+    "curated_doors": 171,
+    "source_repos": 17,
+    "direct_skill_or_agent_templates": 12607,
+    "workflow_json_templates": 6573,
+    "headline_source_universe": 19180,
+    "headline_display": "19,000+"
+  },
+  "claim_boundaries": [
+    "The 171 rows are curated workflow doors, not 171 repositories.",
+    "The 19,000+ number is a source-universe estimate, not a claim that every upstream flow is deeply classified in this project.",
+    "Quarantined imported skills remain source evidence only and are not active callable Real Life Workflows skills."
+  ]
+}

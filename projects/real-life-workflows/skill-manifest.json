@@ -1,0 +1,21 @@
+{
+  "package": "@ace-workflows/real-life-workflows",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "name": "real-life-workflow-search",
+      "path": "skills/real-life-workflow-search/SKILL.md",
+      "interface": "skills/real-life-workflow-search/agents/openai.yaml",
+      "bin": "real-life-workflow-search",
+      "default_output": "workflow-understanding packet",
+      "writes_to": "caller_or_primary_project_approved_artifact_area",
+      "provenance_required": true
+    }
+  ],
+  "source_boundaries": {
+    "curated_doors": 171,
+    "source_repos": 17,
+    "headline_source_universe": "19,000+",
+    "quarantined_imported_skills_are_callable": false
+  }
+}

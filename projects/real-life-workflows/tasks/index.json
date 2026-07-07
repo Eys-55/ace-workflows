@@ -24,6 +24,14 @@
       "status": "in-progress",
       "matt_phase": "code-review",
       "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "real-life-workflows-004",
+      "title": "Create real-life workflows README",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "implement",
+      "updated_at": "2026-07-08"
     }
   ]
 }
