@@ -3,8 +3,8 @@
   "project_slug": "real-life-workflows",
   "title": "Audit and properize workflow door catalog",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "code-review",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Define a universal workflow-understanding finder from the quarantined door catalog, with a corrected PRD ready for issue splitting.",
   "acceptance_criteria": [
@@ -286,6 +286,10 @@
     {
       "date": "2026-07-07",
       "event": "Completed code-review phase for real-life-workflows-002. No remaining Matt phase action is required; task remains in-progress only because changed artifacts must stay linked to a non-done task until checkpoint handling."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Marked real-life-workflows-002 done after explicit user instruction to close the completed workflow-understanding finder task."
     }
   ],
   "created_at": "2026-07-07",

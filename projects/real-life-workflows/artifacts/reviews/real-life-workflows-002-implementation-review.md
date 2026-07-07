@@ -29,4 +29,4 @@ Resolved during code review:
 
 ## Status
 
-Implementation for Issues 001-005 is review-clean and checkpoint-ready. Keep the task open until the repo checkpoint is decided because the implementation files are still uncommitted.
+Implementation for Issues 001-005 is review-clean. The task was marked done after explicit user instruction to close the completed workflow-understanding finder task.
