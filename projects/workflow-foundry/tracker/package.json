@@ -7,7 +7,7 @@
     "build": "astro build",
     "dev": "astro dev --host 127.0.0.1",
     "test": "npm run test:data",
-    "test:data": "node --test tests/workflow-state.test.mjs",
+    "test:data": "node --test tests/workflow-state.test.mjs tests/testing-session-state.test.mjs",
     "test:output": "node --test tests/generated-output.test.mjs",
     "verify": "npm run test:data && npm run build && npm run test:output"
   },

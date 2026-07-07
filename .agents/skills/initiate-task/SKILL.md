@@ -10,6 +10,7 @@ operations are exposed as skills:
 
 - `$initiate-task`: initiate a new task
 - `$continue-task`: continue an existing task
+- `$testing-session`: start, inspect, or stop a read-only project testing run
 
 Matt Pocock phases are task state. Do not split them into separate repo-local
 skills.
@@ -40,10 +41,15 @@ For every initiate request:
    if the script exists.
 7. Run `node scripts/query-workflow-state.mjs --project <project-slug> --agents-md`
    if the script exists.
-8. Read every task JSON listed in the index whose status is not `done`.
-9. Read the selected task JSON if a task id is provided.
-10. Review active, blocked, in-progress, and recently completed work.
-11. Report conflicts or state gaps before taking any task action.
+8. Run `node scripts/query-workflow-state.mjs --project <project-slug> --testing-sessions`
+   if the script exists. Load only the index summaries and pointers by default;
+   do not read full `events.jsonl` streams unless the user asks or the task
+   requires exact testing-session evidence.
+9. Read every task JSON listed in the index whose status is not `done`.
+10. Read the selected task JSON if a task id is provided.
+11. Review active, blocked, in-progress, recently completed work, and testing
+    session summaries.
+12. Report conflicts or state gaps before taking any task action.
 
 If project state is missing, do not create a separate scaffold from this skill.
 Hand off to `$setup-workflow-project` first, then stop. After setup succeeds,
@@ -191,8 +197,11 @@ Process:
 10. Populate `context_snapshot.must_load` with root `AGENTS.md`,
    `registry/agents-md.json`, project `AGENTS.md`, project JSON, index JSON, and
    all non-done task JSON files known at creation time.
-11. Update `tasks/index.json`.
-12. Report the created task and stop.
+11. If `projects/<project-slug>/artifacts/testing-sessions/index.json` exists,
+    add that path to `context_snapshot.must_load` as a lightweight project
+    preload pointer. Do not copy full testing-session events into task JSON.
+12. Update `tasks/index.json`.
+13. Report the created task and stop.
 
 Do not enter grilling, PRD, issues, implementation, or review in the same turn
 unless the user explicitly asks to continue that task after creation.
@@ -213,11 +222,14 @@ Process:
    `scripts/query-workflow-state.mjs` when available and ask the user to choose.
 3. Load root `AGENTS.md`, the registry, project `AGENTS.md`, the selected task's
    `context_snapshot`, and linked artifacts.
-4. Report current `status`, `matt_phase`, ECC concepts, open dependencies,
-   related tasks, and conflicts.
-5. Report `phase_guard.selected_next_action`, approved artifacts, and process
+4. Load the project testing-session index summary when
+   `projects/<project-slug>/artifacts/testing-sessions/index.json` exists.
+   Keep full `events.jsonl` streams unloaded unless exact evidence is needed.
+5. Report current `status`, `matt_phase`, ECC concepts, open dependencies,
+   related tasks, testing-session summaries, and conflicts.
+6. Report `phase_guard.selected_next_action`, approved artifacts, and process
    exceptions.
-6. Ask for the next explicit instruction if the user did not provide one.
+7. Ask for the next explicit instruction if the user did not provide one.
 
 Resume/revert means resume snapshot only:
 
@@ -274,9 +286,11 @@ PROJECT
 - registry loaded
 - project AGENTS.md loaded
 - tracker files read
+- testing-session index summary checked
 
 PROJECT TASK STATE
 - active / blocked / in-progress / recently completed tasks reviewed
+- testing-session summaries reviewed when present
 - conflicts or none found
 
 TASK

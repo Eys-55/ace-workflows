@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { discoverTestingSessions } from "./testing-session-state.mjs";
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -21,6 +22,7 @@ function usage() {
   node scripts/query-workflow-state.mjs --list-agents-md
   node scripts/query-workflow-state.mjs --project <slug> --agents-md
   node scripts/query-workflow-state.mjs --project <slug> --snapshot
+  node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
   node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>] [--phase <phase>]
   node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
 `);
@@ -166,9 +168,26 @@ async function printTask(projectSlug, taskId) {
   console.log(JSON.stringify(task, null, 2));
 }
 
+async function printTestingSessions(projectSlug) {
+  await loadProject(projectSlug);
+
+  const sessions = await discoverTestingSessions({ root, projectSlug });
+  if (sessions.length === 0) {
+    console.log("No testing sessions found.");
+    return;
+  }
+
+  for (const session of sessions) {
+    console.log(
+      `${session.session_id}\t${session.status}\t${session.updated_at}\t${session.event_count}\t${session.path}\t${session.goal ?? ""}`,
+    );
+  }
+}
+
 async function printProjectSnapshot(projectSlug) {
   const { project, index } = await loadProject(projectSlug);
   const agentsEntries = await loadAgentsRegistry();
+  const testingSessions = await discoverTestingSessions({ root, projectSlug });
   const projectAgents = agentsEntries.filter(
     (entry) => entry.owning_project === projectSlug || entry.role === "root-workflow-foundry",
   );
@@ -204,6 +223,18 @@ async function printProjectSnapshot(projectSlug) {
       `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
     );
   }
+
+  console.log("\nTESTING_SESSIONS");
+  if (testingSessions.length === 0) {
+    console.log("No testing sessions found.");
+    return;
+  }
+
+  for (const session of testingSessions) {
+    console.log(
+      `${session.session_id}\t${session.status}\t${session.updated_at}\t${session.event_count}\t${session.path}\t${session.goal ?? ""}`,
+    );
+  }
 }
 
 try {
@@ -221,6 +252,8 @@ try {
       await listAgentsMd(project);
     } else if (hasFlag("--snapshot")) {
       await printProjectSnapshot(project);
+    } else if (hasFlag("--testing-sessions")) {
+      await printTestingSessions(project);
     } else if (hasFlag("--list-tasks")) {
       await listTasks(project);
     } else if (getArg("--task")) {

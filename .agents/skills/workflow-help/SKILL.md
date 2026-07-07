@@ -32,6 +32,7 @@ SKILLS
 - $setup-workflow-project
 - $initiate-task
 - $continue-task
+- $testing-session
 - $review-project-state
 
 CODEX-DISCOVERABLE SKILL FILES
@@ -39,6 +40,7 @@ CODEX-DISCOVERABLE SKILL FILES
 - .agents/skills/setup-workflow-project/SKILL.md
 - .agents/skills/initiate-task/SKILL.md
 - .agents/skills/continue-task/SKILL.md
+- .agents/skills/testing-session/SKILL.md
 - .agents/skills/review-project-state/SKILL.md
 
 SCRIPTS
@@ -47,8 +49,12 @@ SCRIPTS
 - node scripts/query-workflow-state.mjs --list-agents-md
 - node scripts/query-workflow-state.mjs --project <slug> --agents-md
 - node scripts/query-workflow-state.mjs --project <slug> --snapshot
+- node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
 - node scripts/query-workflow-state.mjs --project <slug> --list-tasks
 - node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
+- node scripts/testing-session-state.mjs action:start project:<slug> [goal:"..."]
+- node scripts/testing-session-state.mjs action:status session:<session-id>
+- node scripts/testing-session-state.mjs action:stop session:<session-id>
 
 TASK FLOW
 - setup project
@@ -59,6 +65,7 @@ TASK FLOW
 
 CONNECTED FLOW
 - $workflow-help -> $setup-workflow-project -> $initiate-task -> $continue-task
+- $testing-session -> captured project run state -> future preload discovery
 - use $continue-task or $review-project-state when project state already exists
 ```
 
@@ -84,6 +91,13 @@ CONNECTED FLOW
 - Resume an existing task from its saved snapshot.
 - Loads all project state and every non-done task before action.
 - If no task id is provided, list/select available tasks.
+
+`$testing-session`
+
+- Start, inspect, or stop a project-scoped read-only testing run.
+- Writes only to `projects/<project-slug>/artifacts/testing-sessions/`.
+- Stores summaries in `index.json` so future task preflight can discover prior
+  captured runs without loading full event streams by default.
 
 `$review-project-state`
 

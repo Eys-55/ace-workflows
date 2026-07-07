@@ -3,6 +3,7 @@ import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { promisify } from "node:util";
+import { validateTestingSessionState } from "./testing-session-state.mjs";
 
 const root = process.cwd();
 const execFileAsync = promisify(execFile);
@@ -32,6 +33,7 @@ const skillInvocationNames = [
   "setup-workflow-project",
   "initiate-task",
   "continue-task",
+  "testing-session",
 ];
 const projectAgentsForbiddenPatterns = [
   "## Project Preflight",
@@ -702,6 +704,8 @@ if (await exists(projectsDir)) {
     }
   }
 }
+
+errors.push(...(await validateTestingSessionState({ root })));
 
 const openTasksByArtifact = new Map();
 for (const task of openTasks) {

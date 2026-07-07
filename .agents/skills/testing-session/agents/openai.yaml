@@ -1,0 +1,4 @@
+interface:
+  display_name: "Testing Session"
+  short_description: "Run isolated project tests"
+  default_prompt: "Use $testing-session to start a read-only project testing session."

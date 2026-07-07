@@ -7,7 +7,7 @@
       "task_kind": "workflow-change",
       "status": "todo",
       "matt_phase": "intake",
-      "updated_at": "2026-07-06"
+      "updated_at": "2026-07-07"
     },
     {
       "task_id": "workflow-foundry-002",
@@ -15,7 +15,7 @@
       "task_kind": "tracker-maintenance",
       "status": "todo",
       "matt_phase": "intake",
-      "updated_at": "2026-07-06"
+      "updated_at": "2026-07-07"
     },
     {
       "task_id": "workflow-foundry-003",
@@ -23,7 +23,7 @@
       "task_kind": "workflow-change",
       "status": "todo",
       "matt_phase": "intake",
-      "updated_at": "2026-07-06"
+      "updated_at": "2026-07-07"
     },
     {
       "task_id": "workflow-foundry-004",
@@ -31,7 +31,7 @@
       "task_kind": "tracker-maintenance",
       "status": "todo",
       "matt_phase": "intake",
-      "updated_at": "2026-07-06"
+      "updated_at": "2026-07-07"
     },
     {
       "task_id": "workflow-foundry-005",
@@ -39,7 +39,7 @@
       "task_kind": "workflow-change",
       "status": "in-progress",
       "matt_phase": "code-review",
-      "updated_at": "2026-07-06"
+      "updated_at": "2026-07-07"
     },
     {
       "task_id": "workflow-foundry-006",
@@ -55,6 +55,22 @@
       "task_kind": "workflow-change",
       "status": "todo",
       "matt_phase": "intake",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "workflow-foundry-008",
+      "title": "Add project testing mode sessions",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "workflow-foundry-009",
+      "title": "Create tracker UI runner skill and project workflow view",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "grilling",
       "updated_at": "2026-07-07"
     }
   ]

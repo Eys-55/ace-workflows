@@ -32,12 +32,16 @@ Load, load, load, load, load before doing anything with the task:
    if the script exists.
 7. Run `node scripts/query-workflow-state.mjs --project <project-slug> --agents-md`
    if the script exists.
-8. Read every task JSON listed in the index whose status is not `done`.
-9. Read the selected task JSON if a task id is provided.
-10. Read the selected task's linked artifacts and `context_snapshot.must_load`.
-11. Read and report `phase_guard.selected_next_action`, approved artifacts, and
+8. Run `node scripts/query-workflow-state.mjs --project <project-slug> --testing-sessions`
+   if the script exists. Load only index summaries and pointers unless exact
+   testing-session evidence is needed.
+9. Read every task JSON listed in the index whose status is not `done`.
+10. Read the selected task JSON if a task id is provided.
+11. Read the selected task's linked artifacts and `context_snapshot.must_load`.
+12. Read and report `phase_guard.selected_next_action`, approved artifacts, and
     process exceptions.
-12. Report conflicts or state gaps before taking any task action.
+13. Report conflicts, state gaps, and relevant testing-session summaries before
+    taking any task action.
 
 If no task id is provided, list selectable tasks and ask the user to choose.
 

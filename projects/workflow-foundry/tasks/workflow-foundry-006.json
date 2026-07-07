@@ -39,7 +39,9 @@
       "projects/workflow-foundry/tasks/workflow-foundry-007.json",
       "references/matt-pocock-skills.md",
       ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md"
+      ".agents/skills/continue-task/SKILL.md",
+      "projects/workflow-foundry/tasks/workflow-foundry-008.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-009.json"
     ]
   },
   "phase_guard": {

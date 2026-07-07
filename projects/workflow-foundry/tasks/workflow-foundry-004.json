@@ -33,7 +33,9 @@
       "projects/workflow-foundry/tasks/workflow-foundry-004.json",
       "projects/workflow-foundry/tasks/workflow-foundry-005.json",
       "projects/workflow-foundry/tasks/workflow-foundry-006.json",
-      "projects/workflow-foundry/tasks/workflow-foundry-007.json"
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-008.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-009.json"
     ]
   },
   "phase_guard": {
@@ -60,7 +62,9 @@
     "projects/workflow-foundry/tasks/workflow-foundry-005.json",
     "projects/workflow-foundry/tasks/workflow-foundry-006.json",
     "projects/workflow-foundry/tasks/workflow-foundry-007.json",
-    "scripts/validate-workflow-state.mjs"
+    "scripts/validate-workflow-state.mjs",
+    "projects/workflow-foundry/tasks/workflow-foundry-008.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-009.json"
   ],
   "session_log": [
     {
@@ -98,6 +102,14 @@
     {
       "date": "2026-07-07",
       "event": "Tracked creation of workflow-foundry-007 for the requested GitHub checkpoint and refreshed non-done task preload snapshots."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-008 for project testing mode sessions and refreshed non-done task preload snapshots."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-009 for the tracker UI runner skill and project workflow view request."
     }
   ],
   "created_at": "2026-07-06",
