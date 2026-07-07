@@ -29,6 +29,26 @@ const allowedPhases = new Set([
 ]);
 const allowedAgentRoles = new Set(["root-workflow-foundry", "project-domain"]);
 const allowedQuarantineStatuses = new Set(["quarantined"]);
+const implementationOrLaterPhases = new Set(["implement", "code-review", "done"]);
+const allowedCapabilityDependencySources = new Set([
+  "operator-explicit",
+  "confirmed-natural-language",
+  "known-tracker-context",
+]);
+const allowedCapabilityDependencyStatuses = new Set([
+  "proposed",
+  "confirmed",
+  "approved",
+  "blocked",
+]);
+const allowedDependencyArtifactStatuses = new Set([
+  "intake-evidence",
+  "grilling-evidence",
+  "execution-evidence",
+  "context",
+  "official",
+  "promoted",
+]);
 const skillInvocationNames = [
   "workflow-help",
   "setup-workflow-project",
@@ -139,6 +159,40 @@ function requireObject(object, key, filePath) {
   const value = object?.[key];
   if (typeof value !== "object" || value === null || Array.isArray(value)) {
     errors.push(`${relative(filePath)} must include object field "${key}"`);
+  }
+}
+
+function requireStringField(object, key, filePath, context) {
+  if (typeof object?.[key] !== "string" || object[key].trim() === "") {
+    errors.push(`${relative(filePath)} ${context} must include string field "${key}"`);
+  }
+}
+
+function requireArrayField(object, key, filePath, context) {
+  if (!Array.isArray(object?.[key])) {
+    errors.push(`${relative(filePath)} ${context} must include array field "${key}"`);
+  }
+}
+
+function validateOptionalArray(object, key, filePath) {
+  if (object?.[key] === undefined) return false;
+  if (!Array.isArray(object[key])) {
+    errors.push(`${relative(filePath)} optional field "${key}" must be an array when present`);
+    return false;
+  }
+  return true;
+}
+
+function validateStringArray(value, filePath, context) {
+  if (!Array.isArray(value)) {
+    errors.push(`${relative(filePath)} ${context} must be an array`);
+    return;
+  }
+
+  for (const [index, item] of value.entries()) {
+    if (typeof item !== "string" || item.trim() === "") {
+      errors.push(`${relative(filePath)} ${context}[${index}] must be a non-empty string`);
+    }
   }
 }
 
@@ -314,6 +368,367 @@ function validatePhaseGuard(task, filePath) {
   }
 }
 
+function validateSelectedDependencySkill(skill, filePath, context) {
+  if (typeof skill !== "object" || skill === null || Array.isArray(skill)) {
+    errors.push(`${relative(filePath)} ${context} must be an object`);
+    return;
+  }
+
+  for (const key of ["skill", "purpose", "call_boundary"]) {
+    requireStringField(skill, key, filePath, context);
+  }
+
+  for (const key of ["expected_artifacts", "allowed_writes", "protected_paths"]) {
+    validateStringArray(skill?.[key], filePath, `${context}.${key}`);
+  }
+
+  for (const forbiddenKey of ["loaded_skills", "loaded_but_not_selected_skills", "available_skills"]) {
+    if (skill?.[forbiddenKey] !== undefined) {
+      errors.push(
+        `${relative(filePath)} ${context} must not include "${forbiddenKey}"; only selected dependency skills are approved`,
+      );
+    }
+  }
+}
+
+function validateCapabilityDependencies(task, filePath) {
+  const dependencyIds = new Set();
+  const selectedSkillsByDependencyId = new Map();
+  if (validateOptionalArray(task, "capability_dependencies", filePath)) {
+    for (const [index, dependency] of task.capability_dependencies.entries()) {
+      const context = `capability_dependencies[${index}]`;
+      if (typeof dependency !== "object" || dependency === null || Array.isArray(dependency)) {
+        errors.push(`${relative(filePath)} ${context} must be an object`);
+        continue;
+      }
+
+      for (const key of ["dependency_id", "dependency_project", "purpose", "source", "status"]) {
+        requireStringField(dependency, key, filePath, context);
+      }
+
+      if (typeof dependency?.dependency_id === "string") {
+        dependencyIds.add(dependency.dependency_id);
+      }
+
+      if (
+        typeof dependency?.source === "string" &&
+        !allowedCapabilityDependencySources.has(dependency.source)
+      ) {
+        errors.push(
+          `${relative(filePath)} ${context}.source must be one of ${[
+            ...allowedCapabilityDependencySources,
+          ].join(", ")}`,
+        );
+      }
+
+      if (dependency?.source === "live-folder-scan") {
+        errors.push(`${relative(filePath)} ${context}.source must not use broad live folder scans`);
+      }
+
+      if (
+        typeof dependency?.status === "string" &&
+        !allowedCapabilityDependencyStatuses.has(dependency.status)
+      ) {
+        errors.push(
+          `${relative(filePath)} ${context}.status must be one of ${[
+            ...allowedCapabilityDependencyStatuses,
+          ].join(", ")}`,
+        );
+      }
+
+      requireArrayField(dependency, "selected_skills", filePath, context);
+      if (Array.isArray(dependency?.selected_skills)) {
+        if (dependency.selected_skills.length === 0) {
+          errors.push(`${relative(filePath)} ${context}.selected_skills must include at least one skill`);
+        }
+
+        const selectedSkillNames = new Set();
+        for (const [skillIndex, skill] of dependency.selected_skills.entries()) {
+          validateSelectedDependencySkill(skill, filePath, `${context}.selected_skills[${skillIndex}]`);
+          if (typeof skill?.skill === "string" && skill.skill.trim() !== "") {
+            selectedSkillNames.add(skill.skill);
+          }
+        }
+
+        if (typeof dependency?.dependency_id === "string" && dependency.dependency_id.trim() !== "") {
+          selectedSkillsByDependencyId.set(dependency.dependency_id, selectedSkillNames);
+        }
+      }
+
+      for (const forbiddenKey of [
+        "advertised_capabilities",
+        "loaded_skills",
+        "loaded_but_not_selected_skills",
+        "available_skills",
+      ]) {
+        if (dependency?.[forbiddenKey] !== undefined) {
+          errors.push(
+            `${relative(filePath)} ${context} must not include "${forbiddenKey}"; dependency approval is limited to selected skills`,
+          );
+        }
+      }
+    }
+  }
+
+  const dependencyStepIds = validateDependencySteps(
+    task,
+    filePath,
+    dependencyIds,
+    selectedSkillsByDependencyId,
+  );
+  validateDependencyArtifacts(task, filePath, dependencyStepIds);
+  validateDependencyProvenance(task, filePath, dependencyStepIds);
+}
+
+function validateDependencySteps(task, filePath, dependencyIds, selectedSkillsByDependencyId) {
+  const hasCapabilityDependencies =
+    Array.isArray(task.capability_dependencies) && task.capability_dependencies.length > 0;
+  const hasDependencySteps = validateOptionalArray(task, "dependency_steps", filePath);
+  const stepIds = new Set();
+
+  if (hasCapabilityDependencies && (!hasDependencySteps || task.dependency_steps.length === 0)) {
+    errors.push(`${relative(filePath)} capability_dependencies require at least one dependency_steps entry`);
+  }
+
+  if (!hasDependencySteps) return stepIds;
+
+  if (!hasCapabilityDependencies && task.dependency_steps.length > 0) {
+    errors.push(`${relative(filePath)} dependency_steps require at least one capability_dependencies entry`);
+  }
+
+  for (const [index, step] of task.dependency_steps.entries()) {
+    const context = `dependency_steps[${index}]`;
+    if (typeof step !== "object" || step === null || Array.isArray(step)) {
+      errors.push(`${relative(filePath)} ${context} must be an object`);
+      continue;
+    }
+
+    for (const key of [
+      "step_id",
+      "capability_dependency_id",
+      "dependency_project",
+      "selected_skill",
+      "purpose",
+    ]) {
+      requireStringField(step, key, filePath, context);
+    }
+
+    if (typeof step?.step_id === "string") {
+      if (stepIds.has(step.step_id)) {
+        errors.push(`${relative(filePath)} repeats dependency step_id "${step.step_id}"`);
+      }
+      stepIds.add(step.step_id);
+    }
+
+    if (
+      dependencyIds.size > 0 &&
+      typeof step?.capability_dependency_id === "string" &&
+      !dependencyIds.has(step.capability_dependency_id)
+    ) {
+      errors.push(
+        `${relative(filePath)} ${context}.capability_dependency_id must reference a capability_dependencies dependency_id`,
+      );
+    }
+
+    const selectedSkillNames = selectedSkillsByDependencyId.get(step?.capability_dependency_id);
+    if (
+      selectedSkillNames &&
+      typeof step?.selected_skill === "string" &&
+      !selectedSkillNames.has(step.selected_skill)
+    ) {
+      errors.push(
+        `${relative(filePath)} ${context}.selected_skill must be listed in the referenced capability_dependencies selected_skills`,
+      );
+    }
+
+    for (const key of [
+      "expected_inputs",
+      "expected_outputs",
+      "allowed_writes",
+      "protected_paths",
+      "provenance_requirements",
+    ]) {
+      validateStringArray(step?.[key], filePath, `${context}.${key}`);
+    }
+
+    if (step?.documented_helper_skills !== undefined) {
+      validateStringArray(step.documented_helper_skills, filePath, `${context}.documented_helper_skills`);
+    }
+
+    for (const forbiddenKey of ["loaded_skills", "loaded_but_not_selected_skills", "available_skills"]) {
+      if (step?.[forbiddenKey] !== undefined) {
+        errors.push(
+          `${relative(filePath)} ${context} must not include "${forbiddenKey}"; only selected skills and documented helpers are approved`,
+        );
+      }
+    }
+
+    if (implementationOrLaterPhases.has(task.matt_phase)) {
+      validateDependencyWritePlan(step?.dependency_write_plan, filePath, `${context}.dependency_write_plan`);
+    } else if (step?.dependency_write_plan !== undefined) {
+      validateDependencyWritePlan(step.dependency_write_plan, filePath, `${context}.dependency_write_plan`);
+    }
+  }
+
+  return stepIds;
+}
+
+function validateDependencyWritePlan(writePlan, filePath, context) {
+  if (typeof writePlan !== "object" || writePlan === null || Array.isArray(writePlan)) {
+    errors.push(`${relative(filePath)} ${context} must be an object before implementation`);
+    return;
+  }
+
+  for (const key of [
+    "expected_output_paths",
+    "allowed_write_zones",
+    "protected_paths",
+    "promotion_rules",
+    "provenance_requirements",
+    "stop_conditions",
+  ]) {
+    validateStringArray(writePlan?.[key], filePath, `${context}.${key}`);
+  }
+
+  requireStringField(writePlan, "approved_at", filePath, context);
+
+  if (writePlan?.mutates_dependency_tracker === true && !writePlan?.approved_tracker_task) {
+    errors.push(
+      `${relative(filePath)} ${context} may mutate a dependency tracker only with approved_tracker_task`,
+    );
+  }
+}
+
+function validateDependencyArtifacts(task, filePath, dependencyStepIds) {
+  if (!validateOptionalArray(task, "dependency_artifacts", filePath)) return;
+
+  for (const [index, artifact] of task.dependency_artifacts.entries()) {
+    const context = `dependency_artifacts[${index}]`;
+    if (typeof artifact !== "object" || artifact === null || Array.isArray(artifact)) {
+      errors.push(`${relative(filePath)} ${context} must be an object`);
+      continue;
+    }
+
+    for (const key of [
+      "artifact_id",
+      "owner_task_id",
+      "dependency_step_id",
+      "dependency_project",
+      "source_skill",
+      "phase",
+      "purpose",
+      "artifact_status",
+    ]) {
+      requireStringField(artifact, key, filePath, context);
+    }
+
+    if (artifact?.owner_task_id !== task.task_id) {
+      errors.push(`${relative(filePath)} ${context}.owner_task_id must equal task_id`);
+    }
+
+    if (
+      typeof artifact?.dependency_step_id === "string" &&
+      !dependencyStepIds.has(artifact.dependency_step_id)
+    ) {
+      errors.push(`${relative(filePath)} ${context}.dependency_step_id must reference dependency_steps.step_id`);
+    }
+
+    if (typeof artifact?.phase === "string" && !allowedPhases.has(artifact.phase)) {
+      errors.push(`${relative(filePath)} ${context}.phase must be a valid Matt phase`);
+    }
+
+    if (
+      typeof artifact?.artifact_status === "string" &&
+      !allowedDependencyArtifactStatuses.has(artifact.artifact_status)
+    ) {
+      errors.push(
+        `${relative(filePath)} ${context}.artifact_status must be one of ${[
+          ...allowedDependencyArtifactStatuses,
+        ].join(", ")}`,
+      );
+    }
+
+    validateStringArray(artifact?.generated_files, filePath, `${context}.generated_files`);
+    validateStringArray(artifact?.protected_boundary_metadata, filePath, `${context}.protected_boundary_metadata`);
+
+    if (["official", "promoted"].includes(artifact?.artifact_status)) {
+      const promotion = artifact?.promotion_metadata;
+      if (typeof promotion !== "object" || promotion === null || Array.isArray(promotion)) {
+        errors.push(`${relative(filePath)} ${context}.promotion_metadata is required for promoted artifacts`);
+      } else {
+        requireStringField(promotion, "promoted_at", filePath, `${context}.promotion_metadata`);
+        requireStringField(promotion, "prd_reference", filePath, `${context}.promotion_metadata`);
+      }
+    }
+
+    if (artifact?.mutates_dependency_tracker === true && !artifact?.approved_tracker_task) {
+      errors.push(
+        `${relative(filePath)} ${context} may mutate a dependency tracker only with approved_tracker_task`,
+      );
+    }
+  }
+}
+
+function validateDependencyProvenance(task, filePath, dependencyStepIds) {
+  if (!validateOptionalArray(task, "dependency_provenance", filePath)) return;
+
+  for (const [index, provenance] of task.dependency_provenance.entries()) {
+    const context = `dependency_provenance[${index}]`;
+    if (typeof provenance !== "object" || provenance === null || Array.isArray(provenance)) {
+      errors.push(`${relative(filePath)} ${context} must be an object`);
+      continue;
+    }
+
+    for (const key of [
+      "primary_project",
+      "primary_task_id",
+      "dependency_step_id",
+      "dependency_project",
+      "selected_skill",
+      "dependency_write_plan",
+      "phase",
+      "timestamp",
+      "artifact_status",
+    ]) {
+      requireStringField(provenance, key, filePath, context);
+    }
+
+    if (provenance?.primary_project !== task.project_slug) {
+      errors.push(`${relative(filePath)} ${context}.primary_project must equal project_slug`);
+    }
+
+    if (provenance?.primary_task_id !== task.task_id) {
+      errors.push(`${relative(filePath)} ${context}.primary_task_id must equal task_id`);
+    }
+
+    if (
+      typeof provenance?.dependency_step_id === "string" &&
+      !dependencyStepIds.has(provenance.dependency_step_id)
+    ) {
+      errors.push(`${relative(filePath)} ${context}.dependency_step_id must reference dependency_steps.step_id`);
+    }
+
+    if (typeof provenance?.phase === "string" && !allowedPhases.has(provenance.phase)) {
+      errors.push(`${relative(filePath)} ${context}.phase must be a valid Matt phase`);
+    }
+
+    if (
+      typeof provenance?.artifact_status === "string" &&
+      !allowedDependencyArtifactStatuses.has(provenance.artifact_status)
+    ) {
+      errors.push(
+        `${relative(filePath)} ${context}.artifact_status must be one of ${[
+          ...allowedDependencyArtifactStatuses,
+        ].join(", ")}`,
+      );
+    }
+
+    for (const key of ["helper_skills_used", "inputs", "generated_artifacts"]) {
+      validateStringArray(provenance?.[key], filePath, `${context}.${key}`);
+    }
+  }
+}
+
 function isTrackerArtifact(filePath) {
   return trackerArtifactPatterns.some((pattern) => pattern.test(filePath));
 }
@@ -360,6 +775,7 @@ function validateTask(task, filePath, projectSlug, requiredMustLoadPaths) {
 
   validateContextSnapshot(task, filePath);
   validatePhaseGuard(task, filePath);
+  validateCapabilityDependencies(task, filePath);
 
   const taskKind = task.task_kind ?? "workflow-change";
   if (!allowedTaskKinds.has(taskKind)) {

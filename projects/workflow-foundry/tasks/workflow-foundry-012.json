@@ -1,26 +1,35 @@
 {
   "task_id": "workflow-foundry-012",
   "project_slug": "workflow-foundry",
-  "title": "Create one-way project skill connection workflow",
+  "title": "Add capability dependencies to initiate-task",
   "task_kind": "workflow-change",
   "status": "in-progress",
-  "matt_phase": "grilling",
+  "matt_phase": "code-review",
   "explicit_next_action_required": true,
-  "summary": "Create a foundry workflow, likely as a skill derived from initiate-task, that connects an external project to the foundry as a one-way read-only skill source so the foundry can run approved project skills while the source project remains isolated, and foundry-run outputs are stored as foundry-owned records instead of project-owned testing or usage artifacts.",
+  "summary": "Change initiate-task and continue-task so one primary project task can explicitly depend on usable skills from another known project, with ordered dependency steps, write plans, artifact promotion, and provenance while keeping the dependency project isolated.",
   "acceptance_criteria": [
-    "grilling identifies the source project, its skill surface, and the operator job for connecting it to the foundry",
-    "the workflow defines a one-way connection contract where the foundry can read or invoke approved project skills without writing into the source project",
-    "the workflow preserves project isolation and prevents foundry tracker state, generated artifacts, or workflow mutations from infecting the connected project",
-    "foundry-run records for connected project skills are stored under projects/workflow-foundry/artifacts/connected-runs/<source-project-slug>/<run-id>/ and labeled as foundry-owned",
-    "the connection discovers all source project skill paths by default, then compares the connected project against the foundry before deciding how each skill should be integrated or run",
-    "the comparison produces a foundry-owned integration report that classifies each discovered source skill as run-as-is, needs-foundry-wrapper, duplicates-foundry-skill, conflicts-with-foundry-rule, or do-not-run",
-    "no source project is connected, and no foundry-owned wrapper or adapter is created, without explicit operator approval for that integration",
-    "the operator-facing entrypoint remains initiate-task, with explicit connection intent activating additional connection workflow behavior rather than a separate primary skill",
-    "connection intent can be expressed either with structured fields such as target:connection source_project:<slug-or-path> or with clear natural language that says the initiated task is for connecting or integrating a project's skills into the foundry",
-    "the workflow defines one foundry-owned connection record per source project, with every discovered skill marked as connected or not connected and classified by the integration report",
-    "project-level connection records live under projects/workflow-foundry/artifacts/connections/<source-project-slug>.json while individual run outputs remain under projects/workflow-foundry/artifacts/connected-runs/<source-project-slug>/<run-id>/",
-    "the derived task flow preserves initiate-task preload, phase guard, Matt Pocock phase handling, and ECC concepts",
-    "an eval gate or fixture proves only approved connected skills are discoverable and that source-project files remain unchanged"
+    "the PRD defines capability dependencies as a primary-task feature, not as direct project wrapper or connection-registry integration",
+    "initiate-task can create one unified primary project task that explicitly records external project workflow capabilities it is allowed to call",
+    "task JSON supports capability_dependencies for external project workflow capabilities that a unified primary task may call during execution",
+    "task JSON supports ordered dependency_steps with purpose, dependency project, selected skill, expected inputs, expected outputs, allowed writes, protected paths, and provenance requirements",
+    "capability_dependencies can be provided explicitly or inferred from natural language, but inferred dependencies must be confirmed with the operator before task creation",
+    "capability dependency suggestions come only from known registered project trackers and existing project, task, skill, or artifact records, not from broad live scans or project self-advertising",
+    "when a dependency project is selected, initiate-task loads all usable known skills or skill metadata for that project plus enough relationship context to understand how selected skills can be called, without auditing the entire workflow agent",
+    "task drafts with capability_dependencies include a compact selected-skill map showing intended purpose, call boundary, expected artifacts, allowed writes, and protected paths",
+    "loaded-but-not-selected dependency skills remain outside the approved call surface",
+    "selected dependency skills may call documented helper skills as part of their normal workflow, but helper usage is recorded in provenance after use",
+    "dependency calls during intake or grilling may create real artifacts when needed to understand or prepare the task",
+    "intake or grilling dependency artifacts are labeled with phase, primary task provenance, dependency project, source workflow or skill, purpose, generated files, and protected-boundary metadata",
+    "post-grilling PRD inclusion promotes intake or grilling dependency artifacts into official task artifacts while preserving original provenance and adding promotion metadata",
+    "intake or grilling dependency artifacts not named in the PRD remain linked evidence or context, not final deliverables",
+    "dependency-created artifacts are indexed under the primary project task by default and do not mutate the dependency project tracker with backlinks",
+    "continue-task may propose a new dependency_step mid-execution only after loading the referenced workflow context, updating provenance and write boundaries, and receiving operator approval",
+    "before implementation starts, PRD or issue artifacts include a dependency_write_plan for every dependency_step naming expected output paths or patterns, allowed write zones, protected paths, artifact promotion rules, provenance requirements, and stop conditions",
+    "implementation preflight verifies every dependency_step has an approved dependency_write_plan and blocks dependency execution when any required plan is missing or incomplete",
+    "if a selected dependency skill or helper tries to write outside the approved artifact boundary, execution stops and asks for operator approval",
+    "after a dependency_step runs, the task records provenance with primary project, primary task id, dependency step id, dependency project, selected skill, helper skills used, inputs, generated artifacts, dependency_write_plan used, phase, timestamp, and artifact status",
+    "the derived task flow preserves initiate-task preload, continue-task resume behavior, phase guard, Matt Pocock phase handling, and ECC concepts",
+    "validation or fixtures prove only approved dependency skills are callable, source-project control-plane files remain unchanged, dependency_write_plan preflight blocks incomplete steps, and provenance is recorded for dependency-created artifacts"
   ],
   "ecc_concepts_applied": [
     "workflow contract",
@@ -49,6 +58,13 @@
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+      "projects/workflow-foundry/artifacts/prds/workflow-foundry-012-capability-dependencies.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-001-capability-task-draft.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-002-dependency-artifact-provenance.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-003-dependency-write-plan-gate.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-004-continue-time-dependency-steps.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-005-validation-and-regression-coverage.md",
+      "projects/workflow-foundry/artifacts/reviews/workflow-foundry-012-code-review.md",
       "references/matt-pocock-skills.md",
       ".agents/skills/initiate-task/SKILL.md",
       ".agents/skills/continue-task/SKILL.md",
@@ -57,8 +73,27 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "grilling",
-    "approved_artifacts": [],
+    "selected_next_action": "code-review",
+    "approved_artifacts": [
+      {
+        "path": ".agents/skills/initiate-task/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to build all workflow-foundry-012 issue slices for capability dependency task initiation.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": ".agents/skills/continue-task/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to build all workflow-foundry-012 issue slices for continue-time dependency additions.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "scripts/validate-workflow-state.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to add capability dependency validation and regression coverage.",
+        "approved_at": "2026-07-08"
+      }
+    ],
     "process_exceptions": []
   },
   "dependencies": [],
@@ -68,7 +103,16 @@
     "workflow-foundry-011"
   ],
   "linked_artifacts": [
-    ".agents/skills/initiate-task/SKILL.md"
+    "projects/workflow-foundry/artifacts/prds/workflow-foundry-012-capability-dependencies.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-001-capability-task-draft.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-002-dependency-artifact-provenance.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-003-dependency-write-plan-gate.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-004-continue-time-dependency-steps.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-005-validation-and-regression-coverage.md",
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-012-code-review.md",
+    ".agents/skills/initiate-task/SKILL.md",
+    ".agents/skills/continue-task/SKILL.md",
+    "scripts/validate-workflow-state.mjs"
   ],
   "session_log": [
     {
@@ -114,8 +158,168 @@
     {
       "date": "2026-07-07",
       "event": "Resolved invocation shape: support a structured initiate-task form such as target:connection source_project:<slug-or-path>, while also accepting clear natural-language requests that explicitly say the task is for connecting or integrating a project's skills into the foundry."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved natural-language completion behavior: when the operator asks naturally to connect a project, initiate-task should keep asking one missing-field question at a time until the complete structured command can be formed."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved minimum command fields: a complete connection initiation requires project:workflow-foundry, target:connection, source_project:<path-or-slug>, and a connection title."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved initial read behavior: unlike plain task initiation, a target:connection initiation should create the tracked task and immediately run the initial read-only source project scan because connection tasks need specialized connection context up front."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved initial scan scope: read the full source project context, including project instructions, project/tracker files, all related task JSON, needed project artifacts, all discovered skill paths and metadata, and isolation risks so the foundry understands the whole connected project before comparison."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Borrowed audit-foundry pattern for connection scans: the initial source scan should be read-only, write a durable Markdown report first, then summarize in chat with loaded sources, findings, recommended next tracker actions, and explicit boundaries."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved location-question policy: default storage and path decisions to repo best-practice placements unless the location affects behavior, safety, isolation, or the operator contract. Use projects/workflow-foundry/artifacts/connections/<source-project-slug>-scan.md for initial connection scan reports by default."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Refined write boundary: connected skills may write the normal domain artifacts they are designed to create or maintain, such as real-life workflow packets, but must not mutate source project agent/control-plane files, skill definitions, AGENTS.md, tracker state, or connection records unless a later tracked task explicitly approves that."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved write-zone discovery: the initial connection scan should infer and record allowed write zones for each connected project's normal domain artifacts, protect control-plane paths by default, and ask the operator only when the boundary is ambiguous."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Major model pivot during grilling: the operator clarified that the foundry should not primarily directly integrate or run another project's skills as imported skills. Instead, initiate-task should be able to recognize that a requested task needs a known project workflow capability, such as real-life-workflows, and route/use that workflow through normal task initiation while keeping the source project isolated."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Expanded routing model beyond foundry-to-project: a domain project such as health may need to use another project capability such as real-life-workflows to discover or create workflow packets, so the foundry needs a mechanism to broker or record project-to-project workflow capability relationships."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Refined core scope: this task is about editing how initiate-task creates tasks so it can create tandem linked tasks across projects, for example a health-domain task that requires a workflow capability from real-life-workflows."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Corrected task model: do not create one task per project by default. Create one unified primary project task, and make part of that task the ability to call standalone workflow capabilities from another project, such as real-life-workflows, during execution."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved task model addition: add capability_dependencies to task JSON so one primary task can explicitly record external project workflow capabilities it is allowed to call, such as real-life-workflows workflow discovery or packet creation."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency finalization gate: initiate-task may infer capability_dependencies from natural language, but must ask the operator to confirm them before task creation. Once a dependency is named or inferred, it must fully read the referenced source workflow or skill context before proceeding so the task starts from shared understanding."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved task draft gate: after confirmed capability dependencies are loaded, initiate-task should show a final task draft with primary project, title, summary, capability dependencies, loaded source workflow context, allowed writes, protected paths, and acceptance criteria, then wait for explicit create approval before writing task JSON."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved created phase and discovery behavior: capability-dependent tasks are still created at intake, not grilling. During intake drafting, initiate-task can query known workflows and suggest capability_dependencies when the operator is unsure which workflow capability should be used."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved capability suggestion source: initiate-task should suggest dependencies only from known registered project trackers and their recorded workflow capabilities, not from broad live scans of arbitrary project folders."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Refined capability discovery and artifact provenance: projects should not have to advertise themselves as reusable capabilities. initiate-task should infer possible capability dependencies from known tracker context, and the durable requirement is that files created through dependency use are stored and indexed with clear provenance linking the primary task, dependency project, source workflow or skill, and generated artifacts."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency artifact ownership: files created through a dependency call are owned by the primary project task as one of its steps, while retaining provenance links to the dependency project, source workflow or skill, generated files, and protected boundaries."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency step modeling: task JSON should include explicit dependency_steps so each external capability call is represented as an ordered step in the primary task with purpose, dependency project, source workflow or skill, expected inputs and outputs, allowed writes, protected paths, and provenance requirements."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency timing: initiate-task should front-load dependency discovery during intake drafting and grilling by reading or calling relevant known skills/workflows enough to understand available data and step shape. If a new dependency is discovered mid-execution, continue-task may propose and add an explicit dependency_step only after loading its workflow context, updating provenance and write boundaries, and receiving operator approval."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved pre-execution dependency artifacts: dependency calls during intake or grilling may create real artifacts when needed, but those artifacts must be labeled with intake/grilling phase provenance, primary task ownership, dependency project, source workflow or skill, purpose, generated files, and protected boundary metadata so they are not mistaken for normal execution outputs."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved artifact promotion: intake or grilling dependency artifacts may be promoted into final task artifacts when the primary task explicitly accepts them, preserving original dependency provenance and adding promotion metadata instead of recreating redundant outputs."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved promotion trigger: when a post-grilling PRD names an intake or grilling dependency artifact as part of the task, that artifact becomes an official task artifact with original dependency provenance carried forward and promotion metadata added."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved non-promoted artifact handling: intake or grilling dependency artifacts not named in the post-grilling PRD remain linked evidence or context for the task, but are not treated as final deliverables."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved artifact indexing boundary: dependency-created artifacts are indexed under the primary project task only by default, while the dependency project is referenced through provenance metadata and its tracker is not mutated with backlinks unless a later explicitly approved tracker task allows it."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency preload scope: when a dependency project is selected, initiate-task should load as much known dependency context as possible, including all known skills or skill metadata, active tracker context, relevant artifacts, and inter-skill relationships, instead of loading only the single skill that initially seems relevant."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Narrowed dependency preload scope: for a selected dependency project, initiate-task should load all usable known skills or skill metadata and enough relationship/context notes to understand how they can be called, but it does not need to audit or load the entire workflow agent."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved task draft dependency skill map: task drafts with capability dependencies should include a compact map of loaded usable dependency skills, intended purpose in the primary task, call boundary, expected artifacts, allowed writes, and protected paths."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency skill map scope: the task draft should list only dependency skills selected for the task; loaded-but-not-selected skills remain outside the approved call surface."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved helper skill calls: selected dependency skills may call documented helper skills implicitly when those helpers are part of the selected skill's normal workflow, but helper usage must be recorded in provenance after use."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved write-boundary failure behavior: if a selected dependency skill or helper attempts to write outside the approved artifact boundary, execution stops and asks for operator approval. PRD and issue generation should resolve write zones up front so implementation can proceed continuously without avoidable boundary interruptions."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved implementation readiness gate: before implementation starts, PRD or issue artifacts must include a dependency_write_plan for every dependency_step with expected output paths or patterns, allowed write zones, protected paths, artifact promotion rules, provenance requirements, and stop conditions."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency implementation preflight: implementation must verify every dependency_step has an approved dependency_write_plan and block dependency execution when any required plan is missing or incomplete."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved dependency provenance minimum: after a dependency_step runs, record primary project, primary task id, dependency step id, dependency project, selected skill, helper skills used, inputs, generated artifacts, dependency_write_plan used, phase, timestamp, and artifact status such as promoted official artifact or retained evidence/context."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Wrote the PRD for initiate-task capability dependencies, moved the task to PRD phase, set issues as the next action, and treated direct connection registry or wrapper behavior as out of scope unless needed for dependency provenance."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Published five local issue artifacts for capability task drafts, dependency artifact provenance, dependency write-plan gates, continue-time dependency additions, and validation/regression coverage. Moved the task to issues phase with implement as the next action but without approving implementation artifacts yet."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Moved to implement after user approved building all issue slices, and approved initiate-task, continue-task, and validate-workflow-state artifacts for implementation."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Implemented capability dependency workflow instructions in initiate-task and continue-task, added workflow-state validation for optional capability dependency, dependency step, write plan, dependency artifact, and provenance fields, completed all five issue checklists, and moved to code-review."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Completed code-review, fixed a validator gap so dependency_steps.selected_skill must match the referenced capability_dependencies selected skill map, wrote the code-review artifact, and reran workflow validation."
     }
   ],
   "created_at": "2026-07-07",
-  "updated_at": "2026-07-07"
+  "updated_at": "2026-07-08"
 }

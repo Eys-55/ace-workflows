@@ -1,6 +1,6 @@
 ---
 name: initiate-task
-description: Canonical task creation skill for this repo. Use when the user invokes initiate-task, asks to start a new project task, create a tracker-maintenance task with target:tracker, query current task state before creation, or coordinate parallel tasks inside projects/<project-slug>/ using JSON state, Matt Pocock phases, and ECC concepts.
+description: Canonical task creation skill for this repo. Use when the user invokes initiate-task, asks to start a new project task, create a tracker-maintenance task with target:tracker, query current task state before creation, coordinate project tasks, or create a primary task with capability_dependencies on usable skills from another known project.
 ---
 
 # Initiate Task
@@ -115,6 +115,10 @@ Each task lives in `tasks/<task-id>.json`:
     "approved_artifacts": [],
     "process_exceptions": []
   },
+  "capability_dependencies": [],
+  "dependency_steps": [],
+  "dependency_artifacts": [],
+  "dependency_provenance": [],
   "dependencies": [],
   "related_tasks": [],
   "linked_artifacts": [],
@@ -123,6 +127,27 @@ Each task lives in `tasks/<task-id>.json`:
   "updated_at": "YYYY-MM-DD"
 }
 ```
+
+The dependency fields are optional and should be omitted for ordinary tasks with
+no external workflow capability use.
+
+When present, `capability_dependencies` records confirmed external project
+workflow capabilities that the primary task may call. Each dependency must use
+known tracker context or explicit operator input, not broad live project-folder
+scans or project self-advertising.
+
+When present, `dependency_steps` records ordered calls to selected dependency
+skills. Each step must name the purpose, dependency project, selected skill,
+expected inputs, expected outputs, allowed writes, protected paths, provenance
+requirements, and, before implementation, a `dependency_write_plan`.
+
+When present, `dependency_artifacts` records artifacts created through
+dependency calls. These artifacts are owned by the primary task and keep
+dependency provenance.
+
+When present, `dependency_provenance` records completed dependency-step runs,
+including helper skills used, inputs, generated artifacts, write plan used,
+phase, timestamp, and artifact status.
 
 Allowed project states:
 
@@ -177,31 +202,62 @@ Required input:
 Accept:
 
 - `target:tracker` to create a tracker-maintenance task
+- capability dependency intent in structured form or natural language, such as
+  a primary project task that needs to use `real-life-workflows` skills
 
 Process:
 
 1. Load the whole project state first.
 2. If the project is missing, hand off to `$setup-workflow-project` and stop.
-3. Generate the next id as `<project-slug>-NNN`.
-4. Create the task at `status: "todo"` and `matt_phase: "intake"`.
-5. Set `task_kind` to `tracker-maintenance` when `target:tracker` is provided;
+3. Detect whether the request needs capability dependencies. Treat this as
+   true only when the operator explicitly names another known project workflow
+   capability, or when natural language strongly implies that a primary project
+   task needs usable skills from another known project.
+4. If capability dependency intent is present, query only known registered
+   project trackers and existing project/task/skill/artifact records. Do not
+   scan arbitrary project folders for possible dependencies, and do not require
+   projects to advertise reusable capabilities.
+5. If a dependency is inferred, ask the operator to confirm it before creating
+   the task.
+6. For each confirmed dependency project, load all usable known skills or skill
+   metadata plus enough relationship/context notes to understand how selected
+   skills can be called. Do not audit or load the entire workflow agent unless a
+   separate tracked task asks for that.
+7. Build a final task draft before writing task JSON. Include primary project,
+   title, summary, confirmed `capability_dependencies`, ordered
+   `dependency_steps`, selected dependency skill map, allowed writes, protected
+   paths, expected artifacts, and acceptance criteria.
+8. The dependency skill map lists only selected dependency skills. Loaded but
+   not selected skills are outside the approved call surface.
+9. Wait for explicit operator approval of the final task draft before writing
+   task JSON.
+10. Generate the next id as `<project-slug>-NNN`.
+11. Create the task at `status: "todo"` and `matt_phase: "intake"`.
+12. Set `task_kind` to `tracker-maintenance` when `target:tracker` is provided;
    otherwise set it to `workflow-change`.
-6. Set `explicit_next_action_required: true`.
-7. Populate `ecc_concepts_applied` with at least `workflow contract`,
+13. Set `explicit_next_action_required: true`.
+14. Populate `ecc_concepts_applied` with at least `workflow contract`,
    `human boundary`, and `project state preload`.
-8. Populate `phase_guard` with `selected_next_action: "none"`, empty
+15. Populate `phase_guard` with `selected_next_action: "none"`, empty
    `approved_artifacts`, and empty `process_exceptions`.
-9. For `tracker-maintenance`, add tracker files expected to change to
+16. For `tracker-maintenance`, add tracker files expected to change to
    `linked_artifacts`, such as `project.json`, `tasks/index.json`, task JSON
    files, or `registry/agents-md.json`.
-10. Populate `context_snapshot.must_load` with root `AGENTS.md`,
+17. For capability-dependent tasks, populate `capability_dependencies` and
+   `dependency_steps` from the approved final task draft. Do not create a helper
+   task in the dependency project by default.
+18. For capability-dependent tasks, keep dependency project trackers read-only
+   by default. Store or index dependency-created artifacts under the primary
+   task unless a later explicitly approved tracker task allows dependency
+   tracker mutation.
+19. Populate `context_snapshot.must_load` with root `AGENTS.md`,
    `registry/agents-md.json`, project `AGENTS.md`, project JSON, index JSON, and
    all non-done task JSON files known at creation time.
-11. If `projects/<project-slug>/artifacts/testing-sessions/index.json` exists,
+20. If `projects/<project-slug>/artifacts/testing-sessions/index.json` exists,
     add that path to `context_snapshot.must_load` as a lightweight project
     preload pointer. Do not copy full testing-session events into task JSON.
-12. Update `tasks/index.json`.
-13. Report the created task and stop.
+21. Update `tasks/index.json`.
+22. Report the created task and stop.
 
 Do not enter grilling, PRD, issues, implementation, or review in the same turn
 unless the user explicitly asks to continue that task after creation.
@@ -209,6 +265,102 @@ unless the user explicitly asks to continue that task after creation.
 Creating a `tracker-maintenance` task is the allowed bootstrap tracker write.
 After that task exists, further tracker edits must happen through
 `$continue-task` on that task.
+
+## Capability Dependency Draft Contract
+
+Use this contract when a task needs selected skills from another known project.
+
+Each `capability_dependencies` entry should include:
+
+```json
+{
+  "dependency_id": "real-life-workflows-workflow-packets",
+  "dependency_project": "real-life-workflows",
+  "purpose": "Discover and prepare workflow packet candidates for the primary task.",
+  "source": "known-tracker-context",
+  "status": "confirmed",
+  "selected_skills": [
+    {
+      "skill": "real-world-workflow-finder",
+      "purpose": "Find relevant workflow candidates.",
+      "call_boundary": "Use only for the primary task's approved dependency step.",
+      "expected_artifacts": ["workflow packet candidates"],
+      "allowed_writes": ["primary task dependency artifact area"],
+      "protected_paths": ["dependency project AGENTS.md", "dependency project tracker", "dependency skill definitions"]
+    }
+  ]
+}
+```
+
+Allowed `source` values are:
+
+- `operator-explicit`
+- `confirmed-natural-language`
+- `known-tracker-context`
+
+Do not use `live-folder-scan` as a dependency source. If the dependency cannot
+be grounded in known tracker context or explicit operator input, stop and ask.
+
+Each `dependency_steps` entry should include:
+
+```json
+{
+  "step_id": "dep-step-001",
+  "capability_dependency_id": "real-life-workflows-workflow-packets",
+  "dependency_project": "real-life-workflows",
+  "selected_skill": "real-world-workflow-finder",
+  "purpose": "Create candidate workflow packet material for the primary task.",
+  "expected_inputs": ["primary task topic and constraints"],
+  "expected_outputs": ["candidate workflow packet files"],
+  "allowed_writes": ["primary task dependency artifact area"],
+  "protected_paths": ["dependency project tracker", "dependency skill definitions"],
+  "provenance_requirements": ["primary task id", "dependency project", "selected skill", "generated artifacts"]
+}
+```
+
+Selected dependency skills may call documented helper skills when those helpers
+are part of the selected skill's normal workflow. Record helper usage in
+`dependency_provenance` after use.
+
+## Dependency Artifacts
+
+Dependency calls during intake or grilling may create real artifacts when they
+are needed to understand or prepare the task. Label them as intake or grilling
+dependency artifacts, index them under the primary task, and record:
+
+- primary project
+- primary task id
+- dependency step id
+- dependency project
+- source workflow or skill
+- phase
+- purpose
+- generated files
+- protected boundary metadata
+
+When the post-grilling PRD names an intake or grilling dependency artifact, the
+artifact becomes an official task artifact. Preserve the original dependency
+provenance and add promotion metadata. If the PRD does not name the artifact,
+keep it as linked evidence or context, not as a final deliverable.
+
+## Dependency Write Plan
+
+Before implementation starts, every dependency step must have a
+`dependency_write_plan`. The plan must name:
+
+- expected output paths or patterns
+- allowed write zones
+- protected paths
+- artifact promotion rules
+- provenance requirements
+- stop conditions
+- approval timestamp
+
+Implementation must preflight the write plan before running dependency steps.
+If a selected dependency skill or documented helper tries to write outside the
+approved boundary, stop and ask the operator. Do not redirect or mutate the
+dependency project tracker unless a later explicitly approved tracker task
+allows it.
 
 ## Continue A Task
 
@@ -226,10 +378,17 @@ Process:
    `projects/<project-slug>/artifacts/testing-sessions/index.json` exists.
    Keep full `events.jsonl` streams unloaded unless exact evidence is needed.
 5. Report current `status`, `matt_phase`, ECC concepts, open dependencies,
-   related tasks, testing-session summaries, and conflicts.
+   related tasks, capability dependencies, dependency steps, testing-session
+   summaries, and conflicts.
 6. Report `phase_guard.selected_next_action`, approved artifacts, and process
    exceptions.
-7. Ask for the next explicit instruction if the user did not provide one.
+7. If execution reveals a new capability dependency, propose a new
+   `dependency_step` instead of calling the dependency ad hoc. Load the
+   dependency project's usable known skills or skill metadata, draft the step
+   with purpose, selected skill, expected inputs and outputs, allowed writes,
+   protected paths, provenance requirements, and required
+   `dependency_write_plan`, then ask for explicit operator approval before use.
+8. Ask for the next explicit instruction if the user did not provide one.
 
 Resume/revert means resume snapshot only:
 

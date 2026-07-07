@@ -91,11 +91,11 @@
     },
     {
       "task_id": "workflow-foundry-012",
-      "title": "Create one-way project skill connection workflow",
+      "title": "Add capability dependencies to initiate-task",
       "task_kind": "workflow-change",
       "status": "in-progress",
-      "matt_phase": "grilling",
-      "updated_at": "2026-07-07"
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-08"
     }
   ]
 }

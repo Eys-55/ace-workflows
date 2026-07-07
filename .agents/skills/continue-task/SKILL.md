@@ -1,6 +1,6 @@
 ---
 name: continue-task
-description: Continue an existing JSON-tracked workflow task in ace-workflows. Use when the user asks to resume a task, continue a task, select an existing task, load a task snapshot, inspect current Matt phase, or proceed with phase work after full project-state loading.
+description: Continue an existing JSON-tracked workflow task in ace-workflows. Use when the user asks to resume a task, continue a task, select an existing task, load a task snapshot, inspect current Matt phase, proceed with phase work after full project-state loading, or add an approved dependency_step to a primary task.
 ---
 
 # Continue Task
@@ -53,3 +53,30 @@ workflow artifacts, tests, or implementation files. Before creating any such
 artifact, the selected task must include a matching
 `phase_guard.approved_artifacts` entry for the artifact path and phase
 `implement`.
+
+## Capability Dependency Continuation
+
+If a continued task needs a new capability dependency mid-execution:
+
+1. Load the selected primary task and its existing `capability_dependencies`,
+   `dependency_steps`, `dependency_artifacts`, and `dependency_provenance`.
+2. Load the referenced dependency project's known usable skill metadata and
+   relationship context. Do not scan arbitrary folders or treat loaded but
+   unselected skills as approved.
+3. Draft the new `dependency_step` with purpose, dependency project, selected
+   skill, expected inputs, expected outputs, allowed writes, protected paths,
+   provenance requirements, and documented helper skills if any.
+4. Draft or reference the required `dependency_write_plan`, including expected
+   output paths, allowed write zones, protected paths, promotion rules,
+   provenance requirements, stop conditions, and approval timestamp.
+5. Ask for explicit operator approval before calling the dependency.
+6. Record approved dependency steps in the primary task only. Do not mutate the
+   dependency project tracker unless a separate approved tracker-maintenance
+   task allows it.
+7. After dependency use, record `dependency_provenance` and
+   `dependency_artifacts` with the primary project, primary task id,
+   dependency step id, dependency project, selected skill, helper skills used,
+   inputs, generated artifacts, write plan used, phase, timestamp, and artifact
+   status.
+8. Stop and ask for approval if a selected dependency skill or helper would
+   write outside the approved boundary.
