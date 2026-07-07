@@ -1,0 +1,206 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-009",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0081",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Commands directory",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/commands",
+      "domain_hint": "9 command workflows",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Commands directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0082",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Education industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/education",
+      "domain_hint": "education",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Education industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0083",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Healthcare industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/healthcare",
+      "domain_hint": "healthcare",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Healthcare industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0084",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Legal industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/legal",
+      "domain_hint": "legal",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Legal industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0085",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Pharma industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/pharma",
+      "domain_hint": "pharma",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Pharma industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0086",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "README skill catalog",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "domain_hint": "industry content workflows",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README skill catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0087",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Real estate industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/real-estate",
+      "domain_hint": "real estate",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Real estate industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0088",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Skills directory",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills",
+      "domain_hint": "21 skill packs",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Skills directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0089",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Templates",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/templates",
+      "domain_hint": "document templates",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Templates"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0090",
+      "repo": "jim-schwoebel/awesome_ai_agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Real Estate Agents",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/jim-schwoebel/awesome_ai_agents/blob/main/README.md",
+      "domain_hint": "real estate",
+      "source_index_url": "https://github.com/jim-schwoebel/awesome_ai_agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agent Workflows section",
+        "Data Analysis Agents",
+        "Education Agents",
+        "Finance Agents",
+        "Healthcare Agents",
+        "Legal Agents",
+        "Real Estate Agents",
+        "Research Agents"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

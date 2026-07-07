@@ -1,0 +1,257 @@
+{
+  "run_id": "2026-07-05-remaining-cli-25x5",
+  "updated_at": "2026-07-05T10:53:22.817795+00:00",
+  "status": "completed",
+  "chunks": [
+    {
+      "agent_id": "agent-001",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.289957+00:00",
+      "completed_at": "2026-07-05T10:48:10.438096+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-001.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-001.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-002",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290057+00:00",
+      "completed_at": "2026-07-05T10:48:50.712079+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-002.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-002.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-003",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290060+00:00",
+      "completed_at": "2026-07-05T10:49:00.782559+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-003.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-003.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-004",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290061+00:00",
+      "completed_at": "2026-07-05T10:49:00.783026+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-004.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-004.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-005",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290062+00:00",
+      "completed_at": "2026-07-05T10:49:00.783373+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-005.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-005.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-006",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290063+00:00",
+      "completed_at": "2026-07-05T10:49:00.783700+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-006.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-006.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-007",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290063+00:00",
+      "completed_at": "2026-07-05T10:49:00.783998+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-007.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-007.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-008",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290064+00:00",
+      "completed_at": "2026-07-05T10:49:00.784304+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-008.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-008.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-009",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290065+00:00",
+      "completed_at": "2026-07-05T10:49:00.784608+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-009.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-009.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-010",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290065+00:00",
+      "completed_at": "2026-07-05T10:49:00.784915+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-010.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-010.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-011",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290066+00:00",
+      "completed_at": "2026-07-05T10:49:00.785342+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-011.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-011.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-012",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290067+00:00",
+      "completed_at": "2026-07-05T10:49:00.785638+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-012.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-012.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-013",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290068+00:00",
+      "completed_at": "2026-07-05T10:49:00.786215+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-013.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-013.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-014",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290068+00:00",
+      "completed_at": "2026-07-05T10:51:30.241301+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-014.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-014.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-015",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290069+00:00",
+      "completed_at": "2026-07-05T10:51:30.241709+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-015.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-015.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-016",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290070+00:00",
+      "completed_at": "2026-07-05T10:51:30.242044+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-016.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-016.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-017",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290070+00:00",
+      "completed_at": "2026-07-05T10:51:30.242347+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-017.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-017.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-018",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290071+00:00",
+      "completed_at": "2026-07-05T10:51:30.242629+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-018.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-018.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-019",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290072+00:00",
+      "completed_at": "2026-07-05T10:51:30.243026+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-019.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-019.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-020",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290073+00:00",
+      "completed_at": "2026-07-05T10:51:30.243292+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-020.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-020.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-021",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290073+00:00",
+      "completed_at": "2026-07-05T10:51:30.243572+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-021.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-021.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-022",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290074+00:00",
+      "completed_at": "2026-07-05T10:51:30.243860+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-022.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-022.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-023",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290075+00:00",
+      "completed_at": "2026-07-05T10:51:30.244118+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-023.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-023.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-024",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290075+00:00",
+      "completed_at": "2026-07-05T10:51:30.244381+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-024.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-024.log",
+      "row_count": 5
+    },
+    {
+      "agent_id": "agent-025",
+      "status": "completed",
+      "started_at": "2026-07-05T10:46:58.290076+00:00",
+      "completed_at": "2026-07-05T10:51:30.244640+00:00",
+      "exit_code": 0,
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-025.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-025.log",
+      "row_count": 1
+    }
+  ]
+}

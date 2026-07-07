@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Workflow Project Maker"
+  short_description: "Find and shape reusable agent workflow projects"
+  default_prompt: "Use this skill to query the workflow catalog, inspect real-world workflow references, and turn a repeated job into a Codex/ECC project skill with schemas, validators, and evidence tracking."

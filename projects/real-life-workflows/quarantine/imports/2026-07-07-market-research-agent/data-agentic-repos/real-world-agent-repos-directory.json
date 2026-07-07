@@ -1,0 +1,293 @@
+{
+  "title": "Real-World Agent And Skill Repos Directory",
+  "snapshot_date": "2026-07-03",
+  "purpose": "Study real-world agent and skill repositories to learn how to identify problems that can be turned into agentic workflows.",
+  "selection_rule": "Prefer repos that package a real professional workflow, domain procedure, or repeatable output artifact. Generic agent frameworks are included only when they explain the skill format or directory pattern.",
+  "problem_fit_rubric": [
+    {
+      "criterion": "Repeated painful task",
+      "question": "Does a real person repeat this workflow often enough that a reusable agent skill would save time?"
+    },
+    {
+      "criterion": "Structured input",
+      "question": "Can the workflow start from files, links, forms, records, APIs, tickets, docs, or other inspectable inputs?"
+    },
+    {
+      "criterion": "Known procedure",
+      "question": "Is there a checklist, policy, standard, rubric, protocol, or expert sequence the agent can follow?"
+    },
+    {
+      "criterion": "Toolable steps",
+      "question": "Can the agent call tools, search sources, parse files, run scripts, query APIs, or generate a deterministic artifact?"
+    },
+    {
+      "criterion": "Verifiable output",
+      "question": "Can success be checked with citations, tests, diffs, scores, status labels, human review, or another audit trail?"
+    },
+    {
+      "criterion": "Human decision boundary",
+      "question": "Can the agent stop before irreversible, clinical, legal, financial, or customer-facing commitments?"
+    },
+    {
+      "criterion": "Reusable packaging",
+      "question": "Can this be written as one SKILL.md plus optional scripts, templates, references, and examples?"
+    }
+  ],
+  "repos": [
+    {
+      "name": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "category": "official skill examples",
+      "real_world_domain": "agent capability packaging",
+      "problem_pattern": "Give agents reusable instructions and assets for tasks that require more than a one-off prompt.",
+      "what_to_study": "Folder structure, SKILL.md convention, progressive disclosure, example packaging.",
+      "metadata": {
+        "description": "Public repository for Agent Skills",
+        "stars_observed": 157916,
+        "forks_observed": 18613,
+        "license": null,
+        "pushed_at": "2026-07-01T18:11:25Z"
+      }
+    },
+    {
+      "name": "agentskills/agentskills",
+      "url": "https://github.com/agentskills/agentskills",
+      "category": "skill specification",
+      "real_world_domain": "agent skill standardization",
+      "problem_pattern": "Define a portable file format for skill packages across agent systems.",
+      "what_to_study": "Spec-level requirements for SKILL.md, assets, scripts, and distribution.",
+      "metadata": {
+        "description": "Specification and documentation for Agent Skills",
+        "stars_observed": 21861,
+        "forks_observed": 1386,
+        "license": "Apache-2.0",
+        "pushed_at": "2026-07-01T21:37:32Z"
+      }
+    },
+    {
+      "name": "VoltAgent/awesome-agent-skills",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "category": "directory",
+      "real_world_domain": "agent skill discovery",
+      "problem_pattern": "Curate real-world agent skills from official teams and community projects.",
+      "what_to_study": "How skills are grouped by domain, platform, and use case.",
+      "metadata": {
+        "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+        "stars_observed": 27191,
+        "forks_observed": 2912,
+        "license": "MIT",
+        "pushed_at": "2026-06-30T10:58:35Z"
+      }
+    },
+    {
+      "name": "block/agent-skills",
+      "url": "https://github.com/block/agent-skills",
+      "category": "company-maintained skills",
+      "real_world_domain": "business and engineering workflows",
+      "problem_pattern": "Package reusable agent skills as a marketplace for practical work.",
+      "what_to_study": "How a company frames reusable skills for portability and team use.",
+      "metadata": {
+        "description": "A marketplace for agent skills",
+        "stars_observed": 17,
+        "forks_observed": 29,
+        "license": "Apache-2.0",
+        "pushed_at": "2026-06-26T15:48:44Z"
+      }
+    },
+    {
+      "name": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "category": "engineering workflow skills",
+      "real_world_domain": "software engineering",
+      "problem_pattern": "Turn repeatable engineering workflows into production-grade agent skills.",
+      "what_to_study": "Skill anatomy, verification discipline, and process-over-knowledge framing.",
+      "metadata": {
+        "description": "Production-grade engineering skills for AI coding agents.",
+        "stars_observed": 68716,
+        "forks_observed": 7452,
+        "license": "MIT",
+        "pushed_at": "2026-07-03T05:42:23Z"
+      }
+    },
+    {
+      "name": "Aperivue/verify-refs",
+      "url": "https://github.com/Aperivue/verify-refs",
+      "category": "single-purpose medical research skill",
+      "real_world_domain": "medical manuscript review",
+      "problem_pattern": "Catch fabricated or mismatched references before peer review.",
+      "what_to_study": "One painful professional task packaged as an audit-only skill with external source checks.",
+      "metadata": {
+        "description": "Catch fabricated and mismatched citations before peer review - audit-only reference verification against PubMed and CrossRef.",
+        "stars_observed": 0,
+        "forks_observed": 0,
+        "license": "MIT",
+        "pushed_at": "2026-06-10T15:23:47Z"
+      }
+    },
+    {
+      "name": "Aperivue/check-reporting",
+      "url": "https://github.com/Aperivue/check-reporting",
+      "category": "single-purpose medical research skill",
+      "real_world_domain": "medical manuscript reporting compliance",
+      "problem_pattern": "Audit a manuscript against reporting guidelines and label each item present, partial, or missing.",
+      "what_to_study": "Guideline checklist workflow, status labels, and expert review artifact.",
+      "metadata": {
+        "description": "Audit a medical manuscript against 32 EQUATOR reporting guidelines.",
+        "stars_observed": 0,
+        "forks_observed": 0,
+        "license": "NOASSERTION",
+        "pushed_at": "2026-06-10T15:37:27Z"
+      }
+    },
+    {
+      "name": "Aperivue/medsci-skills",
+      "url": "https://github.com/Aperivue/medsci-skills",
+      "category": "medical research skill suite",
+      "real_world_domain": "medical and scientific publishing",
+      "problem_pattern": "Support literature search, reporting checks, citation checks, statistics, publication figures, and submission.",
+      "what_to_study": "How one umbrella repo can hold separate hero skills without becoming one vague mega-agent.",
+      "metadata": {
+        "description": "Agent Skills for medical research - literature search, reporting-guideline and citation checks, statistics, publication figures, submission.",
+        "stars_observed": 179,
+        "forks_observed": 45,
+        "license": "NOASSERTION",
+        "pushed_at": "2026-07-03T14:09:08Z"
+      }
+    },
+    {
+      "name": "NVIDIA/digital-health-skills",
+      "url": "https://github.com/NVIDIA/digital-health-skills",
+      "category": "digital health skill suite",
+      "real_world_domain": "healthcare AI evaluation and model adaptation",
+      "problem_pattern": "Guide healthcare AI workflows such as evaluation, data generation, model adaptation, deployment, and clinical ASR improvement.",
+      "what_to_study": "Evaluation-first framing and metric-driven healthcare AI workflows.",
+      "metadata": {
+        "description": "NVIDIA Digital Health skills repo for agent-guided healthcare AI workflows, including evaluation, data generation, model adaptation, deployment guidance, and developer best practices.",
+        "stars_observed": 4,
+        "forks_observed": 0,
+        "license": "NOASSERTION",
+        "pushed_at": "2026-07-01T23:57:47Z"
+      }
+    },
+    {
+      "name": "ajhcs/healthcare-agents",
+      "url": "https://github.com/ajhcs/healthcare-agents",
+      "category": "healthcare administration agents",
+      "real_world_domain": "US healthcare administration",
+      "problem_pattern": "Package specialist agents for administrative healthcare workflows.",
+      "what_to_study": "How healthcare admin roles map into prompts, agents, and optional SKILL.md packages.",
+      "metadata": {
+        "description": "Portable prompt and SKILL.md pack with 51 specialist AI agents for US healthcare administration workflows.",
+        "stars_observed": 43,
+        "forks_observed": 8,
+        "license": "Apache-2.0",
+        "pushed_at": "2026-07-01T22:51:35Z"
+      }
+    },
+    {
+      "name": "awslabs/hcls-agent-skills",
+      "url": "https://github.com/awslabs/hcls-agent-skills",
+      "category": "healthcare and life-sciences skill suite",
+      "real_world_domain": "healthcare claims, genomics, imaging, drug discovery, and life sciences",
+      "problem_pattern": "Apply skills to regulated healthcare and life-sciences workflows where domain process matters.",
+      "what_to_study": "How a cloud/vendor lab frames multi-domain HCLS skills for platform portability.",
+      "metadata": {
+        "description": "Agent skills for healthcare and life sciences: genomics, imaging, claims, drug discovery, and more.",
+        "stars_observed": 2,
+        "forks_observed": 0,
+        "license": "MIT-0",
+        "pushed_at": "2026-06-25T18:45:13Z"
+      }
+    },
+    {
+      "name": "aipoch/medical-research-skills",
+      "url": "https://github.com/aipoch/medical-research-skills",
+      "category": "medical research skill library",
+      "real_world_domain": "medical research and academic writing",
+      "problem_pattern": "Provide many medical research skills for protocol design, data analysis, evidence insights, and academic writing.",
+      "what_to_study": "Breadth of medical workflows and how to split research work into skill modules.",
+      "metadata": {
+        "description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
+        "stars_observed": 1282,
+        "forks_observed": 84,
+        "license": "MIT",
+        "pushed_at": "2026-06-23T10:32:42Z"
+      }
+    },
+    {
+      "name": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "category": "scientific skill library",
+      "real_world_domain": "science, medicine, chemistry, biology, geospatial science, and data analysis",
+      "problem_pattern": "Turn scientific workflows and database lookups into reusable agent skills.",
+      "what_to_study": "How specialized databases, APIs, and computational tools can be wrapped into task-specific skills.",
+      "metadata": {
+        "description": "Turn any AI agent into an AI Scientist.",
+        "stars_observed": 30039,
+        "forks_observed": 3039,
+        "license": "MIT",
+        "pushed_at": "2026-07-01T23:59:26Z"
+      }
+    },
+    {
+      "name": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills",
+      "category": "medical AI skill library",
+      "real_world_domain": "medical AI and biomedical research",
+      "problem_pattern": "Aggregate many medical AI skills into one open-source library.",
+      "what_to_study": "Large-scale skill-library organization, but verify quality and licensing before reuse.",
+      "metadata": {
+        "description": "The largest open-source medical AI skills library for OpenClaw.",
+        "stars_observed": 2793,
+        "forks_observed": 391,
+        "license": null,
+        "pushed_at": "2026-06-18T02:42:43Z"
+      }
+    },
+    {
+      "name": "davila7/claude-code-templates",
+      "url": "https://github.com/davila7/claude-code-templates",
+      "category": "template and skill collection",
+      "real_world_domain": "Claude Code configuration and domain skills",
+      "problem_pattern": "Provide installable templates and skills, including a pydicom skill for medical imaging files.",
+      "what_to_study": "The pydicom skill as a narrow file-processing workflow: read, anonymize, inspect, and convert DICOM files.",
+      "metadata": {
+        "description": "CLI tool for configuring and monitoring Claude Code",
+        "stars_observed": 28435,
+        "forks_observed": 2973,
+        "license": "MIT",
+        "pushed_at": "2026-07-03T14:10:11Z"
+      }
+    },
+    {
+      "name": "mapbox/mapbox-agent-skills",
+      "url": "https://github.com/mapbox/mapbox-agent-skills",
+      "category": "geospatial product skills",
+      "real_world_domain": "mapping, cartography, and geospatial development",
+      "problem_pattern": "Help agents perform Mapbox-specific geospatial product and engineering workflows.",
+      "what_to_study": "Domain-specific SDK/product constraints, token safety, performance, and map workflow guidance.",
+      "metadata": {
+        "description": null,
+        "stars_observed": 68,
+        "forks_observed": 9,
+        "license": "MIT",
+        "pushed_at": "2026-06-03T15:09:45Z"
+      }
+    },
+    {
+      "name": "product-on-purpose/pm-skills",
+      "url": "https://github.com/product-on-purpose/pm-skills",
+      "category": "product management skills",
+      "real_world_domain": "product discovery, design sprint, and PM workflows",
+      "problem_pattern": "Package repeatable product-management methods into plug-and-play skills, templates, workflows, and subagents.",
+      "what_to_study": "How non-coding business workflows become skills with templates, examples, and phase structure.",
+      "metadata": {
+        "description": "67 plug-and-play, best-practice, product management skills for AI agents.",
+        "stars_observed": 439,
+        "forks_observed": 56,
+        "license": "Apache-2.0",
+        "pushed_at": "2026-06-24T07:14:56Z"
+      }
+    }
+  ]
+}

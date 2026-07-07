@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-010",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0091",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Agentic document intelligence docs",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "domain_hint": "document intelligence",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agentic document intelligence docs"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0092",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Core query pipeline",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/core",
+      "domain_hint": "query pipeline",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Core query pipeline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0093",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "DAG workflows",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/workflows",
+      "domain_hint": "DAG workflows",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "DAG workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0094",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Document pipelines guide",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/docs/document-pipelines.md",
+      "domain_hint": "document processing",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Document pipelines guide"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0095",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Executor pipeline",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/executor",
+      "domain_hint": "execution pipeline",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Executor pipeline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0096",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Executor template",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/executor/template",
+      "domain_hint": "runtime template",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Executor template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0097",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Extract Engine",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/extract",
+      "domain_hint": "document extraction",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Extract Engine"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0098",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Flows guide",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/docs/flows.md",
+      "domain_hint": "workflow orchestration",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Flows guide"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0099",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Form extraction",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/examples/form-extraction",
+      "domain_hint": "forms",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Form extraction"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0100",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Invoice processing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/examples/invoice-processing",
+      "domain_hint": "invoices",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Invoice processing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

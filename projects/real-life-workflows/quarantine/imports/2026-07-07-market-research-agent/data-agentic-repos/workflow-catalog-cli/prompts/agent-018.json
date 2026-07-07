@@ -1,0 +1,55 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-018",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0171",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "test",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/test",
+      "domain_hint": "automated testing",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "test"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

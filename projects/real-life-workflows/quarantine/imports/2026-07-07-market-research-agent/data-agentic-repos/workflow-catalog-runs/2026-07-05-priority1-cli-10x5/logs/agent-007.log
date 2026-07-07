@@ -1,0 +1,1138 @@
+2026-07-05T10:41:39.467898Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-07-05T10:41:39.848050Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:41:39.850048Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:41:43.083816Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:41:43.085069Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:41:43.505669Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-07-05T10:41:43.506903Z  WARN codex_rollout::state_db: state db discrepancy during read_repair_rollout_path: upsert_needed (slow path)
+2026-07-05T10:41:43.990317Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:41:43.993234Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+OpenAI Codex v0.142.0
+--------
+workdir: /Users/acecanacan/Documents/market-research-agent
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 019f31de-98a9-7d72-b3b1-9dcf38087fcf
+--------
+user
+You are classifying workflow-catalog doors for a reusable Codex/ECC lookup catalog.
+
+Workspace: /Users/acecanacan/Documents/market-research-agent
+
+Use read-only behavior. Do not edit files. Read the linked source pages or obvious canonical repo paths if needed. Classify exactly these 5 doors:
+
+[
+  {
+    "id": "surface-0050",
+    "door": "Industrial",
+    "repo": "ahacker-1/cre-agent-skills",
+    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+    "primary_category": "Evidence / Due Diligence",
+    "primary_domain": "real_estate",
+    "primary_pattern": "EvidenceAudit",
+    "fit": "skill/package reference",
+    "browse_use": "public evidence, permit/title/source audits, due-diligence packet patterns",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0051",
+    "door": "Legal",
+    "repo": "ahacker-1/cre-agent-skills",
+    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+    "primary_category": "Evidence / Due Diligence",
+    "primary_domain": "real_estate",
+    "primary_pattern": "EvidenceAudit",
+    "fit": "skill/package reference",
+    "browse_use": "public evidence, permit/title/source audits, due-diligence packet patterns",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0052",
+    "door": "Office",
+    "repo": "ahacker-1/cre-agent-skills",
+    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+    "primary_category": "Evidence / Due Diligence",
+    "primary_domain": "real_estate",
+    "primary_pattern": "EvidenceAudit",
+    "fit": "skill/package reference",
+    "browse_use": "public evidence, permit/title/source audits, due-diligence packet patterns",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0053",
+    "door": "Skill Index",
+    "repo": "ahacker-1/cre-agent-skills",
+    "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+    "primary_category": "Evidence / Due Diligence",
+    "primary_domain": "real_estate",
+    "primary_pattern": "EvidenceAudit",
+    "fit": "skill/package reference",
+    "browse_use": "public evidence, permit/title/source audits, due-diligence packet patterns",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0054",
+    "door": "Underwriting",
+    "repo": "ahacker-1/cre-agent-skills",
+    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+    "primary_category": "Evidence / Due Diligence",
+    "primary_domain": "real_estate",
+    "primary_pattern": "EvidenceAudit",
+    "fit": "skill/package reference",
+    "browse_use": "public evidence, permit/title/source audits, due-diligence packet patterns",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  }
+]
+
+Return only JSON matching the provided output schema. No Markdown, no prose outside JSON.
+
+Rules:
+- Keep every row evidence-grounded to the source link or a clearly stated fallback.
+- If a source link is broken, shallow, or sparse, check the repository README or obvious canonical nested path once.
+- Set source_url_status to one of: exact_page_reachable, exact_page_sparse, broken, canonicalized.
+- Set canonical_source_url to the original source_url unless you found a better canonical source.
+- Set evidence_basis to a short phrase: exact page, README fallback, raw skill file, repo index, category folder, or source sparse.
+- Do not invent workflow behavior when evidence is sparse. Say sparse and lower confidence.
+- This is cataloging only. Do not design a new skill.
+- Do not include the names of outdated agent frameworks.
+- The rows must preserve the input workflow_id values exactly.
+
+2026-07-05T10:41:45.443612Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Invalid refresh token
+2026-07-05T10:41:45.449151Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:45.716102Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:41:45.716147Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:45.800632Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:41:45.800709Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:47.255137Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Refresh token previously used. Cannot be used twice.
+2026-07-05T10:41:47.255194Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:57.026480Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:41:57.032530Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:41:57.129042Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.129092Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.133766Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.133801Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.135989Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.136024Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.139092Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.139155Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.141321Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.141359Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.145156Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.145226Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+2026-07-05T10:41:58.637039Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:41:58.641655Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+{"agent_id":"codex","quality_note":"Using the real-world-workflow-finder skill for this catalog classification, then I will verify each source link read-only before returning the JSON rows.","rows":													[													{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}													,													{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}													,													{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}													,													{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}													,													{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}													]}
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/SKILL.md" in /Users/acecanacan/Documents/market-research-agent
+exec
+/bin/zsh -lc "pwd && rg --files | sed -n '1,120p'" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 2ms:
+---
+name: real-world-workflow-finder
+description: Find real-world agent workflow repos, skill packs, templates, and workflow catalogs similar to a user's idea. Use when the user asks for workflows like an earthquake/building evidence audit, healthcare/referral/patient document workflow, education workflow, real estate workflow, public evidence audit, due diligence workflow, case intake workflow, queue/monitoring/human-review workflow, multi-industry workflow catalog, Codex config package, or similar agentic workflow examples.
+---
+
+# Real-World Workflow Finder
+
+Use this skill to turn a vague real-life workflow idea into searchable workflow
+patterns and ranked repo recommendations.
+
+The user usually wants Codex-native config-package ideas, not a new app platform.
+Treat ECC as the workflow contract method and Codex as the operating surface.
+External repos are references, catalogs, or optional adapters unless the user
+explicitly asks for a runtime.
+
+## Core Workflow
+
+1. Classify the user's workflow idea.
+2. Search local indexes first.
+3. Browse only when freshness is requested.
+4. Rank candidates by similarity and Codex/ECC usefulness.
+5. Answer with 3-7 matches and a clear next step.
+
+## Load References
+
+- Read `references/query-playbook.md` for classification, query generation, and
+  workflow-pattern mapping.
+- Read `references/repo-catalog.md` for the seed catalog and local data sources.
+- Read `references/output-template.md` before answering so the result shape stays
+  consistent.
+
+## Local-First Rule
+
+Default to local curated sources before web browsing:
+
+- Codex memory notes about real-world workflow repos;
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`;
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`;
+- the active repo's `AGENTS.md`, `skills/`, `data/`, `reports/`, and `docs/`
+  when the user's workflow refers to the current project.
+
+Use web/GitHub search only when the user asks for terms like "latest",
+"current stars", "more", "new repos", "find more", "refresh", or "popular
+right now."
+
+## Decision Rules
+
+- If the user says "earthquake thing," map it to public evidence audit,
+  source-lane research, deterministic validation, human review, compliance
+  boundary, geospatial/hazard context, due diligence, and OSINT/source taxonomy.
+- If the user asks for healthcare, look for document packet, case intake,
+  referral/prior-auth, claims, medical research, and human-review workflows.
+- If the user asks for education, look for tutoring, curriculum planning,
+  student-support, research assistant, assessment, and administrative workflows.
+- If the user asks for real estate, look for due diligence, underwriting,
+  title/permit/parcel evidence, lease abstraction, closing checklist, and market
+  research workflows.
+- If a repo is a UI automation/app platform, classify it as inspiration or an
+  optional runtime. Do not make it the center when the user is building Codex
+  config packages.
+- Prefer repo matches that expose reusable skill/workflow files, pattern
+  catalogs, templates, schemas, validation, evidence logs, or human-review gates.
+
+## Output Requirements
+
+Every answer should include:
+
+- best 3-7 repo matches;
+- why each match is similar to the user's workflow;
+- the workflow type it teaches;
+- fit label: `Codex-native`, `skill/package reference`, `inspiration catalog`,
+  `runtime/platform`, or `source taxonomy`;
+- recommended next step.
+
+Keep the answer direct. If no repo fits perfectly, say that and identify the
+closest stack of references rather than forcing a false exact match.
+
+
+ succeeded in 0ms:
+/Users/acecanacan/Documents/market-research-agent
+AGENTS.md
+README.md
+reports/philippines-building-code-data-landscape.md
+reports/workflow-catalog-cli-readiness.md
+reports/workflow-router.md
+scripts/workflow_catalog_cli_run.py
+scripts/validate_audit_scope_gate.py
+scripts/build_workflow_door_catalog.py
+scripts/build_workflow_router.py
+scripts/__pycache__/workflow_catalog_cli_run.cpython-310.pyc
+scripts/validate_progress_docs.py
+scripts/validate_audit_scope_source_reality.py
+scripts/query_workflow_router.py
+scripts/workflow_catalog_tools.py
+scripts/validate_building_identity_gate.py
+skills/address-disaster-risk-assessor/SKILL.md
+reports/assets/gate-1-place-lock-chart.svg
+reports/assets/malacanang-flood-overview.svg
+reports/assets/malacanang-flood-points.svg
+reports/assets/building-code-progress-chart.svg
+reports/assets/gate-2-audit-scope-lock-chart.svg
+reports/assets/malacanang-waterway-closeup.svg
+reports/gate-2-audit-scope-lock-view.html
+reports/real-world-agent-repos-directory.md
+reports/six-agent-real-world-repos-directory.md
+reports/workflow-door-catalog.md
+reports/agentic-healthcare-repos-research.md
+reports/workflow-link-seed.md
+reports/workflow-router-table-revamp-sample.md
+reports/building-code-progress-view.html
+reports/earthquake-safety-answerability-matrix.md
+reports/official-flood-risk-assessment-methods.html
+reports/disaster-risk-data-source-atlas.md
+reports/agentic-ai-healthcare-applications-research.md
+reports/metro-manila-source-deep-dive.md
+reports/davao-earthquake-source-targets.md
+reports/nscp-structural-code-compliance-search-method.md
+reports/gate-2-six-establishment-menu-search.md
+reports/workflow-agent-comparison.md
+reports/workflow-expansion-pilot-earthquake-public-evidence.md
+reports/metro-manila-data-source-atlas.md
+reports/gate-3-sm-moa-document-target-search.md
+skills/metro-manila-source-atlas/SKILL.md
+skills/untitled-project/SKILL.md
+data/source-schema.json
+data/metro-manila-source-atlas.json
+data/untitled-project/README.md
+skills/philippines-building-code-evidence-auditor/SKILL.md
+docs/decisions/0001-city-level-prototype-first.md
+docs/decisions/0003-lock-philippines-building-code-evidence-auditor.md
+docs/decisions/0002-lock-address-disaster-risk-assessor.md
+docs/decisions/0004-adopt-project-lanes.md
+docs/plans/building-code-progress-chart.md
+docs/plans/gate-4-regression-tests-chart.md
+docs/plans/gate-3-evidence-packet-chart.md
+docs/plans/2026-07-03-address-disaster-risk-assessor-design.md
+docs/plans/2026-07-05-building-code-gates-1-4-ecc-implementation-plan.md
+docs/plans/2026-07-05-building-code-agent-loop.md
+docs/plans/gate-1-place-lock-chart.md
+docs/plans/building-code-progress-table.md
+docs/plans/gate-2-audit-scope-lock-chart.md
+data/verification-log.md
+docs/status/2026-07-04-building-code-evidence-auditor-lock.md
+docs/status/2026-07-04-project-lanes-workspace-status.md
+docs/status/2026-07-03-ecc-handoff-summary.md
+docs/status/2026-07-03-project-pause-handoff.md
+data/disaster-risk/disaster-source-atlas.json
+data/disaster-risk/local-validation-summary.json
+data/disaster-risk/malacanang-palace-flood-screening-evidence.json
+skills/philippines-building-code-evidence-auditor/agents/openai.yaml
+data/agentic-repos/workflow-door-catalog.json
+data/agentic-repos/workflow-link-seed.raw.json
+data/agentic-repos/workflow-router.json
+data/agentic-repos/workflow-link-seed.json
+data/disaster-risk/agent-findings/agent-4-metro-manila-local.md
+data/disaster-risk/agent-findings/agent-2-flood-storm-landslide.md
+data/disaster-risk/agent-findings/agent-1-official-multihazard.md
+data/disaster-risk/agent-findings/agent-3-earthquake-seismic.md
+data/disaster-risk/agent-findings/README.md
+data/disaster-risk/agent-findings/agent-5-global-humanitarian.md
+data/disaster-risk/agent-findings/agent-6-waste-drainage-proxies.md
+data/disaster-risk/source-priorities.json
+data/deep-dive/local-validation-summary.json
+data/agentic-repos/workflow-catalog-internal/agent-005.json
+data/deep-dive/source-qualification-matrix.json
+data/agentic-repos/workflow-catalog-internal/agent-004.json
+data/agentic-repos/workflow-catalog-internal/agent-003.json
+data/agentic-repos/workflow-catalog-internal/agent-002.json
+data/agentic-repos/workflow-catalog-internal/agent-001.json
+data/agentic-repos/workflow-catalog-internal/agent-006.json
+data/building-code-auditor/audit-scope-source-reality.json
+data/building-code-auditor/gate-2-six-establishment-menu-matrix.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-013.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-009.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-008.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-004.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-012.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-015.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-003.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-002.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-014.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-018.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-001.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-017.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-016.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-007.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-011.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-010.json
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json
+data/agentic-repos/workflow-agent-comparison/cli-agent-001.md
+data/agentic-repos/workflow-agent-comparison/internal-agent-001.md
+data/agentic-repos/workflow-catalog-repo-seed.json
+data/agentic-repos/real-world-agent-repos-directory.json
+data/agentic-repos/workflow-router-surface-sample.json
+data/agentic-repos/workflow-door-catalog.csv
+data/building-code-auditor/davao-earthquake-source-targets.json
+data/building-code-auditor/source-landscape.json
+data/building-code-auditor/earthquake-safety-answerability-matrix.json
+data/building-code-auditor/audit-scope-test-cases.json
+
+2026-07-05T10:42:08.420363Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:42:08.425655Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+{"agent_id":"codex","quality_note":"I have the repo context and the classification skill instructions. Next I’m checking the live GitHub pages plus the local catalog entry so the statuses are grounded instead of guessed.","rows":[{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""} ,{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""},{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""},{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""},{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}]}
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/query-playbook.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Query Playbook
+
+Use this playbook to translate messy user language into useful workflow-search
+queries.
+
+## Normalize The Ask
+
+Extract these fields before searching:
+
+| Field | Meaning |
+| --- | --- |
+| Domain | healthcare, education, real estate, public evidence, legal, finance, geospatial, etc. |
+| Input | files, addresses, records, links, forms, tickets, photos, source lists, patient packets, listings, permits |
+| Output artifact | evidence packet, completed document, checklist, report, queue item, case note, decision memo |
+| Workflow pattern | evidence audit, document transformation, case intake, compliance support, queue processing, monitoring, human review |
+| Safety boundary | what the agent must not decide or claim |
+| Source type | public web, official records, internal files, APIs, databases, human-provided documents |
+| Human review | whether a person must approve, submit, certify, publish, or decide |
+
+When the user gives a vague phrase, infer these fields from examples and then
+state the inference briefly.
+
+## Workflow Pattern Map
+
+| User language | Pattern labels | Search angle |
+| --- | --- | --- |
+| "like my earthquake thing" | EvidenceAudit, PublicRecordsInvestigation, ComplianceBoundary, HumanReview, SourceAtlas | public evidence audit, OSINT, due diligence, hazard/geospatial evidence |
+| "patient data to documents" | DocumentTransformation, CaseIntake, HumanReview, ComplianceBoundary | healthcare document processing, referral packet, prior authorization, intake |
+| "education workflow" | EducationSupport, Assessment, TutorOps, CurriculumOps, CaseIntake | education agent workflow, tutoring agent, assessment workflow, student support |
+| "real estate workflow" | DueDiligence, Underwriting, EvidenceAudit, DocumentAbstraction | CRE due diligence, lease abstraction, underwriting agent skills |
+| "process many records" | WorkQueueOps, BatchOps, QueueReview | durable queue, batch workflow, checklist queue, review queue |
+| "watch for changes" | Monitoring, EventDrivenOps, Escalation | monitoring agent, alert workflow, source watch, filing/news monitor |
+| "human approves first" | HumanReview, ApprovalGate, SafeOutputs | human in the loop, approval workflow, review gate |
+| "what repo teaches types" | PatternRouter, WorkflowCatalog, SkillRegistry | agent workflow patterns, skill catalog, workflow templates |
+
+## Earthquake / Building Evidence Mapping
+
+Map "earthquake thing" to:
+
+- real-world public evidence audit;
+- deterministic source collection before agent synthesis;
+- bounded parallel source lanes for identity, official records, incidents/news,
+  contractor/developer/professional traces, geospatial/hazard context, and review;
+- validation gate for citation quality, source reachability, source limits, and
+  overclaim prevention;
+- manual-request handoff when official records are not publicly available;
+- human review before any safety, compliance, legal, engineering, or occupancy
+  conclusion.
+
+Useful search phrases:
+
+```text
+public evidence audit agent skill
+OSINT evidence workflow agent repo
+building permit due diligence workflow agent
+geospatial hazard evidence agent skill
+compliance boundary human review agent workflow
+real-world agent skill public records investigation
+```
+
+## Domain Query Seeds
+
+Healthcare:
+
+```text
+agent skills healthcare intake workflow
+healthcare referral packet agent workflow
+prior authorization document workflow agent
+medical document processing human review agent
+healthcare admin agent skills
+medical research skill library
+```
+
+Education:
+
+```text
+education agent workflow templates
+student support agent skill
+curriculum planning agent workflow
+assessment feedback agent workflow
+research assistant education skill
+```
+
+Real estate:
+
+```text
+real estate due diligence agent skill
+commercial real estate underwriting agent workflow
+lease abstraction agent skill
+property permit public records workflow agent
+real estate closing checklist agent
+```
+
+Multi-industry catalogs:
+
+```text
+multi industry AI agent workflow catalog
+agent skills healthcare real estate education
+AI agent templates healthcare education real estate
+Codex compatible agent skills catalog
+SKILL.md workflow packs industry
+```
+
+## Ranking Heuristic
+
+Score candidates higher when they have:
+
+- reusable skill/workflow package files;
+- explicit industry or workflow categories;
+- examples across healthcare, education, real estate, public evidence, legal, or
+  finance;
+- schemas, validators, reports, evidence logs, or human-review gates;
+- Codex/Claude/OpenClaw/OpenAI skill compatibility;
+- active maintenance or substantial community signal;
+- clear safety boundaries for regulated or high-consequence domains.
+
+Score lower when they are only a model demo, a generic chatbot, an app platform
+with no reusable workflow taxonomy, or a code-only agent workflow.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/output-template.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Output Template
+
+Use this shape when answering workflow-finder requests.
+
+## Short Answer
+
+Start with the strongest answer in one or two sentences:
+
+```text
+Closest match: [repo]. It is closest because [reason].
+For your workflow, treat it as [fit label], not [wrong role].
+```
+
+## Repo Table
+
+Return 3-7 matches unless the user asks for a longer list.
+
+| Repo | Fit | Workflow type it teaches | Why it matches |
+| --- | --- | --- | --- |
+| `[owner/repo](url)` | Codex-native / skill-package / inspiration / runtime / source taxonomy | EvidenceAudit, DocumentTransformation, CaseIntake, etc. | One concrete similarity |
+
+## Codex/ECC Read
+
+Include a brief recommendation:
+
+```text
+For Codex config packages, use [repo] as [role]. Keep ECC as the workflow
+contract. Do not make [platform/runtime] the source of truth unless you want that
+execution environment.
+```
+
+## Search Terms Used Or Suggested
+
+When useful, include 3-6 search phrases:
+
+```text
+public evidence audit agent skill
+real estate due diligence agent skill
+healthcare referral packet agent workflow
+```
+
+## Next Step
+
+End with a concrete next move:
+
+- inspect the top repo;
+- clone/read a specific folder;
+- build a local `workflow-pattern-router`;
+- refresh stars/current state;
+- create a new Codex workflow pack from the matched pattern.
+
+Keep tone concise. The user prefers direct repo recommendations over broad
+explanations.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/repo-catalog.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Repo Catalog
+
+Use this as a seed catalog, then supplement from local repo data or live search
+when needed.
+
+## Local Sources To Inspect First
+
+- `/Users/acecanacan/.codex/memories/extensions/ad_hoc/notes/2026-07-05T17-16-10+0800-codex-real-world-workflow-repos.md`
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`
+
+## Core Pattern And Skill References
+
+| Repo | Fit label | Study for |
+| --- | --- | --- |
+| `github/gh-aw` | pattern/router reference, optional runtime adapter | pattern router, named workflow patterns, GitHub Actions execution |
+| `agentskillexchange/skills` | Codex-compatible skill/package reference | multi-industry skill catalog shape |
+| `sickn33/antigravity-awesome-skills` | skill/package reference | large installable skill library, package conventions |
+| `ashishpatel26/500-AI-Agents-Projects` | inspiration catalog | many industry examples and use-case taxonomy |
+| `mergisi/awesome-openclaw-agents` | inspiration catalog / template catalog | multi-industry agent templates |
+| `VoltAgent/awesome-agent-skills` | skill directory | broad skill discovery and category grouping |
+| `agentskills/agentskills` | skill specification | portable skill package format |
+| `anthropics/skills` | official skill examples | SKILL.md structure and progressive disclosure |
+
+## Domain Packs
+
+| Repo | Domain | Study for |
+| --- | --- | --- |
+| `K-Dense-AI/scientific-agent-skills` | science, medicine, research | database-backed scientific and medical workflows |
+| `FreedomIntelligence/OpenClaw-Medical-Skills` | medicine | medical skill library structure |
+| `aipoch/medical-research-skills` | medical research | protocol, evidence, academic-writing workflow splits |
+| `Aperivue/medsci-skills` | medical publishing | skill-suite organization for manuscript workflows |
+| `Aperivue/verify-refs` | medical manuscript review | narrow audit-only citation verification |
+| `Aperivue/check-reporting` | reporting compliance | checklist status labels and guideline audits |
+| `ajhcs/healthcare-agents` | healthcare administration | admin workflow decomposition and role specialists |
+| `NVIDIA/digital-health-skills` | digital health | healthcare AI evaluation and metric-driven workflows |
+| `awslabs/hcls-agent-skills` | healthcare/life sciences | regulated HCLS skill packaging |
+| `ahacker-1/cre-agent-skills` | commercial real estate | underwriting, due diligence, financing, brokerage, closing |
+| `jivoi/awesome-osint` | public evidence/source taxonomy | OSINT, public records, geospatial/source discovery |
+| `zoharbabin/due-diligence-agents` | M&A/due diligence | cited multi-agent professional review |
+| `gs-ai/SYNINT` | OSINT/intelligence | evidence registry, chain of custody, forensic reporting |
+| `marieai/marie-ai` | document processing | OCR, extraction, classification, form/document pipelines |
+| `microsoft/content-processing-solution-accelerator` | document processing | extraction, schemas, confidence, human review |
+| `enescingoz/awesome-n8n-templates` | automation templates | real-world workflow examples; not Codex-native |
+| `ritik-prog/n8n-automation-templates-5000` | automation templates | large template corpus; not Codex-native |
+
+## Fit Labels
+
+- `Codex-native`: directly usable as or close to Codex skill/config package.
+- `skill/package reference`: useful package structure or reusable skill library.
+- `inspiration catalog`: good taxonomy/examples, but not directly installable.
+- `runtime/platform`: can execute workflows, but should not replace ECC/Codex
+  unless the user explicitly wants that runtime.
+- `source taxonomy`: good source list for evidence workflows, not a workflow
+  package by itself.
+
+## Known Guidance
+
+- If the user asks for "one repo that combines everything," show the closest
+  multi-industry catalogs and explain tradeoffs.
+- If the user asks for "popular," include current stars only after live
+  verification.
+- If the user is building Codex config packages, recommend Codex-compatible
+  skills and skill catalogs first. Treat app platforms and UI automators as
+  inspiration or optional adapters.
+- Do not force a single exact match when the ecosystem is fragmented. Recommend
+  a stack of references when that is more honest.
+
+
+exec
+/bin/zsh -lc 'rg -n "surface-0050|surface-0051|surface-0052|surface-0053|surface-0054|cre-agent-skills|industrial|underwriting" data reports' in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+reports/workflow-router.md:57:| Asset Management | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:58:| Brokerage | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:59:| CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport, ConfigPackage, SkillRegistry | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:60:| Capital Markets | ahacker-1/cre-agent-skills | real_estate, finance_or_crm | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:61:| Closing | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:62:| Document Ingestion | ahacker-1/cre-agent-skills | real_estate, document_processing | DueDiligence, EvidenceAudit, DocumentTransformation | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:63:| Due Diligence | ahacker-1/cre-agent-skills | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:64:| Financing | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:65:| Industrial | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:66:| Legal | ahacker-1/cre-agent-skills | real_estate, legal | DueDiligence, EvidenceAudit, CaseIntake, HumanReview | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:67:| Office | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:87:| Asset Management | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:88:| Brokerage | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:89:| CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport, ConfigPackage, SkillRegistry | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:90:| Capital Markets | ahacker-1/cre-agent-skills | real_estate, finance_or_crm | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:91:| Closing | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:92:| Document Ingestion | ahacker-1/cre-agent-skills | real_estate, document_processing | DueDiligence, EvidenceAudit, DocumentTransformation | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:93:| Due Diligence | ahacker-1/cre-agent-skills | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:94:| Financing | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:95:| Industrial | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:96:| Legal | ahacker-1/cre-agent-skills | real_estate, legal | DueDiligence, EvidenceAudit, CaseIntake, HumanReview | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:97:| Office | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:98:| Skill Index | ahacker-1/cre-agent-skills | real_estate | DueDiligence, EvidenceAudit, ConfigPackage, SkillRegistry | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router.md:171:| surface-0042 | Asset Management | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management |
+reports/workflow-router.md:172:| surface-0043 | Brokerage | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage |
+reports/workflow-router.md:173:| surface-0044 | CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | category_surface | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport, ConfigPackage, SkillRegistry | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence |
+reports/workflow-router.md:174:| surface-0045 | Capital Markets | ahacker-1/cre-agent-skills | category_surface | real_estate, finance_or_crm | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets |
+reports/workflow-router.md:175:| surface-0046 | Closing | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing |
+reports/workflow-router.md:176:| surface-0047 | Document Ingestion | ahacker-1/cre-agent-skills | category_surface | real_estate, document_processing | DueDiligence, EvidenceAudit, DocumentTransformation | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion |
+reports/workflow-router.md:177:| surface-0048 | Due Diligence | ahacker-1/cre-agent-skills | category_surface | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence |
+reports/workflow-router.md:178:| surface-0049 | Financing | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing |
+reports/workflow-router.md:179:| surface-0050 | Industrial | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial |
+reports/workflow-router.md:180:| surface-0051 | Legal | ahacker-1/cre-agent-skills | category_surface | real_estate, legal | DueDiligence, EvidenceAudit, CaseIntake, HumanReview | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal |
+reports/workflow-router.md:181:| surface-0052 | Office | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office |
+reports/workflow-router.md:182:| surface-0053 | Skill Index | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit, ConfigPackage, SkillRegistry | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md |
+reports/workflow-router.md:183:| surface-0054 | Underwriting | ahacker-1/cre-agent-skills | category_surface | real_estate, finance_or_crm | DueDiligence, EvidenceAudit | skill/package reference | 1 | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting |
+reports/workflow-router-table-revamp-sample.md:77:| Asset Management | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:78:| Brokerage | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:79:| CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, ComplianceSupport, ConfigPackage, SkillRegistry | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:80:| Capital Markets | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:81:| Closing | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:82:| Document Ingestion | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, DocumentTransformation | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:83:| Due Diligence | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, ComplianceSupport | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:84:| Financing | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:85:| Industrial | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:86:| Legal | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, CaseIntake, HumanReview | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:87:| Office | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:107:| Asset Management | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:108:| Brokerage | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:109:| CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, ComplianceSupport, ConfigPackage, SkillRegistry | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:110:| Capital Markets | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:111:| Closing | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:112:| Document Ingestion | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, DocumentTransformation | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:113:| Due Diligence | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, ComplianceSupport | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:114:| Financing | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:115:| Industrial | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:116:| Legal | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, CaseIntake, HumanReview | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:117:| Office | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:118:| Skill Index | ahacker-1/cre-agent-skills | DueDiligence, EvidenceAudit, ConfigPackage, SkillRegistry | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:191:| surface-0042 | Asset Management | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:192:| surface-0043 | Brokerage | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:193:| surface-0044 | CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | category_surface | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport, ConfigPackage, SkillRegistry | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:194:| surface-0045 | Capital Markets | ahacker-1/cre-agent-skills | category_surface | real_estate, finance_or_crm | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:195:| surface-0046 | Closing | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:196:| surface-0047 | Document Ingestion | ahacker-1/cre-agent-skills | category_surface | real_estate, document_processing | DueDiligence, EvidenceAudit, DocumentTransformation | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:197:| surface-0048 | Due Diligence | ahacker-1/cre-agent-skills | category_surface | real_estate, public_evidence | DueDiligence, EvidenceAudit, ComplianceSupport | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:198:| surface-0049 | Financing | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:199:| surface-0050 | Industrial | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:200:| surface-0051 | Legal | ahacker-1/cre-agent-skills | category_surface | real_estate, legal | DueDiligence, EvidenceAudit, CaseIntake, HumanReview | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:201:| surface-0052 | Office | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:202:| surface-0053 | Skill Index | ahacker-1/cre-agent-skills | category_surface | real_estate | DueDiligence, EvidenceAudit, ConfigPackage, SkillRegistry | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-router-table-revamp-sample.md:203:| surface-0054 | Underwriting | ahacker-1/cre-agent-skills | category_surface | real_estate, finance_or_crm | DueDiligence, EvidenceAudit | skill/package reference | 1 | expand only when query hits this domain or repo; inspect index/manifest then top leaf folders |
+reports/workflow-door-catalog.md:102:| surface-0042 | Asset Management | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management |
+reports/workflow-door-catalog.md:103:| surface-0043 | Brokerage | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage |
+reports/workflow-door-catalog.md:104:| surface-0044 | CRE Due Diligence plugin pack | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence |
+reports/workflow-door-catalog.md:105:| surface-0045 | Capital Markets | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets |
+reports/workflow-door-catalog.md:106:| surface-0046 | Closing | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing |
+reports/workflow-door-catalog.md:107:| surface-0047 | Document Ingestion | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion |
+reports/workflow-door-catalog.md:108:| surface-0048 | Due Diligence | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence |
+reports/workflow-door-catalog.md:109:| surface-0049 | Financing | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing |
+reports/workflow-door-catalog.md:110:| surface-0050 | Industrial | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial |
+reports/workflow-door-catalog.md:111:| surface-0051 | Legal | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal |
+reports/workflow-door-catalog.md:112:| surface-0052 | Office | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office |
+reports/workflow-door-catalog.md:113:| surface-0053 | Skill Index | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md |
+reports/workflow-door-catalog.md:114:| surface-0054 | Underwriting | ahacker-1/cre-agent-skills | EvidenceAudit | skill/package reference | 1 | public evidence, permit/title/source audits, due-diligence packet patterns | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting |
+reports/workflow-link-seed.md:25:| ahacker-1/cre-agent-skills | 13 | true | Inspected docs/SKILL-INDEX and plugin packs; captured 66 skill-file index and CRE workflow categories. |
+reports/workflow-link-seed.md:78:| wfseed-0042 | ahacker-1/cre-agent-skills | category | Asset Management | commercial real estate asset management | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management |
+reports/workflow-link-seed.md:79:| wfseed-0043 | ahacker-1/cre-agent-skills | category | Brokerage | brokerage workflows | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage |
+reports/workflow-link-seed.md:80:| wfseed-0044 | ahacker-1/cre-agent-skills | category | CRE Due Diligence plugin pack | real estate due diligence package | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence |
+reports/workflow-link-seed.md:81:| wfseed-0045 | ahacker-1/cre-agent-skills | category | Capital Markets | capital markets | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets |
+reports/workflow-link-seed.md:82:| wfseed-0046 | ahacker-1/cre-agent-skills | category | Closing | closing workflows | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing |
+reports/workflow-link-seed.md:83:| wfseed-0047 | ahacker-1/cre-agent-skills | category | Document Ingestion | document processing | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion |
+reports/workflow-link-seed.md:84:| wfseed-0048 | ahacker-1/cre-agent-skills | category | Due Diligence | real estate due diligence | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence |
+reports/workflow-link-seed.md:85:| wfseed-0049 | ahacker-1/cre-agent-skills | category | Financing | financing workflows | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing |
+reports/workflow-link-seed.md:86:| wfseed-0050 | ahacker-1/cre-agent-skills | category | Industrial | industrial CRE | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial |
+reports/workflow-link-seed.md:87:| wfseed-0051 | ahacker-1/cre-agent-skills | category | Legal | legal review | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal |
+reports/workflow-link-seed.md:88:| wfseed-0052 | ahacker-1/cre-agent-skills | category | Office | office CRE | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office |
+reports/workflow-link-seed.md:89:| wfseed-0053 | ahacker-1/cre-agent-skills | category | Skill Index | 66 CRE skills | high | true | https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md |
+reports/workflow-link-seed.md:90:| wfseed-0054 | ahacker-1/cre-agent-skills | category | Underwriting | underwriting | high | true | https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting |
+reports/six-agent-real-world-repos-directory.md:30:| Agent 4 | Finance, legal, compliance, insurance, government | Due diligence, contract review, claims, underwriting, AML, filings, policy ops |
+reports/six-agent-real-world-repos-directory.md:45:The best repos have a clear artifact: verification table, risk report, underwriting packet, incident report, course package, support routing decision, zoning result, DICOM output, audit packet, or generated PRD.
+reports/six-agent-real-world-repos-directory.md:94:| [ahacker-1/cre-agent-skills](https://github.com/ahacker-1/cre-agent-skills) | CRE underwriting, diligence, financing, brokerage, legal, closing | Standalone prompt/skill library | CRE workflow decomposition |
+reports/six-agent-real-world-repos-directory.md:96:| [hoangtng/real-estate-agents](https://github.com/hoangtng/real-estate-agents) | CMA, offers, underwriting, marketing, compliance | Agent personas plus `SKILL.md` deliverables | Very studyable agent + skill pairing |
+reports/six-agent-real-world-repos-directory.md:121:| [AstitvaAdrosonic/InsureIQ](https://github.com/AstitvaAdrosonic/InsureIQ) | Insurance underwriting submissions | Email intake, audit agent, risk agents, underwriter review | Strong intake-to-review chain |
+reports/six-agent-real-world-repos-directory.md:122:| [vijayyarabolu/insurance-underwriting-agent](https://github.com/vijayyarabolu/insurance-underwriting-agent) | Underwriting decision support | Deterministic hard stops plus LLM rationale | Regulated fail-closed pattern |
+reports/six-agent-real-world-repos-directory.md:202:- underwriting packet;
+data/agentic-repos/workflow-door-catalog.json:804:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:826:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-door-catalog.json:832:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:854:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-door-catalog.json:860:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:886:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-door-catalog.json:892:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:915:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-door-catalog.json:921:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:943:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-door-catalog.json:949:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:973:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-door-catalog.json:979:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1003:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-door-catalog.json:1009:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1031:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-door-catalog.json:1036:      "id": "surface-0050",
+data/agentic-repos/workflow-door-catalog.json:1037:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1059:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-door-catalog.json:1064:      "id": "surface-0051",
+data/agentic-repos/workflow-door-catalog.json:1065:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1090:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-door-catalog.json:1095:      "id": "surface-0052",
+data/agentic-repos/workflow-door-catalog.json:1096:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1118:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-door-catalog.json:1123:      "id": "surface-0053",
+data/agentic-repos/workflow-door-catalog.json:1124:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1148:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-door-catalog.json:1153:      "id": "surface-0054",
+data/agentic-repos/workflow-door-catalog.json:1154:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-door-catalog.json:1177:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:20:| `ahacker-1/cre-agent-skills` CRE Due Diligence plugin pack | strong | direct workflow source |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:21:| `ahacker-1/cre-agent-skills` Due Diligence | strong | direct workflow source |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:22:| `ahacker-1/cre-agent-skills` Document Ingestion | strong | direct workflow source |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:23:| `ahacker-1/cre-agent-skills` Legal | strong | direct workflow source |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:33:| 1 | Legal & Title Review | `ahacker-1/cre-agent-skills` | copy | Public records, ownership, liens, litigation, zoning, code violations, permits, occupancy certificates, sources, and uncertainty flags. |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:35:| 3 | Document Classifier | `ahacker-1/cre-agent-skills` | copy | Best evidence packet intake pattern: classify documents, find missing pieces, surface conflicts, and force human confirmation. |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:36:| 4 | Environmental Review | `ahacker-1/cre-agent-skills` | copy | Good source taxonomy, public database matrix, hazard context, missing-data protocol, and uncertainty flags. |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:37:| 5 | Physical Inspection Analyst | `ahacker-1/cre-agent-skills` | adapt | Building systems checklist and explicit boundary for structural, seismic, fire/life-safety, and engineering conclusions. |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:38:| 6 | Title & Survey Reviewer | `ahacker-1/cre-agent-skills` | adapt | Exception classification, cross-source validation, survey/title inconsistencies, risk flags, and human review. |
+reports/workflow-expansion-pilot-earthquake-public-evidence.md:40:| 8 | Risk Scoring | `ahacker-1/cre-agent-skills` | adapt | Severity labels, risk bands, escalation triggers, mitigation fields, and human materiality review. |
+data/agentic-repos/workflow-catalog-internal/agent-005.json:4:    "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:10:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:11:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:36:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:37:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:40:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:45:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:49:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:50:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:53:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:58:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:62:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:63:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:66:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:71:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:75:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:76:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:79:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:84:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:88:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:89:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:92:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:97:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:101:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:102:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:105:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:110:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:114:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:115:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:118:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:123:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:127:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:128:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:131:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:136:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:140:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:141:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:144:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:146:      "domain_hint": "industrial CRE",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:149:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:153:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:154:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:157:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:162:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:166:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:167:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:170:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:175:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:179:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:180:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:183:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:185:      "domain_hint": "underwriting",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:188:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:192:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:193:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:196:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-catalog-internal/agent-005.json:201:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-door-catalog.csv:30:surface-0042,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Asset Management,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management,True,high
+data/agentic-repos/workflow-door-catalog.csv:31:surface-0043,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Brokerage,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage,True,high
+data/agentic-repos/workflow-door-catalog.csv:32:surface-0044,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,CRE Due Diligence plugin pack,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate;public_evidence,DueDiligence;EvidenceAudit;ComplianceSupport;ConfigPackage;SkillRegistry,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",required before final action or conclusion,"must not make legal, medical, engineering, compliance, or safety conclusions without human review",https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence,True,high
+data/agentic-repos/workflow-door-catalog.csv:33:surface-0045,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Capital Markets,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate;finance_or_crm,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets,True,high
+data/agentic-repos/workflow-door-catalog.csv:34:surface-0046,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Closing,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing,True,high
+data/agentic-repos/workflow-door-catalog.csv:35:surface-0047,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Document Ingestion,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate;document_processing,DueDiligence;EvidenceAudit;DocumentTransformation,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion,True,high
+data/agentic-repos/workflow-door-catalog.csv:36:surface-0048,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Due Diligence,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate;public_evidence,DueDiligence;EvidenceAudit;ComplianceSupport,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",required before final action or conclusion,"must not make legal, medical, engineering, compliance, or safety conclusions without human review",https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence,True,high
+data/agentic-repos/workflow-door-catalog.csv:37:surface-0049,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Financing,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing,True,high
+data/agentic-repos/workflow-door-catalog.csv:38:surface-0050,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Industrial,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial,True,high
+data/agentic-repos/workflow-door-catalog.csv:39:surface-0051,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Legal,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate;legal,DueDiligence;EvidenceAudit;CaseIntake;HumanReview,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",required before final action or conclusion,"must not make legal, medical, engineering, compliance, or safety conclusions without human review",https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal,True,high
+data/agentic-repos/workflow-door-catalog.csv:40:surface-0052,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Office,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office,True,high
+data/agentic-repos/workflow-door-catalog.csv:41:surface-0053,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Skill Index,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate,DueDiligence;EvidenceAudit;ConfigPackage;SkillRegistry,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md,True,high
+data/agentic-repos/workflow-door-catalog.csv:42:surface-0054,ahacker-1/cre-agent-skills,Domain-Specific Workflow Packs,Underwriting,category_surface,Evidence / Due Diligence,real_estate,EvidenceAudit,real_estate;finance_or_crm,DueDiligence;EvidenceAudit,skill/package reference,1,high_value_needs_expansion,"public evidence, permit/title/source audits, due-diligence packet patterns","public records, source links, addresses, entity names, evidence files","evidence packet, due-diligence brief, caveated report",optional unless output affects a person or external system,keep as reference pattern until copied into an ECC contract,https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting,True,high
+data/agentic-repos/workflow-link-seed.raw.json:1851:        "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1857:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1858:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1883:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1884:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1887:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-link-seed.raw.json:1892:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1896:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1897:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1900:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-link-seed.raw.json:1905:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1909:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1910:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1913:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-link-seed.raw.json:1918:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1922:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1923:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1926:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-link-seed.raw.json:1931:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1935:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1936:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1939:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-link-seed.raw.json:1944:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1948:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1949:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1952:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-link-seed.raw.json:1957:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1961:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1962:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1965:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-link-seed.raw.json:1970:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1974:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1975:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1978:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-link-seed.raw.json:1983:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:1987:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1988:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:1991:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-link-seed.raw.json:1993:          "domain_hint": "industrial CRE",
+data/agentic-repos/workflow-link-seed.raw.json:1996:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:2000:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2001:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2004:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-link-seed.raw.json:2009:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:2013:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2014:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2017:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-link-seed.raw.json:2022:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:2026:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2027:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2030:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-link-seed.raw.json:2032:          "domain_hint": "underwriting",
+data/agentic-repos/workflow-link-seed.raw.json:2035:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.raw.json:2039:          "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2040:          "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.raw.json:2043:          "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-link-seed.raw.json:2048:          "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-router-surface-sample.json:1004:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1007:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-router-surface-sample.json:1028:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1031:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-router-surface-sample.json:1052:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1055:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-router-surface-sample.json:1080:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1083:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-router-surface-sample.json:1105:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1108:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-router-surface-sample.json:1129:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1132:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-router-surface-sample.json:1155:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1158:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-router-surface-sample.json:1181:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1184:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-router-surface-sample.json:1203:      "surface_id": "surface-0050",
+data/agentic-repos/workflow-router-surface-sample.json:1205:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1208:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-router-surface-sample.json:1227:      "surface_id": "surface-0051",
+data/agentic-repos/workflow-router-surface-sample.json:1229:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1232:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-router-surface-sample.json:1254:      "surface_id": "surface-0052",
+data/agentic-repos/workflow-router-surface-sample.json:1256:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1259:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-router-surface-sample.json:1278:      "surface_id": "surface-0053",
+data/agentic-repos/workflow-router-surface-sample.json:1280:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1283:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-router-surface-sample.json:1304:      "surface_id": "surface-0054",
+data/agentic-repos/workflow-router-surface-sample.json:1306:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router-surface-sample.json:1309:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-catalog-repo-seed.json:62:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-repo-seed.json:63:      "url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:104:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:105:      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:807:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:811:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-link-seed.json:813:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:823:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:827:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-link-seed.json:829:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:839:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:843:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-link-seed.json:845:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:855:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:859:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-link-seed.json:861:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:871:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:875:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-link-seed.json:877:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:887:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:891:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-link-seed.json:893:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:903:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:907:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-link-seed.json:909:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:919:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:923:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-link-seed.json:925:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:935:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:939:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-link-seed.json:940:      "domain_hint": "industrial CRE",
+data/agentic-repos/workflow-link-seed.json:941:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:951:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:955:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-link-seed.json:957:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:967:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:971:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-link-seed.json:973:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:983:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:987:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-link-seed.json:989:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-link-seed.json:999:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-link-seed.json:1003:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-link-seed.json:1004:      "domain_hint": "underwriting",
+data/agentic-repos/workflow-link-seed.json:1005:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-router.json:1047:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1051:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-router.json:1072:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1076:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-router.json:1097:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1101:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-router.json:1126:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1130:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-router.json:1152:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1156:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-router.json:1177:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1181:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-router.json:1204:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1208:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-router.json:1231:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1235:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-router.json:1254:      "surface_id": "surface-0050",
+data/agentic-repos/workflow-router.json:1256:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1260:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-router.json:1279:      "surface_id": "surface-0051",
+data/agentic-repos/workflow-router.json:1281:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1285:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-router.json:1307:      "surface_id": "surface-0052",
+data/agentic-repos/workflow-router.json:1309:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1313:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-router.json:1332:      "surface_id": "surface-0053",
+data/agentic-repos/workflow-router.json:1334:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1338:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-router.json:1359:      "surface_id": "surface-0054",
+data/agentic-repos/workflow-router.json:1361:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-router.json:1365:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:8:    "ahacker-1/cre-agent-skills: CRE Due Diligence plugin pack",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:9:    "ahacker-1/cre-agent-skills: Due Diligence",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:10:    "ahacker-1/cre-agent-skills: Document Ingestion",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:11:    "ahacker-1/cre-agent-skills: Legal",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:25:      "source_repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:26:      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/due-diligence/legal-title-review.md",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:47:      "source_repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:48:      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/document-ingestion/document-classifier.md",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:58:      "source_repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:59:      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/due-diligence/environmental-review.md",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:64:      "what_to_ignore": "US-specific environmental databases, cost assumptions, and acquisition underwriting language."
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:69:      "source_repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:70:      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/due-diligence/physical-inspection.md",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:75:      "what_to_ignore": "Renovation ROI, CapEx underwriting, and investment framing."
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:80:      "source_repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:81:      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/legal/title-survey-reviewer.md",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:102:      "source_repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:103:      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/claude-code-plugins/cre-due-diligence/knowledge/risk-scoring.md",
+data/agentic-repos/workflow-expansion-pilots/earthquake-public-evidence/summary.json:113:    "The strongest direct source for the earthquake/building evidence workflow is ahacker-1/cre-agent-skills, especially due-diligence, legal, and document-ingestion.",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-005.json:38:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-005.json:39:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-005.json:53:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-005.json:54:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-005.json:68:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-005.json:69:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/outputs/agent-005.md:1:{"agent_id":"codex","quality_note":"Read-only classification of 5 requested doors. Classifications preserve input workflow_id values and are limited to source-visible folders, files, README fallback evidence, or sparse-source caveats.","rows":[{"workflow_id":"surface-0125","workflow_name":"Moodle","source_repo":"ritik-prog/n8n-automation-templates-5000","source_url":"https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Moodle","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Moodle","evidence_basis":"category folder","domain":"education","workflow_type":"EducationSupport","real_life_job":"Find Moodle-oriented automation examples for scheduled, polling, webhook, and integration workflows around education systems.","input_contract":"student/course/admin context, Moodle records or events, education materials, assessment or support data","output_artifact":"lesson/support plan, assessment artifact, admin packet, or automation pattern note","trigger":"Use when catalog lookup needs Moodle or education-platform automation inspiration.","tools_or_sources":"Moodle folder lists education-labeled JSON templates including scheduled, polling, webhook, Moodle-to-Notion, Moodle-to-Google-Sheets, and OpenAI-to-Moodle examples.","validation_gate":"Confirm the specific JSON template contents before copying behavior; folder listing alone only proves template names and platform category.","human_review_boundary":"recommended before sending/publishing/writing externally","safety_boundary":"do not treat runtime platform as Codex architecture unless explicitly chosen","codex_package_relevance":"Runtime/platform inspiration only; useful for education workflow ideas, not as an ECC/Codex architecture source.","what_to_copy":"Copy the source taxonomy idea: Moodle as an education workflow door with trigger/integration examples.","what_to_ignore":"Ignore n8n runtime assumptions and any uninspected template internals until a specific JSON file is opened.","tags":"education, Moodle, n8n, automation templates, platform inspiration, sparse internals","confidence":"medium"},{"workflow_id":"surface-0038","workflow_name":"Security Operations & GRC Workflows","source_repo":"agentskillexchange/skills","source_url":"https://github.com/agentskillexchange/skills/blob/main/industries/security-operations-grc-workflows.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/agentskillexchange/skills/blob/main/industries/security-operations-grc-workflows.md","evidence_basis":"exact page","domain":"public_evidence","workflow_type":"EvidenceAudit","real_life_job":"Produce audit-ready security, governance, release-risk, policy-evidence, and investigation workflow packets from inspectable technical records.","input_contract":"public records, source links, addresses, entity names, evidence files, repository surfaces, logs, SBOMs, policy artifacts, dependency or configuration evidence","output_artifact":"evidence packet, due-diligence brief, caveated report, approval gate packet, SOC timeline, compliance artifact bundle","trigger":"Use when catalog lookup needs evidence-gated security operations, governance, approval, or compliance workflow patterns.","tools_or_sources":"The page names workflows for dependency and image scanning, secret and unsafe configuration discovery, risky action approval gates, SBOM/signature/vulnerability/event-log/policy artifacts, and SOC investigation packets.","validation_gate":"Require source URL, artifact presence, freshness, and human approval status checks before final conclusions or actions.","human_review_boundary":"required before final action or conclusion","safety_boundary":"must not make legal, medical, engineering, compliance, or safety conclusions without human review","codex_package_relevance":"Strong reference for evidence-gated workflow shape: collect, scan, route risk through approval, preserve policy evidence, and hand off remediation.","what_to_copy":"Copy the audit packet pattern, approval-gate framing, artifact checklist, and evidence-first language.","what_to_ignore":"Do not copy vendor-specific picks or operational claims without independently checking the underlying tools and context.","tags":"security operations, GRC, evidence audit, approval gates, compliance evidence, SOC, policy evidence","confidence":"high"},{"workflow_id":"surface-0042","workflow_name":"Asset Management","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management","evidence_basis":"category folder","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Support post-acquisition commercial real estate asset-management analysis across budgeting, variance, collections, renewals, lease-up, capex, NOI, hold/sell/refi, and quarterly review workflows.","input_contract":"property operating data, rent rolls, T-12 or budget files, variance records, renewal context, capex plans, ownership or investor reporting context","output_artifact":"evidence packet, due-diligence brief, caveated report, budget/variance review, capex tracker, NOI lever list, quarterly asset review memo","trigger":"Use when catalog lookup needs commercial real estate post-closing operations or asset-management workflow references.","tools_or_sources":"Exact folder lists nine asset-management skill files: annual operating budget, capex tracker, hold/sell/refi analyst, lease-up concessions, monthly variance, NOI improvement, quarterly review, renewal decision, and rent collection delinquency manager.","validation_gate":"Verify the specific skill file before adopting detailed behavior; folder evidence supports category and job coverage, not full internal workflow guarantees.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a CRE workflow catalog reference for operational analysis doors and output artifact names.","what_to_copy":"Copy the folder-level taxonomy and repeated-job labels for CRE asset operations.","what_to_ignore":"Ignore unverified financial recommendations, benchmark assumptions, and any platform-specific install behavior until individual files are inspected.","tags":"commercial real estate, asset management, operations, budgeting, variance, capex, NOI, evidence audit","confidence":"medium"},{"workflow_id":"surface-0043","workflow_name":"Brokerage","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage","evidence_basis":"category folder","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Support commercial real estate seller-side brokerage workflows from assignment intake and broker opinion of value through marketing, buyer process, bid leveling, negotiation brief, and PSA-to-close coordination.","input_contract":"property records, seller assignment context, market/comparable evidence, data-room materials, bid terms, buyer process notes, transaction documents","output_artifact":"evidence packet, due-diligence brief, caveated report, broker opinion of value, listing proposal, offering memorandum or teaser, bid-leveling summary, negotiation brief","trigger":"Use when catalog lookup needs commercial real estate brokerage or investment-sales workflow references.","tools_or_sources":"Exact folder lists brokerage skill files for assignment intake, broker opinion of value, buyer process and data room, call for offers and bid leveling, deal-term negotiation brief, listing proposal, OM/teaser, and PSA-to-close coordination.","validation_gate":"Verify the specific skill file and source evidence before adopting detailed behavior or valuation logic.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a CRE workflow catalog reference for brokerage transaction doors and artifact names.","what_to_copy":"Copy the transaction-stage taxonomy and artifact-oriented workflow names.","what_to_ignore":"Ignore unverified valuation, legal, negotiation, or marketing claims until the relevant skill and supporting evidence are inspected.","tags":"commercial real estate, brokerage, investment sales, BOV, data room, bid leveling, transaction coordination","confidence":"medium"},{"workflow_id":"surface-0044","workflow_name":"CRE Due Diligence plugin pack","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence","source_url_status":"canonicalized","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/claude-code-plugins/cre-due-diligence","evidence_basis":"README fallback","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Route commercial real estate due-diligence requests across rent roll, operating expense, market, physical, environmental, title, and tenant-credit review workflows.","input_contract":"public records, source links, addresses, entity names, evidence files, rent rolls, T-12 operating expenses, market data, physical reports, environmental materials, title/survey materials, tenant credit data","output_artifact":"evidence packet, due-diligence brief, caveated report, rent roll analysis, OpEx benchmark, market study, physical/environmental/title review, tenant credit review","trigger":"Use when catalog lookup needs a packaged CRE due-diligence reference rather than a single skill file.","tools_or_sources":"Original plugins path was not the repo path shown in the README. README identifies the canonical plugin path as claude-code-plugins/cre-due-diligence and describes 7 included skills: rent roll, OpEx, market, physical, environmental, title, and tenant credit.","validation_gate":"Open the canonical plugin folder or SKILL entry point before copying routing behavior; README fallback supports package identity and included skill categories.","human_review_boundary":"required before final action or conclusion","safety_boundary":"must not make legal, medical, engineering, compliance, or safety conclusions without human review","codex_package_relevance":"Relevant as a package-level CRE due-diligence catalog door and routing pattern, but should be translated into an ECC contract before reuse.","what_to_copy":"Copy the package grouping and due-diligence lane list as catalog metadata.","what_to_ignore":"Ignore the broken original path and do not import plugin mechanics or unstated due-diligence conclusions without canonical file inspection.","tags":"commercial real estate, due diligence, plugin pack, rent roll, OpEx, market study, environmental, title, tenant credit","confidence":"medium"}]}
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:9:    "id": "surface-0050",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:11:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:12:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:24:    "id": "surface-0051",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:26:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:27:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:39:    "id": "surface-0052",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:41:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:42:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:54:    "id": "surface-0053",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:56:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:57:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:69:    "id": "surface-0054",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:71:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-007.txt:72:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:11:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:12:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:26:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:27:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:41:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:42:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:56:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:57:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:71:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-006.txt:72:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:49:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:53:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:55:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:65:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:69:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:71:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:81:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:85:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:87:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:97:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:101:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:103:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:113:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:117:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:119:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:129:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:133:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:135:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:145:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:149:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:151:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:161:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:165:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:167:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:177:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:181:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:182:      "domain_hint": "industrial CRE",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-005.json:183:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-005.txt:41:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-005.txt:42:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-005.txt:56:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-005.txt:57:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-005.txt:71:    "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/prompts/agent-005.txt:72:    "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:6:      "id": "surface-0050",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:8:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:9:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:21:      "id": "surface-0051",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:23:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:24:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:36:      "id": "surface-0052",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:38:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:39:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:51:      "id": "surface-0053",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:53:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:54:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:66:      "id": "surface-0054",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:68:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-007.json:69:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:33:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:37:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:39:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:49:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:53:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:55:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:65:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:69:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:71:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:81:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:85:      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:86:      "domain_hint": "underwriting",
+data/agentic-repos/workflow-catalog-cli/prompts/agent-006.json:87:      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:8:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:9:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:23:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:24:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:38:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:39:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:53:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:54:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:68:      "repo": "ahacker-1/cre-agent-skills",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/chunks/agent-006.json:69:      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/manifest.json:119:        "surface-0050",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/manifest.json:120:        "surface-0051",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/manifest.json:121:        "surface-0052",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/manifest.json:122:        "surface-0053",
+data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5/manifest.json:123:        "surface-0054"
+
+2026-07-05T10:42:19.164554Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:42:19.168778Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+web search: 
+web search: https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial
+web search: 
+web search: https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office
+codex
+{"agent_id":"codex","quality_note":"Classified read-only from the exact GitHub pages where reachable, with local repo catalog used only as a consistency check.","rows":[{"workflow_id":"surface-0050","workflow_name":"Industrial","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial","evidence_basis":"category folder","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Support industrial commercial real estate diligence and underwriting workflows such as financing fit, investment committee memo preparation, lease abstract review, lease roster analysis, market study, physical inspection, tenant credit review, and underwriting model building.","input_contract":"property records, rent roll or lease roster, lease documents, market evidence, inspection details, tenant information, financing assumptions, source links, addresses, entity names, evidence files","output_artifact":"evidence packet, due-diligence brief, caveated report, financing-fit note, IC memo, lease abstract review, market study, physical inspection summary, tenant credit review, underwriting model support","trigger":"Use when catalog lookup needs industrial CRE evidence, diligence, lease, inspection, credit, financing, or underwriting reference patterns.","tools_or_sources":"Exact folder lists industrial skill files for financing fit, IC memo writer, lease abstract reviewer, lease roster analyst, market study, physical inspection, tenant credit analyst, and underwriting model builder.","validation_gate":"Verify the specific nested skill file and source evidence before copying detailed diligence, credit, inspection, or underwriting behavior into an ECC contract.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a category-level CRE workflow reference for industrial diligence and underwriting doors, but not a ready ECC workflow contract by itself.","what_to_copy":"Copy the category taxonomy and artifact names for industrial CRE diligence lanes.","what_to_ignore":"Do not infer legal, engineering, valuation, credit, or safety conclusions from the folder listing alone.","tags":"commercial real estate, industrial, due diligence, lease review, market study, physical inspection, tenant credit, underwriting","confidence":"medium"},{"workflow_id":"surface-0051","workflow_name":"Legal","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal","evidence_basis":"category folder","domain":"real_estate, legal","workflow_type":"EvidenceAudit, HumanReview","real_life_job":"Support CRE legal diligence coordination around estoppels, insurance, loan documents, purchase and sale agreements, title and survey review, and transfer documents.","input_contract":"PSA document, title commitment, survey, estoppel certificates, tenant list, rent roll, loan documents, insurance requirements, policies, entity details, deal terms, public records, source links, evidence files","output_artifact":"evidence packet, legal diligence checklist, caveated review brief, estoppel tracker, insurance compliance summary, loan document issue list, PSA review notes, title and survey review notes, transfer document preparation packet","trigger":"Use when catalog lookup needs CRE legal document review, title, survey, loan, insurance, estoppel, or closing-transfer reference patterns.","tools_or_sources":"Exact folder lists legal skill files for estoppel tracking, insurance coordination, loan document review, PSA review, title and survey review, and transfer document preparation.","validation_gate":"Require source document traceability and human review before any final legal, title, insurance, loan, or closing conclusion or action.","human_review_boundary":"required before final action or conclusion","safety_boundary":"must not make legal, medical, engineering, compliance, or safety conclusions without human review","codex_package_relevance":"Useful as a CRE legal diligence category reference with clear human-review needs before reuse in ECC.","what_to_copy":"Copy the legal diligence lane taxonomy and explicit review-gate posture.","what_to_ignore":"Do not copy behavior that appears to provide legal advice or final legal conclusions without a licensed human review boundary.","tags":"commercial real estate, legal diligence, title review, survey review, PSA, loan documents, estoppels, insurance, human review","confidence":"medium"},{"workflow_id":"surface-0052","workflow_name":"Office","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office","evidence_basis":"category folder","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Support office CRE diligence and underwriting workflows around financing fit, IC memo writing, lease abstract review, market and flight-to-quality study, rent roll and stacking plan analysis, rollover and occupancy cost analysis, tenant credit and exposure, and TI/LC underwriting model building.","input_contract":"office property records, rent roll, stacking plan, leases, tenant details, market evidence, financing assumptions, rollover schedules, occupancy cost data, TI/LC assumptions, source links, addresses, entity names, evidence files","output_artifact":"evidence packet, due-diligence brief, caveated report, financing-fit note, IC memo, lease abstract review, office market study, rent roll and stacking-plan analysis, rollover and occupancy-cost analysis, tenant credit and exposure review, TI/LC underwriting support","trigger":"Use when catalog lookup needs office CRE diligence, lease, tenant exposure, market, financing, or underwriting reference patterns.","tools_or_sources":"Exact folder lists office skill files for financing fit, IC memo writer, lease abstract reviewer, market and flight-to-quality study, rent roll and stacking-plan analyst, rollover and occupancy-cost analyst, tenant credit and exposure analyst, and TI/LC underwriting model builder.","validation_gate":"Verify nested skill content and source evidence before adopting detailed office-market, tenant-credit, lease, or underwriting logic.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a category-level CRE workflow reference for office asset diligence and underwriting doors.","what_to_copy":"Copy the office-specific diligence lane names and expected artifact categories.","what_to_ignore":"Do not infer actual market, credit, lease, financing, or valuation conclusions from the folder listing alone.","tags":"commercial real estate, office, due diligence, lease abstracts, stacking plan, market study, tenant credit, underwriting","confidence":"medium"},{"workflow_id":"surface-0053","workflow_name":"Skill Index","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md","evidence_basis":"exact page","domain":"real_estate","workflow_type":"EvidenceAudit, SkillRegistry","real_life_job":"Route CRE tasks to appropriate skill references by task type, required inputs, and paired knowledge bases across due diligence, underwriting, financing, legal, closing, and asset management workflows.","input_contract":"task description plus deal documents, rent roll data, operating statements, property address, reports, title and survey documents, loan documents, lender requirements, market data, and other evidence files named by the index entries","output_artifact":"workflow routing entry, skill-selection brief, evidence packet, due-diligence brief, caveated report, indexed task-to-input mapping","trigger":"Use when catalog lookup needs a CRE skill registry or router rather than a single category folder.","tools_or_sources":"Exact page states it is a quick reference to find the right skill, showing what each skill does, required inputs, and paired knowledge bases; visible sections include Due Diligence, Underwriting, Financing, Legal, Closing, and Asset Management.","validation_gate":"Use the index only for routing; inspect the selected skill file and verify source evidence before copying detailed behavior or conclusions.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"High as a catalog shape reference for task-to-skill routing and input-contract metadata in a Codex/ECC lookup catalog.","what_to_copy":"Copy the index structure: skill name, use-when statement, key inputs, and paired knowledge base columns.","what_to_ignore":"Do not treat index summaries as full workflow contracts or as sufficient evidence for regulated conclusions.","tags":"commercial real estate, skill index, workflow router, due diligence, underwriting, financing, legal, closing, asset management","confidence":"high"},{"workflow_id":"surface-0054","workflow_name":"Underwriting","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting","evidence_basis":"category folder","domain":"real_estate, finance_or_crm","workflow_type":"EvidenceAudit","real_life_job":"Support CRE underwriting workflows for financial model building, investment committee memo writing, and scenario analysis.","input_contract":"rent roll analysis, operating expense data, purchase price, financing terms, base case pro forma, assumption ranges, due-diligence outputs, underwriting outputs, deal thesis, public records, source links, addresses, entity names, evidence files","output_artifact":"evidence packet, due-diligence brief, caveated report, financial model support, pro forma, return calculation support, scenario analysis, IC memo","trigger":"Use when catalog lookup needs CRE underwriting, pro forma, scenario testing, or investment memo reference patterns.","tools_or_sources":"Exact folder lists underwriting skill files for financial model builder, IC memo writer, and scenario analyst; the skill index describes these as building a pro forma and returns, stress-testing scenarios, and writing an IC memo from DD and UW outputs.","validation_gate":"Validate all source assumptions and require human review before investment, financing, valuation, or external action decisions.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a compact category-level reference for CRE underwriting workflow doors and downstream artifact names.","what_to_copy":"Copy the underwriting lane split among model building, scenario analysis, and IC memo synthesis.","what_to_ignore":"Do not copy unstated financial advice, valuation decisions, lending decisions, or investment recommendations without a review gate.","tags":"commercial real estate, underwriting, pro forma, financial model, scenario analysis, IC memo, due diligence","confidence":"medium"}]}
+2026-07-05T10:42:55.782951Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable BIGQUERY_MCP_BEARER_TOKEN for MCP server 'bigquery' is not set
+2026-07-05T10:42:55.783196Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:42:55.783616Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:42:55.784389Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable GHL_PRIVATE_INTEGRATION_TOKEN for MCP server 'ghl' is not set
+2026-07-05T10:42:55.785035Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:42:55.785931Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+tokens used
+65,674
+{"agent_id":"codex","quality_note":"Classified read-only from the exact GitHub pages where reachable, with local repo catalog used only as a consistency check.","rows":[{"workflow_id":"surface-0050","workflow_name":"Industrial","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial","evidence_basis":"category folder","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Support industrial commercial real estate diligence and underwriting workflows such as financing fit, investment committee memo preparation, lease abstract review, lease roster analysis, market study, physical inspection, tenant credit review, and underwriting model building.","input_contract":"property records, rent roll or lease roster, lease documents, market evidence, inspection details, tenant information, financing assumptions, source links, addresses, entity names, evidence files","output_artifact":"evidence packet, due-diligence brief, caveated report, financing-fit note, IC memo, lease abstract review, market study, physical inspection summary, tenant credit review, underwriting model support","trigger":"Use when catalog lookup needs industrial CRE evidence, diligence, lease, inspection, credit, financing, or underwriting reference patterns.","tools_or_sources":"Exact folder lists industrial skill files for financing fit, IC memo writer, lease abstract reviewer, lease roster analyst, market study, physical inspection, tenant credit analyst, and underwriting model builder.","validation_gate":"Verify the specific nested skill file and source evidence before copying detailed diligence, credit, inspection, or underwriting behavior into an ECC contract.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a category-level CRE workflow reference for industrial diligence and underwriting doors, but not a ready ECC workflow contract by itself.","what_to_copy":"Copy the category taxonomy and artifact names for industrial CRE diligence lanes.","what_to_ignore":"Do not infer legal, engineering, valuation, credit, or safety conclusions from the folder listing alone.","tags":"commercial real estate, industrial, due diligence, lease review, market study, physical inspection, tenant credit, underwriting","confidence":"medium"},{"workflow_id":"surface-0051","workflow_name":"Legal","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal","evidence_basis":"category folder","domain":"real_estate, legal","workflow_type":"EvidenceAudit, HumanReview","real_life_job":"Support CRE legal diligence coordination around estoppels, insurance, loan documents, purchase and sale agreements, title and survey review, and transfer documents.","input_contract":"PSA document, title commitment, survey, estoppel certificates, tenant list, rent roll, loan documents, insurance requirements, policies, entity details, deal terms, public records, source links, evidence files","output_artifact":"evidence packet, legal diligence checklist, caveated review brief, estoppel tracker, insurance compliance summary, loan document issue list, PSA review notes, title and survey review notes, transfer document preparation packet","trigger":"Use when catalog lookup needs CRE legal document review, title, survey, loan, insurance, estoppel, or closing-transfer reference patterns.","tools_or_sources":"Exact folder lists legal skill files for estoppel tracking, insurance coordination, loan document review, PSA review, title and survey review, and transfer document preparation.","validation_gate":"Require source document traceability and human review before any final legal, title, insurance, loan, or closing conclusion or action.","human_review_boundary":"required before final action or conclusion","safety_boundary":"must not make legal, medical, engineering, compliance, or safety conclusions without human review","codex_package_relevance":"Useful as a CRE legal diligence category reference with clear human-review needs before reuse in ECC.","what_to_copy":"Copy the legal diligence lane taxonomy and explicit review-gate posture.","what_to_ignore":"Do not copy behavior that appears to provide legal advice or final legal conclusions without a licensed human review boundary.","tags":"commercial real estate, legal diligence, title review, survey review, PSA, loan documents, estoppels, insurance, human review","confidence":"medium"},{"workflow_id":"surface-0052","workflow_name":"Office","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office","evidence_basis":"category folder","domain":"real_estate","workflow_type":"EvidenceAudit","real_life_job":"Support office CRE diligence and underwriting workflows around financing fit, IC memo writing, lease abstract review, market and flight-to-quality study, rent roll and stacking plan analysis, rollover and occupancy cost analysis, tenant credit and exposure, and TI/LC underwriting model building.","input_contract":"office property records, rent roll, stacking plan, leases, tenant details, market evidence, financing assumptions, rollover schedules, occupancy cost data, TI/LC assumptions, source links, addresses, entity names, evidence files","output_artifact":"evidence packet, due-diligence brief, caveated report, financing-fit note, IC memo, lease abstract review, office market study, rent roll and stacking-plan analysis, rollover and occupancy-cost analysis, tenant credit and exposure review, TI/LC underwriting support","trigger":"Use when catalog lookup needs office CRE diligence, lease, tenant exposure, market, financing, or underwriting reference patterns.","tools_or_sources":"Exact folder lists office skill files for financing fit, IC memo writer, lease abstract reviewer, market and flight-to-quality study, rent roll and stacking-plan analyst, rollover and occupancy-cost analyst, tenant credit and exposure analyst, and TI/LC underwriting model builder.","validation_gate":"Verify nested skill content and source evidence before adopting detailed office-market, tenant-credit, lease, or underwriting logic.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a category-level CRE workflow reference for office asset diligence and underwriting doors.","what_to_copy":"Copy the office-specific diligence lane names and expected artifact categories.","what_to_ignore":"Do not infer actual market, credit, lease, financing, or valuation conclusions from the folder listing alone.","tags":"commercial real estate, office, due diligence, lease abstracts, stacking plan, market study, tenant credit, underwriting","confidence":"medium"},{"workflow_id":"surface-0053","workflow_name":"Skill Index","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md","evidence_basis":"exact page","domain":"real_estate","workflow_type":"EvidenceAudit, SkillRegistry","real_life_job":"Route CRE tasks to appropriate skill references by task type, required inputs, and paired knowledge bases across due diligence, underwriting, financing, legal, closing, and asset management workflows.","input_contract":"task description plus deal documents, rent roll data, operating statements, property address, reports, title and survey documents, loan documents, lender requirements, market data, and other evidence files named by the index entries","output_artifact":"workflow routing entry, skill-selection brief, evidence packet, due-diligence brief, caveated report, indexed task-to-input mapping","trigger":"Use when catalog lookup needs a CRE skill registry or router rather than a single category folder.","tools_or_sources":"Exact page states it is a quick reference to find the right skill, showing what each skill does, required inputs, and paired knowledge bases; visible sections include Due Diligence, Underwriting, Financing, Legal, Closing, and Asset Management.","validation_gate":"Use the index only for routing; inspect the selected skill file and verify source evidence before copying detailed behavior or conclusions.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"High as a catalog shape reference for task-to-skill routing and input-contract metadata in a Codex/ECC lookup catalog.","what_to_copy":"Copy the index structure: skill name, use-when statement, key inputs, and paired knowledge base columns.","what_to_ignore":"Do not treat index summaries as full workflow contracts or as sufficient evidence for regulated conclusions.","tags":"commercial real estate, skill index, workflow router, due diligence, underwriting, financing, legal, closing, asset management","confidence":"high"},{"workflow_id":"surface-0054","workflow_name":"Underwriting","source_repo":"ahacker-1/cre-agent-skills","source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting","evidence_basis":"category folder","domain":"real_estate, finance_or_crm","workflow_type":"EvidenceAudit","real_life_job":"Support CRE underwriting workflows for financial model building, investment committee memo writing, and scenario analysis.","input_contract":"rent roll analysis, operating expense data, purchase price, financing terms, base case pro forma, assumption ranges, due-diligence outputs, underwriting outputs, deal thesis, public records, source links, addresses, entity names, evidence files","output_artifact":"evidence packet, due-diligence brief, caveated report, financial model support, pro forma, return calculation support, scenario analysis, IC memo","trigger":"Use when catalog lookup needs CRE underwriting, pro forma, scenario testing, or investment memo reference patterns.","tools_or_sources":"Exact folder lists underwriting skill files for financial model builder, IC memo writer, and scenario analyst; the skill index describes these as building a pro forma and returns, stress-testing scenarios, and writing an IC memo from DD and UW outputs.","validation_gate":"Validate all source assumptions and require human review before investment, financing, valuation, or external action decisions.","human_review_boundary":"optional unless output affects a person or external system","safety_boundary":"keep as reference pattern until copied into an ECC contract","codex_package_relevance":"Useful as a compact category-level reference for CRE underwriting workflow doors and downstream artifact names.","what_to_copy":"Copy the underwriting lane split among model building, scenario analysis, and IC memo synthesis.","what_to_ignore":"Do not copy unstated financial advice, valuation decisions, lending decisions, or investment recommendations without a review gate.","tags":"commercial real estate, underwriting, pro forma, financial model, scenario analysis, IC memo, due diligence","confidence":"medium"}]}

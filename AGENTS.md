@@ -50,31 +50,32 @@ Raise the conflict if it affects behavior or validation.
 
 ## Canonical Workflow Surface
 
-`skills/` is the canonical workflow surface.
+`.agents/skills/` is the only canonical skill surface. Codex discovers repo
+skills from this path, and skills are invoked explicitly with `$skill-name`.
 
-Add new reusable workflow contributions under `skills/` first. Only create or
-update `commands/` when a legacy slash-command shim is required for migration or
-cross-harness parity.
-
-Codex app slash prompts live under `.codex/prompts/`. Keep them thin: they must
-route to the canonical repo-local skill and must not contain independent
-workflow logic.
+Do not create active workflow command shims or custom prompt files in this repo.
+Custom prompt files are deprecated for this workflow system and must not be used
+as the source of truth.
 
 Expected skill shape:
 
 ```text
-skills/
-  skill-name/
-    SKILL.md
-    agents/openai.yaml
-    references/
-    scripts/
-    assets/
+.agents/
+  skills/
+    skill-name/
+      SKILL.md
+      agents/openai.yaml
+      references/
+      scripts/
+      assets/
 ```
 
 Only create optional folders when they are genuinely needed. Keep `SKILL.md`
 focused and concise; move detailed, conditional, or domain-heavy material into
 directly linked reference files.
+
+`SKILL.md` must include `name` and `description` metadata. The folder name must
+match the frontmatter `name`.
 
 ## Allowed File Types
 
@@ -93,9 +94,9 @@ line, such as health, education, finance, research, or another domain the user
 names.
 
 The `workflow-foundry` project is the meta project for maintaining this repo's
-root workflow system: skills, command shims, JSON helpers, registry entries, and
-validation behavior. Use it when an edit changes how this repo builds or
-connects workflows.
+root workflow system: skills, JSON helpers, registry entries, and validation
+behavior. Use it when an edit changes how this repo builds or connects
+workflows.
 
 ## AGENTS.md Boundaries
 
@@ -148,6 +149,7 @@ bar. It also records the project `AGENTS.md` path.
 - explicit next action required
 - ECC concepts applied
 - context snapshot for resume
+- phase guard for approved artifact writes
 - owner or session
 - linked files/artifacts
 - acceptance checks
@@ -209,7 +211,7 @@ Task operation has only two user-facing modes:
   its saved snapshot.
 
 Tasks may be normal `workflow-change` tasks or `tracker-maintenance` tasks.
-Use `target:tracker` with `/initiate-task` when the task exists to edit tracker
+Use `target:tracker` with `$initiate-task` when the task exists to edit tracker
 state such as `project.json`, `tasks/index.json`, task JSON files, or
 `registry/agents-md.json`. Creating the tracker-maintenance task itself is the
 only allowed bootstrap tracker write; further tracker edits must continue that
@@ -246,14 +248,21 @@ Before implementing a workflow artifact:
 4. Find the closest Matt Pocock upstream skill or local reference.
 5. Read the relevant ECC guidance for workflow, skill, or prompt-chain design.
 6. Define the acceptance checks before writing the implementation.
-7. Build the smallest verifiable version.
-8. Validate with tests, fixtures, linting, scripts, or a manual eval as
+7. Confirm the selected task's `phase_guard.approved_artifacts` allows the
+   artifact path for the current Matt phase.
+8. Build the smallest verifiable version.
+9. Validate with tests, fixtures, linting, scripts, or a manual eval as
    appropriate.
-9. Update the project tracker.
-10. Review the output against ECC and the Matt Pocock reference before
+10. Update the project tracker.
+11. Review the output against ECC and the Matt Pocock reference before
     finalizing.
 
 Do not skip the reference-reading step because the change seems small.
+
+If a task is still at `matt_phase: "intake"`, do not create implementation
+artifacts such as scripts, HTML files, skills, tests, or workflow outputs.
+Tracker bootstrap writes are allowed only to create the tracker-maintenance task
+itself. After that, artifact writes require an explicit phase guard approval.
 
 ## Skill Creation Rules
 

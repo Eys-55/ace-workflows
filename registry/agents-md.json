@@ -26,6 +26,19 @@
         "workflow skill connection guidance",
         "validation surface ownership notes"
       ]
+    },
+    {
+      "path": "projects/real-life-workflows/AGENTS.md",
+      "role": "project-domain",
+      "scope": "projects/real-life-workflows",
+      "owning_project": "real-life-workflows",
+      "live": true,
+      "allowed_content": [
+        "project domain behavior",
+        "project vocabulary",
+        "project source rules",
+        "project agent workflow guidance"
+      ]
     }
   ]
 }

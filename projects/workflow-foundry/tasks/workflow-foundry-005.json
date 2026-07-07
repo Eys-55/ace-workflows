@@ -1,0 +1,184 @@
+{
+  "task_id": "workflow-foundry-005",
+  "project_slug": "workflow-foundry",
+  "title": "Create dark-mode project task tracker UI",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "code-review",
+  "explicit_next_action_required": true,
+  "summary": "Create a small Astro-generated, completely read-only tracker under workflow-foundry that helps review all repo projects and their JSON task state, includes light/dark mode and current-project-only toggles, and does not replace the canonical project/task JSON source of truth.",
+  "acceptance_criteria": [
+    "grilling identifies the intended operator workflow and the project/task fields the tracker must surface",
+    "the PRD defines the HTML tracker data source, light/dark mode toggle behavior, and completely read-only boundaries",
+    "the UI shows all projects by default and includes a toggle or filter to view only the current project",
+    "grilling resolves whether connected-to-JSON means a generated snapshot or a runtime app/server that reads JSON",
+    "the implementation surface is Astro static generation scoped to the workflow-foundry project",
+    "issues split the UI, data loading, validation, and review work into independently implementable slices",
+    "the implemented tracker renders projects, tasks, status, task kind, Matt phase, next action, and linked artifacts from repo JSON state",
+    "the tracker is validated with a deterministic fixture or script and does not introduce Python"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry state, all non-done tasks, and Matt/ECC workflow references before shaping or implementing the dark-mode HTML tracker.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "references/matt-pocock-skills.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md",
+      "projects/workflow-foundry/artifacts/prds/workflow-foundry-005-astro-tracker.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-001-astro-shell.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-002-all-projects.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-003-view-controls.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-004-validation-build.md",
+      "scripts/query-workflow-state.mjs",
+      "scripts/validate-workflow-state.mjs"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "code-review",
+    "approved_artifacts": [
+      {
+        "path": "projects/workflow-foundry/tracker/.gitignore",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to implement the Astro tracker inside workflow-foundry.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/package.json",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to implement the Astro tracker inside workflow-foundry.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/package-lock.json",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to install Astro dependencies for the workflow-foundry tracker.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/astro.config.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to implement the Astro tracker inside workflow-foundry.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to implement JSON loading and validation for the Astro tracker.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/src/pages/index.astro",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to implement the Astro tracker page inside workflow-foundry.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to add test coverage for the Astro tracker data seam.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/tests/generated-output.test.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to add generated-output verification for the Astro tracker.",
+        "approved_at": "2026-07-06"
+      }
+    ],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-004"
+  ],
+  "linked_artifacts": [
+    "projects/workflow-foundry/artifacts/prds/workflow-foundry-005-astro-tracker.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-001-astro-shell.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-002-all-projects.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-003-view-controls.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-005-issue-004-validation-build.md",
+    "projects/workflow-foundry/tracker/.gitignore",
+    "projects/workflow-foundry/tracker/package.json",
+    "projects/workflow-foundry/tracker/package-lock.json",
+    "projects/workflow-foundry/tracker/astro.config.mjs",
+    "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
+    "projects/workflow-foundry/tracker/src/pages/index.astro",
+    "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
+    "projects/workflow-foundry/tracker/tests/generated-output.test.mjs"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-06",
+      "event": "Created intake task for a dark-mode HTML project/task tracker UI."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Moved to grilling and recorded user requirement: tracker should be a small HTML file with a toggle between dark mode and light mode."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Recorded user requirement: tracker must be completely read-only and must not edit project or task JSON from the browser."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Recorded user requirement: tracker should show all projects by default and include a toggle/filter to view only the current project."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Recorded design fork: user suspects a different framework may be needed if the tracker should stay connected to JSON at runtime."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Recorded framework discussion: Astro is the recommended lightweight static-generation direction if the tracker remains a generated read-only snapshot; lightweight React/Vite remains an option if runtime app behavior becomes more important."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Resolved framework and placement: use Astro for the generated read-only tracker and keep it inside the workflow-foundry project."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Wrote PRD for the Astro-generated read-only project/task tracker and moved task to PRD phase with issues as the next action."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Published four local issue artifacts for Astro shell, all-project rendering, view controls, and validation/build workflow; moved task to issues phase with implement as the next action."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Moved to implement and approved Astro tracker package, config, data loader, page, test, lockfile, and local ignore artifacts after user said to build it."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Approved generated-output test artifact to verify representative content in the built Astro tracker snapshot."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Implemented the Astro read-only tracker, data loader, package scripts, data tests, generated-output test, and local ignore rules; verification, audit, workflow validation, and dev-server response checks passed."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Updated snapshot to include workflow-foundry-006 after adding the foundry expansion discovery intake task."
+    }
+  ],
+  "created_at": "2026-07-06",
+  "updated_at": "2026-07-06"
+}

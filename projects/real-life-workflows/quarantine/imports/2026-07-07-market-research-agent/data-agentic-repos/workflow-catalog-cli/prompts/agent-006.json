@@ -1,0 +1,203 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-006",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0051",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Legal",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+      "domain_hint": "legal review",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Legal"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0052",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Office",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+      "domain_hint": "office CRE",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Office"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0053",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Skill Index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+      "domain_hint": "66 CRE skills",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Skill Index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0054",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Underwriting",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+      "domain_hint": "underwriting",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Underwriting"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0055",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Evidence and compliance vocabulary",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "domain_hint": "public evidence, compliance support, earthquake-adjacent due diligence",
+      "source_index_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Education use cases",
+        "Evidence and compliance vocabulary",
+        "Healthcare use cases",
+        "README taxonomy",
+        "Real Estate use cases"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0056",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "JSON-LD context",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/api-evangelist/use-cases/tree/main/use-cases.jsonld",
+      "domain_hint": "structured vocabulary",
+      "source_index_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "JSON-LD context"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0057",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "apis.yml manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/api-evangelist/use-cases/blob/main/apis.yml",
+      "domain_hint": "API/use-case manifest",
+      "source_index_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "apis.yml manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0058",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Agents directory",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/agents",
+      "domain_hint": "working agent implementations",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agents directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0059",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Agno Examples",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/agno-examples",
+      "domain_hint": "agent examples",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agno Examples"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0060",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "AutoGen Notebooks",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/AutoGen-Examples",
+      "domain_hint": "multi-agent notebooks",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "AutoGen Notebooks"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

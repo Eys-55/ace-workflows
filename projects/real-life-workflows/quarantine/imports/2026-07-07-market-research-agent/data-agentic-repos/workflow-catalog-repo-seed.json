@@ -1,0 +1,97 @@
+{
+  "title": "Workflow Catalog Repo Seed",
+  "snapshot_date": "2026-07-05",
+  "scope": "The 17 repos explicitly selected by the user for the real-world workflow catalog sweep.",
+  "agent_plan": {
+    "phase_1": "Six inside-Codex agents collect workflow, skill, template, and lane links.",
+    "phase_2": "Confirm seed completeness before CLI classification.",
+    "phase_3": "External Codex CLI agents classify at most 10 workflow links each using gpt-5.5 low reasoning."
+  },
+  "repos": [
+    {
+      "repo": "sickn33/antigravity-awesome-skills",
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages"
+    },
+    {
+      "repo": "agentskillexchange/skills",
+      "url": "https://github.com/agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages"
+    },
+    {
+      "repo": "tinh2/skills-hub-registry",
+      "url": "https://github.com/tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages"
+    },
+    {
+      "repo": "danielrosehill/Useful-AI-Agent-Skills",
+      "url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills",
+      "cluster": "Best Matches For Codex Config Packages"
+    },
+    {
+      "repo": "msitarzewski/agency-agents",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs"
+    },
+    {
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs"
+    },
+    {
+      "repo": "mergisi/awesome-openclaw-agents",
+      "url": "https://github.com/mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs"
+    },
+    {
+      "repo": "jim-schwoebel/awesome_ai_agents",
+      "url": "https://github.com/jim-schwoebel/awesome_ai_agents",
+      "cluster": "Big Multi-Industry Agent Catalogs"
+    },
+    {
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs"
+    },
+    {
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs"
+    },
+    {
+      "repo": "ahacker-1/cre-agent-skills",
+      "url": "https://github.com/ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs"
+    },
+    {
+      "repo": "CaseMark/skills",
+      "url": "https://github.com/CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs"
+    },
+    {
+      "repo": "indranilbanerjee/contentforge",
+      "url": "https://github.com/indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs"
+    },
+    {
+      "repo": "marieai/marie-ai",
+      "url": "https://github.com/marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs"
+    },
+    {
+      "repo": "enescingoz/awesome-n8n-templates",
+      "url": "https://github.com/enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos"
+    },
+    {
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "url": "https://github.com/ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos"
+    },
+    {
+      "repo": "api-evangelist/use-cases",
+      "url": "https://github.com/api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos"
+    }
+  ]
+}

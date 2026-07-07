@@ -1,0 +1,48 @@
+{
+  "fixture_type": "high_stakes",
+  "raw_request": "I want to understand compliance workflows for healthcare privacy.",
+  "intake_question": "What type of work or workflow are you trying to understand?",
+  "understanding_target": "Healthcare privacy compliance workflow patterns",
+  "markdown_packet_intent": "Create a reader-first Markdown packet that explains compliance workflow patterns without making legal, medical, or privacy conclusions.",
+  "high_stakes_human_boundary": true,
+  "categories": [
+    {
+      "name": "Direct Matches",
+      "recommendations": [
+        {
+          "workflow_name": "PHI Handling Review",
+          "why_it_matters": "It captures the human-review boundary around sensitive health information and prevents casual workflow copying from becoming compliance advice.",
+          "why_it_is_here": "The request directly concerns healthcare privacy and compliance workflow understanding.",
+          "what_it_does": "Identifies sensitive inputs, review boundaries, escalation points, and documentation expectations for privacy-sensitive work.",
+          "source_link": "https://example.invalid/phi-handling-review",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "phi-handling-review"
+        }
+      ]
+    },
+    {
+      "name": "Strong Adjacent Matches",
+      "recommendations": []
+    },
+    {
+      "name": "Supporting Building Blocks",
+      "recommendations": [
+        {
+          "workflow_name": "Access Log Review",
+          "why_it_matters": "Audit-log workflows can support privacy operations without claiming that a system is compliant.",
+          "why_it_is_here": "Access review is a supporting workflow for healthcare privacy operations.",
+          "what_it_does": "Reviews access events, records anomalies, and routes suspicious cases to a human reviewer.",
+          "source_link": "https://example.invalid/access-log-review",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-door-catalog.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "access-log-review"
+        }
+      ]
+    },
+    {
+      "name": "Maybe Useful",
+      "recommendations": []
+    }
+  ]
+}

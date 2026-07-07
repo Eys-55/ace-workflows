@@ -1,0 +1,32 @@
+[
+  {
+    "id": "surface-0055",
+    "door": "Evidence and compliance vocabulary",
+    "repo": "api-evangelist/use-cases",
+    "source_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+    "primary_category": "Source Taxonomy / Vocabulary",
+    "primary_domain": "public_evidence",
+    "primary_pattern": "EvidenceAudit",
+    "fit": "source taxonomy",
+    "browse_use": "domain vocabulary, use-case naming, source taxonomy for future workflow labels",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0057",
+    "door": "apis.yml manifest",
+    "repo": "api-evangelist/use-cases",
+    "source_url": "https://github.com/api-evangelist/use-cases/blob/main/apis.yml",
+    "primary_category": "Source Taxonomy / Vocabulary",
+    "primary_domain": "legal",
+    "primary_pattern": "CaseIntake",
+    "fit": "source taxonomy",
+    "browse_use": "domain vocabulary, use-case naming, source taxonomy for future workflow labels",
+    "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+    "output_artifact_hint": "matched router surface and expansion plan",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  }
+]

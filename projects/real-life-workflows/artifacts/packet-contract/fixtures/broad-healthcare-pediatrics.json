@@ -1,0 +1,68 @@
+{
+  "fixture_type": "broad",
+  "raw_request": "I want to understand healthcare pediatrics workflows.",
+  "intake_question": "What type of work or workflow are you trying to understand?",
+  "understanding_target": "Healthcare pediatrics workflow landscape",
+  "markdown_packet_intent": "Create a broad reader-first Markdown packet with multiple relevant workflow patterns and clear why-it-matters summaries.",
+  "categories": [
+    {
+      "name": "Direct Matches",
+      "recommendations": [
+        {
+          "workflow_name": "Pediatric Referral Review",
+          "why_it_matters": "It shows how pediatric requests move from intake to clinical or administrative review.",
+          "why_it_is_here": "The workflow directly matches pediatrics and referral-style healthcare operations.",
+          "what_it_does": "Reviews incoming pediatric referral details, checks missing fields, and routes the request for next action.",
+          "source_link": "https://example.invalid/pediatric-referral-review",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "pediatric-referral-review"
+        },
+        {
+          "workflow_name": "Pediatric Scheduling Coordination",
+          "why_it_matters": "It captures the operational work of matching urgency, provider availability, family constraints, and documentation readiness.",
+          "why_it_is_here": "Scheduling is a recurring pediatrics workflow adjacent to intake and patient operations.",
+          "what_it_does": "Turns a request into a scheduled appointment while tracking missing prerequisites and family communication needs.",
+          "source_link": "https://example.invalid/pediatric-scheduling-coordination",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-door-catalog.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "pediatric-scheduling-coordination"
+        }
+      ]
+    },
+    {
+      "name": "Strong Adjacent Matches",
+      "recommendations": [
+        {
+          "workflow_name": "Insurance Prior Authorization Intake",
+          "why_it_matters": "It is often a blocking workflow around pediatric care access even when it is not clinically pediatric-specific.",
+          "why_it_is_here": "Prior authorization is strongly adjacent to pediatric referral and scheduling workflows.",
+          "what_it_does": "Collects payer requirements, assembles evidence, tracks status, and escalates missing documentation.",
+          "source_link": "https://example.invalid/prior-authorization-intake",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "prior-authorization-intake"
+        }
+      ]
+    },
+    {
+      "name": "Supporting Building Blocks",
+      "recommendations": [
+        {
+          "workflow_name": "Clinical Document Completeness Check",
+          "why_it_matters": "Many healthcare workflows fail because required documents or fields are missing before review.",
+          "why_it_is_here": "Document completeness supports referral, scheduling, and authorization workflows.",
+          "what_it_does": "Checks a packet for required forms, dates, signatures, attachments, and unresolved gaps.",
+          "source_link": "https://example.invalid/clinical-document-completeness",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "clinical-document-completeness-check"
+        }
+      ]
+    },
+    {
+      "name": "Maybe Useful",
+      "recommendations": []
+    }
+  ]
+}

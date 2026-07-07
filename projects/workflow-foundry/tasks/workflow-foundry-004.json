@@ -1,0 +1,105 @@
+{
+  "task_id": "workflow-foundry-004",
+  "project_slug": "workflow-foundry",
+  "title": "Maintain workflow tracker state",
+  "task_kind": "tracker-maintenance",
+  "status": "todo",
+  "matt_phase": "intake",
+  "explicit_next_action_required": true,
+  "summary": "Track auditable maintenance of the workflow-foundry JSON tracker itself, including task index consistency, task JSON updates, registry alignment, and validation behavior.",
+  "acceptance_criteria": [
+    "tracker edits are made through a tracker-maintenance task",
+    "tasks/index.json and task JSON files remain consistent",
+    "all non-done task context snapshots include current tracker preload paths",
+    "registry/agents-md.json remains aligned with live AGENTS.md files",
+    "workflow state validation passes after tracker changes"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry state and every non-done task before maintaining the tracker itself.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "none",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-002"
+  ],
+  "linked_artifacts": [
+    "registry/agents-md.json",
+    "projects/real-life-workflows/project.json",
+    "projects/real-life-workflows/tasks/index.json",
+    "projects/real-life-workflows/tasks/real-life-workflows-001.json",
+    "projects/real-life-workflows/tasks/real-life-workflows-002.json",
+    "projects/workflow-foundry/project.json",
+    "projects/workflow-foundry/tasks/index.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+    "scripts/validate-workflow-state.mjs"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-06",
+      "event": "Created tracker-maintenance task for maintaining the workflow-foundry tracker itself."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Tracked skills-only surface migration metadata and validator enforcement updates."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Removed premature tracker HTML validator because this task remains at intake and has no approved implement artifact."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Tracked creation of workflow-foundry-005 and refreshed non-done task preload snapshots."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-006 and refreshed non-done task preload snapshots."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Linked real-life-workflows project scaffold tracker files while setting up the new project without initiating its first task."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Linked real-life-workflows-001 tracker files after quarantining market-research-agent workflow catalog and skill candidates."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Linked real-life-workflows-002 tracker file after initiating the door catalog audit and properization planning task."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-007 for the requested GitHub checkpoint and refreshed non-done task preload snapshots."
+    }
+  ],
+  "created_at": "2026-07-06",
+  "updated_at": "2026-07-07"
+}

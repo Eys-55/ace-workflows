@@ -1,0 +1,17 @@
+{
+  "name": "workflow-foundry-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev --host 127.0.0.1",
+    "test": "npm run test:data",
+    "test:data": "node --test tests/workflow-state.test.mjs",
+    "test:output": "node --test tests/generated-output.test.mjs",
+    "verify": "npm run test:data && npm run build && npm run test:output"
+  },
+  "dependencies": {
+    "astro": "^7.0.6"
+  }
+}

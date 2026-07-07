@@ -9,7 +9,6 @@ rules, validation, and repo-wide safety. Do not redefine those mechanics here.
 Use this project for maintenance of the repo workflow system itself:
 
 - workflow skill connection vocabulary
-- slash shim compatibility expectations
 - JSON helper script source rules
 - registry and validation surface ownership notes
 - repo-control project handoff expectations

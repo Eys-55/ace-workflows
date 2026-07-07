@@ -9,7 +9,7 @@
   "summary": "Tighten the existing workflow skills so setup, help, review, initiate, and continue connect through explicit handoffs, live registry state, and enforceable JSON validation.",
   "acceptance_criteria": [
     "workflow-foundry project state exists and validates",
-    "workflow help shows the connected command path",
+    "workflow help shows the connected skill path",
     "setup hands off to initiate for new projects and review for existing projects",
     "initiate delegates missing project setup instead of inventing separate scaffold behavior",
     "query helper can print a single project snapshot",
@@ -36,27 +36,34 @@
       "projects/workflow-foundry/tasks/workflow-foundry-001.json",
       "projects/workflow-foundry/tasks/workflow-foundry-002.json",
       "projects/workflow-foundry/tasks/workflow-foundry-003.json",
-      "skills/workflow-help/SKILL.md",
-      "skills/setup-workflow-project/SKILL.md",
-      "skills/review-project-state/SKILL.md",
-      "skills/initiate-task/SKILL.md",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      ".agents/skills/workflow-help/SKILL.md",
+      ".agents/skills/setup-workflow-project/SKILL.md",
+      ".agents/skills/review-project-state/SKILL.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md",
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs"
     ]
+  },
+  "phase_guard": {
+    "selected_next_action": "none",
+    "approved_artifacts": [],
+    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [],
   "linked_artifacts": [
     "AGENTS.md",
     "registry/agents-md.json",
-    "commands/workflow-help.md",
-    "commands/setup-workflow-project.md",
-    "commands/initiate-task.md",
-    "commands/continue-task.md",
-    "skills/workflow-help/SKILL.md",
-    "skills/setup-workflow-project/SKILL.md",
-    "skills/review-project-state/SKILL.md",
-    "skills/initiate-task/SKILL.md",
+    ".agents/skills/workflow-help/SKILL.md",
+    ".agents/skills/setup-workflow-project/SKILL.md",
+    ".agents/skills/review-project-state/SKILL.md",
+    ".agents/skills/initiate-task/SKILL.md",
+    ".agents/skills/continue-task/SKILL.md",
     "scripts/query-workflow-state.mjs",
     "scripts/validate-workflow-state.mjs"
   ],
@@ -72,6 +79,26 @@
     {
       "date": "2026-07-06",
       "event": "Updated snapshot to include workflow-foundry-003 after adding Codex app slash prompt shims."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Updated linked artifacts to include .agents/skills discoverable skill entrypoints."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Updated snapshot to include workflow-foundry-004 after adding tracker-maintenance task for tracker upkeep."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Migrated connected flow tracking to skills-only invocation and removed obsolete command/prompt surface artifacts."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Updated snapshot to include workflow-foundry-005 after adding the dark-mode tracker UI intake task."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Updated snapshot to include workflow-foundry-006 after adding the foundry expansion discovery intake task."
     }
   ],
   "created_at": "2026-07-06",

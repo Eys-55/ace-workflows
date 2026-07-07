@@ -1,0 +1,4343 @@
+{
+  "generated_at": "2026-07-05",
+  "source": "data/agentic-repos/workflow-link-seed.json",
+  "purpose": "Fast router over workflow surfaces; expand matching doors lazily with agents only after user approval.",
+  "surface_count": 171,
+  "rows": [
+    {
+      "surface_id": "surface-0001",
+      "seed_id": "wfseed-0001",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "All skills audit export",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/CaseMark/skills/blob/main/audit/export/all-skills.json",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0002",
+      "seed_id": "wfseed-0002",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Capital skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/capital",
+      "domain_tags": [
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0003",
+      "seed_id": "wfseed-0003",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Case development skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev",
+      "domain_tags": [
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0004",
+      "seed_id": "wfseed-0004",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Case setup",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev/setup",
+      "domain_tags": [
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0005",
+      "seed_id": "wfseed-0005",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Finance skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/finance",
+      "domain_tags": [
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0006",
+      "seed_id": "wfseed-0006",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Legal skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/legal",
+      "domain_tags": [
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0007",
+      "seed_id": "wfseed-0007",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Medical skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/med",
+      "domain_tags": [
+        "healthcare"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0008",
+      "seed_id": "wfseed-0008",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "OCR",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev/ocr",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0009",
+      "seed_id": "wfseed-0009",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Redline",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev/redline",
+      "domain_tags": [
+        "document_processing",
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation",
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0010",
+      "seed_id": "wfseed-0010",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Root skill",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/CaseMark/skills/blob/main/SKILL.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0011",
+      "seed_id": "wfseed-0011",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Search",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev/search",
+      "domain_tags": [
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0012",
+      "seed_id": "wfseed-0012",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Skill spec",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/CaseMark/skills/blob/main/spec/SKILL_SPEC.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0013",
+      "seed_id": "wfseed-0013",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Skill template",
+      "surface_level": "template_or_package",
+      "source_url": "https://github.com/CaseMark/skills/blob/main/template/SKILL.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0014",
+      "seed_id": "wfseed-0014",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Transcription",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev/transcription",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0015",
+      "seed_id": "wfseed-0015",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Vaults",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/CaseMark/skills/tree/main/casedev/vaults",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0016",
+      "seed_id": "wfseed-0016",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Medical document workflows",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills",
+      "domain_tags": [
+        "healthcare",
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview",
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0017",
+      "seed_id": "wfseed-0017",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Plugin manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/openclaw.plugin.json",
+      "domain_tags": [
+        "healthcare"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0018",
+      "seed_id": "wfseed-0018",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "README Skills Overview",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/README.md",
+      "domain_tags": [
+        "healthcare"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0019",
+      "seed_id": "wfseed-0019",
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Generated skills catalog",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/docs/skills.md",
+      "domain_tags": [
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "ResearchOps",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0020",
+      "seed_id": "wfseed-0020",
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Literature and paper workflows",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills",
+      "domain_tags": [
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "ResearchOps",
+        "HumanReview"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0021",
+      "seed_id": "wfseed-0021",
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "README Available Skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "domain_tags": [
+        "healthcare",
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview",
+        "ResearchOps",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0022",
+      "seed_id": "wfseed-0022",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "AI Agency Operations & FDE Workflows",
+      "surface_level": "industry_lane",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/industries/ai-agency-operations.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "WorkflowSurface"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0023",
+      "seed_id": "wfseed-0023",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Browser Automation",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/categories/browser-automation",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0024",
+      "seed_id": "wfseed-0024",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Categories index",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/categories/README.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0025",
+      "seed_id": "wfseed-0025",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Codex manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/codex.json",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "Codex-native or Codex-adjacent",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0026",
+      "seed_id": "wfseed-0026",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Coordinate multi-agent workflows with Ruflo",
+      "surface_level": "skill_package",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/skills/coordinate-multi-agent-claude-code-and-codex-workflows-with-ruflo",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "Codex-native or Codex-adjacent",
+      "expand_priority": 3,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0027",
+      "seed_id": "wfseed-0027",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Data Platform & Analytics Engineering",
+      "surface_level": "industry_lane",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/industries/data-platform-analytics-engineering.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "WorkflowSurface"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0028",
+      "seed_id": "wfseed-0028",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Developer Tools",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/categories/developer-tools",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0029",
+      "seed_id": "wfseed-0029",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Full Catalog",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/CATALOG.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0030",
+      "seed_id": "wfseed-0030",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Industry collections index",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/industries/README.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0031",
+      "seed_id": "wfseed-0031",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Infrastructure, SRE & Incident Operations",
+      "surface_level": "industry_lane",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/industries/infrastructure-sre-incident-operations.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "Monitoring"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0032",
+      "seed_id": "wfseed-0032",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "JSON Index",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/skills.json",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0033",
+      "seed_id": "wfseed-0033",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "OpenClaw manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/openclaw.json",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0034",
+      "seed_id": "wfseed-0034",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Orchestrate review-first multi-agent development work with Kandev",
+      "surface_level": "skill_package",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/skills/orchestrate-review-first-multi-agent-development-work-with-kandev",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0035",
+      "seed_id": "wfseed-0035",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Research & Scraping",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/categories/research-scraping",
+      "domain_tags": [
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "ResearchOps"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0036",
+      "seed_id": "wfseed-0036",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Run academic literature review and paper-output workflows with Aut Sci Write",
+      "surface_level": "skill_package",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write",
+      "domain_tags": [
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "ResearchOps",
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0037",
+      "seed_id": "wfseed-0037",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Security & Verification",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/categories/security-verification",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0038",
+      "seed_id": "wfseed-0038",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Security Operations & GRC Workflows",
+      "surface_level": "industry_lane",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/industries/security-operations-grc-workflows.md",
+      "domain_tags": [
+        "public_evidence"
+      ],
+      "workflow_pattern_tags": [
+        "EvidenceAudit",
+        "ComplianceSupport"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0039",
+      "seed_id": "wfseed-0039",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Skill spec",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/spec/SKILL_SPEC.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0040",
+      "seed_id": "wfseed-0040",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Skill template",
+      "surface_level": "template_or_package",
+      "source_url": "https://github.com/agentskillexchange/skills/blob/main/template/SKILL.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0041",
+      "seed_id": "wfseed-0041",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Templates & Workflows",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/agentskillexchange/skills/tree/main/categories/templates-workflows",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0042",
+      "seed_id": "wfseed-0042",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Asset Management",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0043",
+      "seed_id": "wfseed-0043",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Brokerage",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0044",
+      "seed_id": "wfseed-0044",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "CRE Due Diligence plugin pack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+      "domain_tags": [
+        "real_estate",
+        "public_evidence"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit",
+        "ComplianceSupport",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0045",
+      "seed_id": "wfseed-0045",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Capital Markets",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+      "domain_tags": [
+        "real_estate",
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0046",
+      "seed_id": "wfseed-0046",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Closing",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0047",
+      "seed_id": "wfseed-0047",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Document Ingestion",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+      "domain_tags": [
+        "real_estate",
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit",
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0048",
+      "seed_id": "wfseed-0048",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Due Diligence",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+      "domain_tags": [
+        "real_estate",
+        "public_evidence"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit",
+        "ComplianceSupport"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0049",
+      "seed_id": "wfseed-0049",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Financing",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0050",
+      "seed_id": "wfseed-0050",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Industrial",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0051",
+      "seed_id": "wfseed-0051",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Legal",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+      "domain_tags": [
+        "real_estate",
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit",
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0052",
+      "seed_id": "wfseed-0052",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Office",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0053",
+      "seed_id": "wfseed-0053",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Skill Index",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0054",
+      "seed_id": "wfseed-0054",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Underwriting",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+      "domain_tags": [
+        "real_estate",
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0055",
+      "seed_id": "wfseed-0055",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Evidence and compliance vocabulary",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "domain_tags": [
+        "public_evidence"
+      ],
+      "workflow_pattern_tags": [
+        "EvidenceAudit",
+        "ComplianceSupport",
+        "HumanReview"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "source taxonomy",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0056",
+      "seed_id": "wfseed-0056",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "JSON-LD context",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/api-evangelist/use-cases/tree/main/use-cases.jsonld",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "source taxonomy",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0057",
+      "seed_id": "wfseed-0057",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "apis.yml manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/api-evangelist/use-cases/blob/main/apis.yml",
+      "domain_tags": [
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "CaseIntake",
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "source taxonomy",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0058",
+      "seed_id": "wfseed-0058",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Agents directory",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/agents",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0059",
+      "seed_id": "wfseed-0059",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Agno Examples",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/agno-examples",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0060",
+      "seed_id": "wfseed-0060",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "AutoGen Notebooks",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/AutoGen-Examples",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0061",
+      "seed_id": "wfseed-0061",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "CrewAI Examples",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/crewAI-examples",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0062",
+      "seed_id": "wfseed-0062",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "CrewAI MCP Course",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/crewAI-MCP-Course",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0063",
+      "seed_id": "wfseed-0063",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Industry Use Cases",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "domain_tags": [
+        "healthcare",
+        "real_estate",
+        "education",
+        "legal",
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview",
+        "DueDiligence",
+        "EvidenceAudit",
+        "EducationSupport",
+        "CaseIntake"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0064",
+      "seed_id": "wfseed-0064",
+      "repo": "danielrosehill/Useful-AI-Agent-Skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Scope and Curation Rules",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills/blob/main/README.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0065",
+      "seed_id": "wfseed-0065",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "AI Research/RAG/Data Analysis",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI Research & RAG & Data Analysis",
+      "domain_tags": [
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "ResearchOps",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0066",
+      "seed_id": "wfseed-0066",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Gmail/Email",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail & Email",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0067",
+      "seed_id": "wfseed-0067",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Google Drive/Sheets",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Google Drive & Sheets",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0068",
+      "seed_id": "wfseed-0068",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "HR/Recruitment",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR & Recruitment",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0069",
+      "seed_id": "wfseed-0069",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Notion",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Notion",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0070",
+      "seed_id": "wfseed-0070",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "OpenAI and LLMs",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/OpenAI & LLMs",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0071",
+      "seed_id": "wfseed-0071",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "PDF Document Processing",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/PDF & Document Processing",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0072",
+      "seed_id": "wfseed-0072",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "README Catalog",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0073",
+      "seed_id": "wfseed-0073",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Slack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Slack",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0074",
+      "seed_id": "wfseed-0074",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Social Media",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Social Media",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0075",
+      "seed_id": "wfseed-0075",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Telegram",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Telegram",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0076",
+      "seed_id": "wfseed-0076",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "WhatsApp",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/WhatsApp",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0077",
+      "seed_id": "wfseed-0077",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "WordPress",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/WordPress",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0078",
+      "seed_id": "wfseed-0078",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "docs/index.md",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/docs/index.md",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0079",
+      "seed_id": "wfseed-0079",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "llms.txt",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/llms.txt",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0080",
+      "seed_id": "wfseed-0080",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "AGENTS instructions",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/blob/main/AGENTS.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0081",
+      "seed_id": "wfseed-0081",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Commands directory",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/commands",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0082",
+      "seed_id": "wfseed-0082",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Education industry pack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/education",
+      "domain_tags": [
+        "education"
+      ],
+      "workflow_pattern_tags": [
+        "EducationSupport"
+      ],
+      "input_contract_hint": "student/course/admin context, materials, assessment data",
+      "output_artifact_hint": "lesson/support plan, assessment artifact, admin packet",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0083",
+      "seed_id": "wfseed-0083",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Healthcare industry pack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/healthcare",
+      "domain_tags": [
+        "healthcare"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0084",
+      "seed_id": "wfseed-0084",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Legal industry pack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/legal",
+      "domain_tags": [
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "CaseIntake",
+        "HumanReview"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0085",
+      "seed_id": "wfseed-0085",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Pharma industry pack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/pharma",
+      "domain_tags": [
+        "healthcare"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview"
+      ],
+      "input_contract_hint": "patient/referral/source documents, forms, notes",
+      "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0086",
+      "seed_id": "wfseed-0086",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "README skill catalog",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0087",
+      "seed_id": "wfseed-0087",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Real estate industry pack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/real-estate",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0088",
+      "seed_id": "wfseed-0088",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Skills directory",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0089",
+      "seed_id": "wfseed-0089",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Templates",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/templates",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0090",
+      "seed_id": "wfseed-0090",
+      "repo": "jim-schwoebel/awesome_ai_agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Real Estate Agents",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/jim-schwoebel/awesome_ai_agents/blob/main/README.md",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0091",
+      "seed_id": "wfseed-0091",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Agentic document intelligence docs",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0092",
+      "seed_id": "wfseed-0092",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Core query pipeline",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/core",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0093",
+      "seed_id": "wfseed-0093",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "DAG workflows",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/workflows",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0094",
+      "seed_id": "wfseed-0094",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Document pipelines guide",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/blob/main/docs/document-pipelines.md",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0095",
+      "seed_id": "wfseed-0095",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Executor pipeline",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/executor",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0096",
+      "seed_id": "wfseed-0096",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Executor template",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/executor/template",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0097",
+      "seed_id": "wfseed-0097",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Extract Engine",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/extract",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0098",
+      "seed_id": "wfseed-0098",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Flows guide",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/blob/main/docs/flows.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0099",
+      "seed_id": "wfseed-0099",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Form extraction",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/examples/form-extraction",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0100",
+      "seed_id": "wfseed-0100",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Invoice processing",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/examples/invoice-processing",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0101",
+      "seed_id": "wfseed-0101",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Marie MCP",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/mcp",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0102",
+      "seed_id": "wfseed-0102",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Orchestrate flow",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/orchestrate",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0103",
+      "seed_id": "wfseed-0103",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Project template",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/template",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0104",
+      "seed_id": "wfseed-0104",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Query planners",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/query_planner",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0105",
+      "seed_id": "wfseed-0105",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Template matching",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/tree/main/marie/template_matching",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0106",
+      "seed_id": "wfseed-0106",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "surface_name": "Workspaces",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/marieai/marie-ai/blob/main/docs/workspaces.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0107",
+      "seed_id": "wfseed-0107",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Claude skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/skills/claude",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0108",
+      "seed_id": "wfseed-0108",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Configs",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/configs",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0109",
+      "seed_id": "wfseed-0109",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Gemma skills",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/skills/gemma",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0110",
+      "seed_id": "wfseed-0110",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Memory wiki templates",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/memory-wiki",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0111",
+      "seed_id": "wfseed-0111",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Quickstart",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/QUICKSTART.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0112",
+      "seed_id": "wfseed-0112",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "README Catalog",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0113",
+      "seed_id": "wfseed-0113",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "USE-CASES",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md",
+      "domain_tags": [
+        "healthcare",
+        "real_estate",
+        "education",
+        "public_evidence",
+        "legal"
+      ],
+      "workflow_pattern_tags": [
+        "HealthcareAdmin",
+        "ComplianceSupport",
+        "HumanReview",
+        "DueDiligence",
+        "EvidenceAudit",
+        "EducationSupport",
+        "CaseIntake"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0114",
+      "seed_id": "wfseed-0114",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "agents category index",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/agents/README.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0115",
+      "seed_id": "wfseed-0115",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "agents.json",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/agents.json",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0116",
+      "seed_id": "wfseed-0116",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "skills README",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/skills/README.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0117",
+      "seed_id": "wfseed-0117",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Divisions manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/msitarzewski/agency-agents/blob/main/divisions.json",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0118",
+      "seed_id": "wfseed-0118",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Engineering division",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/msitarzewski/agency-agents/tree/main/agents/engineering",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0119",
+      "seed_id": "wfseed-0119",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Specialized division",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/msitarzewski/agency-agents/tree/main/agents/specialized",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0120",
+      "seed_id": "wfseed-0120",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Strategy playbooks",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/msitarzewski/agency-agents/tree/main/strategy",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0121",
+      "seed_id": "wfseed-0121",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "surface_name": "Tools manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/msitarzewski/agency-agents/blob/main/tools.json",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "inspiration catalog",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0122",
+      "seed_id": "wfseed-0122",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "CRM",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/CRM",
+      "domain_tags": [
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0123",
+      "seed_id": "wfseed-0123",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Google",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Google",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0124",
+      "seed_id": "wfseed-0124",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "HubSpot",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/HubSpot",
+      "domain_tags": [
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0125",
+      "seed_id": "wfseed-0125",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Moodle",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Moodle",
+      "domain_tags": [
+        "education"
+      ],
+      "workflow_pattern_tags": [
+        "EducationSupport",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "student/course/admin context, materials, assessment data",
+      "output_artifact_hint": "lesson/support plan, assessment artifact, admin packet",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0126",
+      "seed_id": "wfseed-0126",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Notion",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Notion",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0127",
+      "seed_id": "wfseed-0127",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "OpenAI",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/OpenAI",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0128",
+      "seed_id": "wfseed-0128",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Salesforce",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Salesforce",
+      "domain_tags": [
+        "finance_or_crm"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0129",
+      "seed_id": "wfseed-0129",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Security Monitoring",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "Monitoring",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0130",
+      "seed_id": "wfseed-0130",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Slack",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Slack",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0131",
+      "seed_id": "wfseed-0131",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Templates based on platforms lane",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0132",
+      "seed_id": "wfseed-0132",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "Zillow",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Zillow",
+      "domain_tags": [
+        "real_estate"
+      ],
+      "workflow_pattern_tags": [
+        "DueDiligence",
+        "EvidenceAudit",
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 1,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0133",
+      "seed_id": "wfseed-0133",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "n8n advance lane",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/n8n advance",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0134",
+      "seed_id": "wfseed-0134",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "n8n_2000_workflows lane",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/n8n_2000_workflows",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0135",
+      "seed_id": "wfseed-0135",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "surface_name": "workflows by Zie619 lane",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/workflows by Zie619",
+      "domain_tags": [
+        "automation"
+      ],
+      "workflow_pattern_tags": [
+        "QueueProcessing",
+        "AutomationTemplate"
+      ],
+      "input_contract_hint": "event trigger, app credentials, records, message/document source",
+      "output_artifact_hint": "automation run, notification, transformed record, queued task",
+      "human_review_boundary": "recommended before sending/publishing/writing externally",
+      "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen",
+      "codex_fit": "runtime/platform inspiration",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0136",
+      "seed_id": "wfseed-0136",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "AAS Agent & MCP Builder",
+      "surface_level": "template_or_package",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-agent-mcp-builder",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0137",
+      "seed_id": "wfseed-0137",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "AAS Security Engineer",
+      "surface_level": "template_or_package",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-security-engineer",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0138",
+      "seed_id": "wfseed-0138",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "AAS Web App Builder",
+      "surface_level": "template_or_package",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-web-app-builder",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0139",
+      "seed_id": "wfseed-0139",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Bundles index",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/bundles.md",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "PatternRouter",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0140",
+      "seed_id": "wfseed-0140",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Design a DDD Core Domain",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/data/workflows.json",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "WorkflowSurface"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0141",
+      "seed_id": "wfseed-0141",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Full skill catalog",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/CATALOG.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0142",
+      "seed_id": "wfseed-0142",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Machine-readable bundles",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/data/bundles.json",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0143",
+      "seed_id": "wfseed-0143",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Plugin marketplace manifest",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "Codex-native or Codex-adjacent",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0144",
+      "seed_id": "wfseed-0144",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Skills index",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0145",
+      "seed_id": "wfseed-0145",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "Workflows index",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/workflows.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "WorkflowSurface"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0146",
+      "seed_id": "wfseed-0146",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "plugins/",
+      "surface_level": "template_or_package",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0147",
+      "seed_id": "wfseed-0147",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "skills/",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0148",
+      "seed_id": "wfseed-0148",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/analyze",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/analysis/analyze",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0149",
+      "seed_id": "wfseed-0149",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/arch-review",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/review/arch-review",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0150",
+      "seed_id": "wfseed-0150",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/build",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/build/build",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0151",
+      "seed_id": "wfseed-0151",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/devops",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/deploy/devops",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0152",
+      "seed_id": "wfseed-0152",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/document",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/docs/document",
+      "domain_tags": [
+        "document_processing"
+      ],
+      "workflow_pattern_tags": [
+        "DocumentTransformation",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "PDFs, forms, files, extracted text, templates",
+      "output_artifact_hint": "structured extraction, completed draft, transformed document",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0153",
+      "seed_id": "wfseed-0153",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/dx",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/productivity/dx",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0154",
+      "seed_id": "wfseed-0154",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/integrate",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/integration/integrate",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0155",
+      "seed_id": "wfseed-0155",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/qa",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/qa/qa",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0156",
+      "seed_id": "wfseed-0156",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/secure",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/security/secure",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0157",
+      "seed_id": "wfseed-0157",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/test-suite",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/test/test-suite",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0158",
+      "seed_id": "wfseed-0158",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "/ux",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/ux/ux",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0159",
+      "seed_id": "wfseed-0159",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "README Skill Catalog",
+      "surface_level": "catalog_manifest",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0160",
+      "seed_id": "wfseed-0160",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "analysis",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/analysis",
+      "domain_tags": [
+        "research"
+      ],
+      "workflow_pattern_tags": [
+        "ResearchOps",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0161",
+      "seed_id": "wfseed-0161",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "build",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/build",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0162",
+      "seed_id": "wfseed-0162",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "combo",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0163",
+      "seed_id": "wfseed-0163",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "compliance-suite",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/compliance-suite",
+      "domain_tags": [
+        "public_evidence"
+      ],
+      "workflow_pattern_tags": [
+        "EvidenceAudit",
+        "ComplianceSupport",
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+      "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 1,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0164",
+      "seed_id": "wfseed-0164",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "design-to-code",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/design-to-code",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0165",
+      "seed_id": "wfseed-0165",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "fix-and-ship",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/fix-and-ship",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0166",
+      "seed_id": "wfseed-0166",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "mvp-spec",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/mvp-spec",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0167",
+      "seed_id": "wfseed-0167",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "qa",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/qa",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 3,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    },
+    {
+      "surface_id": "surface-0168",
+      "seed_id": "wfseed-0168",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "review-implement",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/review-implement",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "HumanReview",
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "required before final action or conclusion",
+      "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0169",
+      "seed_id": "wfseed-0169",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "secure-ship",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/secure-ship",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0170",
+      "seed_id": "wfseed-0170",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "ship-pipeline",
+      "surface_level": "workflow_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/ship-pipeline",
+      "domain_tags": [
+        "agent_workflows"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+      "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "can classify directly from this link when query matches",
+      "needs_second_pass": false,
+      "confidence": "medium"
+    },
+    {
+      "surface_id": "surface-0171",
+      "seed_id": "wfseed-0171",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "surface_name": "test",
+      "surface_level": "category_surface",
+      "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/test",
+      "domain_tags": [
+        "general"
+      ],
+      "workflow_pattern_tags": [
+        "ConfigPackage",
+        "SkillRegistry"
+      ],
+      "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+      "output_artifact_hint": "matched router surface and expansion plan",
+      "human_review_boundary": "optional unless output affects a person or external system",
+      "safety_boundary": "keep as reference pattern until copied into an ECC contract",
+      "codex_fit": "skill/package reference",
+      "expand_priority": 2,
+      "expand_when": "expand only when query hits this domain or repo; inspect index/manifest then top leaf folders",
+      "needs_second_pass": true,
+      "confidence": "high"
+    }
+  ]
+}

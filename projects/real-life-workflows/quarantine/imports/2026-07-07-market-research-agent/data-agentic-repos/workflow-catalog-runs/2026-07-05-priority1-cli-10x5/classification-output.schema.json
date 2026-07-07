@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_id",
+    "rows",
+    "quality_note"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string"
+    },
+    "quality_note": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "workflow_id",
+          "workflow_name",
+          "source_repo",
+          "source_url",
+          "source_url_status",
+          "canonical_source_url",
+          "evidence_basis",
+          "domain",
+          "workflow_type",
+          "real_life_job",
+          "input_contract",
+          "output_artifact",
+          "trigger",
+          "tools_or_sources",
+          "validation_gate",
+          "human_review_boundary",
+          "safety_boundary",
+          "codex_package_relevance",
+          "what_to_copy",
+          "what_to_ignore",
+          "tags",
+          "confidence"
+        ],
+        "properties": {
+          "workflow_id": {
+            "type": "string"
+          },
+          "workflow_name": {
+            "type": "string"
+          },
+          "source_repo": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "source_url_status": {
+            "type": "string"
+          },
+          "canonical_source_url": {
+            "type": "string"
+          },
+          "evidence_basis": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "workflow_type": {
+            "type": "string"
+          },
+          "real_life_job": {
+            "type": "string"
+          },
+          "input_contract": {
+            "type": "string"
+          },
+          "output_artifact": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          },
+          "tools_or_sources": {
+            "type": "string"
+          },
+          "validation_gate": {
+            "type": "string"
+          },
+          "human_review_boundary": {
+            "type": "string"
+          },
+          "safety_boundary": {
+            "type": "string"
+          },
+          "codex_package_relevance": {
+            "type": "string"
+          },
+          "what_to_copy": {
+            "type": "string"
+          },
+          "what_to_ignore": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

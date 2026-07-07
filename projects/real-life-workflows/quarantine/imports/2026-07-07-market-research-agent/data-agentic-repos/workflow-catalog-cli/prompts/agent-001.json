@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-001",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0001",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "All skills audit export",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/blob/main/audit/export/all-skills.json",
+      "domain_hint": "machine-readable catalog",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "All skills audit export"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0002",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Capital skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/capital",
+      "domain_hint": "capital markets workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Capital skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0003",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Case development skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev",
+      "domain_hint": "case intake/review workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Case development skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0004",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Case setup",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/setup",
+      "domain_hint": "case intake",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Case setup"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0005",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Finance skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/finance",
+      "domain_hint": "finance workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Finance skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0006",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Legal skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/legal",
+      "domain_hint": "legal workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Legal skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0007",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Medical skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/med",
+      "domain_hint": "medical/PHI-aware workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Medical skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0008",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "OCR",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/ocr",
+      "domain_hint": "document extraction",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "OCR"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0009",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Redline",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/redline",
+      "domain_hint": "human review/document redline",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Redline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0010",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Root skill",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/blob/main/SKILL.md",
+      "domain_hint": "skill router",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Root skill"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

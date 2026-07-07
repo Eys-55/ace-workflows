@@ -1,0 +1,508 @@
+2026-07-05T10:47:00.198458Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-07-05T10:47:01.423955Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:01.427777Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:06.762025Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-07-05T10:47:06.765841Z  WARN codex_rollout::state_db: state db discrepancy during read_repair_rollout_path: upsert_needed (slow path)
+2026-07-05T10:47:06.769390Z  WARN codex_rollout::state_db: state db reconcile_rollout extraction failed /Users/acecanacan/.codex/sessions/2026/07/05/rollout-2026-07-05T18-47-00-019f31e3-7bd2-7243-b27c-f55c6e152598.jsonl: empty session file
+2026-07-05T10:47:06.943667Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-07-05T10:47:06.943999Z  WARN codex_rollout::state_db: state db discrepancy during read_repair_rollout_path: upsert_needed (slow path)
+2026-07-05T10:47:06.944717Z  WARN codex_rollout::state_db: state db reconcile_rollout extraction failed /Users/acecanacan/.codex/sessions/2026/07/05/rollout-2026-07-05T18-47-00-019f31e3-7f49-7ad1-9c7f-6658a7f85334.jsonl: empty session file
+2026-07-05T10:47:07.448413Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/acecanacan/.codex/shell_snapshots/019f31e3-7d62-7523-9d59-23df6d098a2f.1783248424269397000.sh": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+2026-07-05T10:47:08.892401Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:08.904904Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+OpenAI Codex v0.142.0
+--------
+workdir: /Users/acecanacan/Documents/market-research-agent
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 019f31e3-7e15-79f2-bf7a-4c0910ad7e5b
+--------
+user
+You are classifying workflow-catalog doors for a reusable Codex/ECC lookup catalog.
+
+Workspace: /Users/acecanacan/Documents/market-research-agent
+
+Use read-only behavior. Do not edit files. Read the linked source pages or obvious canonical repo paths if needed. Classify exactly these 5 doors:
+
+[
+  {
+    "id": "surface-0143",
+    "door": "Plugin marketplace manifest",
+    "repo": "sickn33/antigravity-awesome-skills",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json",
+    "primary_category": "Skill Registry / Config Package",
+    "primary_domain": "general",
+    "primary_pattern": "ConfigPackage",
+    "fit": "Codex-native or Codex-adjacent",
+    "browse_use": "skill/package shape, manifests, registries, reusable Codex/ECC config package ideas",
+    "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+    "output_artifact_hint": "matched router surface and expansion plan",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0144",
+    "door": "Skills index",
+    "repo": "sickn33/antigravity-awesome-skills",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json",
+    "primary_category": "Skill Registry / Config Package",
+    "primary_domain": "general",
+    "primary_pattern": "ConfigPackage",
+    "fit": "skill/package reference",
+    "browse_use": "skill/package shape, manifests, registries, reusable Codex/ECC config package ideas",
+    "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+    "output_artifact_hint": "matched router surface and expansion plan",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0146",
+    "door": "plugins/",
+    "repo": "sickn33/antigravity-awesome-skills",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins",
+    "primary_category": "Skill Registry / Config Package",
+    "primary_domain": "general",
+    "primary_pattern": "ConfigPackage",
+    "fit": "skill/package reference",
+    "browse_use": "skill/package shape, manifests, registries, reusable Codex/ECC config package ideas",
+    "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+    "output_artifact_hint": "matched router surface and expansion plan",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0147",
+    "door": "skills/",
+    "repo": "sickn33/antigravity-awesome-skills",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills",
+    "primary_category": "Skill Registry / Config Package",
+    "primary_domain": "agent_workflows",
+    "primary_pattern": "ConfigPackage",
+    "fit": "skill/package reference",
+    "browse_use": "skill/package shape, manifests, registries, reusable Codex/ECC config package ideas",
+    "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+    "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0148",
+    "door": "/analyze",
+    "repo": "tinh2/skills-hub-registry",
+    "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/analysis/analyze",
+    "primary_category": "Skill Registry / Config Package",
+    "primary_domain": "agent_workflows",
+    "primary_pattern": "ConfigPackage",
+    "fit": "skill/package reference",
+    "browse_use": "skill/package shape, manifests, registries, reusable Codex/ECC config package ideas",
+    "input_contract_hint": "repo docs, skill files, manifests, category indexes",
+    "output_artifact_hint": "workflow pattern, reusable skill/package idea, router match",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  }
+]
+
+Return only JSON matching the provided output schema. No Markdown, no prose outside JSON.
+
+Rules:
+- Keep every row evidence-grounded to the source link or a clearly stated fallback.
+- If source access is unavailable, use the supplied local catalog hints as fallback context, mark source_url_status honestly, and lower confidence.
+- If a source link is broken, shallow, or sparse, check the repository README or obvious canonical nested path once.
+- Set source_url_status to one of: exact_page_reachable, exact_page_sparse, broken, canonicalized.
+- Set canonical_source_url to the original source_url unless you found a better canonical source.
+- Set evidence_basis to a short phrase: exact page, README fallback, raw skill file, repo index, category folder, local catalog fallback, or source sparse.
+- Do not invent workflow behavior when evidence is sparse. Say sparse and lower confidence.
+- This is cataloging only. Do not design a new skill.
+- Do not include the names of outdated agent frameworks.
+- The rows must preserve the input workflow_id values exactly.
+
+2026-07-05T10:47:15.208354Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Invalid refresh token
+2026-07-05T10:47:15.211081Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:47:15.886207Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:47:15.886254Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:47:16.246505Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:47:16.252117Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:47:17.564309Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Refresh token previously used. Cannot be used twice.
+2026-07-05T10:47:17.564372Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:47:38.094107Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:47:38.105970Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+2026-07-05T10:47:43.785812Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:47:43.794795Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:47:43.888317Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.888366Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.889054Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.889084Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.889642Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.889662Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.890275Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.890294Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.890883Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.890911Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.894371Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.894420Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/SKILL.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 1ms:
+---
+name: real-world-workflow-finder
+description: Find real-world agent workflow repos, skill packs, templates, and workflow catalogs similar to a user's idea. Use when the user asks for workflows like an earthquake/building evidence audit, healthcare/referral/patient document workflow, education workflow, real estate workflow, public evidence audit, due diligence workflow, case intake workflow, queue/monitoring/human-review workflow, multi-industry workflow catalog, Codex config package, or similar agentic workflow examples.
+---
+
+# Real-World Workflow Finder
+
+Use this skill to turn a vague real-life workflow idea into searchable workflow
+patterns and ranked repo recommendations.
+
+The user usually wants Codex-native config-package ideas, not a new app platform.
+Treat ECC as the workflow contract method and Codex as the operating surface.
+External repos are references, catalogs, or optional adapters unless the user
+explicitly asks for a runtime.
+
+## Core Workflow
+
+1. Classify the user's workflow idea.
+2. Search local indexes first.
+3. Browse only when freshness is requested.
+4. Rank candidates by similarity and Codex/ECC usefulness.
+5. Answer with 3-7 matches and a clear next step.
+
+## Load References
+
+- Read `references/query-playbook.md` for classification, query generation, and
+  workflow-pattern mapping.
+- Read `references/repo-catalog.md` for the seed catalog and local data sources.
+- Read `references/output-template.md` before answering so the result shape stays
+  consistent.
+
+## Local-First Rule
+
+Default to local curated sources before web browsing:
+
+- Codex memory notes about real-world workflow repos;
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`;
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`;
+- the active repo's `AGENTS.md`, `skills/`, `data/`, `reports/`, and `docs/`
+  when the user's workflow refers to the current project.
+
+Use web/GitHub search only when the user asks for terms like "latest",
+"current stars", "more", "new repos", "find more", "refresh", or "popular
+right now."
+
+## Decision Rules
+
+- If the user says "earthquake thing," map it to public evidence audit,
+  source-lane research, deterministic validation, human review, compliance
+  boundary, geospatial/hazard context, due diligence, and OSINT/source taxonomy.
+- If the user asks for healthcare, look for document packet, case intake,
+  referral/prior-auth, claims, medical research, and human-review workflows.
+- If the user asks for education, look for tutoring, curriculum planning,
+  student-support, research assistant, assessment, and administrative workflows.
+- If the user asks for real estate, look for due diligence, underwriting,
+  title/permit/parcel evidence, lease abstraction, closing checklist, and market
+  research workflows.
+- If a repo is a UI automation/app platform, classify it as inspiration or an
+  optional runtime. Do not make it the center when the user is building Codex
+  config packages.
+- Prefer repo matches that expose reusable skill/workflow files, pattern
+  catalogs, templates, schemas, validation, evidence logs, or human-review gates.
+
+## Output Requirements
+
+Every answer should include:
+
+- best 3-7 repo matches;
+- why each match is similar to the user's workflow;
+- the workflow type it teaches;
+- fit label: `Codex-native`, `skill/package reference`, `inspiration catalog`,
+  `runtime/platform`, or `source taxonomy`;
+- recommended next step.
+
+Keep the answer direct. If no repo fits perfectly, say that and identify the
+closest stack of references rather than forcing a false exact match.
+
+
+2026-07-05T10:47:50.347073Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:47:50.353073Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/query-playbook.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Query Playbook
+
+Use this playbook to translate messy user language into useful workflow-search
+queries.
+
+## Normalize The Ask
+
+Extract these fields before searching:
+
+| Field | Meaning |
+| --- | --- |
+| Domain | healthcare, education, real estate, public evidence, legal, finance, geospatial, etc. |
+| Input | files, addresses, records, links, forms, tickets, photos, source lists, patient packets, listings, permits |
+| Output artifact | evidence packet, completed document, checklist, report, queue item, case note, decision memo |
+| Workflow pattern | evidence audit, document transformation, case intake, compliance support, queue processing, monitoring, human review |
+| Safety boundary | what the agent must not decide or claim |
+| Source type | public web, official records, internal files, APIs, databases, human-provided documents |
+| Human review | whether a person must approve, submit, certify, publish, or decide |
+
+When the user gives a vague phrase, infer these fields from examples and then
+state the inference briefly.
+
+## Workflow Pattern Map
+
+| User language | Pattern labels | Search angle |
+| --- | --- | --- |
+| "like my earthquake thing" | EvidenceAudit, PublicRecordsInvestigation, ComplianceBoundary, HumanReview, SourceAtlas | public evidence audit, OSINT, due diligence, hazard/geospatial evidence |
+| "patient data to documents" | DocumentTransformation, CaseIntake, HumanReview, ComplianceBoundary | healthcare document processing, referral packet, prior authorization, intake |
+| "education workflow" | EducationSupport, Assessment, TutorOps, CurriculumOps, CaseIntake | education agent workflow, tutoring agent, assessment workflow, student support |
+| "real estate workflow" | DueDiligence, Underwriting, EvidenceAudit, DocumentAbstraction | CRE due diligence, lease abstraction, underwriting agent skills |
+| "process many records" | WorkQueueOps, BatchOps, QueueReview | durable queue, batch workflow, checklist queue, review queue |
+| "watch for changes" | Monitoring, EventDrivenOps, Escalation | monitoring agent, alert workflow, source watch, filing/news monitor |
+| "human approves first" | HumanReview, ApprovalGate, SafeOutputs | human in the loop, approval workflow, review gate |
+| "what repo teaches types" | PatternRouter, WorkflowCatalog, SkillRegistry | agent workflow patterns, skill catalog, workflow templates |
+
+## Earthquake / Building Evidence Mapping
+
+Map "earthquake thing" to:
+
+- real-world public evidence audit;
+- deterministic source collection before agent synthesis;
+- bounded parallel source lanes for identity, official records, incidents/news,
+  contractor/developer/professional traces, geospatial/hazard context, and review;
+- validation gate for citation quality, source reachability, source limits, and
+  overclaim prevention;
+- manual-request handoff when official records are not publicly available;
+- human review before any safety, compliance, legal, engineering, or occupancy
+  conclusion.
+
+Useful search phrases:
+
+```text
+public evidence audit agent skill
+OSINT evidence workflow agent repo
+building permit due diligence workflow agent
+geospatial hazard evidence agent skill
+compliance boundary human review agent workflow
+real-world agent skill public records investigation
+```
+
+## Domain Query Seeds
+
+Healthcare:
+
+```text
+agent skills healthcare intake workflow
+healthcare referral packet agent workflow
+prior authorization document workflow agent
+medical document processing human review agent
+healthcare admin agent skills
+medical research skill library
+```
+
+Education:
+
+```text
+education agent workflow templates
+student support agent skill
+curriculum planning agent workflow
+assessment feedback agent workflow
+research assistant education skill
+```
+
+Real estate:
+
+```text
+real estate due diligence agent skill
+commercial real estate underwriting agent workflow
+lease abstraction agent skill
+property permit public records workflow agent
+real estate closing checklist agent
+```
+
+Multi-industry catalogs:
+
+```text
+multi industry AI agent workflow catalog
+agent skills healthcare real estate education
+AI agent templates healthcare education real estate
+Codex compatible agent skills catalog
+SKILL.md workflow packs industry
+```
+
+## Ranking Heuristic
+
+Score candidates higher when they have:
+
+- reusable skill/workflow package files;
+- explicit industry or workflow categories;
+- examples across healthcare, education, real estate, public evidence, legal, or
+  finance;
+- schemas, validators, reports, evidence logs, or human-review gates;
+- Codex/Claude/OpenClaw/OpenAI skill compatibility;
+- active maintenance or substantial community signal;
+- clear safety boundaries for regulated or high-consequence domains.
+
+Score lower when they are only a model demo, a generic chatbot, an app platform
+with no reusable workflow taxonomy, or a code-only agent workflow.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/repo-catalog.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Repo Catalog
+
+Use this as a seed catalog, then supplement from local repo data or live search
+when needed.
+
+## Local Sources To Inspect First
+
+- `/Users/acecanacan/.codex/memories/extensions/ad_hoc/notes/2026-07-05T17-16-10+0800-codex-real-world-workflow-repos.md`
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`
+
+## Core Pattern And Skill References
+
+| Repo | Fit label | Study for |
+| --- | --- | --- |
+| `github/gh-aw` | pattern/router reference, optional runtime adapter | pattern router, named workflow patterns, GitHub Actions execution |
+| `agentskillexchange/skills` | Codex-compatible skill/package reference | multi-industry skill catalog shape |
+| `sickn33/antigravity-awesome-skills` | skill/package reference | large installable skill library, package conventions |
+| `ashishpatel26/500-AI-Agents-Projects` | inspiration catalog | many industry examples and use-case taxonomy |
+| `mergisi/awesome-openclaw-agents` | inspiration catalog / template catalog | multi-industry agent templates |
+| `VoltAgent/awesome-agent-skills` | skill directory | broad skill discovery and category grouping |
+| `agentskills/agentskills` | skill specification | portable skill package format |
+| `anthropics/skills` | official skill examples | SKILL.md structure and progressive disclosure |
+
+## Domain Packs
+
+| Repo | Domain | Study for |
+| --- | --- | --- |
+| `K-Dense-AI/scientific-agent-skills` | science, medicine, research | database-backed scientific and medical workflows |
+| `FreedomIntelligence/OpenClaw-Medical-Skills` | medicine | medical skill library structure |
+| `aipoch/medical-research-skills` | medical research | protocol, evidence, academic-writing workflow splits |
+| `Aperivue/medsci-skills` | medical publishing | skill-suite organization for manuscript workflows |
+| `Aperivue/verify-refs` | medical manuscript review | narrow audit-only citation verification |
+| `Aperivue/check-reporting` | reporting compliance | checklist status labels and guideline audits |
+| `ajhcs/healthcare-agents` | healthcare administration | admin workflow decomposition and role specialists |
+| `NVIDIA/digital-health-skills` | digital health | healthcare AI evaluation and metric-driven workflows |
+| `awslabs/hcls-agent-skills` | healthcare/life sciences | regulated HCLS skill packaging |
+| `ahacker-1/cre-agent-skills` | commercial real estate | underwriting, due diligence, financing, brokerage, closing |
+| `jivoi/awesome-osint` | public evidence/source taxonomy | OSINT, public records, geospatial/source discovery |
+| `zoharbabin/due-diligence-agents` | M&A/due diligence | cited multi-agent professional review |
+| `gs-ai/SYNINT` | OSINT/intelligence | evidence registry, chain of custody, forensic reporting |
+| `marieai/marie-ai` | document processing | OCR, extraction, classification, form/document pipelines |
+| `microsoft/content-processing-solution-accelerator` | document processing | extraction, schemas, confidence, human review |
+| `enescingoz/awesome-n8n-templates` | automation templates | real-world workflow examples; not Codex-native |
+| `ritik-prog/n8n-automation-templates-5000` | automation templates | large template corpus; not Codex-native |
+
+## Fit Labels
+
+- `Codex-native`: directly usable as or close to Codex skill/config package.
+- `skill/package reference`: useful package structure or reusable skill library.
+- `inspiration catalog`: good taxonomy/examples, but not directly installable.
+- `runtime/platform`: can execute workflows, but should not replace ECC/Codex
+  unless the user explicitly wants that runtime.
+- `source taxonomy`: good source list for evidence workflows, not a workflow
+  package by itself.
+
+## Known Guidance
+
+- If the user asks for "one repo that combines everything," show the closest
+  multi-industry catalogs and explain tradeoffs.
+- If the user asks for "popular," include current stars only after live
+  verification.
+- If the user is building Codex config packages, recommend Codex-compatible
+  skills and skill catalogs first. Treat app platforms and UI automators as
+  inspiration or optional adapters.
+- Do not force a single exact match when the ecosystem is fragmented. Recommend
+  a stack of references when that is more honest.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/output-template.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Output Template
+
+Use this shape when answering workflow-finder requests.
+
+## Short Answer
+
+Start with the strongest answer in one or two sentences:
+
+```text
+Closest match: [repo]. It is closest because [reason].
+For your workflow, treat it as [fit label], not [wrong role].
+```
+
+## Repo Table
+
+Return 3-7 matches unless the user asks for a longer list.
+
+| Repo | Fit | Workflow type it teaches | Why it matches |
+| --- | --- | --- | --- |
+| `[owner/repo](url)` | Codex-native / skill-package / inspiration / runtime / source taxonomy | EvidenceAudit, DocumentTransformation, CaseIntake, etc. | One concrete similarity |
+
+## Codex/ECC Read
+
+Include a brief recommendation:
+
+```text
+For Codex config packages, use [repo] as [role]. Keep ECC as the workflow
+contract. Do not make [platform/runtime] the source of truth unless you want that
+execution environment.
+```
+
+## Search Terms Used Or Suggested
+
+When useful, include 3-6 search phrases:
+
+```text
+public evidence audit agent skill
+real estate due diligence agent skill
+healthcare referral packet agent workflow
+```
+
+## Next Step
+
+End with a concrete next move:
+
+- inspect the top repo;
+- clone/read a specific folder;
+- build a local `workflow-pattern-router`;
+- refresh stars/current state;
+- create a new Codex workflow pack from the matched pattern.
+
+Keep tone concise. The user prefers direct repo recommendations over broad
+explanations.
+
+
+2026-07-05T10:47:55.813677Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:47:55.818352Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+web search: 
+web search: https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json
+web search: 
+web search: '"plugins"' in https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json
+web search: 
+web search: https://raw.githubusercontent.com/sickn33/antigravity-awesome-skills/main/.agents/plugins/marketplace.json
+web search: 
+web search: https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins
+codex
+{"agent_id":"codex","quality_note":"Classified 5 requested doors using the linked GitHub pages; canonical raw SKILL.md was used once where the directory page was sparse.","rows":[{"workflow_id":"surface-0143","workflow_name":"Plugin marketplace manifest","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json","evidence_basis":"exact page","domain":"general","workflow_type":"Skill Registry / Config Package","real_life_job":"Browse a marketplace manifest to identify installable local plugin bundles, categories, source paths, and installation policy shape for a reusable Codex/ECC catalog.","input_contract":"Repository manifest JSON with plugin entries, local source paths, category labels, and policy fields.","output_artifact":"Matched config-package surface with registry fields, category mapping, and expansion plan for possible ECC contract reuse.","trigger":"Use when cataloging plugin marketplace manifests, installable bundle indexes, or reusable config-package registry patterns.","tools_or_sources":"GitHub page and raw marketplace.json; evidence shows plugins array entries with local paths, installation policy, authentication policy, and categories.","validation_gate":"Confirm the manifest page is reachable, parseable as JSON, and contains plugin entries with source.path, policy.installation, policy.authentication, and category fields.","human_review_boundary":"Optional for cataloging; required before copying package entries into an operational ECC contract or installing any bundle.","safety_boundary":"Reference-only classification; do not install, execute, or copy into active workflow config without explicit review.","codex_package_relevance":"High: directly demonstrates a registry manifest shape for grouped skill/plugin packages and local bundle paths.","what_to_copy":"Manifest field structure: package name, display metadata, plugins array, local source path, install availability, authentication policy, category grouping.","what_to_ignore":"Do not copy package contents, product-specific naming, or installation assumptions without an ECC contract and verification.","tags":"manifest, marketplace, plugin-registry, config-package, skill-package-reference","confidence":"high"},{"workflow_id":"surface-0144","workflow_name":"Skills index","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json","evidence_basis":"exact page","domain":"general","workflow_type":"Skill Registry / Config Package","real_life_job":"Look up skill records by id, path, category, description, risk, source, setup requirements, and platform support for a reusable workflow catalog.","input_contract":"Large JSON skills index containing skill metadata, paths, categories, descriptions, risk labels, source labels, dates, platform targets, and setup summaries.","output_artifact":"Normalized skill registry surface with routing metadata and candidate expansion paths.","trigger":"Use when cataloging skill indexes, building routers over skill metadata, or comparing skill-package registry schemas.","tools_or_sources":"GitHub page and raw skills_index.json; evidence shows records with id, path, category, name, description, risk, source, date_added, and plugin target/setup metadata.","validation_gate":"Confirm the exact index is reachable and representative records expose path, category, description, risk, source, and platform/setup metadata.","human_review_boundary":"Optional for lookup; required if a matched skill will drive user-facing, external, regulated, or irreversible actions.","safety_boundary":"Treat as metadata reference only; do not assume listed skills are safe, current, or locally installed without separate verification.","codex_package_relevance":"High: the index is a direct skill registry pattern useful for Codex/ECC router design.","what_to_copy":"Index record schema concepts: id, path, category, description, risk, source, setup, platform support, and date metadata.","what_to_ignore":"Do not import skill behavior, risk labels, or platform support claims as trusted without reading the underlying skill files.","tags":"skills-index, registry-json, router-metadata, config-package, skill-package-reference","confidence":"high"},{"workflow_id":"surface-0146","workflow_name":"plugins/","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins","evidence_basis":"category folder","domain":"general","workflow_type":"Skill Registry / Config Package","real_life_job":"Browse plugin bundle folders to understand how reusable packages are grouped as installable directory surfaces.","input_contract":"Repository folder listing of plugin bundle directories plus related manifest references.","output_artifact":"Catalog door classification for plugin bundle directory organization and package expansion paths.","trigger":"Use when cataloging package-folder surfaces, plugin bundle naming conventions, or config package layouts.","tools_or_sources":"GitHub plugins/ folder listing; evidence shows multiple antigravity-bundle-* directories and a top-level package folder.","validation_gate":"Confirm the folder is reachable and contains multiple package directories that correspond to manifest source paths.","human_review_boundary":"Optional for reference cataloging; required before installing, vendoring, or adapting a bundle.","safety_boundary":"Reference-only; do not execute bundle scripts or copy directories into an ECC workflow without review.","codex_package_relevance":"Medium-high: folder organization is useful as a package layout reference, but behavior requires inspecting nested package files.","what_to_copy":"Directory-level package grouping, bundle naming, and manifest-to-folder linkage pattern.","what_to_ignore":"Do not infer full workflow behavior from folder names alone; inspect nested files before reuse.","tags":"plugins-folder, package-layout, bundle-directory, config-package, sparse-behavior","confidence":"medium-high"},{"workflow_id":"surface-0147","workflow_name":"skills/","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills","evidence_basis":"category folder","domain":"agent_workflows","workflow_type":"Skill Registry / Config Package","real_life_job":"Browse a skill library folder to identify reusable skill package conventions and category coverage for workflow routing.","input_contract":"Skills directory listing plus README guidance describing per-skill folders, required SKILL.md files, optional scripts, examples, and resources.","output_artifact":"Workflow pattern reference for reusable skill/package ideas and router matches.","trigger":"Use when cataloging skill-folder layouts, SKILL.md package conventions, or broad workflow-skill libraries.","tools_or_sources":"GitHub skills/ folder and embedded README; evidence states each skill lives in its own folder, SKILL.md is required, and scripts/examples/resources are optional.","validation_gate":"Confirm the folder and README are reachable, and verify representative skills before making behavior-level claims.","human_review_boundary":"Optional for structural lookup; required before using any skill output to affect a person or external system.","safety_boundary":"Reference-only until a specific skill is read and copied into an ECC contract with explicit safety gates.","codex_package_relevance":"High: directly maps to Codex/ECC reusable skill surfaces and progressive skill package layout.","what_to_copy":"Skill folder convention: one folder per skill, required SKILL.md, optional scripts, examples, and resources, plus category grouping.","what_to_ignore":"Do not treat directory presence as proof of quality, safety, or local availability; avoid copying broad library assumptions.","tags":"skills-folder, SKILL.md, skill-library, agent-workflows, config-package","confidence":"high"},{"workflow_id":"surface-0148","workflow_name":"/analyze","source_repo":"tinh2/skills-hub-registry","source_url":"https://github.com/tinh2/skills-hub-registry/tree/main/analysis/analyze","source_url_status":"canonicalized","canonical_source_url":"https://raw.githubusercontent.com/tinh2/skills-hub-registry/main/analysis/analyze/SKILL.md","evidence_basis":"raw skill file","domain":"agent_workflows","workflow_type":"Skill Registry / Config Package","real_life_job":"Run or study a codebase analysis skill that detects stack signals, runs static analysis, traces cross-layer consistency, and verifies fixes.","input_contract":"Target project path or arguments; if absent, the skill treats the current working directory as the target and scans stack/config files.","output_artifact":"Codebase audit findings, detected stack inventory, fixes where allowed, and verification results.","trigger":"Use after building features, before releases, or when a cross-layer codebase consistency audit is needed.","tools_or_sources":"GitHub analysis/analyze directory and canonical raw SKILL.md; evidence shows name analyze, category analysis, stack detection, static analysis, and broad codebase audit instructions.","validation_gate":"Confirm SKILL.md is reachable, inspect exact instructions, and separately constrain any auto-fix behavior before use in read-only cataloging.","human_review_boundary":"Required before applying fixes, release decisions, or security-sensitive changes; cataloging alone is read-only.","safety_boundary":"Catalog as a workflow pattern only; its source text includes auto-fix behavior, so do not run or adapt it without explicit permissions and ECC safety gates.","codex_package_relevance":"Medium-high: useful as an analysis-skill pattern, but it is action-oriented and must be constrained for read-only ECC use.","what_to_copy":"Skill metadata shape, trigger wording, stack-detection matrix idea, and phased audit structure.","what_to_ignore":"Do not copy autonomous fix instructions, unsupported platform assumptions, or broad no-question behavior into ECC without tightening permissions.","tags":"analysis-skill, codebase-audit, stack-detection, static-analysis, skill-package-reference","confidence":"medium-high"}]}
+2026-07-05T10:48:45.821697Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable GHL_PRIVATE_INTEGRATION_TOKEN for MCP server 'ghl' is not set
+2026-07-05T10:48:45.821732Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999785333s
+2026-07-05T10:48:45.821736Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999999375s
+2026-07-05T10:48:45.821740Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:48:45.821750Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999999333s
+2026-07-05T10:48:45.821753Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable BIGQUERY_MCP_BEARER_TOKEN for MCP server 'bigquery' is not set
+2026-07-05T10:48:45.821825Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:48:45.822912Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999999542s
+2026-07-05T10:48:45.823126Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:48:45.823134Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+tokens used
+87,114
+{"agent_id":"codex","quality_note":"Classified 5 requested doors using the linked GitHub pages; canonical raw SKILL.md was used once where the directory page was sparse.","rows":[{"workflow_id":"surface-0143","workflow_name":"Plugin marketplace manifest","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json","evidence_basis":"exact page","domain":"general","workflow_type":"Skill Registry / Config Package","real_life_job":"Browse a marketplace manifest to identify installable local plugin bundles, categories, source paths, and installation policy shape for a reusable Codex/ECC catalog.","input_contract":"Repository manifest JSON with plugin entries, local source paths, category labels, and policy fields.","output_artifact":"Matched config-package surface with registry fields, category mapping, and expansion plan for possible ECC contract reuse.","trigger":"Use when cataloging plugin marketplace manifests, installable bundle indexes, or reusable config-package registry patterns.","tools_or_sources":"GitHub page and raw marketplace.json; evidence shows plugins array entries with local paths, installation policy, authentication policy, and categories.","validation_gate":"Confirm the manifest page is reachable, parseable as JSON, and contains plugin entries with source.path, policy.installation, policy.authentication, and category fields.","human_review_boundary":"Optional for cataloging; required before copying package entries into an operational ECC contract or installing any bundle.","safety_boundary":"Reference-only classification; do not install, execute, or copy into active workflow config without explicit review.","codex_package_relevance":"High: directly demonstrates a registry manifest shape for grouped skill/plugin packages and local bundle paths.","what_to_copy":"Manifest field structure: package name, display metadata, plugins array, local source path, install availability, authentication policy, category grouping.","what_to_ignore":"Do not copy package contents, product-specific naming, or installation assumptions without an ECC contract and verification.","tags":"manifest, marketplace, plugin-registry, config-package, skill-package-reference","confidence":"high"},{"workflow_id":"surface-0144","workflow_name":"Skills index","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json","evidence_basis":"exact page","domain":"general","workflow_type":"Skill Registry / Config Package","real_life_job":"Look up skill records by id, path, category, description, risk, source, setup requirements, and platform support for a reusable workflow catalog.","input_contract":"Large JSON skills index containing skill metadata, paths, categories, descriptions, risk labels, source labels, dates, platform targets, and setup summaries.","output_artifact":"Normalized skill registry surface with routing metadata and candidate expansion paths.","trigger":"Use when cataloging skill indexes, building routers over skill metadata, or comparing skill-package registry schemas.","tools_or_sources":"GitHub page and raw skills_index.json; evidence shows records with id, path, category, name, description, risk, source, date_added, and plugin target/setup metadata.","validation_gate":"Confirm the exact index is reachable and representative records expose path, category, description, risk, source, and platform/setup metadata.","human_review_boundary":"Optional for lookup; required if a matched skill will drive user-facing, external, regulated, or irreversible actions.","safety_boundary":"Treat as metadata reference only; do not assume listed skills are safe, current, or locally installed without separate verification.","codex_package_relevance":"High: the index is a direct skill registry pattern useful for Codex/ECC router design.","what_to_copy":"Index record schema concepts: id, path, category, description, risk, source, setup, platform support, and date metadata.","what_to_ignore":"Do not import skill behavior, risk labels, or platform support claims as trusted without reading the underlying skill files.","tags":"skills-index, registry-json, router-metadata, config-package, skill-package-reference","confidence":"high"},{"workflow_id":"surface-0146","workflow_name":"plugins/","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins","evidence_basis":"category folder","domain":"general","workflow_type":"Skill Registry / Config Package","real_life_job":"Browse plugin bundle folders to understand how reusable packages are grouped as installable directory surfaces.","input_contract":"Repository folder listing of plugin bundle directories plus related manifest references.","output_artifact":"Catalog door classification for plugin bundle directory organization and package expansion paths.","trigger":"Use when cataloging package-folder surfaces, plugin bundle naming conventions, or config package layouts.","tools_or_sources":"GitHub plugins/ folder listing; evidence shows multiple antigravity-bundle-* directories and a top-level package folder.","validation_gate":"Confirm the folder is reachable and contains multiple package directories that correspond to manifest source paths.","human_review_boundary":"Optional for reference cataloging; required before installing, vendoring, or adapting a bundle.","safety_boundary":"Reference-only; do not execute bundle scripts or copy directories into an ECC workflow without review.","codex_package_relevance":"Medium-high: folder organization is useful as a package layout reference, but behavior requires inspecting nested package files.","what_to_copy":"Directory-level package grouping, bundle naming, and manifest-to-folder linkage pattern.","what_to_ignore":"Do not infer full workflow behavior from folder names alone; inspect nested files before reuse.","tags":"plugins-folder, package-layout, bundle-directory, config-package, sparse-behavior","confidence":"medium-high"},{"workflow_id":"surface-0147","workflow_name":"skills/","source_repo":"sickn33/antigravity-awesome-skills","source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills","evidence_basis":"category folder","domain":"agent_workflows","workflow_type":"Skill Registry / Config Package","real_life_job":"Browse a skill library folder to identify reusable skill package conventions and category coverage for workflow routing.","input_contract":"Skills directory listing plus README guidance describing per-skill folders, required SKILL.md files, optional scripts, examples, and resources.","output_artifact":"Workflow pattern reference for reusable skill/package ideas and router matches.","trigger":"Use when cataloging skill-folder layouts, SKILL.md package conventions, or broad workflow-skill libraries.","tools_or_sources":"GitHub skills/ folder and embedded README; evidence states each skill lives in its own folder, SKILL.md is required, and scripts/examples/resources are optional.","validation_gate":"Confirm the folder and README are reachable, and verify representative skills before making behavior-level claims.","human_review_boundary":"Optional for structural lookup; required before using any skill output to affect a person or external system.","safety_boundary":"Reference-only until a specific skill is read and copied into an ECC contract with explicit safety gates.","codex_package_relevance":"High: directly maps to Codex/ECC reusable skill surfaces and progressive skill package layout.","what_to_copy":"Skill folder convention: one folder per skill, required SKILL.md, optional scripts, examples, and resources, plus category grouping.","what_to_ignore":"Do not treat directory presence as proof of quality, safety, or local availability; avoid copying broad library assumptions.","tags":"skills-folder, SKILL.md, skill-library, agent-workflows, config-package","confidence":"high"},{"workflow_id":"surface-0148","workflow_name":"/analyze","source_repo":"tinh2/skills-hub-registry","source_url":"https://github.com/tinh2/skills-hub-registry/tree/main/analysis/analyze","source_url_status":"canonicalized","canonical_source_url":"https://raw.githubusercontent.com/tinh2/skills-hub-registry/main/analysis/analyze/SKILL.md","evidence_basis":"raw skill file","domain":"agent_workflows","workflow_type":"Skill Registry / Config Package","real_life_job":"Run or study a codebase analysis skill that detects stack signals, runs static analysis, traces cross-layer consistency, and verifies fixes.","input_contract":"Target project path or arguments; if absent, the skill treats the current working directory as the target and scans stack/config files.","output_artifact":"Codebase audit findings, detected stack inventory, fixes where allowed, and verification results.","trigger":"Use after building features, before releases, or when a cross-layer codebase consistency audit is needed.","tools_or_sources":"GitHub analysis/analyze directory and canonical raw SKILL.md; evidence shows name analyze, category analysis, stack detection, static analysis, and broad codebase audit instructions.","validation_gate":"Confirm SKILL.md is reachable, inspect exact instructions, and separately constrain any auto-fix behavior before use in read-only cataloging.","human_review_boundary":"Required before applying fixes, release decisions, or security-sensitive changes; cataloging alone is read-only.","safety_boundary":"Catalog as a workflow pattern only; its source text includes auto-fix behavior, so do not run or adapt it without explicit permissions and ECC safety gates.","codex_package_relevance":"Medium-high: useful as an analysis-skill pattern, but it is action-oriented and must be constrained for read-only ECC use.","what_to_copy":"Skill metadata shape, trigger wording, stack-detection matrix idea, and phased audit structure.","what_to_ignore":"Do not copy autonomous fix instructions, unsupported platform assumptions, or broad no-question behavior into ECC without tightening permissions.","tags":"analysis-skill, codebase-audit, stack-detection, static-analysis, skill-package-reference","confidence":"medium-high"}]}

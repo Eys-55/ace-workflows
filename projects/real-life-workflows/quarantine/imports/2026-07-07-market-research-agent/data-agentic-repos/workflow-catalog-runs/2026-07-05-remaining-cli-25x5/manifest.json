@@ -1,0 +1,413 @@
+{
+  "run_id": "2026-07-05-remaining-cli-25x5",
+  "created_at": "2026-07-05T10:46:47.688135+00:00",
+  "source_run": "data/agentic-repos/workflow-catalog-runs/2026-07-05-priority1-cli-10x5",
+  "purpose": "Classify all 121 remaining workflow doors into normalized catalog rows.",
+  "selection_rule": "remaining-priority1, remaining-priority2, and remaining-priority3 from the first CLI run",
+  "selected_door_count": 121,
+  "chunk_count": 25,
+  "doors_per_chunk": "5 except final chunk may have fewer",
+  "unassigned_priority1_count": 0,
+  "remaining_priority2_count": 0,
+  "remaining_priority3_count": 0,
+  "command_template": "codex exec -m gpt-5.5 -c model_reasoning_effort='\"low\"' -c approval_policy='\"never\"' -s read-only -C /Users/acecanacan/Documents/market-research-agent --output-schema data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/classification-output.schema.json -o <output-path> - < <prompt-path>",
+  "schema_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/classification-output.schema.json",
+  "chunks": [
+    {
+      "agent_id": "agent-001",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-001.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-001.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-001.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-001.log",
+      "door_ids": [
+        "surface-0055",
+        "surface-0057",
+        "surface-0041",
+        "surface-0108",
+        "surface-0110"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-002",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-002.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-002.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-002.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-002.log",
+      "door_ids": [
+        "surface-0112",
+        "surface-0115",
+        "surface-0019",
+        "surface-0020",
+        "surface-0035"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-003",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-003.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-003.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-003.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-003.log",
+      "door_ids": [
+        "surface-0036",
+        "surface-0160",
+        "surface-0065",
+        "surface-0066",
+        "surface-0068"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-004",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-004.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-004.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-004.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-004.log",
+      "door_ids": [
+        "surface-0069",
+        "surface-0070",
+        "surface-0072",
+        "surface-0073",
+        "surface-0074"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-005",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-005.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-005.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-005.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-005.log",
+      "door_ids": [
+        "surface-0075",
+        "surface-0076",
+        "surface-0077",
+        "surface-0078",
+        "surface-0079"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-006",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-006.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-006.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-006.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-006.log",
+      "door_ids": [
+        "surface-0092",
+        "surface-0093",
+        "surface-0095",
+        "surface-0096",
+        "surface-0098"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-007",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-007.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-007.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-007.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-007.log",
+      "door_ids": [
+        "surface-0101",
+        "surface-0102",
+        "surface-0103",
+        "surface-0104",
+        "surface-0106"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-008",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-008.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-008.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-008.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-008.log",
+      "door_ids": [
+        "surface-0122",
+        "surface-0123",
+        "surface-0124",
+        "surface-0126",
+        "surface-0127"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-009",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-009.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-009.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-009.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-009.log",
+      "door_ids": [
+        "surface-0128",
+        "surface-0129",
+        "surface-0130",
+        "surface-0131",
+        "surface-0133"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-010",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-010.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-010.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-010.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-010.log",
+      "door_ids": [
+        "surface-0134",
+        "surface-0135",
+        "surface-0001",
+        "surface-0002",
+        "surface-0005"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-011",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-011.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-011.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-011.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-011.log",
+      "door_ids": [
+        "surface-0010",
+        "surface-0012",
+        "surface-0013",
+        "surface-0024",
+        "surface-0025"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-012",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-012.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-012.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-012.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-012.log",
+      "door_ids": [
+        "surface-0029",
+        "surface-0030",
+        "surface-0032",
+        "surface-0033",
+        "surface-0034"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-013",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-013.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-013.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-013.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-013.log",
+      "door_ids": [
+        "surface-0037",
+        "surface-0039",
+        "surface-0040",
+        "surface-0058",
+        "surface-0059"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-014",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-014.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-014.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-014.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-014.log",
+      "door_ids": [
+        "surface-0060",
+        "surface-0064",
+        "surface-0080",
+        "surface-0081",
+        "surface-0086"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-015",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-015.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-015.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-015.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-015.log",
+      "door_ids": [
+        "surface-0088",
+        "surface-0107",
+        "surface-0109",
+        "surface-0111",
+        "surface-0114"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-016",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-016.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-016.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-016.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-016.log",
+      "door_ids": [
+        "surface-0116",
+        "surface-0117",
+        "surface-0119",
+        "surface-0120",
+        "surface-0121"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-017",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-017.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-017.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-017.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-017.log",
+      "door_ids": [
+        "surface-0136",
+        "surface-0137",
+        "surface-0139",
+        "surface-0141",
+        "surface-0142"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-018",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-018.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-018.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-018.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-018.log",
+      "door_ids": [
+        "surface-0143",
+        "surface-0144",
+        "surface-0146",
+        "surface-0147",
+        "surface-0148"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-019",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-019.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-019.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-019.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-019.log",
+      "door_ids": [
+        "surface-0149",
+        "surface-0150",
+        "surface-0151",
+        "surface-0154",
+        "surface-0156"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-020",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-020.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-020.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-020.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-020.log",
+      "door_ids": [
+        "surface-0157",
+        "surface-0158",
+        "surface-0159",
+        "surface-0161",
+        "surface-0162"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-021",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-021.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-021.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-021.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-021.log",
+      "door_ids": [
+        "surface-0164",
+        "surface-0165",
+        "surface-0166",
+        "surface-0168",
+        "surface-0169"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-022",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-022.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-022.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-022.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-022.log",
+      "door_ids": [
+        "surface-0170",
+        "surface-0171",
+        "surface-0056",
+        "surface-0031",
+        "surface-0022"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-023",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-023.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-023.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-023.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-023.log",
+      "door_ids": [
+        "surface-0027",
+        "surface-0023",
+        "surface-0026",
+        "surface-0028",
+        "surface-0118"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-024",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-024.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-024.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-024.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-024.log",
+      "door_ids": [
+        "surface-0138",
+        "surface-0140",
+        "surface-0145",
+        "surface-0153",
+        "surface-0155"
+      ],
+      "door_count": 5,
+      "status": "pending"
+    },
+    {
+      "agent_id": "agent-025",
+      "chunk_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/chunks/agent-025.json",
+      "prompt_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/prompts/agent-025.txt",
+      "output_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/outputs/agent-025.md",
+      "log_path": "data/agentic-repos/workflow-catalog-runs/2026-07-05-remaining-cli-25x5/logs/agent-025.log",
+      "door_ids": [
+        "surface-0167"
+      ],
+      "door_count": 1,
+      "status": "pending"
+    }
+  ]
+}

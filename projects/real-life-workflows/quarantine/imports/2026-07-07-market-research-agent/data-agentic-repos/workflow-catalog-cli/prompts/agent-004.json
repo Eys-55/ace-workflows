@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-004",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0031",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Infrastructure, SRE & Incident Operations",
+      "candidate_type": "lane",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/infrastructure-sre-incident-operations.md",
+      "domain_hint": "SRE/incident operations",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Infrastructure, SRE & Incident Operations"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0032",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "JSON Index",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/skills.json",
+      "domain_hint": "machine-readable catalog",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "JSON Index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0033",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "OpenClaw manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/openclaw.json",
+      "domain_hint": "OpenClaw skill catalog",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "OpenClaw manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0034",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Orchestrate review-first multi-agent development work with Kandev",
+      "candidate_type": "skill",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/skills/orchestrate-review-first-multi-agent-development-work-with-kandev",
+      "domain_hint": "multi-agent development",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Orchestrate review-first multi-agent development work with Kandev"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0035",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Research & Scraping",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/research-scraping",
+      "domain_hint": "116 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Research & Scraping"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0036",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Run academic literature review and paper-output workflows with Aut Sci Write",
+      "candidate_type": "skill",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write",
+      "domain_hint": "research workflow",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Run academic literature review and paper-output workflows with Aut Sci Write"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0037",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Security & Verification",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/security-verification",
+      "domain_hint": "236 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Security & Verification"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0038",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Security Operations & GRC Workflows",
+      "candidate_type": "lane",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/security-operations-grc-workflows.md",
+      "domain_hint": "security/GRC workflows",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Security Operations & GRC Workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0039",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Skill spec",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/spec/SKILL_SPEC.md",
+      "domain_hint": "skill format",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Skill spec"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0040",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Skill template",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/template/SKILL.md",
+      "domain_hint": "skill authoring",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Skill template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

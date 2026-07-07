@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Workflow Understanding Packet Fixture",
+  "type": "object",
+  "required": [
+    "fixture_type",
+    "raw_request",
+    "intake_question",
+    "understanding_target",
+    "markdown_packet_intent",
+    "categories"
+  ],
+  "properties": {
+    "fixture_type": {
+      "type": "string",
+      "enum": [
+        "narrow",
+        "broad",
+        "supporting_building_blocks",
+        "high_stakes"
+      ]
+    },
+    "raw_request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intake_question": {
+      "type": "string",
+      "const": "What type of work or workflow are you trying to understand?"
+    },
+    "understanding_target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "markdown_packet_intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "high_stakes_human_boundary": {
+      "type": "boolean"
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "recommendations"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "Direct Matches",
+              "Strong Adjacent Matches",
+              "Supporting Building Blocks",
+              "Maybe Useful"
+            ]
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "workflow_name",
+                "why_it_matters",
+                "why_it_is_here",
+                "what_it_does",
+                "source_link",
+                "local_door_source_path",
+                "reliability",
+                "possible_skill_to_extract"
+              ],
+              "properties": {
+                "workflow_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "why_it_matters": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "why_it_is_here": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "what_it_does": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_link": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "local_door_source_path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reliability": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "possible_skill_to_extract": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

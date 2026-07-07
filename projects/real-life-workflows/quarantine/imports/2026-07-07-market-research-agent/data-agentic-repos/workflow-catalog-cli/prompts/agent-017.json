@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-017",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0161",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "build",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/build",
+      "domain_hint": "project scaffolding/build pipelines",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "build"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0162",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "combo",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo",
+      "domain_hint": "multi-skill chains",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "combo"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0163",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "compliance-suite",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/compliance-suite",
+      "domain_hint": "compliance-support chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "compliance-suite"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0164",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "design-to-code",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/design-to-code",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "design-to-code"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0165",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "fix-and-ship",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/fix-and-ship",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "fix-and-ship"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0166",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "mvp-spec",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/mvp-spec",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "mvp-spec"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0167",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "qa",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/qa",
+      "domain_hint": "quality assurance",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "qa"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0168",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "review-implement",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/review-implement",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "review-implement"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0169",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "secure-ship",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/secure-ship",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "secure-ship"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0170",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "ship-pipeline",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/ship-pipeline",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "ship-pipeline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

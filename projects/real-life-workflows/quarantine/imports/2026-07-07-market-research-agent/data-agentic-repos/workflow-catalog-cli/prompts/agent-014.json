@@ -1,0 +1,204 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-014",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0131",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Templates based on platforms lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms",
+      "domain_hint": "2,000 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Templates based on platforms lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0132",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Zillow",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Zillow",
+      "domain_hint": "real estate automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Zillow"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0133",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "n8n advance lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/n8n advance",
+      "domain_hint": "204 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "n8n advance lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0134",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "n8n_2000_workflows lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/n8n_2000_workflows",
+      "domain_hint": "2,001 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "n8n_2000_workflows lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0135",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "workflows by Zie619 lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/workflows by Zie619",
+      "domain_hint": "2,055 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "workflows by Zie619 lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0136",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AAS Agent & MCP Builder",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-agent-mcp-builder",
+      "domain_hint": "agent/MCP/eval builder",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "AAS Agent & MCP Builder"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0137",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AAS Security Engineer",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-security-engineer",
+      "domain_hint": "security audit",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "AAS Security Engineer"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0138",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AAS Web App Builder",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-web-app-builder",
+      "domain_hint": "web app building",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "AAS Web App Builder"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0139",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Bundles index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/bundles.md",
+      "domain_hint": "role bundles",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Bundles index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0140",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Design a DDD Core Domain",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/data/workflows.json",
+      "domain_hint": "architecture",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Build an AI Agent System",
+        "Design a DDD Core Domain",
+        "Machine-readable workflows",
+        "QA and Browser Automation",
+        "Security Audit for a Web App",
+        "Ship a SaaS MVP"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

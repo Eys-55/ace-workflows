@@ -19,11 +19,43 @@
     },
     {
       "task_id": "workflow-foundry-003",
-      "title": "Expose workflow slash prompts in Codex app",
+      "title": "Expose workflow skills in Codex app",
       "task_kind": "workflow-change",
       "status": "todo",
       "matt_phase": "intake",
       "updated_at": "2026-07-06"
+    },
+    {
+      "task_id": "workflow-foundry-004",
+      "title": "Maintain workflow tracker state",
+      "task_kind": "tracker-maintenance",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-06"
+    },
+    {
+      "task_id": "workflow-foundry-005",
+      "title": "Create dark-mode project task tracker UI",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-06"
+    },
+    {
+      "task_id": "workflow-foundry-006",
+      "title": "Create foundry expansion discovery workflow",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "grilling",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "workflow-foundry-007",
+      "title": "Checkpoint foundry repository to GitHub",
+      "task_kind": "workflow-change",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-07"
     }
   ]
 }

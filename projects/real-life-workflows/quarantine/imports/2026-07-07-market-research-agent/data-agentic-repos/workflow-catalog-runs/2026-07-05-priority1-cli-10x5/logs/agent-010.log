@@ -1,0 +1,624 @@
+2026-07-05T10:41:39.467810Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-07-05T10:41:39.848053Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:41:39.850291Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:41:42.232541Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:41:42.233898Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:41:44.114794Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:41:44.116581Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+OpenAI Codex v0.142.0
+--------
+workdir: /Users/acecanacan/Documents/market-research-agent
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 019f31de-98aa-7821-a6c9-9d8d40f64940
+--------
+user
+You are classifying workflow-catalog doors for a reusable Codex/ECC lookup catalog.
+
+Workspace: /Users/acecanacan/Documents/market-research-agent
+
+Use read-only behavior. Do not edit files. Read the linked source pages or obvious canonical repo paths if needed. Classify exactly these 5 doors:
+
+[
+  {
+    "id": "surface-0021",
+    "door": "README Available Skills",
+    "repo": "K-Dense-AI/scientific-agent-skills",
+    "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+    "primary_category": "Healthcare / Medical Workflow",
+    "primary_domain": "healthcare",
+    "primary_pattern": "HealthcareAdmin",
+    "fit": "skill/package reference",
+    "browse_use": "patient/referral/admin packets, medical document review, regulated human-review flows",
+    "input_contract_hint": "patient/referral/source documents, forms, notes",
+    "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0063",
+    "door": "Industry Use Cases",
+    "repo": "ashishpatel26/500-AI-Agents-Projects",
+    "source_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+    "primary_category": "Healthcare / Medical Workflow",
+    "primary_domain": "healthcare",
+    "primary_pattern": "HealthcareAdmin",
+    "fit": "inspiration catalog",
+    "browse_use": "patient/referral/admin packets, medical document review, regulated human-review flows",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0083",
+    "door": "Healthcare industry pack",
+    "repo": "indranilbanerjee/contentforge",
+    "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/healthcare",
+    "primary_category": "Healthcare / Medical Workflow",
+    "primary_domain": "healthcare",
+    "primary_pattern": "HealthcareAdmin",
+    "fit": "skill/package reference",
+    "browse_use": "patient/referral/admin packets, medical document review, regulated human-review flows",
+    "input_contract_hint": "patient/referral/source documents, forms, notes",
+    "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0085",
+    "door": "Pharma industry pack",
+    "repo": "indranilbanerjee/contentforge",
+    "source_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/pharma",
+    "primary_category": "Healthcare / Medical Workflow",
+    "primary_domain": "healthcare",
+    "primary_pattern": "HealthcareAdmin",
+    "fit": "skill/package reference",
+    "browse_use": "patient/referral/admin packets, medical document review, regulated human-review flows",
+    "input_contract_hint": "patient/referral/source documents, forms, notes",
+    "output_artifact_hint": "clean packet, summary, checklist, review-ready draft",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0113",
+    "door": "USE-CASES",
+    "repo": "mergisi/awesome-openclaw-agents",
+    "source_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md",
+    "primary_category": "Healthcare / Medical Workflow",
+    "primary_domain": "healthcare",
+    "primary_pattern": "HealthcareAdmin",
+    "fit": "inspiration catalog",
+    "browse_use": "patient/referral/admin packets, medical document review, regulated human-review flows",
+    "input_contract_hint": "public records, source links, addresses, entity names, evidence files",
+    "output_artifact_hint": "evidence packet, due-diligence brief, caveated report",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  }
+]
+
+Return only JSON matching the provided output schema. No Markdown, no prose outside JSON.
+
+Rules:
+- Keep every row evidence-grounded to the source link or a clearly stated fallback.
+- If a source link is broken, shallow, or sparse, check the repository README or obvious canonical nested path once.
+- Set source_url_status to one of: exact_page_reachable, exact_page_sparse, broken, canonicalized.
+- Set canonical_source_url to the original source_url unless you found a better canonical source.
+- Set evidence_basis to a short phrase: exact page, README fallback, raw skill file, repo index, category folder, or source sparse.
+- Do not invent workflow behavior when evidence is sparse. Say sparse and lower confidence.
+- This is cataloging only. Do not design a new skill.
+- Do not include the names of outdated agent frameworks.
+- The rows must preserve the input workflow_id values exactly.
+
+2026-07-05T10:41:45.188504Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Invalid refresh token
+2026-07-05T10:41:45.192419Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:45.535068Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:41:45.535122Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:45.773267Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:41:45.773333Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:48.065477Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Refresh token previously used. Cannot be used twice.
+2026-07-05T10:41:48.065539Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:41:57.060642Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:41:57.072069Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:41:57.139168Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.139198Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.141347Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.141363Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.142206Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.142242Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.145288Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.145308Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.146472Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.146490Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.151149Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:41:57.151176Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+2026-07-05T10:41:59.059691Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:41:59.064256Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+{"agent_id":"codex","quality_note":"Using the real-world-workflow-finder skill for catalog classification, then I’ll verify each source page read-only and return only the requested JSON.","rows":						[
+							{
+								"workflow_id":"",
+								"workflow_name":"",
+								"source_repo":"",
+								"source_url":"",
+								"source_url_status":"",
+								"canonical_source_url":"",
+								"evidence_basis":"",
+								"domain":"",
+								"workflow_type":"",
+								"real_life_job":"",
+								"input_contract":"",
+								"output_artifact":"",
+								"trigger":"",
+								"tools_or_sources":"",
+								"validation_gate":"",
+								"human_review_boundary":"",
+								"safety_boundary":"",
+								"codex_package_relevance":"",
+								"what_to_copy":"",
+								"what_to_ignore":"",
+								"tags":"",
+								"confidence":""
+							}
+										,
+		{
+			"workflow_id":"",
+			"workflow_name":"",
+			"source_repo":"",
+			"source_url":"",
+			"source_url_status":"",
+			"canonical_source_url":"",
+			"evidence_basis":"",
+			"domain":"",
+			"workflow_type":"",
+			"real_life_job":"",
+			"input_contract":"",
+			"output_artifact":"",
+			"trigger":"",
+			"tools_or_sources":"",
+			"validation_gate":"",
+			"human_review_boundary":"",
+			"safety_boundary":"",
+			"codex_package_relevance":"",
+			"what_to_copy":"",
+			"what_to_ignore":"",
+			"tags":"",
+			"confidence":""
+		}
+		,
+		{
+			"workflow_id":"",
+			"workflow_name":"",
+			"source_repo":"",
+			"source_url":"",
+			"source_url_status":"",
+			"canonical_source_url":"",
+			"evidence_basis":"",
+			"domain":"",
+			"workflow_type":"",
+			"real_life_job":"",
+			"input_contract":"",
+			"output_artifact":"",
+			"trigger":"",
+			"tools_or_sources":"",
+			"validation_gate":"",
+			"human_review_boundary":"",
+			"safety_boundary":"",
+			"codex_package_relevance":"",
+			"what_to_copy":"",
+			"what_to_ignore":"",
+			"tags":"",
+			"confidence":""
+		},
+		{
+			"workflow_id":"",
+			"workflow_name":"",
+			"source_repo":"",
+			"source_url":"",
+			"source_url_status":"",
+			"canonical_source_url":"",
+			"evidence_basis":"",
+			"domain":"",
+			"workflow_type":"",
+			"real_life_job":"",
+			"input_contract":"",
+			"output_artifact":"",
+			"trigger":"",
+			"tools_or_sources":"",
+			"validation_gate":"",
+			"human_review_boundary":"",
+			"safety_boundary":"",
+			"codex_package_relevance":"",
+			"what_to_copy":"",
+			"what_to_ignore":"",
+			"tags":"",
+			"confidence":""
+		},
+		{
+			"workflow_id":"",
+			"workflow_name":"",
+			"source_repo":"",
+			"source_url":"",
+			"source_url_status":"",
+			"canonical_source_url":"",
+			"evidence_basis":"",
+			"domain":"",
+			"workflow_type":"",
+			"real_life_job":"",
+			"input_contract":"",
+			"output_artifact":"",
+			"trigger":"",
+			"tools_or_sources":"",
+			"validation_gate":"",
+			"human_review_boundary":"",
+			"safety_boundary":"",
+			"codex_package_relevance":"",
+			"what_to_copy":"",
+			"what_to_ignore":"",
+			"tags":"",
+			"confidence":""
+		}]}
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/SKILL.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 1ms:
+---
+name: real-world-workflow-finder
+description: Find real-world agent workflow repos, skill packs, templates, and workflow catalogs similar to a user's idea. Use when the user asks for workflows like an earthquake/building evidence audit, healthcare/referral/patient document workflow, education workflow, real estate workflow, public evidence audit, due diligence workflow, case intake workflow, queue/monitoring/human-review workflow, multi-industry workflow catalog, Codex config package, or similar agentic workflow examples.
+---
+
+# Real-World Workflow Finder
+
+Use this skill to turn a vague real-life workflow idea into searchable workflow
+patterns and ranked repo recommendations.
+
+The user usually wants Codex-native config-package ideas, not a new app platform.
+Treat ECC as the workflow contract method and Codex as the operating surface.
+External repos are references, catalogs, or optional adapters unless the user
+explicitly asks for a runtime.
+
+## Core Workflow
+
+1. Classify the user's workflow idea.
+2. Search local indexes first.
+3. Browse only when freshness is requested.
+4. Rank candidates by similarity and Codex/ECC usefulness.
+5. Answer with 3-7 matches and a clear next step.
+
+## Load References
+
+- Read `references/query-playbook.md` for classification, query generation, and
+  workflow-pattern mapping.
+- Read `references/repo-catalog.md` for the seed catalog and local data sources.
+- Read `references/output-template.md` before answering so the result shape stays
+  consistent.
+
+## Local-First Rule
+
+Default to local curated sources before web browsing:
+
+- Codex memory notes about real-world workflow repos;
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`;
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`;
+- the active repo's `AGENTS.md`, `skills/`, `data/`, `reports/`, and `docs/`
+  when the user's workflow refers to the current project.
+
+Use web/GitHub search only when the user asks for terms like "latest",
+"current stars", "more", "new repos", "find more", "refresh", or "popular
+right now."
+
+## Decision Rules
+
+- If the user says "earthquake thing," map it to public evidence audit,
+  source-lane research, deterministic validation, human review, compliance
+  boundary, geospatial/hazard context, due diligence, and OSINT/source taxonomy.
+- If the user asks for healthcare, look for document packet, case intake,
+  referral/prior-auth, claims, medical research, and human-review workflows.
+- If the user asks for education, look for tutoring, curriculum planning,
+  student-support, research assistant, assessment, and administrative workflows.
+- If the user asks for real estate, look for due diligence, underwriting,
+  title/permit/parcel evidence, lease abstraction, closing checklist, and market
+  research workflows.
+- If a repo is a UI automation/app platform, classify it as inspiration or an
+  optional runtime. Do not make it the center when the user is building Codex
+  config packages.
+- Prefer repo matches that expose reusable skill/workflow files, pattern
+  catalogs, templates, schemas, validation, evidence logs, or human-review gates.
+
+## Output Requirements
+
+Every answer should include:
+
+- best 3-7 repo matches;
+- why each match is similar to the user's workflow;
+- the workflow type it teaches;
+- fit label: `Codex-native`, `skill/package reference`, `inspiration catalog`,
+  `runtime/platform`, or `source taxonomy`;
+- recommended next step.
+
+Keep the answer direct. If no repo fits perfectly, say that and identify the
+closest stack of references rather than forcing a false exact match.
+
+
+2026-07-05T10:42:11.885815Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:42:11.891436Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/query-playbook.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Query Playbook
+
+Use this playbook to translate messy user language into useful workflow-search
+queries.
+
+## Normalize The Ask
+
+Extract these fields before searching:
+
+| Field | Meaning |
+| --- | --- |
+| Domain | healthcare, education, real estate, public evidence, legal, finance, geospatial, etc. |
+| Input | files, addresses, records, links, forms, tickets, photos, source lists, patient packets, listings, permits |
+| Output artifact | evidence packet, completed document, checklist, report, queue item, case note, decision memo |
+| Workflow pattern | evidence audit, document transformation, case intake, compliance support, queue processing, monitoring, human review |
+| Safety boundary | what the agent must not decide or claim |
+| Source type | public web, official records, internal files, APIs, databases, human-provided documents |
+| Human review | whether a person must approve, submit, certify, publish, or decide |
+
+When the user gives a vague phrase, infer these fields from examples and then
+state the inference briefly.
+
+## Workflow Pattern Map
+
+| User language | Pattern labels | Search angle |
+| --- | --- | --- |
+| "like my earthquake thing" | EvidenceAudit, PublicRecordsInvestigation, ComplianceBoundary, HumanReview, SourceAtlas | public evidence audit, OSINT, due diligence, hazard/geospatial evidence |
+| "patient data to documents" | DocumentTransformation, CaseIntake, HumanReview, ComplianceBoundary | healthcare document processing, referral packet, prior authorization, intake |
+| "education workflow" | EducationSupport, Assessment, TutorOps, CurriculumOps, CaseIntake | education agent workflow, tutoring agent, assessment workflow, student support |
+| "real estate workflow" | DueDiligence, Underwriting, EvidenceAudit, DocumentAbstraction | CRE due diligence, lease abstraction, underwriting agent skills |
+| "process many records" | WorkQueueOps, BatchOps, QueueReview | durable queue, batch workflow, checklist queue, review queue |
+| "watch for changes" | Monitoring, EventDrivenOps, Escalation | monitoring agent, alert workflow, source watch, filing/news monitor |
+| "human approves first" | HumanReview, ApprovalGate, SafeOutputs | human in the loop, approval workflow, review gate |
+| "what repo teaches types" | PatternRouter, WorkflowCatalog, SkillRegistry | agent workflow patterns, skill catalog, workflow templates |
+
+## Earthquake / Building Evidence Mapping
+
+Map "earthquake thing" to:
+
+- real-world public evidence audit;
+- deterministic source collection before agent synthesis;
+- bounded parallel source lanes for identity, official records, incidents/news,
+  contractor/developer/professional traces, geospatial/hazard context, and review;
+- validation gate for citation quality, source reachability, source limits, and
+  overclaim prevention;
+- manual-request handoff when official records are not publicly available;
+- human review before any safety, compliance, legal, engineering, or occupancy
+  conclusion.
+
+Useful search phrases:
+
+```text
+public evidence audit agent skill
+OSINT evidence workflow agent repo
+building permit due diligence workflow agent
+geospatial hazard evidence agent skill
+compliance boundary human review agent workflow
+real-world agent skill public records investigation
+```
+
+## Domain Query Seeds
+
+Healthcare:
+
+```text
+agent skills healthcare intake workflow
+healthcare referral packet agent workflow
+prior authorization document workflow agent
+medical document processing human review agent
+healthcare admin agent skills
+medical research skill library
+```
+
+Education:
+
+```text
+education agent workflow templates
+student support agent skill
+curriculum planning agent workflow
+assessment feedback agent workflow
+research assistant education skill
+```
+
+Real estate:
+
+```text
+real estate due diligence agent skill
+commercial real estate underwriting agent workflow
+lease abstraction agent skill
+property permit public records workflow agent
+real estate closing checklist agent
+```
+
+Multi-industry catalogs:
+
+```text
+multi industry AI agent workflow catalog
+agent skills healthcare real estate education
+AI agent templates healthcare education real estate
+Codex compatible agent skills catalog
+SKILL.md workflow packs industry
+```
+
+## Ranking Heuristic
+
+Score candidates higher when they have:
+
+- reusable skill/workflow package files;
+- explicit industry or workflow categories;
+- examples across healthcare, education, real estate, public evidence, legal, or
+  finance;
+- schemas, validators, reports, evidence logs, or human-review gates;
+- Codex/Claude/OpenClaw/OpenAI skill compatibility;
+- active maintenance or substantial community signal;
+- clear safety boundaries for regulated or high-consequence domains.
+
+Score lower when they are only a model demo, a generic chatbot, an app platform
+with no reusable workflow taxonomy, or a code-only agent workflow.
+
+
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/repo-catalog.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Repo Catalog
+
+Use this as a seed catalog, then supplement from local repo data or live search
+when needed.
+
+## Local Sources To Inspect First
+
+- `/Users/acecanacan/.codex/memories/extensions/ad_hoc/notes/2026-07-05T17-16-10+0800-codex-real-world-workflow-repos.md`
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`
+
+## Core Pattern And Skill References
+
+| Repo | Fit label | Study for |
+| --- | --- | --- |
+| `github/gh-aw` | pattern/router reference, optional runtime adapter | pattern router, named workflow patterns, GitHub Actions execution |
+| `agentskillexchange/skills` | Codex-compatible skill/package reference | multi-industry skill catalog shape |
+| `sickn33/antigravity-awesome-skills` | skill/package reference | large installable skill library, package conventions |
+| `ashishpatel26/500-AI-Agents-Projects` | inspiration catalog | many industry examples and use-case taxonomy |
+| `mergisi/awesome-openclaw-agents` | inspiration catalog / template catalog | multi-industry agent templates |
+| `VoltAgent/awesome-agent-skills` | skill directory | broad skill discovery and category grouping |
+| `agentskills/agentskills` | skill specification | portable skill package format |
+| `anthropics/skills` | official skill examples | SKILL.md structure and progressive disclosure |
+
+## Domain Packs
+
+| Repo | Domain | Study for |
+| --- | --- | --- |
+| `K-Dense-AI/scientific-agent-skills` | science, medicine, research | database-backed scientific and medical workflows |
+| `FreedomIntelligence/OpenClaw-Medical-Skills` | medicine | medical skill library structure |
+| `aipoch/medical-research-skills` | medical research | protocol, evidence, academic-writing workflow splits |
+| `Aperivue/medsci-skills` | medical publishing | skill-suite organization for manuscript workflows |
+| `Aperivue/verify-refs` | medical manuscript review | narrow audit-only citation verification |
+| `Aperivue/check-reporting` | reporting compliance | checklist status labels and guideline audits |
+| `ajhcs/healthcare-agents` | healthcare administration | admin workflow decomposition and role specialists |
+| `NVIDIA/digital-health-skills` | digital health | healthcare AI evaluation and metric-driven workflows |
+| `awslabs/hcls-agent-skills` | healthcare/life sciences | regulated HCLS skill packaging |
+| `ahacker-1/cre-agent-skills` | commercial real estate | underwriting, due diligence, financing, brokerage, closing |
+| `jivoi/awesome-osint` | public evidence/source taxonomy | OSINT, public records, geospatial/source discovery |
+| `zoharbabin/due-diligence-agents` | M&A/due diligence | cited multi-agent professional review |
+| `gs-ai/SYNINT` | OSINT/intelligence | evidence registry, chain of custody, forensic reporting |
+| `marieai/marie-ai` | document processing | OCR, extraction, classification, form/document pipelines |
+| `microsoft/content-processing-solution-accelerator` | document processing | extraction, schemas, confidence, human review |
+| `enescingoz/awesome-n8n-templates` | automation templates | real-world workflow examples; not Codex-native |
+| `ritik-prog/n8n-automation-templates-5000` | automation templates | large template corpus; not Codex-native |
+
+## Fit Labels
+
+- `Codex-native`: directly usable as or close to Codex skill/config package.
+- `skill/package reference`: useful package structure or reusable skill library.
+- `inspiration catalog`: good taxonomy/examples, but not directly installable.
+- `runtime/platform`: can execute workflows, but should not replace ECC/Codex
+  unless the user explicitly wants that runtime.
+- `source taxonomy`: good source list for evidence workflows, not a workflow
+  package by itself.
+
+## Known Guidance
+
+- If the user asks for "one repo that combines everything," show the closest
+  multi-industry catalogs and explain tradeoffs.
+- If the user asks for "popular," include current stars only after live
+  verification.
+- If the user is building Codex config packages, recommend Codex-compatible
+  skills and skill catalogs first. Treat app platforms and UI automators as
+  inspiration or optional adapters.
+- Do not force a single exact match when the ecosystem is fragmented. Recommend
+  a stack of references when that is more honest.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/output-template.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Output Template
+
+Use this shape when answering workflow-finder requests.
+
+## Short Answer
+
+Start with the strongest answer in one or two sentences:
+
+```text
+Closest match: [repo]. It is closest because [reason].
+For your workflow, treat it as [fit label], not [wrong role].
+```
+
+## Repo Table
+
+Return 3-7 matches unless the user asks for a longer list.
+
+| Repo | Fit | Workflow type it teaches | Why it matches |
+| --- | --- | --- | --- |
+| `[owner/repo](url)` | Codex-native / skill-package / inspiration / runtime / source taxonomy | EvidenceAudit, DocumentTransformation, CaseIntake, etc. | One concrete similarity |
+
+## Codex/ECC Read
+
+Include a brief recommendation:
+
+```text
+For Codex config packages, use [repo] as [role]. Keep ECC as the workflow
+contract. Do not make [platform/runtime] the source of truth unless you want that
+execution environment.
+```
+
+## Search Terms Used Or Suggested
+
+When useful, include 3-6 search phrases:
+
+```text
+public evidence audit agent skill
+real estate due diligence agent skill
+healthcare referral packet agent workflow
+```
+
+## Next Step
+
+End with a concrete next move:
+
+- inspect the top repo;
+- clone/read a specific folder;
+- build a local `workflow-pattern-router`;
+- refresh stars/current state;
+- create a new Codex workflow pack from the matched pattern.
+
+Keep tone concise. The user prefers direct repo recommendations over broad
+explanations.
+
+
+2026-07-05T10:42:16.907593Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:42:16.912657Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+web search: 
+web search: https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md
+web search: 
+web search: 'Healthcare' in https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md
+web search: 
+web search: https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md
+web search: 
+web search: github indranilbanerjee contentforge skills healthcare
+web search: 
+web search: https://github.com/indranilbanerjee/contentforge
+codex
+{"agent_id":"codex","quality_note":"Read-only classification. Exact GitHub pages were checked where reachable; sparse or broken folder pages used one README fallback as requested.","rows":[{"workflow_id":"surface-0021","workflow_name":"README Available Skills","source_repo":"K-Dense-AI/scientific-agent-skills","source_url":"https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md","evidence_basis":"exact page","domain":"healthcare, clinical research, biomedical science","workflow_type":"skill/package reference for scientific and clinical research workflows","real_life_job":"Support biomedical or clinical research work such as clinical trial lookup, variant interpretation, drug safety review, clinical documentation, and treatment-plan drafting with human oversight.","input_contract":"Research or clinical source data such as VCF files, clinical databases, trial records, FDA/ClinVar/COSMIC/ClinicalTrials.gov references, EHR-like signals, imaging data, and documentation inputs.","output_artifact":"Clinical or research report, database-backed summary, documented analysis, treatment-plan draft, or review-ready clinical research artifact.","trigger":"Use when a Codex/ECC catalog needs reusable scientific or clinical research skill examples with database-backed workflows and explicit skill documentation.","tools_or_sources":"ClinicalTrials.gov, ClinVar, ClinPGx, COSMIC, FDA databases, cBioPortal, Monarch, PubMed-style paper lookup, clinical reports, treatment plans, document tools, scientific Python packages.","validation_gate":"Check source provenance, database identity, workflow fit, source freshness, and require human review for clinical interpretation or treatment implications.","human_review_boundary":"Required before final medical, clinical, treatment, safety, or patient-specific conclusions.","safety_boundary":"Do not make independent diagnosis, treatment, legal, compliance, engineering, or safety conclusions; treat outputs as research or review drafts only.","codex_package_relevance":"High. README states the repo contains many SKILL.md-based skills, works with Codex-compatible skill hosts, and includes clinical research and healthcare AI categories.","what_to_copy":"Skill-pack structure, domain category taxonomy, database-backed workflow prompts, source provenance expectations, and clinical documentation/treatment-plan draft boundaries.","what_to_ignore":"Do not copy claims that the package itself is a healthcare administration/referral workflow; it is broader scientific and clinical research infrastructure.","tags":"healthcare, clinical-research, biomedical, skill-pack, database-lookup, human-review","confidence":"high"},{"workflow_id":"surface-0063","workflow_name":"Industry Use Cases","source_repo":"ashishpatel26/500-AI-Agents-Projects","source_url":"https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md","evidence_basis":"exact page","domain":"healthcare, health insurance, multi-industry examples","workflow_type":"inspiration catalog for industry use cases","real_life_job":"Browse healthcare-related agent examples such as medical report insight, patient-data health assistant concepts, health insurance claiming, and medical chatbot patterns.","input_contract":"Use-case catalog entries and linked example projects; possible inputs include medical reports, patient data, insurance claim details, or chatbot prompts depending on the referenced project.","output_artifact":"Use-case shortlist, implementation reference link, or caveated workflow inspiration note rather than a directly reusable healthcare packet.","trigger":"Use when a catalog needs broad healthcare inspiration examples from a multi-industry agent project directory.","tools_or_sources":"README industry use-case table, linked project examples, healthcare and health insurance entries.","validation_gate":"Verify each linked project separately before copying behavior; catalog table alone is too shallow for safety or implementation detail.","human_review_boundary":"Required before any medical, insurance, claims, patient, or regulated workflow action.","safety_boundary":"Do not infer clinical accuracy, claims eligibility, diagnosis, or compliance readiness from catalog entries alone.","codex_package_relevance":"Medium. Useful as an inspiration catalog, but README is not a Codex/ECC skill package and healthcare evidence is shallow.","what_to_copy":"Industry-use-case taxonomy and the idea of separating healthcare, health insurance, and document/claims examples.","what_to_ignore":"Do not copy framework-specific runtime recommendations, shallow health claims, or any project behavior without reading the linked project.","tags":"healthcare, inspiration-catalog, industry-use-cases, claims, medical-reports","confidence":"medium"},{"workflow_id":"surface-0083","workflow_name":"Healthcare industry pack","source_repo":"indranilbanerjee/contentforge","source_url":"https://github.com/indranilbanerjee/contentforge/tree/main/skills/healthcare","source_url_status":"canonicalized","canonical_source_url":"https://github.com/indranilbanerjee/contentforge","evidence_basis":"README fallback","domain":"content marketing, regulated-industry content, not specifically healthcare on verified fallback","workflow_type":"skill/package reference for content production, not evidence-grounded as a healthcare admin pack","real_life_job":"Produce publication-ready long-form content with research, fact-checking, humanization, review, and Word document output; healthcare-specific behavior was not verified at the requested folder link.","input_contract":"Topic, brand voice, sources, internal link targets, and content-production requirements; no verified healthcare patient/referral input contract found from the fallback.","output_artifact":"Publication-ready .docx with citations, SEO/quality appendices, internal-link map, and provenance sidecar or signing support.","trigger":"Use only as a regulated-content production reference when the requested healthcare folder is unavailable or sparse; do not classify it as patient/referral workflow without folder evidence.","tools_or_sources":"ContentForge README pipeline, fact-checker, scientific validator, reviewer, output manager, citation verification, internal linking, C2PA/provenance support.","validation_gate":"Three-layer fact verification, review scoring, URL verification, and quality gates after phases; healthcare-specific validation not verified.","human_review_boundary":"Required before publishing regulated or healthcare-adjacent content and before any medical or compliance conclusion.","safety_boundary":"Do not treat the fallback as evidence of medical admin, referral processing, or patient document review capabilities.","codex_package_relevance":"Medium. Strong Codex-compatible skill-package structure, but the exact healthcare industry pack was not reachable and the README fallback is content-production focused.","what_to_copy":"Quality gates, fact-checking phases, review scoring, Word output artifact pattern, and provenance thinking for regulated content workflows.","what_to_ignore":"Do not copy the healthcare pack label or patient/referral assumptions unless the actual folder files are verified.","tags":"content-production, regulated-content, fact-checking, sparse-healthcare-evidence, skill-pack","confidence":"low"},{"workflow_id":"surface-0085","workflow_name":"Pharma industry pack","source_repo":"indranilbanerjee/contentforge","source_url":"https://github.com/indranilbanerjee/contentforge/tree/main/skills/pharma","source_url_status":"canonicalized","canonical_source_url":"https://github.com/indranilbanerjee/contentforge","evidence_basis":"README fallback","domain":"content marketing, regulated-industry content, not specifically pharma on verified fallback","workflow_type":"skill/package reference for content production, not evidence-grounded as a pharma admin pack","real_life_job":"Produce researched, fact-checked, reviewed content with publication-ready Word output; pharma-specific workflow behavior was not verified at the requested folder link.","input_contract":"Topic brief, brand profile, source URLs, internal pages, and content requirements; no verified pharma clinical, regulatory, or patient input contract found from fallback.","output_artifact":"Publication-ready .docx with verified citations, quality scorecards, internal links, and provenance metadata.","trigger":"Use as a content-production quality-gate reference when the pharma folder is unavailable or sparse; do not use as pharma clinical workflow evidence without folder verification.","tools_or_sources":"ContentForge README pipeline, fact-checker, scientific validator, reviewer, source verification, internal linking, C2PA/provenance support.","validation_gate":"Fact-checking, source URL verification, scientific validation phase, reviewer scoring, and release/tests noted in README; pharma-specific validation not verified.","human_review_boundary":"Required before publication or any pharma, medical, regulatory, treatment, safety, or compliance conclusion.","safety_boundary":"Do not infer pharma R&D, clinical trial, regulatory submission, or patient-safety workflow capability from the fallback README alone.","codex_package_relevance":"Medium. Useful for Codex-compatible content quality gates, but exact pharma pack evidence is unavailable from the checked source.","what_to_copy":"Phase gates, source verification, review scoring, document-output pattern, and provenance support for regulated content.","what_to_ignore":"Do not copy pharma-specific labels, clinical behavior, or compliance claims unless the actual pharma folder is verified.","tags":"content-production, pharma-sparse, regulated-content, fact-checking, skill-pack","confidence":"low"},{"workflow_id":"surface-0113","workflow_name":"USE-CASES","source_repo":"mergisi/awesome-openclaw-agents","source_url":"https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md","evidence_basis":"exact page","domain":"health and fitness, medical reimbursement, broad workflow examples","workflow_type":"inspiration catalog for real-world agent use cases","real_life_job":"Browse health-adjacent examples such as wearable dashboarding, lab result organization, and medical reimbursement filing.","input_contract":"Wearable metrics, bloodwork lab results, reimbursement claim details, and user-provided account or document context depending on the example.","output_artifact":"Dashboard, structured lab-result database, reimbursement filing draft/action, or catalog-derived workflow idea.","trigger":"Use when a catalog needs real-world health-adjacent workflow inspiration and human-review boundaries for admin-style tasks.","tools_or_sources":"USE-CASES health and fitness section, wearable tracker example, lab result organizer, medical reimbursement filing example.","validation_gate":"Treat examples as shallow; verify source workflow details, credentials, privacy handling, and action boundaries before reuse.","human_review_boundary":"Required before reimbursement submission, medical interpretation, patient action, or any health-related conclusion.","safety_boundary":"Do not make medical conclusions, reimbursement eligibility decisions, or third-party submissions without explicit human approval.","codex_package_relevance":"Medium-low. Useful catalog evidence for real-world workflow ideas, but not a reusable skill package and not specifically patient/referral/admin packets.","what_to_copy":"Health-adjacent workflow categories, lab-result organization idea, reimbursement admin pattern, and human-in-the-loop action boundary.","what_to_ignore":"Do not copy autonomous filing behavior, credential usage, platform-specific execution assumptions, or medical interpretation claims.","tags":"health, reimbursement, lab-results, inspiration-catalog, human-review","confidence":"medium"}]}
+2026-07-05T10:43:09.494118Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:43:09.494395Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable BIGQUERY_MCP_BEARER_TOKEN for MCP server 'bigquery' is not set
+2026-07-05T10:43:09.495234Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:43:09.495243Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:43:09.495867Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:43:09.498766Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable GHL_PRIVATE_INTEGRATION_TOKEN for MCP server 'ghl' is not set
+tokens used
+84,867
+{"agent_id":"codex","quality_note":"Read-only classification. Exact GitHub pages were checked where reachable; sparse or broken folder pages used one README fallback as requested.","rows":[{"workflow_id":"surface-0021","workflow_name":"README Available Skills","source_repo":"K-Dense-AI/scientific-agent-skills","source_url":"https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md","evidence_basis":"exact page","domain":"healthcare, clinical research, biomedical science","workflow_type":"skill/package reference for scientific and clinical research workflows","real_life_job":"Support biomedical or clinical research work such as clinical trial lookup, variant interpretation, drug safety review, clinical documentation, and treatment-plan drafting with human oversight.","input_contract":"Research or clinical source data such as VCF files, clinical databases, trial records, FDA/ClinVar/COSMIC/ClinicalTrials.gov references, EHR-like signals, imaging data, and documentation inputs.","output_artifact":"Clinical or research report, database-backed summary, documented analysis, treatment-plan draft, or review-ready clinical research artifact.","trigger":"Use when a Codex/ECC catalog needs reusable scientific or clinical research skill examples with database-backed workflows and explicit skill documentation.","tools_or_sources":"ClinicalTrials.gov, ClinVar, ClinPGx, COSMIC, FDA databases, cBioPortal, Monarch, PubMed-style paper lookup, clinical reports, treatment plans, document tools, scientific Python packages.","validation_gate":"Check source provenance, database identity, workflow fit, source freshness, and require human review for clinical interpretation or treatment implications.","human_review_boundary":"Required before final medical, clinical, treatment, safety, or patient-specific conclusions.","safety_boundary":"Do not make independent diagnosis, treatment, legal, compliance, engineering, or safety conclusions; treat outputs as research or review drafts only.","codex_package_relevance":"High. README states the repo contains many SKILL.md-based skills, works with Codex-compatible skill hosts, and includes clinical research and healthcare AI categories.","what_to_copy":"Skill-pack structure, domain category taxonomy, database-backed workflow prompts, source provenance expectations, and clinical documentation/treatment-plan draft boundaries.","what_to_ignore":"Do not copy claims that the package itself is a healthcare administration/referral workflow; it is broader scientific and clinical research infrastructure.","tags":"healthcare, clinical-research, biomedical, skill-pack, database-lookup, human-review","confidence":"high"},{"workflow_id":"surface-0063","workflow_name":"Industry Use Cases","source_repo":"ashishpatel26/500-AI-Agents-Projects","source_url":"https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md","evidence_basis":"exact page","domain":"healthcare, health insurance, multi-industry examples","workflow_type":"inspiration catalog for industry use cases","real_life_job":"Browse healthcare-related agent examples such as medical report insight, patient-data health assistant concepts, health insurance claiming, and medical chatbot patterns.","input_contract":"Use-case catalog entries and linked example projects; possible inputs include medical reports, patient data, insurance claim details, or chatbot prompts depending on the referenced project.","output_artifact":"Use-case shortlist, implementation reference link, or caveated workflow inspiration note rather than a directly reusable healthcare packet.","trigger":"Use when a catalog needs broad healthcare inspiration examples from a multi-industry agent project directory.","tools_or_sources":"README industry use-case table, linked project examples, healthcare and health insurance entries.","validation_gate":"Verify each linked project separately before copying behavior; catalog table alone is too shallow for safety or implementation detail.","human_review_boundary":"Required before any medical, insurance, claims, patient, or regulated workflow action.","safety_boundary":"Do not infer clinical accuracy, claims eligibility, diagnosis, or compliance readiness from catalog entries alone.","codex_package_relevance":"Medium. Useful as an inspiration catalog, but README is not a Codex/ECC skill package and healthcare evidence is shallow.","what_to_copy":"Industry-use-case taxonomy and the idea of separating healthcare, health insurance, and document/claims examples.","what_to_ignore":"Do not copy framework-specific runtime recommendations, shallow health claims, or any project behavior without reading the linked project.","tags":"healthcare, inspiration-catalog, industry-use-cases, claims, medical-reports","confidence":"medium"},{"workflow_id":"surface-0083","workflow_name":"Healthcare industry pack","source_repo":"indranilbanerjee/contentforge","source_url":"https://github.com/indranilbanerjee/contentforge/tree/main/skills/healthcare","source_url_status":"canonicalized","canonical_source_url":"https://github.com/indranilbanerjee/contentforge","evidence_basis":"README fallback","domain":"content marketing, regulated-industry content, not specifically healthcare on verified fallback","workflow_type":"skill/package reference for content production, not evidence-grounded as a healthcare admin pack","real_life_job":"Produce publication-ready long-form content with research, fact-checking, humanization, review, and Word document output; healthcare-specific behavior was not verified at the requested folder link.","input_contract":"Topic, brand voice, sources, internal link targets, and content-production requirements; no verified healthcare patient/referral input contract found from the fallback.","output_artifact":"Publication-ready .docx with citations, SEO/quality appendices, internal-link map, and provenance sidecar or signing support.","trigger":"Use only as a regulated-content production reference when the requested healthcare folder is unavailable or sparse; do not classify it as patient/referral workflow without folder evidence.","tools_or_sources":"ContentForge README pipeline, fact-checker, scientific validator, reviewer, output manager, citation verification, internal linking, C2PA/provenance support.","validation_gate":"Three-layer fact verification, review scoring, URL verification, and quality gates after phases; healthcare-specific validation not verified.","human_review_boundary":"Required before publishing regulated or healthcare-adjacent content and before any medical or compliance conclusion.","safety_boundary":"Do not treat the fallback as evidence of medical admin, referral processing, or patient document review capabilities.","codex_package_relevance":"Medium. Strong Codex-compatible skill-package structure, but the exact healthcare industry pack was not reachable and the README fallback is content-production focused.","what_to_copy":"Quality gates, fact-checking phases, review scoring, Word output artifact pattern, and provenance thinking for regulated content workflows.","what_to_ignore":"Do not copy the healthcare pack label or patient/referral assumptions unless the actual folder files are verified.","tags":"content-production, regulated-content, fact-checking, sparse-healthcare-evidence, skill-pack","confidence":"low"},{"workflow_id":"surface-0085","workflow_name":"Pharma industry pack","source_repo":"indranilbanerjee/contentforge","source_url":"https://github.com/indranilbanerjee/contentforge/tree/main/skills/pharma","source_url_status":"canonicalized","canonical_source_url":"https://github.com/indranilbanerjee/contentforge","evidence_basis":"README fallback","domain":"content marketing, regulated-industry content, not specifically pharma on verified fallback","workflow_type":"skill/package reference for content production, not evidence-grounded as a pharma admin pack","real_life_job":"Produce researched, fact-checked, reviewed content with publication-ready Word output; pharma-specific workflow behavior was not verified at the requested folder link.","input_contract":"Topic brief, brand profile, source URLs, internal pages, and content requirements; no verified pharma clinical, regulatory, or patient input contract found from fallback.","output_artifact":"Publication-ready .docx with verified citations, quality scorecards, internal links, and provenance metadata.","trigger":"Use as a content-production quality-gate reference when the pharma folder is unavailable or sparse; do not use as pharma clinical workflow evidence without folder verification.","tools_or_sources":"ContentForge README pipeline, fact-checker, scientific validator, reviewer, source verification, internal linking, C2PA/provenance support.","validation_gate":"Fact-checking, source URL verification, scientific validation phase, reviewer scoring, and release/tests noted in README; pharma-specific validation not verified.","human_review_boundary":"Required before publication or any pharma, medical, regulatory, treatment, safety, or compliance conclusion.","safety_boundary":"Do not infer pharma R&D, clinical trial, regulatory submission, or patient-safety workflow capability from the fallback README alone.","codex_package_relevance":"Medium. Useful for Codex-compatible content quality gates, but exact pharma pack evidence is unavailable from the checked source.","what_to_copy":"Phase gates, source verification, review scoring, document-output pattern, and provenance support for regulated content.","what_to_ignore":"Do not copy pharma-specific labels, clinical behavior, or compliance claims unless the actual pharma folder is verified.","tags":"content-production, pharma-sparse, regulated-content, fact-checking, skill-pack","confidence":"low"},{"workflow_id":"surface-0113","workflow_name":"USE-CASES","source_repo":"mergisi/awesome-openclaw-agents","source_url":"https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md","evidence_basis":"exact page","domain":"health and fitness, medical reimbursement, broad workflow examples","workflow_type":"inspiration catalog for real-world agent use cases","real_life_job":"Browse health-adjacent examples such as wearable dashboarding, lab result organization, and medical reimbursement filing.","input_contract":"Wearable metrics, bloodwork lab results, reimbursement claim details, and user-provided account or document context depending on the example.","output_artifact":"Dashboard, structured lab-result database, reimbursement filing draft/action, or catalog-derived workflow idea.","trigger":"Use when a catalog needs real-world health-adjacent workflow inspiration and human-review boundaries for admin-style tasks.","tools_or_sources":"USE-CASES health and fitness section, wearable tracker example, lab result organizer, medical reimbursement filing example.","validation_gate":"Treat examples as shallow; verify source workflow details, credentials, privacy handling, and action boundaries before reuse.","human_review_boundary":"Required before reimbursement submission, medical interpretation, patient action, or any health-related conclusion.","safety_boundary":"Do not make medical conclusions, reimbursement eligibility decisions, or third-party submissions without explicit human approval.","codex_package_relevance":"Medium-low. Useful catalog evidence for real-world workflow ideas, but not a reusable skill package and not specifically patient/referral/admin packets.","what_to_copy":"Health-adjacent workflow categories, lab-result organization idea, reimbursement admin pattern, and human-in-the-loop action boundary.","what_to_ignore":"Do not copy autonomous filing behavior, credential usage, platform-specific execution assumptions, or medical interpretation claims.","tags":"health, reimbursement, lab-results, inspiration-catalog, human-review","confidence":"medium"}]}

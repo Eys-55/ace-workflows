@@ -1,0 +1,4 @@
+interface:
+  display_name: "Control Repo Manager"
+  short_description: "Read project status from tracker registries and session logs"
+  default_prompt: "Use this skill before answering project status or ending a session in this repo. Treat ops registries and event logs as tracker authority, folder scans as audit evidence only, and live upload gate/status results as upload truth."

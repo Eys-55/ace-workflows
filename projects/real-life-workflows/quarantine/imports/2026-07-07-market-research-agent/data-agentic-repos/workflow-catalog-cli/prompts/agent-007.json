@@ -1,0 +1,206 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-007",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0061",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "CrewAI Examples",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/crewAI-examples",
+      "domain_hint": "agent examples",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CrewAI Examples"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0062",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "CrewAI MCP Course",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/crewAI-MCP-Course",
+      "domain_hint": "agent course examples",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CrewAI MCP Course"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0063",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Industry Use Cases",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "domain_hint": "healthcare, finance, education, real estate, retail, legal",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Industry Use Cases"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0064",
+      "repo": "danielrosehill/Useful-AI-Agent-Skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Scope and Curation Rules",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills/blob/main/README.md",
+      "domain_hint": "catalog governance",
+      "source_index_url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Awesome Lists",
+        "Community Skill Collections",
+        "Marketing and SEO Skills",
+        "PM Skills",
+        "Research and Science Skills",
+        "Scope and Curation Rules",
+        "Skill Tooling and Builders",
+        "Vendor Skill Bundles"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0065",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "AI Research/RAG/Data Analysis",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI Research & RAG & Data Analysis",
+      "domain_hint": "AI research/RAG/data analysis",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "AI Research/RAG/Data Analysis"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0066",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Gmail/Email",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail & Email",
+      "domain_hint": "email processing",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Gmail/Email"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0067",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Google Drive/Sheets",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Google Drive & Sheets",
+      "domain_hint": "document/spreadsheet automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Google Drive/Sheets"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0068",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "HR/Recruitment",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR & Recruitment",
+      "domain_hint": "HR workflows",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "HR/Recruitment"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0069",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Notion",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Notion",
+      "domain_hint": "knowledge/workspace automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Notion"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0070",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "OpenAI and LLMs",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/OpenAI & LLMs",
+      "domain_hint": "LLM automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "OpenAI and LLMs"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

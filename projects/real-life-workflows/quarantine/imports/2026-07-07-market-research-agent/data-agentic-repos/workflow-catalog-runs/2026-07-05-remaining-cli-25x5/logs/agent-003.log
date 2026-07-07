@@ -1,0 +1,639 @@
+2026-07-05T10:46:59.291505Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-07-05T10:47:01.180402Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:01.183005Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:02.512993Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:47:02.514523Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:47:06.369833Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/acecanacan/.codex/shell_snapshots/019f31e3-7bd2-7243-b27c-f55c6e152598.1783248424097396000.sh": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+2026-07-05T10:47:06.425869Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-07-05T10:47:06.427265Z  WARN codex_rollout::state_db: state db discrepancy during read_repair_rollout_path: upsert_needed (slow path)
+2026-07-05T10:47:06.467620Z  WARN codex_rollout::state_db: state db reconcile_rollout extraction failed /Users/acecanacan/.codex/sessions/2026/07/05/rollout-2026-07-05T18-47-00-019f31e3-7f49-7ad1-9c7f-6658a7f85334.jsonl: empty session file
+2026-07-05T10:47:07.302915Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/acecanacan/.codex/shell_snapshots/019f31e3-7d62-7523-9d59-23df6d098a2f.1783248424269397000.sh": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+2026-07-05T10:47:08.636346Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:08.659137Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.codex/plugins/cache/openai-primary-runtime/template-creator/26.630.12135/.codex-plugin/plugin.json
+2026-07-05T10:47:12.903927Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Invalid refresh token
+2026-07-05T10:47:12.928246Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:47:13.820564Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:47:13.820636Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+2026-07-05T10:47:13.868861Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Failed to parse server response
+2026-07-05T10:47:13.868908Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+OpenAI Codex v0.142.0
+--------
+workdir: /Users/acecanacan/Documents/market-research-agent
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 019f31e3-7b87-7d70-afce-7bdec617e529
+--------
+user
+You are classifying workflow-catalog doors for a reusable Codex/ECC lookup catalog.
+
+Workspace: /Users/acecanacan/Documents/market-research-agent
+
+Use read-only behavior. Do not edit files. Read the linked source pages or obvious canonical repo paths if needed. Classify exactly these 5 doors:
+
+[
+  {
+    "id": "surface-0036",
+    "door": "Run academic literature review and paper-output workflows with Aut Sci Write",
+    "repo": "agentskillexchange/skills",
+    "source_url": "https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write",
+    "primary_category": "Research / Knowledge Workflow",
+    "primary_domain": "research",
+    "primary_pattern": "HumanReview",
+    "fit": "skill/package reference",
+    "browse_use": "literature, research, scraping, knowledge synthesis, cited research packets",
+    "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+    "output_artifact_hint": "matched router surface and expansion plan",
+    "human_review_boundary": "required before final action or conclusion",
+    "safety_boundary": "must not make legal, medical, engineering, compliance, or safety conclusions without human review"
+  },
+  {
+    "id": "surface-0160",
+    "door": "analysis",
+    "repo": "tinh2/skills-hub-registry",
+    "source_url": "https://github.com/tinh2/skills-hub-registry/tree/main/analysis",
+    "primary_category": "Research / Knowledge Workflow",
+    "primary_domain": "research",
+    "primary_pattern": "ResearchOps",
+    "fit": "skill/package reference",
+    "browse_use": "literature, research, scraping, knowledge synthesis, cited research packets",
+    "input_contract_hint": "repo docs, source links, category indexes, user-provided context",
+    "output_artifact_hint": "matched router surface and expansion plan",
+    "human_review_boundary": "optional unless output affects a person or external system",
+    "safety_boundary": "keep as reference pattern until copied into an ECC contract"
+  },
+  {
+    "id": "surface-0065",
+    "door": "AI Research/RAG/Data Analysis",
+    "repo": "enescingoz/awesome-n8n-templates",
+    "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI Research & RAG & Data Analysis",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "research",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  },
+  {
+    "id": "surface-0066",
+    "door": "Gmail/Email",
+    "repo": "enescingoz/awesome-n8n-templates",
+    "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail & Email",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "automation",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  },
+  {
+    "id": "surface-0068",
+    "door": "HR/Recruitment",
+    "repo": "enescingoz/awesome-n8n-templates",
+    "source_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR & Recruitment",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "automation",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  }
+]
+
+Return only JSON matching the provided output schema. No Markdown, no prose outside JSON.
+
+Rules:
+- Keep every row evidence-grounded to the source link or a clearly stated fallback.
+- If source access is unavailable, use the supplied local catalog hints as fallback context, mark source_url_status honestly, and lower confidence.
+- If a source link is broken, shallow, or sparse, check the repository README or obvious canonical nested path once.
+- Set source_url_status to one of: exact_page_reachable, exact_page_sparse, broken, canonicalized.
+- Set canonical_source_url to the original source_url unless you found a better canonical source.
+- Set evidence_basis to a short phrase: exact page, README fallback, raw skill file, repo index, category folder, local catalog fallback, or source sparse.
+- Do not invent workflow behavior when evidence is sparse. Say sparse and lower confidence.
+- This is cataloging only. Do not design a new skill.
+- Do not include the names of outdated agent frameworks.
+- The rows must preserve the input workflow_id values exactly.
+
+2026-07-05T10:47:15.117298Z  WARN rmcp::transport::auth: Token refresh not possible, re-authorization required. error=OAuth token refresh failed: Server returned error response: invalid_grant: Refresh token previously used. Cannot be used twice.
+2026-07-05T10:47:15.117356Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Auth(AuthorizationRequired)
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+2026-07-05T10:47:43.705969Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:47:43.711718Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T10:47:43.801724Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.801775Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.803267Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.803300Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.804034Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.804056Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.804731Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.804764Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.805411Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.805438Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.807081Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T10:47:43.807131Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+codex
+{"agent_id":"","quality_note":"","rows": [{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}]}
+codex
+{"agent_id":"","quality_note":"","rows": [{"workflow_id":"","workflow_name":"","source_repo":"","source_url":"","source_url_status":"","canonical_source_url":"","evidence_basis":"","domain":"","workflow_type":"","real_life_job":"","input_contract":"","output_artifact":"","trigger":"","tools_or_sources":"","validation_gate":"","human_review_boundary":"","safety_boundary":"","codex_package_relevance":"","what_to_copy":"","what_to_ignore":"","tags":"","confidence":""}]}
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/SKILL.md" in /Users/acecanacan/Documents/market-research-agent
+exec
+/bin/zsh -lc "pwd && rg --files | sed -n '1,120p'" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 1ms:
+---
+name: real-world-workflow-finder
+description: Find real-world agent workflow repos, skill packs, templates, and workflow catalogs similar to a user's idea. Use when the user asks for workflows like an earthquake/building evidence audit, healthcare/referral/patient document workflow, education workflow, real estate workflow, public evidence audit, due diligence workflow, case intake workflow, queue/monitoring/human-review workflow, multi-industry workflow catalog, Codex config package, or similar agentic workflow examples.
+---
+
+# Real-World Workflow Finder
+
+Use this skill to turn a vague real-life workflow idea into searchable workflow
+patterns and ranked repo recommendations.
+
+The user usually wants Codex-native config-package ideas, not a new app platform.
+Treat ECC as the workflow contract method and Codex as the operating surface.
+External repos are references, catalogs, or optional adapters unless the user
+explicitly asks for a runtime.
+
+## Core Workflow
+
+1. Classify the user's workflow idea.
+2. Search local indexes first.
+3. Browse only when freshness is requested.
+4. Rank candidates by similarity and Codex/ECC usefulness.
+5. Answer with 3-7 matches and a clear next step.
+
+## Load References
+
+- Read `references/query-playbook.md` for classification, query generation, and
+  workflow-pattern mapping.
+- Read `references/repo-catalog.md` for the seed catalog and local data sources.
+- Read `references/output-template.md` before answering so the result shape stays
+  consistent.
+
+## Local-First Rule
+
+Default to local curated sources before web browsing:
+
+- Codex memory notes about real-world workflow repos;
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`;
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`;
+- the active repo's `AGENTS.md`, `skills/`, `data/`, `reports/`, and `docs/`
+  when the user's workflow refers to the current project.
+
+Use web/GitHub search only when the user asks for terms like "latest",
+"current stars", "more", "new repos", "find more", "refresh", or "popular
+right now."
+
+## Decision Rules
+
+- If the user says "earthquake thing," map it to public evidence audit,
+  source-lane research, deterministic validation, human review, compliance
+  boundary, geospatial/hazard context, due diligence, and OSINT/source taxonomy.
+- If the user asks for healthcare, look for document packet, case intake,
+  referral/prior-auth, claims, medical research, and human-review workflows.
+- If the user asks for education, look for tutoring, curriculum planning,
+  student-support, research assistant, assessment, and administrative workflows.
+- If the user asks for real estate, look for due diligence, underwriting,
+  title/permit/parcel evidence, lease abstraction, closing checklist, and market
+  research workflows.
+- If a repo is a UI automation/app platform, classify it as inspiration or an
+  optional runtime. Do not make it the center when the user is building Codex
+  config packages.
+- Prefer repo matches that expose reusable skill/workflow files, pattern
+  catalogs, templates, schemas, validation, evidence logs, or human-review gates.
+
+## Output Requirements
+
+Every answer should include:
+
+- best 3-7 repo matches;
+- why each match is similar to the user's workflow;
+- the workflow type it teaches;
+- fit label: `Codex-native`, `skill/package reference`, `inspiration catalog`,
+  `runtime/platform`, or `source taxonomy`;
+- recommended next step.
+
+Keep the answer direct. If no repo fits perfectly, say that and identify the
+closest stack of references rather than forcing a false exact match.
+
+
+ succeeded in 0ms:
+/Users/acecanacan/Documents/market-research-agent
+reports/philippines-building-code-data-landscape.md
+reports/workflow-catalog-cli-readiness.md
+reports/workflow-router.md
+reports/assets/gate-1-place-lock-chart.svg
+reports/assets/malacanang-flood-overview.svg
+reports/assets/malacanang-flood-points.svg
+reports/assets/building-code-progress-chart.svg
+reports/assets/gate-2-audit-scope-lock-chart.svg
+reports/assets/malacanang-waterway-closeup.svg
+reports/gate-2-audit-scope-lock-view.html
+reports/real-world-agent-repos-directory.md
+reports/six-agent-real-world-repos-directory.md
+reports/workflow-door-catalog.md
+reports/agentic-healthcare-repos-research.md
+reports/workflow-link-seed.md
+reports/workflow-router-table-revamp-sample.md
+reports/building-code-progress-view.html
+reports/earthquake-safety-answerability-matrix.md
+reports/official-flood-risk-assessment-methods.html
+reports/disaster-risk-data-source-atlas.md
+reports/agentic-ai-healthcare-applications-research.md
+reports/metro-manila-source-deep-dive.md
+reports/davao-earthquake-source-targets.md
+reports/nscp-structural-code-compliance-search-method.md
+reports/gate-2-six-establishment-menu-search.md
+reports/workflow-agent-comparison.md
+reports/workflow-expansion-pilot-earthquake-public-evidence.md
+reports/metro-manila-data-source-atlas.md
+reports/gate-3-sm-moa-document-target-search.md
+data/source-schema.json
+data/metro-manila-source-atlas.json
+data/disaster-risk/disaster-source-atlas.json
+data/disaster-risk/local-validation-summary.json
+data/disaster-risk/malacanang-palace-flood-screening-evidence.json
+data/disaster-risk/agent-findings/agent-4-metro-manila-local.md
+data/disaster-risk/agent-findings/agent-2-flood-storm-landslide.md
+data/disaster-risk/agent-findings/agent-1-official-multihazard.md
+data/disaster-risk/agent-findings/agent-3-earthquake-seismic.md
+data/disaster-risk/agent-findings/README.md
+data/disaster-risk/agent-findings/agent-5-global-humanitarian.md
+data/disaster-risk/agent-findings/agent-6-waste-drainage-proxies.md
+data/disaster-risk/source-priorities.json
+data/building-code-auditor/audit-scope-source-reality.json
+data/building-code-auditor/gate-2-six-establishment-menu-matrix.json
+README.md
+data/building-code-auditor/davao-earthquake-source-targets.json
+data/building-code-auditor/source-landscape.json
+data/building-code-auditor/earthquake-safety-answerability-matrix.json
+data/building-code-auditor/audit-scope-test-cases.json
+data/building-code-auditor/building-identity-schema.json
+data/building-code-auditor/nscp-compliance-evidence-map.json
+data/building-code-auditor/gate-3-sm-moa-document-target-matrix.json
+data/building-code-auditor/test-cases.json
+data/building-code-auditor/samples/place-lock-sm-north-tenant.json
+data/building-code-auditor/samples/place-lock-confirmed-place.json
+data/building-code-auditor/samples/place-lock-weak-clue.json
+data/building-code-auditor/samples/place-lock-ayala-center-complex.json
+data/building-code-auditor/samples/place-lock-clear-candidate.json
+data/building-code-auditor/samples/place-lock-kcc-gensan-clear.json
+data/building-code-auditor/samples/place-lock-tenant-vs-building.json
+data/building-code-auditor/samples/place-lock-kcc-abbreviation.json
+data/building-code-auditor/samples/place-lock-rejected-candidate.json
+data/building-code-auditor/samples/place-lock-kcc-mall-branches.json
+data/building-code-auditor/samples/place-lock-ambiguous-candidates.json
+AGENTS.md
+data/verification-log.md
+data/untitled-project/README.md
+scripts/workflow_catalog_cli_run.py
+scripts/validate_audit_scope_gate.py
+scripts/build_workflow_door_catalog.py
+scripts/build_workflow_router.py
+data/deep-dive/local-validation-summary.json
+data/deep-dive/source-qualification-matrix.json
+data/agentic-repos/workflow-door-catalog.json
+data/agent-findings/agent-3-lgu-open-data.md
+data/agent-findings/agent-4-transport-mobility.md
+data/agent-findings/agent-6-portal-api-infrastructure.md
+data/agent-findings/README.md
+data/agent-findings/agent-1-official-statistics.md
+data/agent-findings/agent-5-business-market-proxies.md
+data/agent-findings/agent-2-geospatial-boundaries.md
+data/agentic-repos/workflow-link-seed.raw.json
+data/agentic-repos/workflow-router.json
+data/agentic-repos/workflow-link-seed.json
+scripts/__pycache__/workflow_catalog_cli_run.cpython-310.pyc
+scripts/__pycache__/workflow_catalog_remaining_cli_run.cpython-310.pyc
+scripts/workflow_catalog_remaining_cli_run.py
+scripts/validate_progress_docs.py
+scripts/validate_audit_scope_source_reality.py
+scripts/query_workflow_router.py
+scripts/workflow_catalog_tools.py
+scripts/validate_building_identity_gate.py
+docs/status/2026-07-04-building-code-evidence-auditor-lock.md
+docs/status/2026-07-04-project-lanes-workspace-status.md
+docs/status/2026-07-03-ecc-handoff-summary.md
+docs/status/2026-07-03-project-pause-handoff.md
+data/agentic-repos/real-world-agent-repos-directory.json
+data/agentic-repos/workflow-router-surface-sample.json
+data/agentic-repos/workflow-door-catalog.csv
+data/agentic-repos/workflow-catalog-repo-seed.json
+docs/plans/2026-07-05-building-code-agent-loop.md
+docs/plans/gate-1-place-lock-chart.md
+docs/plans/building-code-progress-table.md
+docs/plans/gate-2-audit-scope-lock-chart.md
+docs/plans/gate-3-evidence-packet-chart.md
+docs/plans/2026-07-03-address-disaster-risk-assessor-design.md
+docs/plans/2026-07-05-building-code-gates-1-4-ecc-implementation-plan.md
+docs/plans/building-code-progress-chart.md
+docs/plans/gate-4-regression-tests-chart.md
+docs/decisions/0001-city-level-prototype-first.md
+docs/decisions/0003-lock-philippines-building-code-evidence-auditor.md
+docs/decisions/0002-lock-address-disaster-risk-assessor.md
+docs/decisions/0004-adopt-project-lanes.md
+data/agentic-repos/workflow-catalog-internal/agent-002.json
+data/agentic-repos/workflow-catalog-internal/agent-005.json
+data/agentic-repos/workflow-catalog-internal/agent-001.json
+data/agentic-repos/workflow-catalog-internal/agent-004.json
+data/agentic-repos/workflow-catalog-internal/agent-006.json
+data/agentic-repos/workflow-catalog-internal/agent-003.json
+data/agentic-repos/workflow-agent-comparison/cli-agent-001.md
+
+2026-07-05T10:47:53.853725Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:47:53.858587Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/repo-catalog.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Repo Catalog
+
+Use this as a seed catalog, then supplement from local repo data or live search
+when needed.
+
+## Local Sources To Inspect First
+
+- `/Users/acecanacan/.codex/memories/extensions/ad_hoc/notes/2026-07-05T17-16-10+0800-codex-real-world-workflow-repos.md`
+- `/Users/acecanacan/Documents/market-research-agent/data/agentic-repos/real-world-agent-repos-directory.json`
+- `/Users/acecanacan/Documents/market-research-agent/reports/real-world-agent-repos-directory.md`
+
+## Core Pattern And Skill References
+
+| Repo | Fit label | Study for |
+| --- | --- | --- |
+| `github/gh-aw` | pattern/router reference, optional runtime adapter | pattern router, named workflow patterns, GitHub Actions execution |
+| `agentskillexchange/skills` | Codex-compatible skill/package reference | multi-industry skill catalog shape |
+| `sickn33/antigravity-awesome-skills` | skill/package reference | large installable skill library, package conventions |
+| `ashishpatel26/500-AI-Agents-Projects` | inspiration catalog | many industry examples and use-case taxonomy |
+| `mergisi/awesome-openclaw-agents` | inspiration catalog / template catalog | multi-industry agent templates |
+| `VoltAgent/awesome-agent-skills` | skill directory | broad skill discovery and category grouping |
+| `agentskills/agentskills` | skill specification | portable skill package format |
+| `anthropics/skills` | official skill examples | SKILL.md structure and progressive disclosure |
+
+## Domain Packs
+
+| Repo | Domain | Study for |
+| --- | --- | --- |
+| `K-Dense-AI/scientific-agent-skills` | science, medicine, research | database-backed scientific and medical workflows |
+| `FreedomIntelligence/OpenClaw-Medical-Skills` | medicine | medical skill library structure |
+| `aipoch/medical-research-skills` | medical research | protocol, evidence, academic-writing workflow splits |
+| `Aperivue/medsci-skills` | medical publishing | skill-suite organization for manuscript workflows |
+| `Aperivue/verify-refs` | medical manuscript review | narrow audit-only citation verification |
+| `Aperivue/check-reporting` | reporting compliance | checklist status labels and guideline audits |
+| `ajhcs/healthcare-agents` | healthcare administration | admin workflow decomposition and role specialists |
+| `NVIDIA/digital-health-skills` | digital health | healthcare AI evaluation and metric-driven workflows |
+| `awslabs/hcls-agent-skills` | healthcare/life sciences | regulated HCLS skill packaging |
+| `ahacker-1/cre-agent-skills` | commercial real estate | underwriting, due diligence, financing, brokerage, closing |
+| `jivoi/awesome-osint` | public evidence/source taxonomy | OSINT, public records, geospatial/source discovery |
+| `zoharbabin/due-diligence-agents` | M&A/due diligence | cited multi-agent professional review |
+| `gs-ai/SYNINT` | OSINT/intelligence | evidence registry, chain of custody, forensic reporting |
+| `marieai/marie-ai` | document processing | OCR, extraction, classification, form/document pipelines |
+| `microsoft/content-processing-solution-accelerator` | document processing | extraction, schemas, confidence, human review |
+| `enescingoz/awesome-n8n-templates` | automation templates | real-world workflow examples; not Codex-native |
+| `ritik-prog/n8n-automation-templates-5000` | automation templates | large template corpus; not Codex-native |
+
+## Fit Labels
+
+- `Codex-native`: directly usable as or close to Codex skill/config package.
+- `skill/package reference`: useful package structure or reusable skill library.
+- `inspiration catalog`: good taxonomy/examples, but not directly installable.
+- `runtime/platform`: can execute workflows, but should not replace ECC/Codex
+  unless the user explicitly wants that runtime.
+- `source taxonomy`: good source list for evidence workflows, not a workflow
+  package by itself.
+
+## Known Guidance
+
+- If the user asks for "one repo that combines everything," show the closest
+  multi-industry catalogs and explain tradeoffs.
+- If the user asks for "popular," include current stars only after live
+  verification.
+- If the user is building Codex config packages, recommend Codex-compatible
+  skills and skill catalogs first. Treat app platforms and UI automators as
+  inspiration or optional adapters.
+- Do not force a single exact match when the ecosystem is fragmented. Recommend
+  a stack of references when that is more honest.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/query-playbook.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Query Playbook
+
+Use this playbook to translate messy user language into useful workflow-search
+queries.
+
+## Normalize The Ask
+
+Extract these fields before searching:
+
+| Field | Meaning |
+| --- | --- |
+| Domain | healthcare, education, real estate, public evidence, legal, finance, geospatial, etc. |
+| Input | files, addresses, records, links, forms, tickets, photos, source lists, patient packets, listings, permits |
+| Output artifact | evidence packet, completed document, checklist, report, queue item, case note, decision memo |
+| Workflow pattern | evidence audit, document transformation, case intake, compliance support, queue processing, monitoring, human review |
+| Safety boundary | what the agent must not decide or claim |
+| Source type | public web, official records, internal files, APIs, databases, human-provided documents |
+| Human review | whether a person must approve, submit, certify, publish, or decide |
+
+When the user gives a vague phrase, infer these fields from examples and then
+state the inference briefly.
+
+## Workflow Pattern Map
+
+| User language | Pattern labels | Search angle |
+| --- | --- | --- |
+| "like my earthquake thing" | EvidenceAudit, PublicRecordsInvestigation, ComplianceBoundary, HumanReview, SourceAtlas | public evidence audit, OSINT, due diligence, hazard/geospatial evidence |
+| "patient data to documents" | DocumentTransformation, CaseIntake, HumanReview, ComplianceBoundary | healthcare document processing, referral packet, prior authorization, intake |
+| "education workflow" | EducationSupport, Assessment, TutorOps, CurriculumOps, CaseIntake | education agent workflow, tutoring agent, assessment workflow, student support |
+| "real estate workflow" | DueDiligence, Underwriting, EvidenceAudit, DocumentAbstraction | CRE due diligence, lease abstraction, underwriting agent skills |
+| "process many records" | WorkQueueOps, BatchOps, QueueReview | durable queue, batch workflow, checklist queue, review queue |
+| "watch for changes" | Monitoring, EventDrivenOps, Escalation | monitoring agent, alert workflow, source watch, filing/news monitor |
+| "human approves first" | HumanReview, ApprovalGate, SafeOutputs | human in the loop, approval workflow, review gate |
+| "what repo teaches types" | PatternRouter, WorkflowCatalog, SkillRegistry | agent workflow patterns, skill catalog, workflow templates |
+
+## Earthquake / Building Evidence Mapping
+
+Map "earthquake thing" to:
+
+- real-world public evidence audit;
+- deterministic source collection before agent synthesis;
+- bounded parallel source lanes for identity, official records, incidents/news,
+  contractor/developer/professional traces, geospatial/hazard context, and review;
+- validation gate for citation quality, source reachability, source limits, and
+  overclaim prevention;
+- manual-request handoff when official records are not publicly available;
+- human review before any safety, compliance, legal, engineering, or occupancy
+  conclusion.
+
+Useful search phrases:
+
+```text
+public evidence audit agent skill
+OSINT evidence workflow agent repo
+building permit due diligence workflow agent
+geospatial hazard evidence agent skill
+compliance boundary human review agent workflow
+real-world agent skill public records investigation
+```
+
+## Domain Query Seeds
+
+Healthcare:
+
+```text
+agent skills healthcare intake workflow
+healthcare referral packet agent workflow
+prior authorization document workflow agent
+medical document processing human review agent
+healthcare admin agent skills
+medical research skill library
+```
+
+Education:
+
+```text
+education agent workflow templates
+student support agent skill
+curriculum planning agent workflow
+assessment feedback agent workflow
+research assistant education skill
+```
+
+Real estate:
+
+```text
+real estate due diligence agent skill
+commercial real estate underwriting agent workflow
+lease abstraction agent skill
+property permit public records workflow agent
+real estate closing checklist agent
+```
+
+Multi-industry catalogs:
+
+```text
+multi industry AI agent workflow catalog
+agent skills healthcare real estate education
+AI agent templates healthcare education real estate
+Codex compatible agent skills catalog
+SKILL.md workflow packs industry
+```
+
+## Ranking Heuristic
+
+Score candidates higher when they have:
+
+- reusable skill/workflow package files;
+- explicit industry or workflow categories;
+- examples across healthcare, education, real estate, public evidence, legal, or
+  finance;
+- schemas, validators, reports, evidence logs, or human-review gates;
+- Codex/Claude/OpenClaw/OpenAI skill compatibility;
+- active maintenance or substantial community signal;
+- clear safety boundaries for regulated or high-consequence domains.
+
+Score lower when they are only a model demo, a generic chatbot, an app platform
+with no reusable workflow taxonomy, or a code-only agent workflow.
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/acecanacan/.codex/skills/real-world-workflow-finder/references/output-template.md" in /Users/acecanacan/Documents/market-research-agent
+ succeeded in 0ms:
+# Output Template
+
+Use this shape when answering workflow-finder requests.
+
+## Short Answer
+
+Start with the strongest answer in one or two sentences:
+
+```text
+Closest match: [repo]. It is closest because [reason].
+For your workflow, treat it as [fit label], not [wrong role].
+```
+
+## Repo Table
+
+Return 3-7 matches unless the user asks for a longer list.
+
+| Repo | Fit | Workflow type it teaches | Why it matches |
+| --- | --- | --- | --- |
+| `[owner/repo](url)` | Codex-native / skill-package / inspiration / runtime / source taxonomy | EvidenceAudit, DocumentTransformation, CaseIntake, etc. | One concrete similarity |
+
+## Codex/ECC Read
+
+Include a brief recommendation:
+
+```text
+For Codex config packages, use [repo] as [role]. Keep ECC as the workflow
+contract. Do not make [platform/runtime] the source of truth unless you want that
+execution environment.
+```
+
+## Search Terms Used Or Suggested
+
+When useful, include 3-6 search phrases:
+
+```text
+public evidence audit agent skill
+real estate due diligence agent skill
+healthcare referral packet agent workflow
+```
+
+## Next Step
+
+End with a concrete next move:
+
+- inspect the top repo;
+- clone/read a specific folder;
+- build a local `workflow-pattern-router`;
+- refresh stars/current state;
+- create a new Codex workflow pack from the matched pattern.
+
+Keep tone concise. The user prefers direct repo recommendations over broad
+explanations.
+
+
+2026-07-05T10:48:00.756344Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/acecanacan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime/plugins/template-creator/.codex-plugin/plugin.json
+2026-07-05T10:48:00.761678Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/acecanacan/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+web search: 
+web search: https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write
+web search: 
+web search: https://raw.githubusercontent.com/agentskillexchange/skills/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write/SKILL.md
+web search: 
+web search: https://github.com/enescingoz/awesome-n8n-templates
+web search: 
+web search: 'AI Research, RAG' in https://github.com/enescingoz/awesome-n8n-templates
+web search: 
+web search: https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI_Research_RAG_and_Data_Analysis
+web search: 
+web search: https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail_and_Email_Automation
+codex
+{"agent_id":"codex-workflow-catalog-classifier","quality_note":"Read-only classification. Source links were checked directly; n8n folder names were canonicalized from display labels with spaces to the repository's underscore folder paths where needed.","rows":[{"workflow_id":"surface-0036","workflow_name":"Run academic literature review and paper-output workflows with Aut Sci Write","source_repo":"agentskillexchange/skills","source_url":"https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write","evidence_basis":"raw skill file","domain":"research","workflow_type":"Research / Knowledge Workflow; literature review and paper-output skill reference","real_life_job":"Run scholarly source search, paper collection, PDF evidence extraction, citation syncing, and review or presentation artifact production.","input_contract":"Research topic or user context, scholarly source access, paper PDFs, optional citation/database integrations, Python and Node runtime prerequisites.","output_artifact":"Literature review packet, extracted paper evidence, citation set, review document, or presentation artifact.","trigger":"User needs a cited academic literature review or paper-output workflow pattern.","tools_or_sources":"Aut Sci Write upstream repo, scholarly databases, paper PDFs, optional Zotero and publisher/database connectors.","validation_gate":"Verify source availability, extracted evidence, citation integrity, runtime prerequisites, and upstream caveats before relying on outputs.","human_review_boundary":"Required before final research conclusion, publication, or high-consequence use.","safety_boundary":"Must not make legal, medical, engineering, compliance, or safety conclusions without human review; treat generated reviews as draft research artifacts.","codex_package_relevance":"Strong skill/package reference for Codex/ECC research workflows; copy the skill packaging and evidence/citation workflow shape, not unreviewed conclusions.","what_to_copy":"Skill metadata shape, prerequisites, source-linked upstream reference, research stages, evidence extraction and citation artifact boundaries.","what_to_ignore":"Do not copy claims of final scholarly authority, broad runtime assumptions, or any external write/publish behavior without explicit review gates.","tags":"research,literature-review,papers,citations,pdf-extraction,human-review,skill-reference","confidence":"high"},{"workflow_id":"surface-0160","workflow_name":"analysis","source_repo":"tinh2/skills-hub-registry","source_url":"https://github.com/tinh2/skills-hub-registry/tree/main/analysis","source_url_status":"exact_page_sparse","canonical_source_url":"https://github.com/tinh2/skills-hub-registry/tree/main/analysis","evidence_basis":"category folder","domain":"research","workflow_type":"Research / Knowledge Workflow; broad analysis skill registry category","real_life_job":"Browse a registry category of analysis-oriented workflow entries to identify candidate skill patterns.","input_contract":"Category folder contents, subfolder names, repo index context, and user-provided workflow matching criteria.","output_artifact":"Matched router surface, candidate workflow family, and expansion notes for later ECC contract work.","trigger":"User needs a broad analysis-category reference for workflow catalog lookup.","tools_or_sources":"Repository category folder with many named analysis subfolders such as audit, modeling, optimization, compliance, and research-adjacent entries.","validation_gate":"Open the specific subfolder or skill file before copying behavior; the top-level analysis page is only a category index.","human_review_boundary":"Optional unless output affects a person or external system.","safety_boundary":"Keep as reference pattern until copied into an ECC contract; do not infer detailed behavior from the category listing alone.","codex_package_relevance":"Useful as a taxonomy/reference index, but too sparse at this level to serve as a direct Codex package.","what_to_copy":"Category naming, routing breadth, and subfolder taxonomy for catalog expansion.","what_to_ignore":"Do not invent workflow steps, safety posture, or output guarantees from the folder name alone.","tags":"analysis,registry,taxonomy,researchops,category-index,sparse","confidence":"medium"},{"workflow_id":"surface-0065","workflow_name":"AI Research/RAG/Data Analysis","source_repo":"enescingoz/awesome-n8n-templates","source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI Research & RAG & Data Analysis","source_url_status":"canonicalized","canonical_source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI_Research_RAG_and_Data_Analysis","evidence_basis":"category folder","domain":"research","workflow_type":"Runtime / Platform Reference; research, RAG, scraping, and data-analysis automation templates","real_life_job":"Run or study automation templates for web research, RAG chatbots, crawlers, summarizers, semantic search, vector analysis, and data extraction.","input_contract":"Workflow JSON templates, event or manual triggers, app credentials, documents, URLs, APIs, vector stores, and records.","output_artifact":"Automation run output such as summarized research, extracted structured data, RAG answers, database updates, reports, or notifications.","trigger":"User needs runtime inspiration for research/RAG/data-analysis automation patterns.","tools_or_sources":"n8n templates, Apify-style scraping, search APIs, OpenAI-compatible models, Qdrant/Pinecone/Supabase-style vector stores, spreadsheets, and web/document sources.","validation_gate":"Before translating to ECC, inspect each selected template JSON, identify credentials and writes, and add source/citation and human-review checks.","human_review_boundary":"Recommended before sending, publishing, externally writing, or using research conclusions operationally.","safety_boundary":"Do not treat runtime platform as Codex architecture unless explicitly chosen; translate useful patterns back into Codex/ECC contracts.","codex_package_relevance":"Runtime/platform inspiration only; valuable for trigger, queue, connector, and RAG patterns, not a direct Codex workflow surface.","what_to_copy":"Trigger shapes, document/RAG pipeline ideas, source routing, queue-like handoff, and structured output examples.","what_to_ignore":"Do not copy platform-specific credentials, external writes, low-code runtime assumptions, or unsupported safety conclusions.","tags":"n8n,research,rag,data-analysis,automation,queue-processing,runtime-reference","confidence":"high"},{"workflow_id":"surface-0066","workflow_name":"Gmail/Email","source_repo":"enescingoz/awesome-n8n-templates","source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail & Email","source_url_status":"canonicalized","canonical_source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail_and_Email_Automation","evidence_basis":"category folder","domain":"automation","workflow_type":"Runtime / Platform Reference; email triage, labeling, drafting, routing, and notification automation templates","real_life_job":"Automate or study email classification, labeling, suspicious-email review, reply drafting, inbox summarization, and attachment routing.","input_contract":"Email event trigger, mailbox credentials, message body, headers, attachments, label/category rules, external records, and review settings.","output_artifact":"Draft reply, applied label, routed message, suspicious-email flag, extracted attachment, summary, sheet row, or notification.","trigger":"Incoming email, scheduled inbox summary, or user-initiated email processing workflow.","tools_or_sources":"Gmail/IMAP/Outlook templates, AI classification, spreadsheet logging, attachment extraction, review and notification connectors.","validation_gate":"Confirm mailbox scope, credential handling, outbound send/write behavior, phishing-risk handling, and human approval before any send or destructive action.","human_review_boundary":"Recommended before sending/publishing/writing externally; required for reply sending, deletion, risky security classification, or contact-facing messages.","safety_boundary":"Do not treat runtime platform as Codex architecture unless explicitly chosen; do not send, delete, or expose email content without explicit authorization.","codex_package_relevance":"Useful inspiration for ECC email triage contracts with strict approval gates; not a direct Codex package.","what_to_copy":"Email trigger taxonomy, classify-label-draft-review flow, human-in-the-loop response pattern, and audit logging ideas.","what_to_ignore":"Do not copy auto-send defaults, broad mailbox permissions, credential assumptions, or runtime-specific node wiring.","tags":"email,gmail,triage,drafting,labeling,human-review,queue-processing,runtime-reference","confidence":"high"},{"workflow_id":"surface-0068","workflow_name":"HR/Recruitment","source_repo":"enescingoz/awesome-n8n-templates","source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR & Recruitment","source_url_status":"canonicalized","canonical_source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR_and_Recruitment","evidence_basis":"category folder","domain":"automation","workflow_type":"Runtime / Platform Reference; HR helpdesk, CV screening, job posting, and candidate evaluation automation templates","real_life_job":"Automate or study HR policy chat, resume/CV screening, job posting, candidate evaluation, and HR/IT helpdesk intake workflows.","input_contract":"Candidate resumes or CVs, job criteria, HR policy documents, applicant records, forms, chat/audio inputs, credentials, and review rules.","output_artifact":"Screening summary, candidate evaluation, HR helpdesk answer, policy response, job posting support output, or queued review item.","trigger":"Applicant submission, HR request, helpdesk chat, uploaded CV, or recruiter-initiated screening workflow.","tools_or_sources":"n8n HR templates for BambooHR policy chat, CV screening, HR/IT helpdesk, and job posting/evaluation.","validation_gate":"Check employment-law and bias risk, source document grounding, candidate-data privacy, review requirements, and any external writes before use.","human_review_boundary":"Recommended before sending/publishing/writing externally; required before candidate decisions, rejection, ranking, or HR policy advice is acted on.","safety_boundary":"Do not treat runtime platform as Codex architecture unless explicitly chosen; do not make employment decisions or sensitive HR conclusions without human review.","codex_package_relevance":"Good runtime inspiration for HR intake/review queues and document-grounded helpdesk flows; not a direct Codex workflow package.","what_to_copy":"Applicant intake shape, review queue boundary, policy-doc grounding, structured screening output, and approval checkpoints.","what_to_ignore":"Do not copy automated hiring decisions, opaque ranking, external writes, or platform credential assumptions.","tags":"hr,recruitment,resume-screening,helpdesk,candidate-review,human-review,queue-processing,runtime-reference","confidence":"high"}]}
+2026-07-05T10:49:00.628136Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999999875s
+2026-07-05T10:49:00.628173Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable BIGQUERY_MCP_BEARER_TOKEN for MCP server 'bigquery' is not set
+2026-07-05T10:49:00.628177Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:49:00.628181Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999999458s
+2026-07-05T10:49:00.628184Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.999999417s
+2026-07-05T10:49:00.628194Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:49:00.628197Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:49:00.628200Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<rmcp::transport::auth::AuthClient<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth error: OAuth authorization required, when send initialize request
+2026-07-05T10:49:00.628437Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: timed out handshaking with MCP server after 29.99999925s
+2026-07-05T10:49:00.629715Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: Environment variable GHL_PRIVATE_INTEGRATION_TOKEN for MCP server 'ghl' is not set
+tokens used
+121,173
+{"agent_id":"codex-workflow-catalog-classifier","quality_note":"Read-only classification. Source links were checked directly; n8n folder names were canonicalized from display labels with spaces to the repository's underscore folder paths where needed.","rows":[{"workflow_id":"surface-0036","workflow_name":"Run academic literature review and paper-output workflows with Aut Sci Write","source_repo":"agentskillexchange/skills","source_url":"https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write","source_url_status":"exact_page_reachable","canonical_source_url":"https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write","evidence_basis":"raw skill file","domain":"research","workflow_type":"Research / Knowledge Workflow; literature review and paper-output skill reference","real_life_job":"Run scholarly source search, paper collection, PDF evidence extraction, citation syncing, and review or presentation artifact production.","input_contract":"Research topic or user context, scholarly source access, paper PDFs, optional citation/database integrations, Python and Node runtime prerequisites.","output_artifact":"Literature review packet, extracted paper evidence, citation set, review document, or presentation artifact.","trigger":"User needs a cited academic literature review or paper-output workflow pattern.","tools_or_sources":"Aut Sci Write upstream repo, scholarly databases, paper PDFs, optional Zotero and publisher/database connectors.","validation_gate":"Verify source availability, extracted evidence, citation integrity, runtime prerequisites, and upstream caveats before relying on outputs.","human_review_boundary":"Required before final research conclusion, publication, or high-consequence use.","safety_boundary":"Must not make legal, medical, engineering, compliance, or safety conclusions without human review; treat generated reviews as draft research artifacts.","codex_package_relevance":"Strong skill/package reference for Codex/ECC research workflows; copy the skill packaging and evidence/citation workflow shape, not unreviewed conclusions.","what_to_copy":"Skill metadata shape, prerequisites, source-linked upstream reference, research stages, evidence extraction and citation artifact boundaries.","what_to_ignore":"Do not copy claims of final scholarly authority, broad runtime assumptions, or any external write/publish behavior without explicit review gates.","tags":"research,literature-review,papers,citations,pdf-extraction,human-review,skill-reference","confidence":"high"},{"workflow_id":"surface-0160","workflow_name":"analysis","source_repo":"tinh2/skills-hub-registry","source_url":"https://github.com/tinh2/skills-hub-registry/tree/main/analysis","source_url_status":"exact_page_sparse","canonical_source_url":"https://github.com/tinh2/skills-hub-registry/tree/main/analysis","evidence_basis":"category folder","domain":"research","workflow_type":"Research / Knowledge Workflow; broad analysis skill registry category","real_life_job":"Browse a registry category of analysis-oriented workflow entries to identify candidate skill patterns.","input_contract":"Category folder contents, subfolder names, repo index context, and user-provided workflow matching criteria.","output_artifact":"Matched router surface, candidate workflow family, and expansion notes for later ECC contract work.","trigger":"User needs a broad analysis-category reference for workflow catalog lookup.","tools_or_sources":"Repository category folder with many named analysis subfolders such as audit, modeling, optimization, compliance, and research-adjacent entries.","validation_gate":"Open the specific subfolder or skill file before copying behavior; the top-level analysis page is only a category index.","human_review_boundary":"Optional unless output affects a person or external system.","safety_boundary":"Keep as reference pattern until copied into an ECC contract; do not infer detailed behavior from the category listing alone.","codex_package_relevance":"Useful as a taxonomy/reference index, but too sparse at this level to serve as a direct Codex package.","what_to_copy":"Category naming, routing breadth, and subfolder taxonomy for catalog expansion.","what_to_ignore":"Do not invent workflow steps, safety posture, or output guarantees from the folder name alone.","tags":"analysis,registry,taxonomy,researchops,category-index,sparse","confidence":"medium"},{"workflow_id":"surface-0065","workflow_name":"AI Research/RAG/Data Analysis","source_repo":"enescingoz/awesome-n8n-templates","source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI Research & RAG & Data Analysis","source_url_status":"canonicalized","canonical_source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI_Research_RAG_and_Data_Analysis","evidence_basis":"category folder","domain":"research","workflow_type":"Runtime / Platform Reference; research, RAG, scraping, and data-analysis automation templates","real_life_job":"Run or study automation templates for web research, RAG chatbots, crawlers, summarizers, semantic search, vector analysis, and data extraction.","input_contract":"Workflow JSON templates, event or manual triggers, app credentials, documents, URLs, APIs, vector stores, and records.","output_artifact":"Automation run output such as summarized research, extracted structured data, RAG answers, database updates, reports, or notifications.","trigger":"User needs runtime inspiration for research/RAG/data-analysis automation patterns.","tools_or_sources":"n8n templates, Apify-style scraping, search APIs, OpenAI-compatible models, Qdrant/Pinecone/Supabase-style vector stores, spreadsheets, and web/document sources.","validation_gate":"Before translating to ECC, inspect each selected template JSON, identify credentials and writes, and add source/citation and human-review checks.","human_review_boundary":"Recommended before sending, publishing, externally writing, or using research conclusions operationally.","safety_boundary":"Do not treat runtime platform as Codex architecture unless explicitly chosen; translate useful patterns back into Codex/ECC contracts.","codex_package_relevance":"Runtime/platform inspiration only; valuable for trigger, queue, connector, and RAG patterns, not a direct Codex workflow surface.","what_to_copy":"Trigger shapes, document/RAG pipeline ideas, source routing, queue-like handoff, and structured output examples.","what_to_ignore":"Do not copy platform-specific credentials, external writes, low-code runtime assumptions, or unsupported safety conclusions.","tags":"n8n,research,rag,data-analysis,automation,queue-processing,runtime-reference","confidence":"high"},{"workflow_id":"surface-0066","workflow_name":"Gmail/Email","source_repo":"enescingoz/awesome-n8n-templates","source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail & Email","source_url_status":"canonicalized","canonical_source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail_and_Email_Automation","evidence_basis":"category folder","domain":"automation","workflow_type":"Runtime / Platform Reference; email triage, labeling, drafting, routing, and notification automation templates","real_life_job":"Automate or study email classification, labeling, suspicious-email review, reply drafting, inbox summarization, and attachment routing.","input_contract":"Email event trigger, mailbox credentials, message body, headers, attachments, label/category rules, external records, and review settings.","output_artifact":"Draft reply, applied label, routed message, suspicious-email flag, extracted attachment, summary, sheet row, or notification.","trigger":"Incoming email, scheduled inbox summary, or user-initiated email processing workflow.","tools_or_sources":"Gmail/IMAP/Outlook templates, AI classification, spreadsheet logging, attachment extraction, review and notification connectors.","validation_gate":"Confirm mailbox scope, credential handling, outbound send/write behavior, phishing-risk handling, and human approval before any send or destructive action.","human_review_boundary":"Recommended before sending/publishing/writing externally; required for reply sending, deletion, risky security classification, or contact-facing messages.","safety_boundary":"Do not treat runtime platform as Codex architecture unless explicitly chosen; do not send, delete, or expose email content without explicit authorization.","codex_package_relevance":"Useful inspiration for ECC email triage contracts with strict approval gates; not a direct Codex package.","what_to_copy":"Email trigger taxonomy, classify-label-draft-review flow, human-in-the-loop response pattern, and audit logging ideas.","what_to_ignore":"Do not copy auto-send defaults, broad mailbox permissions, credential assumptions, or runtime-specific node wiring.","tags":"email,gmail,triage,drafting,labeling,human-review,queue-processing,runtime-reference","confidence":"high"},{"workflow_id":"surface-0068","workflow_name":"HR/Recruitment","source_repo":"enescingoz/awesome-n8n-templates","source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR & Recruitment","source_url_status":"canonicalized","canonical_source_url":"https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR_and_Recruitment","evidence_basis":"category folder","domain":"automation","workflow_type":"Runtime / Platform Reference; HR helpdesk, CV screening, job posting, and candidate evaluation automation templates","real_life_job":"Automate or study HR policy chat, resume/CV screening, job posting, candidate evaluation, and HR/IT helpdesk intake workflows.","input_contract":"Candidate resumes or CVs, job criteria, HR policy documents, applicant records, forms, chat/audio inputs, credentials, and review rules.","output_artifact":"Screening summary, candidate evaluation, HR helpdesk answer, policy response, job posting support output, or queued review item.","trigger":"Applicant submission, HR request, helpdesk chat, uploaded CV, or recruiter-initiated screening workflow.","tools_or_sources":"n8n HR templates for BambooHR policy chat, CV screening, HR/IT helpdesk, and job posting/evaluation.","validation_gate":"Check employment-law and bias risk, source document grounding, candidate-data privacy, review requirements, and any external writes before use.","human_review_boundary":"Recommended before sending/publishing/writing externally; required before candidate decisions, rejection, ranking, or HR policy advice is acted on.","safety_boundary":"Do not treat runtime platform as Codex architecture unless explicitly chosen; do not make employment decisions or sensitive HR conclusions without human review.","codex_package_relevance":"Good runtime inspiration for HR intake/review queues and document-grounded helpdesk flows; not a direct Codex workflow package.","what_to_copy":"Applicant intake shape, review queue boundary, policy-doc grounding, structured screening output, and approval checkpoints.","what_to_ignore":"Do not copy automated hiring decisions, opaque ranking, external writes, or platform credential assumptions.","tags":"hr,recruitment,resume-screening,helpdesk,candidate-review,human-review,queue-processing,runtime-reference","confidence":"high"}]}

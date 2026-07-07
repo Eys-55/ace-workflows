@@ -1,0 +1,4 @@
+interface:
+  display_name: "Philippines Building Code Evidence Auditor V2"
+  short_description: "Four-lane earthquake public-evidence auditor for Philippine buildings"
+  default_prompt: "Use this V2 skill to confirm the exact Philippine building, branch, tenant, or complex, then run all four earthquake evidence lanes by default unless the user narrows to one or more lanes: NSCP/seismic design evidence, OBO structural permit or review evidence, post-earthquake tag/status, or clearance after damage/tag."

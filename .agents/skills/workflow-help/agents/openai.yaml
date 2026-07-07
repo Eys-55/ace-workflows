@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workflow Help"
+  short_description: "Show available workflow skills"
+  default_prompt: "Use $workflow-help to show the available workflow skills and state helpers."

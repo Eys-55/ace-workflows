@@ -6,12 +6,12 @@
   "domain": "workflow-system-maintenance",
   "agents_md": "projects/workflow-foundry/AGENTS.md",
   "active_conventions": [
-    "skills-first workflow surface",
-    "slash commands remain thin shims",
+    ".agents/skills is the only canonical workflow skill surface",
     "JSON task state is source of truth",
     "project AGENTS.md files are domain-only",
     "tracker-maintenance tasks audit tracker edits",
-    "Codex app slash prompts live in .codex/prompts"
+    "prompt and command shims are not active workflow surfaces",
+    "validation enforces skill metadata and surface boundaries"
   ],
   "ecc_concepts_applied": [
     "workflow contract",

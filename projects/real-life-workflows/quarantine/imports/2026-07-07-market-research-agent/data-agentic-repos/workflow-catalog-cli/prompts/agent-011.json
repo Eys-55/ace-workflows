@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-011",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0101",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Marie MCP",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/mcp",
+      "domain_hint": "MCP/runtime integration",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Marie MCP"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0102",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Orchestrate flow",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/orchestrate",
+      "domain_hint": "orchestration",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Orchestrate flow"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0103",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Project template",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/template",
+      "domain_hint": "project template",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Project template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0104",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Query planners",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/query_planner",
+      "domain_hint": "retrieval/query planning",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Query planners"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0105",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Template matching",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/template_matching",
+      "domain_hint": "document extraction",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Template matching"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0106",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Workspaces",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/docs/workspaces.md",
+      "domain_hint": "workspace processing",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Workspaces"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0107",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Claude skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/skills/claude",
+      "domain_hint": "model skill pack",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Claude skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0108",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Configs",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/configs",
+      "domain_hint": "configuration templates",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Configs"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0109",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Gemma skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/skills/gemma",
+      "domain_hint": "model skill pack",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Gemma skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0110",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Memory wiki templates",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/memory-wiki",
+      "domain_hint": "knowledge workflows",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Memory wiki templates"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

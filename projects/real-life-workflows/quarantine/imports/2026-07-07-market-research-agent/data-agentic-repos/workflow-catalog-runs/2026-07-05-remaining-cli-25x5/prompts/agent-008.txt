@@ -1,0 +1,97 @@
+You are classifying workflow-catalog doors for a reusable Codex/ECC lookup catalog.
+
+Workspace: /Users/acecanacan/Documents/market-research-agent
+
+Use read-only behavior. Do not edit files. Read the linked source pages or obvious canonical repo paths if needed. Classify exactly these 5 doors:
+
+[
+  {
+    "id": "surface-0122",
+    "door": "CRM",
+    "repo": "ritik-prog/n8n-automation-templates-5000",
+    "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/CRM",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "finance_or_crm",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  },
+  {
+    "id": "surface-0123",
+    "door": "Google",
+    "repo": "ritik-prog/n8n-automation-templates-5000",
+    "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Google",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "automation",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  },
+  {
+    "id": "surface-0124",
+    "door": "HubSpot",
+    "repo": "ritik-prog/n8n-automation-templates-5000",
+    "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/HubSpot",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "finance_or_crm",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  },
+  {
+    "id": "surface-0126",
+    "door": "Notion",
+    "repo": "ritik-prog/n8n-automation-templates-5000",
+    "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Notion",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "automation",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  },
+  {
+    "id": "surface-0127",
+    "door": "OpenAI",
+    "repo": "ritik-prog/n8n-automation-templates-5000",
+    "source_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/OpenAI",
+    "primary_category": "Runtime / Platform Reference",
+    "primary_domain": "automation",
+    "primary_pattern": "QueueProcessing",
+    "fit": "runtime/platform inspiration",
+    "browse_use": "execution/runtime inspiration only; translate useful patterns back into Codex/ECC",
+    "input_contract_hint": "event trigger, app credentials, records, message/document source",
+    "output_artifact_hint": "automation run, notification, transformed record, queued task",
+    "human_review_boundary": "recommended before sending/publishing/writing externally",
+    "safety_boundary": "do not treat runtime platform as Codex architecture unless explicitly chosen"
+  }
+]
+
+Return only JSON matching the provided output schema. No Markdown, no prose outside JSON.
+
+Rules:
+- Keep every row evidence-grounded to the source link or a clearly stated fallback.
+- If source access is unavailable, use the supplied local catalog hints as fallback context, mark source_url_status honestly, and lower confidence.
+- If a source link is broken, shallow, or sparse, check the repository README or obvious canonical nested path once.
+- Set source_url_status to one of: exact_page_reachable, exact_page_sparse, broken, canonicalized.
+- Set canonical_source_url to the original source_url unless you found a better canonical source.
+- Set evidence_basis to a short phrase: exact page, README fallback, raw skill file, repo index, category folder, local catalog fallback, or source sparse.
+- Do not invent workflow behavior when evidence is sparse. Say sparse and lower confidence.
+- This is cataloging only. Do not design a new skill.
+- Do not include the names of outdated agent frameworks.
+- The rows must preserve the input workflow_id values exactly.

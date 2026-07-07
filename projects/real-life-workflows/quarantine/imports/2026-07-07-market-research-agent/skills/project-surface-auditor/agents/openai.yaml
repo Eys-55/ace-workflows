@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Surface Auditor"
+  short_description: "Audit repo project ownership and stale surfaces"
+  default_prompt: "Use this skill to audit the repo project inventory, classify file series as current, hidden, obsolete, duplicate, or generated, and update the project surface inventory before changing project lists."

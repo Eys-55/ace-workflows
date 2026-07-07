@@ -1,0 +1,21 @@
+{
+  "project_slug": "real-life-workflows",
+  "tasks": [
+    {
+      "task_id": "real-life-workflows-001",
+      "title": "Quarantine market-research-agent workflow catalog",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "implement",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "real-life-workflows-002",
+      "title": "Audit and properize workflow door catalog",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-07"
+    }
+  ]
+}

@@ -1,0 +1,2914 @@
+{
+  "generated_at": "2026-07-05",
+  "repo_count_expected": 17,
+  "repo_count_inspected": 17,
+  "workflow_link_count": 171,
+  "repos": [
+    {
+      "repo": "sickn33/antigravity-awesome-skills",
+      "repo_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "inspected": true,
+      "inspection_notes": "Inspected README, docs workflow/bundle indexes, generated manifests, marketplace manifest, and plugin/skills surfaces. Captured indexed surfaces first for 1,898+ generated skills.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "agentskillexchange/skills",
+      "repo_url": "https://github.com/agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "inspected": true,
+      "inspection_notes": "Inspected README, categories, industries, root manifests, template/spec surfaces. Captured indexed surfaces first for 2,678 generated skills.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "tinh2/skills-hub-registry",
+      "repo_url": "https://github.com/tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "inspected": true,
+      "inspection_notes": "Inspected README, orchestrator tables, and visible tree. Captured categories, orchestrators, and combo workflow folders first.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "danielrosehill/Useful-AI-Agent-Skills",
+      "repo_url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "inspected": true,
+      "inspection_notes": "Inspected README and SCOPE; captured meta-list/category surfaces.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "msitarzewski/agency-agents",
+      "repo_url": "https://github.com/msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "inspected": true,
+      "inspection_notes": "Inspected README, divisions, tools, and folders; captured division surfaces for 235 source agent files.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "repo_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "inspected": true,
+      "inspection_notes": "Inspected README, agents, course/examples/notebook sections, and industry-use-case sections.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "mergisi/awesome-openclaw-agents",
+      "repo_url": "https://github.com/mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "inspected": true,
+      "inspection_notes": "Inspected README, agents.json, agents/README, skills/README, configs, USE-CASES; captured indexed category surfaces.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "jim-schwoebel/awesome_ai_agents",
+      "repo_url": "https://github.com/jim-schwoebel/awesome_ai_agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "inspected": true,
+      "inspection_notes": "Inspected README; captured category anchors and Workflows section.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "api-evangelist/use-cases",
+      "repo_url": "https://github.com/api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "inspected": true,
+      "inspection_notes": "Inspected README, apis.yml, JSON-LD context, vocabulary; apis list empty.",
+      "needs_second_pass": false
+    },
+    {
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "repo_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "inspected": true,
+      "inspection_notes": "Inspected top-level SKILL.md folders and generated skills catalog; found 149 top-level skill folders.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "repo_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "inspected": true,
+      "inspection_notes": "Inspected plugin manifest, skills directory, README skill overview; found hundreds of medical SKILL.md files.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "CaseMark/skills",
+      "repo_url": "https://github.com/CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "inspected": true,
+      "inspection_notes": "Inspected root SKILL, template/spec, audit export, and category folders across legal/medical/finance/capital/casedev.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "ahacker-1/cre-agent-skills",
+      "repo_url": "https://github.com/ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "inspected": true,
+      "inspection_notes": "Inspected docs/SKILL-INDEX and plugin packs; captured 66 skill-file index and CRE workflow categories.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "indranilbanerjee/contentforge",
+      "repo_url": "https://github.com/indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "inspected": true,
+      "inspection_notes": "Inspected README, AGENTS, manifests, skills, commands, templates, and industry packs.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "marieai/marie-ai",
+      "repo_url": "https://github.com/marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "inspected": true,
+      "inspection_notes": "Inspected README, docs, examples, pipeline/executor/template surfaces; captured document-intelligence workflow surfaces.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "enescingoz/awesome-n8n-templates",
+      "repo_url": "https://github.com/enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "inspected": true,
+      "inspection_notes": "Inspected README, docs/index.md, llms.txt, category folders. Found 313 JSON workflow templates; captured categories.",
+      "needs_second_pass": true
+    },
+    {
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "repo_url": "https://github.com/ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "inspected": true,
+      "inspection_notes": "Inspected README and tree. Large/generated repo with 6,260 JSON workflows across lanes/platform folders; captured lanes and major platform/category folders.",
+      "needs_second_pass": true
+    }
+  ],
+  "workflow_links": [
+    {
+      "id": "wfseed-0001",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "All skills audit export",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/blob/main/audit/export/all-skills.json",
+      "domain_hint": "machine-readable catalog",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "All skills audit export"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0002",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Capital skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/capital",
+      "domain_hint": "capital markets workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Capital skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0003",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Case development skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev",
+      "domain_hint": "case intake/review workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Case development skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0004",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Case setup",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/setup",
+      "domain_hint": "case intake",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Case setup"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0005",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Finance skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/finance",
+      "domain_hint": "finance workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Finance skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0006",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Legal skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/legal",
+      "domain_hint": "legal workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Legal skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0007",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Medical skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/med",
+      "domain_hint": "medical/PHI-aware workflows",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Medical skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0008",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "OCR",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/ocr",
+      "domain_hint": "document extraction",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "OCR"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0009",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Redline",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/redline",
+      "domain_hint": "human review/document redline",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Redline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0010",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Root skill",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/blob/main/SKILL.md",
+      "domain_hint": "skill router",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Root skill"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0011",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Search",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/search",
+      "domain_hint": "case search",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Search"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0012",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Skill spec",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/blob/main/spec/SKILL_SPEC.md",
+      "domain_hint": "skill format",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Skill spec"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0013",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Skill template",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/blob/main/template/SKILL.md",
+      "domain_hint": "skill authoring",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Skill template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0014",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Transcription",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/transcription",
+      "domain_hint": "audio to document",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Transcription"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0015",
+      "repo": "CaseMark/skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Vaults",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/CaseMark/skills/tree/main/casedev/vaults",
+      "domain_hint": "document vaults",
+      "source_index_url": "https://github.com/CaseMark/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Vaults"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0016",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Medical document workflows",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills",
+      "domain_hint": "medical document processing",
+      "source_index_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Clinical data workflows",
+        "Medical document workflows",
+        "Skills directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0017",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Plugin manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/openclaw.plugin.json",
+      "domain_hint": "medical skill package",
+      "source_index_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Plugin manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0018",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "README Skills Overview",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/README.md",
+      "domain_hint": "medical overview categories",
+      "source_index_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README Skills Overview"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0019",
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Generated skills catalog",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/docs/skills.md",
+      "domain_hint": "research skills catalog",
+      "source_index_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Generated skills catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0020",
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Literature and paper workflows",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills",
+      "domain_hint": "scientific literature review",
+      "source_index_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Clinical and biomedical skills",
+        "Literature and paper workflows",
+        "Skills directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0021",
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "README Available Skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "domain_hint": "science and medical skill index",
+      "source_index_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README Available Skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0022",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AI Agency Operations & FDE Workflows",
+      "candidate_type": "lane",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/ai-agency-operations.md",
+      "domain_hint": "agency/FDE workflows",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "AI Agency Operations & FDE Workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0023",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Browser Automation",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/browser-automation",
+      "domain_hint": "118 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Browser Automation"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0024",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Categories index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/categories/README.md",
+      "domain_hint": "17 categories",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Categories index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0025",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Codex manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/codex.json",
+      "domain_hint": "Codex skill catalog",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Codex manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0026",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Coordinate multi-agent workflows with Ruflo",
+      "candidate_type": "skill",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/skills/coordinate-multi-agent-claude-code-and-codex-workflows-with-ruflo",
+      "domain_hint": "multi-agent coding workflows",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Coordinate multi-agent workflows with Ruflo"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0027",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Data Platform & Analytics Engineering",
+      "candidate_type": "lane",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/data-platform-analytics-engineering.md",
+      "domain_hint": "data platform workflows",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Data Platform & Analytics Engineering"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0028",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Developer Tools",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/developer-tools",
+      "domain_hint": "354 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Developer Tools"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0029",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Full Catalog",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/CATALOG.md",
+      "domain_hint": "2,678 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Full Catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0030",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Industry collections index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/README.md",
+      "domain_hint": "15 industry overlays",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Industry collections index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0031",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Infrastructure, SRE & Incident Operations",
+      "candidate_type": "lane",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/infrastructure-sre-incident-operations.md",
+      "domain_hint": "SRE/incident operations",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Infrastructure, SRE & Incident Operations"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0032",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "JSON Index",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/skills.json",
+      "domain_hint": "machine-readable catalog",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "JSON Index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0033",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "OpenClaw manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/openclaw.json",
+      "domain_hint": "OpenClaw skill catalog",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "OpenClaw manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0034",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Orchestrate review-first multi-agent development work with Kandev",
+      "candidate_type": "skill",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/skills/orchestrate-review-first-multi-agent-development-work-with-kandev",
+      "domain_hint": "multi-agent development",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Orchestrate review-first multi-agent development work with Kandev"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0035",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Research & Scraping",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/research-scraping",
+      "domain_hint": "116 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Research & Scraping"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0036",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Run academic literature review and paper-output workflows with Aut Sci Write",
+      "candidate_type": "skill",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/skills/run-academic-literature-review-and-paper-output-workflows-with-aut-sci-write",
+      "domain_hint": "research workflow",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Run academic literature review and paper-output workflows with Aut Sci Write"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0037",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Security & Verification",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/security-verification",
+      "domain_hint": "236 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Security & Verification"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0038",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Security Operations & GRC Workflows",
+      "candidate_type": "lane",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/industries/security-operations-grc-workflows.md",
+      "domain_hint": "security/GRC workflows",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Security Operations & GRC Workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0039",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Skill spec",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/spec/SKILL_SPEC.md",
+      "domain_hint": "skill format",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Skill spec"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0040",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Skill template",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/blob/main/template/SKILL.md",
+      "domain_hint": "skill authoring",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Skill template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0041",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Templates & Workflows",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/templates-workflows",
+      "domain_hint": "191 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Templates & Workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0042",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Asset Management",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+      "domain_hint": "commercial real estate asset management",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Asset Management"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0043",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Brokerage",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+      "domain_hint": "brokerage workflows",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Brokerage"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0044",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "CRE Due Diligence plugin pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+      "domain_hint": "real estate due diligence package",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CRE Due Diligence plugin pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0045",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Capital Markets",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+      "domain_hint": "capital markets",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Capital Markets"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0046",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Closing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+      "domain_hint": "closing workflows",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Closing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0047",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Document Ingestion",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+      "domain_hint": "document processing",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Document Ingestion"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0048",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Due Diligence",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+      "domain_hint": "real estate due diligence",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Due Diligence"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0049",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Financing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+      "domain_hint": "financing workflows",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Financing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0050",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Industrial",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+      "domain_hint": "industrial CRE",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Industrial"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0051",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Legal",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/legal",
+      "domain_hint": "legal review",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Legal"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0052",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Office",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/office",
+      "domain_hint": "office CRE",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Office"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0053",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Skill Index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/docs/SKILL-INDEX.md",
+      "domain_hint": "66 CRE skills",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Skill Index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0054",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Underwriting",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/underwriting",
+      "domain_hint": "underwriting",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Underwriting"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0055",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Evidence and compliance vocabulary",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "domain_hint": "public evidence, compliance support, earthquake-adjacent due diligence",
+      "source_index_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Education use cases",
+        "Evidence and compliance vocabulary",
+        "Healthcare use cases",
+        "README taxonomy",
+        "Real Estate use cases"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0056",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "JSON-LD context",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/api-evangelist/use-cases/tree/main/use-cases.jsonld",
+      "domain_hint": "structured vocabulary",
+      "source_index_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "JSON-LD context"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0057",
+      "repo": "api-evangelist/use-cases",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "apis.yml manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/api-evangelist/use-cases/blob/main/apis.yml",
+      "domain_hint": "API/use-case manifest",
+      "source_index_url": "https://github.com/api-evangelist/use-cases/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "apis.yml manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0058",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Agents directory",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/agents",
+      "domain_hint": "working agent implementations",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agents directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0059",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Agno Examples",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/agno-examples",
+      "domain_hint": "agent examples",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agno Examples"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0060",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "AutoGen Notebooks",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/AutoGen-Examples",
+      "domain_hint": "multi-agent notebooks",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "AutoGen Notebooks"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0061",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "CrewAI Examples",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/crewAI-examples",
+      "domain_hint": "agent examples",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CrewAI Examples"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0062",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "CrewAI MCP Course",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/tree/main/crewAI-MCP-Course",
+      "domain_hint": "agent course examples",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CrewAI MCP Course"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0063",
+      "repo": "ashishpatel26/500-AI-Agents-Projects",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Industry Use Cases",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "domain_hint": "healthcare, finance, education, real estate, retail, legal",
+      "source_index_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Industry Use Cases"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0064",
+      "repo": "danielrosehill/Useful-AI-Agent-Skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Scope and Curation Rules",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills/blob/main/README.md",
+      "domain_hint": "catalog governance",
+      "source_index_url": "https://github.com/danielrosehill/Useful-AI-Agent-Skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Awesome Lists",
+        "Community Skill Collections",
+        "Marketing and SEO Skills",
+        "PM Skills",
+        "Research and Science Skills",
+        "Scope and Curation Rules",
+        "Skill Tooling and Builders",
+        "Vendor Skill Bundles"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0065",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "AI Research/RAG/Data Analysis",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/AI Research & RAG & Data Analysis",
+      "domain_hint": "AI research/RAG/data analysis",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "AI Research/RAG/Data Analysis"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0066",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Gmail/Email",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Gmail & Email",
+      "domain_hint": "email processing",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Gmail/Email"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0067",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Google Drive/Sheets",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Google Drive & Sheets",
+      "domain_hint": "document/spreadsheet automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Google Drive/Sheets"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0068",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "HR/Recruitment",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/HR & Recruitment",
+      "domain_hint": "HR workflows",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "HR/Recruitment"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0069",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Notion",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Notion",
+      "domain_hint": "knowledge/workspace automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Notion"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0070",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "OpenAI and LLMs",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/OpenAI & LLMs",
+      "domain_hint": "LLM automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "OpenAI and LLMs"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0071",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "PDF Document Processing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/PDF & Document Processing",
+      "domain_hint": "document processing",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "PDF Document Processing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0072",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "README Catalog",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "domain_hint": "313 automation templates",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README Catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0073",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Slack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Slack",
+      "domain_hint": "team workflow automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Slack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0074",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Social Media",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Social Media",
+      "domain_hint": "social workflows",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Social Media"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0075",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Telegram",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/Telegram",
+      "domain_hint": "messaging automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Telegram"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0076",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "WhatsApp",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/WhatsApp",
+      "domain_hint": "messaging automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "WhatsApp"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0077",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "WordPress",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/tree/main/WordPress",
+      "domain_hint": "publishing automation",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "WordPress"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0078",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "docs/index.md",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/docs/index.md",
+      "domain_hint": "template index",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "docs/index.md"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0079",
+      "repo": "enescingoz/awesome-n8n-templates",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "llms.txt",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/llms.txt",
+      "domain_hint": "LLM-readable index",
+      "source_index_url": "https://github.com/enescingoz/awesome-n8n-templates/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "llms.txt"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0080",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "AGENTS instructions",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/blob/main/AGENTS.md",
+      "domain_hint": "workflow operating rules",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "AGENTS instructions"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0081",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Commands directory",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/commands",
+      "domain_hint": "9 command workflows",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Commands directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0082",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Education industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/education",
+      "domain_hint": "education",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Education industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0083",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Healthcare industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/healthcare",
+      "domain_hint": "healthcare",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Healthcare industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0084",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Legal industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/legal",
+      "domain_hint": "legal",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Legal industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0085",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Pharma industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/pharma",
+      "domain_hint": "pharma",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Pharma industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0086",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "README skill catalog",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "domain_hint": "industry content workflows",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README skill catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0087",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Real estate industry pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills/real-estate",
+      "domain_hint": "real estate",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Real estate industry pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0088",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Skills directory",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/skills",
+      "domain_hint": "21 skill packs",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Skills directory"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0089",
+      "repo": "indranilbanerjee/contentforge",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Templates",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/indranilbanerjee/contentforge/tree/main/templates",
+      "domain_hint": "document templates",
+      "source_index_url": "https://github.com/indranilbanerjee/contentforge/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Templates"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0090",
+      "repo": "jim-schwoebel/awesome_ai_agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Real Estate Agents",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/jim-schwoebel/awesome_ai_agents/blob/main/README.md",
+      "domain_hint": "real estate",
+      "source_index_url": "https://github.com/jim-schwoebel/awesome_ai_agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agent Workflows section",
+        "Data Analysis Agents",
+        "Education Agents",
+        "Finance Agents",
+        "Healthcare Agents",
+        "Legal Agents",
+        "Real Estate Agents",
+        "Research Agents"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0091",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Agentic document intelligence docs",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "domain_hint": "document intelligence",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Agentic document intelligence docs"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0092",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Core query pipeline",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/core",
+      "domain_hint": "query pipeline",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Core query pipeline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0093",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "DAG workflows",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/workflows",
+      "domain_hint": "DAG workflows",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "DAG workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0094",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Document pipelines guide",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/docs/document-pipelines.md",
+      "domain_hint": "document processing",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Document pipelines guide"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0095",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Executor pipeline",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/executor",
+      "domain_hint": "execution pipeline",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Executor pipeline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0096",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Executor template",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/executor/template",
+      "domain_hint": "runtime template",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Executor template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0097",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Extract Engine",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/extract",
+      "domain_hint": "document extraction",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Extract Engine"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0098",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Flows guide",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/docs/flows.md",
+      "domain_hint": "workflow orchestration",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Flows guide"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0099",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Form extraction",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/examples/form-extraction",
+      "domain_hint": "forms",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Form extraction"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0100",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Invoice processing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/examples/invoice-processing",
+      "domain_hint": "invoices",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Invoice processing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0101",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Marie MCP",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/mcp",
+      "domain_hint": "MCP/runtime integration",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Marie MCP"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0102",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Orchestrate flow",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/orchestrate",
+      "domain_hint": "orchestration",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Orchestrate flow"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0103",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Project template",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/template",
+      "domain_hint": "project template",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Project template"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0104",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Query planners",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/query_planner",
+      "domain_hint": "retrieval/query planning",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Query planners"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0105",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Template matching",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/tree/main/marie/template_matching",
+      "domain_hint": "document extraction",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Template matching"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0106",
+      "repo": "marieai/marie-ai",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Workspaces",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/marieai/marie-ai/blob/main/docs/workspaces.md",
+      "domain_hint": "workspace processing",
+      "source_index_url": "https://github.com/marieai/marie-ai/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Workspaces"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0107",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Claude skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/skills/claude",
+      "domain_hint": "model skill pack",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Claude skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0108",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Configs",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/configs",
+      "domain_hint": "configuration templates",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Configs"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0109",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Gemma skills",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/skills/gemma",
+      "domain_hint": "model skill pack",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Gemma skills"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0110",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Memory wiki templates",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/tree/main/memory-wiki",
+      "domain_hint": "knowledge workflows",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Memory wiki templates"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0111",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Quickstart",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/QUICKSTART.md",
+      "domain_hint": "setup workflow",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Quickstart"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0112",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "README Catalog",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "domain_hint": "multi-industry OpenClaw templates",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README Catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0113",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "USE-CASES",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md",
+      "domain_hint": "education, healthcare, legal, real estate, compliance, automation",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "USE-CASES"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0114",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "agents category index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/agents/README.md",
+      "domain_hint": "category index",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "agents category index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0115",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "agents.json",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/agents.json",
+      "domain_hint": "machine-readable agent templates",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "agents.json"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0116",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "skills README",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/skills/README.md",
+      "domain_hint": "skill packs",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "skills README"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0117",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Divisions manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/blob/main/divisions.json",
+      "domain_hint": "agent taxonomy",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Divisions manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0118",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Engineering division",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/tree/main/agents/engineering",
+      "domain_hint": "engineering agents",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Engineering division"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0119",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Specialized division",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/tree/main/agents/specialized",
+      "domain_hint": "domain agents",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Specialized division"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0120",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Strategy playbooks",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/tree/main/strategy",
+      "domain_hint": "business strategy workflows",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Strategy playbooks"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0121",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Tools manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/blob/main/tools.json",
+      "domain_hint": "tool taxonomy",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Tools manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0122",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "CRM",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/CRM",
+      "domain_hint": "sales/CRM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CRM"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0123",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Google",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Google",
+      "domain_hint": "Google workspace automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Google"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0124",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "HubSpot",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/HubSpot",
+      "domain_hint": "CRM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "HubSpot"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0125",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Moodle",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Moodle",
+      "domain_hint": "education automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Moodle"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0126",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Notion",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Notion",
+      "domain_hint": "knowledge automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Notion"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0127",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "OpenAI",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/OpenAI",
+      "domain_hint": "LLM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "OpenAI"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0128",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Salesforce",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Salesforce",
+      "domain_hint": "CRM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Salesforce"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0129",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Security Monitoring",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "domain_hint": "monitoring workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Educational Workflow Bots",
+        "Healthcare Integration",
+        "RAG Pipelines",
+        "README Catalog",
+        "Research & Knowledge Agents",
+        "Security Monitoring"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0130",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Slack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Slack",
+      "domain_hint": "team workflow automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Slack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0131",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Templates based on platforms lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms",
+      "domain_hint": "2,000 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Templates based on platforms lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0132",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Zillow",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Zillow",
+      "domain_hint": "real estate automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Zillow"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0133",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "n8n advance lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/n8n advance",
+      "domain_hint": "204 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "n8n advance lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0134",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "n8n_2000_workflows lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/n8n_2000_workflows",
+      "domain_hint": "2,001 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "n8n_2000_workflows lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0135",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "workflows by Zie619 lane",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/workflows by Zie619",
+      "domain_hint": "2,055 workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "workflows by Zie619 lane"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0136",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AAS Agent & MCP Builder",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-agent-mcp-builder",
+      "domain_hint": "agent/MCP/eval builder",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "AAS Agent & MCP Builder"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0137",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AAS Security Engineer",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-security-engineer",
+      "domain_hint": "security audit",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "AAS Security Engineer"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0138",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "AAS Web App Builder",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-web-app-builder",
+      "domain_hint": "web app building",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "AAS Web App Builder"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0139",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Bundles index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/bundles.md",
+      "domain_hint": "role bundles",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Bundles index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0140",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Design a DDD Core Domain",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/data/workflows.json",
+      "domain_hint": "architecture",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Build an AI Agent System",
+        "Design a DDD Core Domain",
+        "Machine-readable workflows",
+        "QA and Browser Automation",
+        "Security Audit for a Web App",
+        "Ship a SaaS MVP"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0141",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Full skill catalog",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/CATALOG.md",
+      "domain_hint": "1,898+ skills",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Full skill catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0142",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Machine-readable bundles",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/data/bundles.json",
+      "domain_hint": "bundle metadata",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Machine-readable bundles"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0143",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Plugin marketplace manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/.agents/plugins/marketplace.json",
+      "domain_hint": "Codex config package bundles",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Plugin marketplace manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0144",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Skills index",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills_index.json",
+      "domain_hint": "machine-readable skills",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Skills index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0145",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Workflows index",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/workflows.md",
+      "domain_hint": "ordered execution playbooks",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "Workflows index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0146",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "plugins/",
+      "candidate_type": "template",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins",
+      "domain_hint": "generated plugin bundles",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "plugins/"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0147",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "skills/",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills",
+      "domain_hint": "installable skill folders",
+      "source_index_url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "skills/"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0148",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/analyze",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/analysis/analyze",
+      "domain_hint": "cross-layer analysis",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/analyze"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0149",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/arch-review",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/review/arch-review",
+      "domain_hint": "architecture review",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/arch-review"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0150",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/build",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/build/build",
+      "domain_hint": "full app build pipeline",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/build"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0151",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/devops",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/deploy/devops",
+      "domain_hint": "deployment orchestrator",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/devops"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0152",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/document",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/docs/document",
+      "domain_hint": "documentation/document transformation orchestrator",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/document"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0153",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/dx",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/productivity/dx",
+      "domain_hint": "developer experience orchestrator",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/dx"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0154",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/integrate",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/integration/integrate",
+      "domain_hint": "integration orchestrator",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/integrate"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0155",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/qa",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/qa/qa",
+      "domain_hint": "automated QA pipeline",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/qa"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0156",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/secure",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/security/secure",
+      "domain_hint": "security orchestrator",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/secure"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0157",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/test-suite",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/test/test-suite",
+      "domain_hint": "testing orchestrator",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/test-suite"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0158",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "/ux",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/ux/ux",
+      "domain_hint": "UX audit/design validation",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": false,
+      "aliases": [
+        "/ux"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0159",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "README Skill Catalog",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "domain_hint": "430 skills",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README Skill Catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0160",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "analysis",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/analysis",
+      "domain_hint": "domain analysis/research/industry verticals",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "analysis"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0161",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "build",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/build",
+      "domain_hint": "project scaffolding/build pipelines",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "build"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0162",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "combo",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo",
+      "domain_hint": "multi-skill chains",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "combo"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0163",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "compliance-suite",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/compliance-suite",
+      "domain_hint": "compliance-support chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "compliance-suite"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0164",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "design-to-code",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/design-to-code",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "design-to-code"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0165",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "fix-and-ship",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/fix-and-ship",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "fix-and-ship"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0166",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "mvp-spec",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/mvp-spec",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "mvp-spec"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0167",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "qa",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/qa",
+      "domain_hint": "quality assurance",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "qa"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0168",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "review-implement",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/review-implement",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "review-implement"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0169",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "secure-ship",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/secure-ship",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "secure-ship"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0170",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "ship-pipeline",
+      "candidate_type": "workflow",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/combo/ship-pipeline",
+      "domain_hint": "multi-skill chain",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "medium",
+      "needs_second_pass": false,
+      "aliases": [
+        "ship-pipeline"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0171",
+      "repo": "tinh2/skills-hub-registry",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "test",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/tinh2/skills-hub-registry/tree/main/test",
+      "domain_hint": "automated testing",
+      "source_index_url": "https://github.com/tinh2/skills-hub-registry/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "test"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ]
+}

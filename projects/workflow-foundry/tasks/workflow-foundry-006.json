@@ -1,0 +1,72 @@
+{
+  "task_id": "workflow-foundry-006",
+  "project_slug": "workflow-foundry",
+  "title": "Create foundry expansion discovery workflow",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "grilling",
+  "explicit_next_action_required": true,
+  "summary": "Create a workflow for inspecting the current foundry and identifying high-value additions such as new skills, validators, references, fixtures, or project workflow patterns before implementation work begins.",
+  "acceptance_criteria": [
+    "grilling identifies the operator job for discovering what else belongs in the foundry",
+    "the workflow distinguishes candidate skill additions, validator additions, reference material, fixtures, and project tracker improvements",
+    "the workflow defines an evidence gate for deciding whether a candidate should become a task",
+    "the workflow preserves Matt Pocock style and ECC workflow architecture",
+    "the workflow produces a reviewable output artifact before any implementation artifacts are approved"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry state, all non-done tasks, and Matt/ECC workflow references before shaping a foundry expansion discovery workflow.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "references/matt-pocock-skills.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "grilling",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-001",
+    "workflow-foundry-004"
+  ],
+  "linked_artifacts": [],
+  "session_log": [
+    {
+      "date": "2026-07-07",
+      "event": "Created intake task for a foundry expansion discovery workflow."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Moved to grilling after user asked to grill the foundry expansion discovery workflow."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved operator job: inspect current foundry repo state across projects, skills, validators, trackers, and gaps, then produce a ranked shortlist of candidate workflow additions with evidence, expected value, and the next tracker task to create."
+    }
+  ],
+  "created_at": "2026-07-07",
+  "updated_at": "2026-07-07"
+}

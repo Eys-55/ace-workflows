@@ -1,0 +1,4 @@
+interface:
+  display_name: "Initiate Task"
+  short_description: "Start JSON workflow tasks"
+  default_prompt: "Use $initiate-task to initiate a JSON-tracked workflow task."

@@ -1,0 +1,204 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-013",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0121",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Tools manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/blob/main/tools.json",
+      "domain_hint": "tool taxonomy",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Tools manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0122",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "CRM",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/CRM",
+      "domain_hint": "sales/CRM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CRM"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0123",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Google",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Google",
+      "domain_hint": "Google workspace automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Google"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0124",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "HubSpot",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/HubSpot",
+      "domain_hint": "CRM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "HubSpot"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0125",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Moodle",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Moodle",
+      "domain_hint": "education automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Moodle"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0126",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Notion",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Notion",
+      "domain_hint": "knowledge automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Notion"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0127",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "OpenAI",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/OpenAI",
+      "domain_hint": "LLM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "OpenAI"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0128",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Salesforce",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Salesforce",
+      "domain_hint": "CRM automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Salesforce"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0129",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Security Monitoring",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "domain_hint": "monitoring workflows",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Educational Workflow Bots",
+        "Healthcare Integration",
+        "RAG Pipelines",
+        "README Catalog",
+        "Research & Knowledge Agents",
+        "Security Monitoring"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0130",
+      "repo": "ritik-prog/n8n-automation-templates-5000",
+      "cluster": "Workflow/Automation Template Repos",
+      "workflow_or_skill_name": "Slack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/tree/main/Templates based on paltforms/Slack",
+      "domain_hint": "team workflow automation",
+      "source_index_url": "https://github.com/ritik-prog/n8n-automation-templates-5000/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Slack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

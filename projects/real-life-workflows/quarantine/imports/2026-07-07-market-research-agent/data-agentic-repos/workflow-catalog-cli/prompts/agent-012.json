@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-012",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0111",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Quickstart",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/QUICKSTART.md",
+      "domain_hint": "setup workflow",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Quickstart"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0112",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "README Catalog",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "domain_hint": "multi-industry OpenClaw templates",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "README Catalog"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0113",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "USE-CASES",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/USE-CASES.md",
+      "domain_hint": "education, healthcare, legal, real estate, compliance, automation",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "USE-CASES"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0114",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "agents category index",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/agents/README.md",
+      "domain_hint": "category index",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "agents category index"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0115",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "agents.json",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/agents.json",
+      "domain_hint": "machine-readable agent templates",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "agents.json"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0116",
+      "repo": "mergisi/awesome-openclaw-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "skills README",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/skills/README.md",
+      "domain_hint": "skill packs",
+      "source_index_url": "https://github.com/mergisi/awesome-openclaw-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "skills README"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0117",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Divisions manifest",
+      "candidate_type": "manifest",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/blob/main/divisions.json",
+      "domain_hint": "agent taxonomy",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Divisions manifest"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0118",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Engineering division",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/tree/main/agents/engineering",
+      "domain_hint": "engineering agents",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Engineering division"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0119",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Specialized division",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/tree/main/agents/specialized",
+      "domain_hint": "domain agents",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Specialized division"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0120",
+      "repo": "msitarzewski/agency-agents",
+      "cluster": "Big Multi-Industry Agent Catalogs",
+      "workflow_or_skill_name": "Strategy playbooks",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/msitarzewski/agency-agents/tree/main/strategy",
+      "domain_hint": "business strategy workflows",
+      "source_index_url": "https://github.com/msitarzewski/agency-agents/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Strategy playbooks"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

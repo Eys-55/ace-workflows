@@ -1,0 +1,4 @@
+interface:
+  display_name: "Philippines Building Code Evidence Auditor"
+  short_description: "Lock Philippine building identity before audit evidence search"
+  default_prompt: "Use this skill to confirm the exact Philippine building, branch, tenant, or complex before any building-code evidence audit."

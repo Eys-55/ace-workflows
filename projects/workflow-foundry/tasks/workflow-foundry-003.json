@@ -1,17 +1,18 @@
 {
   "task_id": "workflow-foundry-003",
   "project_slug": "workflow-foundry",
-  "title": "Expose workflow slash prompts in Codex app",
+  "title": "Expose workflow skills in Codex app",
   "task_kind": "workflow-change",
   "status": "todo",
   "matt_phase": "intake",
   "explicit_next_action_required": true,
-  "summary": "Add Codex app-facing slash prompt shims so /initiate-task, /continue-task, /setup-workflow-project, and /workflow-help appear through the prompt surface instead of only existing as repo-local command markdown.",
+  "summary": "Make .agents/skills the only active workflow surface so Codex discovers and invokes workflow operations as skills.",
   "acceptance_criteria": [
-    "Codex app prompt shims exist under .codex/prompts",
-    "prompt shims route to canonical repo-local skills",
-    "commands remain thin compatibility shims",
-    "workflow help documents the Codex app prompt surface",
+    "Full canonical skill instructions live under .agents/skills",
+    "continue-task exists as a discoverable skill alias",
+    "active prompt and command shim directories are removed",
+    "workflow help documents the skills-only surface",
+    "validation fails prompt, command, legacy skill, malformed skill, and folder/name mismatch fixtures",
     "workflow state validation passes"
   ],
   "ecc_concepts_applied": [
@@ -22,7 +23,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, all open tasks, and the prompt/command/skill surfaces before continuing slash prompt exposure work.",
+    "summary": "Load workflow-foundry state, all open tasks, and the skills-only workflow surfaces before continuing skill exposure work.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -32,18 +33,83 @@
       "projects/workflow-foundry/tasks/workflow-foundry-001.json",
       "projects/workflow-foundry/tasks/workflow-foundry-002.json",
       "projects/workflow-foundry/tasks/workflow-foundry-003.json",
-      ".codex/prompts/workflow-help.md",
-      ".codex/prompts/setup-workflow-project.md",
-      ".codex/prompts/initiate-task.md",
-      ".codex/prompts/continue-task.md",
-      "commands/workflow-help.md",
-      "commands/setup-workflow-project.md",
-      "commands/initiate-task.md",
-      "commands/continue-task.md",
-      "skills/workflow-help/SKILL.md",
-      "skills/setup-workflow-project/SKILL.md",
-      "skills/initiate-task/SKILL.md"
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      ".agents/skills/workflow-help/SKILL.md",
+      ".agents/skills/setup-workflow-project/SKILL.md",
+      ".agents/skills/review-project-state/SKILL.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md",
+      "scripts/validate-workflow-state.mjs"
     ]
+  },
+  "phase_guard": {
+    "selected_next_action": "none",
+    "approved_artifacts": [
+      {
+        "path": ".agents/skills/workflow-help/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/workflow-help/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/setup-workflow-project/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/setup-workflow-project/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/review-project-state/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/review-project-state/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/initiate-task/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/initiate-task/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/continue-task/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to add continue-task as a discoverable skill alias.",
+        "approved_at": "2026-07-06"
+      },
+      {
+        "path": ".agents/skills/continue-task/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user plan to add continue-task display metadata under .agents/skills.",
+        "approved_at": "2026-07-06"
+      }
+    ],
+    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
@@ -52,11 +118,17 @@
   ],
   "linked_artifacts": [
     "AGENTS.md",
-    ".codex/prompts/workflow-help.md",
-    ".codex/prompts/setup-workflow-project.md",
-    ".codex/prompts/initiate-task.md",
-    ".codex/prompts/continue-task.md",
-    "skills/workflow-help/SKILL.md",
+    ".agents/skills/workflow-help/SKILL.md",
+    ".agents/skills/workflow-help/agents/openai.yaml",
+    ".agents/skills/setup-workflow-project/SKILL.md",
+    ".agents/skills/setup-workflow-project/agents/openai.yaml",
+    ".agents/skills/review-project-state/SKILL.md",
+    ".agents/skills/review-project-state/agents/openai.yaml",
+    ".agents/skills/initiate-task/SKILL.md",
+    ".agents/skills/initiate-task/agents/openai.yaml",
+    ".agents/skills/continue-task/SKILL.md",
+    ".agents/skills/continue-task/agents/openai.yaml",
+    "scripts/validate-workflow-state.mjs",
     "projects/workflow-foundry/project.json",
     "projects/workflow-foundry/tasks/index.json",
     "projects/workflow-foundry/tasks/workflow-foundry-001.json",
@@ -67,6 +139,26 @@
     {
       "date": "2026-07-06",
       "event": "Created workflow-change task to track Codex app slash prompt exposure for ace-workflows."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Added .agents/skills entrypoints because Codex skill discovery uses the skill surface, while .codex/prompts are compatibility prompts."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Updated snapshot to include workflow-foundry-004 after adding tracker-maintenance task for tracker upkeep."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Converted the task from prompt exposure to skills-only canonical workflow surfaces and removed command/prompt shim artifacts."
+    },
+    {
+      "date": "2026-07-06",
+      "event": "Updated snapshot to include workflow-foundry-005 after adding the dark-mode tracker UI intake task."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Updated snapshot to include workflow-foundry-006 after adding the foundry expansion discovery intake task."
     }
   ],
   "created_at": "2026-07-06",

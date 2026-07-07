@@ -1,0 +1,199 @@
+{
+  "task": "Read and classify these workflow/skill/template links for a real-world Codex workflow catalog. Return JSON only.",
+  "agent": "cli-agent-005",
+  "max_links": 10,
+  "output_shape": {
+    "workflow_rows": [
+      {
+        "workflow_id": "",
+        "workflow_name": "",
+        "source_repo": "",
+        "source_url": "",
+        "domain": "",
+        "workflow_type": "",
+        "real_life_job": "",
+        "input_contract": "",
+        "output_artifact": "",
+        "trigger": "",
+        "tools_or_sources": "",
+        "validation_gate": "",
+        "human_review_boundary": "",
+        "safety_boundary": "",
+        "codex_package_relevance": "",
+        "what_to_copy": "",
+        "what_to_ignore": "",
+        "tags": "",
+        "confidence": ""
+      }
+    ]
+  },
+  "links": [
+    {
+      "id": "wfseed-0041",
+      "repo": "agentskillexchange/skills",
+      "cluster": "Best Matches For Codex Config Packages",
+      "workflow_or_skill_name": "Templates & Workflows",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/agentskillexchange/skills/tree/main/categories/templates-workflows",
+      "domain_hint": "191 skills",
+      "source_index_url": "https://github.com/agentskillexchange/skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Templates & Workflows"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0042",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Asset Management",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/asset-management",
+      "domain_hint": "commercial real estate asset management",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Asset Management"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0043",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Brokerage",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/brokerage",
+      "domain_hint": "brokerage workflows",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Brokerage"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0044",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "CRE Due Diligence plugin pack",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/plugins/cre-due-diligence",
+      "domain_hint": "real estate due diligence package",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "CRE Due Diligence plugin pack"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0045",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Capital Markets",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/capital-markets",
+      "domain_hint": "capital markets",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Capital Markets"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0046",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Closing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/closing",
+      "domain_hint": "closing workflows",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Closing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0047",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Document Ingestion",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/document-ingestion",
+      "domain_hint": "document processing",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Document Ingestion"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0048",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Due Diligence",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/due-diligence",
+      "domain_hint": "real estate due diligence",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Due Diligence"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0049",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Financing",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/financing",
+      "domain_hint": "financing workflows",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Financing"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    },
+    {
+      "id": "wfseed-0050",
+      "repo": "ahacker-1/cre-agent-skills",
+      "cluster": "Domain-Specific Workflow Packs",
+      "workflow_or_skill_name": "Industrial",
+      "candidate_type": "category",
+      "folder_or_file_url": "https://github.com/ahacker-1/cre-agent-skills/tree/main/skills/industrial",
+      "domain_hint": "industrial CRE",
+      "source_index_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/README.md",
+      "confidence": "high",
+      "needs_second_pass": true,
+      "aliases": [
+        "Industrial"
+      ],
+      "why_this_is_a_workflow": "Indexed workflow, skill, template, or lane surface discovered by internal sweep."
+    }
+  ],
+  "rules": [
+    "Use gpt-5.5 low reasoning and web search if needed.",
+    "Classify each link independently.",
+    "Do not invent details not supported by the source.",
+    "Use concise phrases suitable for a queryable table.",
+    "If a link is an index/category rather than one workflow, either classify the category or extract the strongest visible workflow rows, but keep the output grounded."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "project_slug": "real-life-workflows",
+  "name": "Real Life Workflows",
+  "project_state": "active",
+  "goal": "Create and refine workflow products that turn real-world operator jobs into reusable, inspectable agent workflows.",
+  "domain": "real-life-workflow-discovery",
+  "agents_md": "projects/real-life-workflows/AGENTS.md",
+  "active_conventions": [
+    "start from a concrete real-world operator job before designing workflow artifacts",
+    "keep project-specific behavior in the project AGENTS.md and reusable workflow behavior in .agents/skills"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "created_at": "2026-07-07",
+  "updated_at": "2026-07-07"
+}

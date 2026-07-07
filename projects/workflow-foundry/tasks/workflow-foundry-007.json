@@ -1,0 +1,57 @@
+{
+  "task_id": "workflow-foundry-007",
+  "project_slug": "workflow-foundry",
+  "title": "Checkpoint foundry repository to GitHub",
+  "task_kind": "workflow-change",
+  "status": "todo",
+  "matt_phase": "intake",
+  "explicit_next_action_required": true,
+  "summary": "Create a tracked foundry task for the requested repository checkpoint and GitHub upload of the current local workflow-foundry state.",
+  "acceptance_criteria": [
+    "workflow-foundry project state is loaded before checkpoint work",
+    "workflow state validation passes before any commit",
+    "the diff is inspected for sensitive data before upload",
+    "repository changes are committed locally with a Conventional Commit message",
+    "GitHub upload is completed only after a remote is available or explicitly configured"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry state and every non-done task before continuing the GitHub checkpoint request.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "none",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-004"
+  ],
+  "linked_artifacts": [],
+  "session_log": [
+    {
+      "date": "2026-07-07",
+      "event": "Created intake task after user invoked initiate-task for the foundry and requested uploading all current repo state to GitHub."
+    }
+  ],
+  "created_at": "2026-07-07",
+  "updated_at": "2026-07-07"
+}

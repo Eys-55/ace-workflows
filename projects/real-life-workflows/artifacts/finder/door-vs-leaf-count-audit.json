@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-07-07",
+  "source": "quarantined market-research-agent import",
+  "door_count": 171,
+  "door_row_count": 171,
+  "search_index_row_count": 171,
+  "workflow_link_count": 171,
+  "door_count_is_final_workflow_count": false,
+  "expanded_leaf_workflow_count_status": "not fully materialized in the quarantine import",
+  "user_reported_leaf_workflow_scale": "almost ten thousand workflows",
+  "candidate_type_counts": [
+    {
+      "type": "category",
+      "count": 114
+    },
+    {
+      "type": "lane",
+      "count": 4
+    },
+    {
+      "type": "manifest",
+      "count": 18
+    },
+    {
+      "type": "skill",
+      "count": 3
+    },
+    {
+      "type": "template",
+      "count": 6
+    },
+    {
+      "type": "workflow",
+      "count": 26
+    }
+  ],
+  "safety_boundaries": [
+    "Treat the 171 rows as access doors, not finished workflows.",
+    "Do not claim the expanded leaf-workflow count until a deeper expansion pass quantifies it.",
+    "Do not copy full source workflow text into reader packets; store links and descriptions for extraction.",
+    "High-stakes packets do not prove compliance, clinical correctness, legal sufficiency, or safety."
+  ]
+}

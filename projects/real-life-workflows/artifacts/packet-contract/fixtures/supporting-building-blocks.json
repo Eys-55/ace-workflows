@@ -1,0 +1,47 @@
+{
+  "fixture_type": "supporting_building_blocks",
+  "raw_request": "I want to understand workflows for going through documents and finding useful evidence.",
+  "intake_question": "What type of work or workflow are you trying to understand?",
+  "understanding_target": "Document evidence review workflows",
+  "markdown_packet_intent": "Create a reader-first Markdown packet that includes direct evidence workflows and supporting document-processing building blocks.",
+  "categories": [
+    {
+      "name": "Direct Matches",
+      "recommendations": [
+        {
+          "workflow_name": "Evidence Packet Review",
+          "why_it_matters": "It models how a reader turns messy documents into cited findings and unresolved questions.",
+          "why_it_is_here": "The request directly asks for document evidence review workflows.",
+          "what_it_does": "Inventories documents, extracts relevant facts, cites sources, and records uncertainty.",
+          "source_link": "https://example.invalid/evidence-packet-review",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "evidence-packet-review"
+        }
+      ]
+    },
+    {
+      "name": "Strong Adjacent Matches",
+      "recommendations": []
+    },
+    {
+      "name": "Supporting Building Blocks",
+      "recommendations": [
+        {
+          "workflow_name": "Document Classifier",
+          "why_it_matters": "Classification is a useful building block before evidence review because it tells the agent what kind of document it is reading.",
+          "why_it_is_here": "The workflow supports evidence review even when it is not the final evidence packet workflow.",
+          "what_it_does": "Labels documents by type, confidence, missing fields, and extraction priority.",
+          "source_link": "https://example.invalid/document-classifier",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "document-classifier"
+        }
+      ]
+    },
+    {
+      "name": "Maybe Useful",
+      "recommendations": []
+    }
+  ]
+}

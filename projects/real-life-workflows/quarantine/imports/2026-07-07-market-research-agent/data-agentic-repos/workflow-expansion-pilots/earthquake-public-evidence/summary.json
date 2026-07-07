@@ -1,0 +1,119 @@
+{
+  "pilot": "earthquake-public-evidence",
+  "query": "workflow like my earthquake thing",
+  "generated_at": "2026-07-05",
+  "agent_doors_attempted": 8,
+  "agent_doors_completed": 8,
+  "direct_hit_doors": [
+    "ahacker-1/cre-agent-skills: CRE Due Diligence plugin pack",
+    "ahacker-1/cre-agent-skills: Due Diligence",
+    "ahacker-1/cre-agent-skills: Document Ingestion",
+    "ahacker-1/cre-agent-skills: Legal",
+    "tinh2/skills-hub-registry: compliance-suite"
+  ],
+  "supporting_taxonomy_doors": [
+    "api-evangelist/use-cases: Evidence and compliance vocabulary"
+  ],
+  "inspiration_only_doors": [
+    "mergisi/awesome-openclaw-agents: USE-CASES",
+    "ashishpatel26/500-AI-Agents-Projects: Industry Use Cases"
+  ],
+  "top_candidates": [
+    {
+      "rank": 1,
+      "candidate_name": "Legal & Title Review",
+      "source_repo": "ahacker-1/cre-agent-skills",
+      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/due-diligence/legal-title-review.md",
+      "workflow_type": "ComplianceSupport",
+      "codex_ecc_relevance": "copy",
+      "why_it_matters": "Closest direct match for public records, ownership, liens, litigation, zoning, code violations, permits, certificates of occupancy, sources, data quality notes, and uncertainty flags.",
+      "what_to_copy": "Public-record gates for code violations, permits, occupancy certificates, zoning, litigation, source coverage, and uncertainty flags.",
+      "what_to_ignore": "US-specific title insurance and county/state terminology unless localized."
+    },
+    {
+      "rank": 2,
+      "candidate_name": "permit-compliance",
+      "source_repo": "tinh2/skills-hub-registry",
+      "candidate_url": "https://github.com/tinh2/skills-hub-registry/tree/main/review/permit-compliance",
+      "workflow_type": "EvidenceAudit",
+      "codex_ecc_relevance": "copy",
+      "why_it_matters": "Directly names construction permits, building code, inspections, occupancy, environmental compliance, document/submittal workflows, jurisdiction caveats, and evidence-referenced findings.",
+      "what_to_copy": "Permit type taxonomy, certificate/inspection coverage, document evidence categories, and jurisdiction-specific caveat language.",
+      "what_to_ignore": "Software-platform audit framing; adapt to public-record source evidence."
+    },
+    {
+      "rank": 3,
+      "candidate_name": "Document Classifier",
+      "source_repo": "ahacker-1/cre-agent-skills",
+      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/document-ingestion/document-classifier.md",
+      "workflow_type": "DocumentTransformation",
+      "codex_ecc_relevance": "copy",
+      "why_it_matters": "Best pattern for evidence packet intake: classify documents, extract fields, detect missing documents, surface conflicts, score confidence, and require confirmation for ambiguity.",
+      "what_to_copy": "Intake inventory, classification confidence, completeness scoring, conflict detection, missing-document list, and user-confirmation boundary.",
+      "what_to_ignore": "CRE-specific financial document categories unless needed as optional evidence."
+    },
+    {
+      "rank": 4,
+      "candidate_name": "Environmental Review",
+      "source_repo": "ahacker-1/cre-agent-skills",
+      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/due-diligence/environmental-review.md",
+      "workflow_type": "EvidenceAudit",
+      "codex_ecc_relevance": "copy",
+      "why_it_matters": "Strong source-taxonomy and hazard-context pattern: database search matrix, missing-data handling, flood/hazard checks, source list, and uncertainty flags.",
+      "what_to_copy": "Source taxonomy, conservative missing-data protocol, public database matrix, hazard context, source list, and validation gates.",
+      "what_to_ignore": "US-specific environmental databases, cost assumptions, and acquisition underwriting language."
+    },
+    {
+      "rank": 5,
+      "candidate_name": "Physical Inspection Analyst",
+      "source_repo": "ahacker-1/cre-agent-skills",
+      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/due-diligence/physical-inspection.md",
+      "workflow_type": "DueDiligence",
+      "codex_ecc_relevance": "adapt",
+      "why_it_matters": "Good building-system checklist and missing-evidence model, with explicit boundary that structural, seismic, fire/life-safety, and condition findings require qualified review.",
+      "what_to_copy": "Building systems checklist, permit/photo/review evidence gathering, conservative assumptions, issue flags, and uncertainty handling.",
+      "what_to_ignore": "Renovation ROI, CapEx underwriting, and investment framing."
+    },
+    {
+      "rank": 6,
+      "candidate_name": "Title & Survey Reviewer",
+      "source_repo": "ahacker-1/cre-agent-skills",
+      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/skills/legal/title-survey-reviewer.md",
+      "workflow_type": "EvidenceAudit",
+      "codex_ecc_relevance": "adapt",
+      "why_it_matters": "Useful for exception classification, cross-source validation, legal description matching, survey/title inconsistencies, risk flags, and public workaround sources.",
+      "what_to_copy": "Exception classification, cross-reference validation, risk flags, uncertainty flags, and human-review boundary.",
+      "what_to_ignore": "ALTA/title endorsement mechanics unless mapped to a local equivalent."
+    },
+    {
+      "rank": 7,
+      "candidate_name": "Compliance vocabulary",
+      "source_repo": "api-evangelist/use-cases",
+      "candidate_url": "https://github.com/api-evangelist/use-cases/blob/main/vocabulary/use-cases-vocabulary.yml#L143",
+      "workflow_type": "SourceTaxonomy",
+      "codex_ecc_relevance": "copy",
+      "why_it_matters": "Provides vocabulary tags for Search, Aggregation, Transformation, Compliance, Data, Storage, Geolocation, Government, and Real Estate.",
+      "what_to_copy": "Router vocabulary and source taxonomy labels.",
+      "what_to_ignore": "Any assumption that a vocabulary term proves a source exists."
+    },
+    {
+      "rank": 8,
+      "candidate_name": "Risk Scoring - Multifamily Acquisition",
+      "source_repo": "ahacker-1/cre-agent-skills",
+      "candidate_url": "https://github.com/ahacker-1/cre-agent-skills/blob/main/claude-code-plugins/cre-due-diligence/knowledge/risk-scoring.md",
+      "workflow_type": "SourceTaxonomy",
+      "codex_ecc_relevance": "adapt",
+      "why_it_matters": "Useful for severity labels, risk bands, automatic escalation rules, and mitigation output, as long as it remains caveated and human-reviewed.",
+      "what_to_copy": "Risk bands, automatic escalation triggers, mitigation fields, and materiality review.",
+      "what_to_ignore": "CRE investment weights and dealbreaker framing."
+    }
+  ],
+  "pilot_takeaways": [
+    "The router worked: it led agents to a small set of high-value doors instead of expanding the entire 171-door catalog.",
+    "The strongest direct source for the earthquake/building evidence workflow is ahacker-1/cre-agent-skills, especially due-diligence, legal, and document-ingestion.",
+    "tinh2/skills-hub-registry contributes a directly named permit-compliance door and useful compliance orchestration, but it needs adaptation away from software audit framing.",
+    "api-evangelist/use-cases is best used as vocabulary and taxonomy, not workflow implementation.",
+    "The large catalog repos are useful for inspiration, but they should not be primary architecture sources for this workflow."
+  ],
+  "recommended_next_step": "Build a curated earthquake/public-evidence workflow pattern pack from the top copy/adapt candidates before scaling to other domains."
+}

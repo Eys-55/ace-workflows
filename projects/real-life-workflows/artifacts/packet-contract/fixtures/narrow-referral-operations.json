@@ -1,0 +1,36 @@
+{
+  "fixture_type": "narrow",
+  "raw_request": "I want to understand referral operations workflows.",
+  "intake_question": "What type of work or workflow are you trying to understand?",
+  "understanding_target": "Referral intake and routing operations",
+  "markdown_packet_intent": "Create a concise reader-first Markdown packet explaining the strongest referral operations workflow patterns.",
+  "categories": [
+    {
+      "name": "Direct Matches",
+      "recommendations": [
+        {
+          "workflow_name": "Referral Intake Triage",
+          "why_it_matters": "It models the first operational decision point: whether a request is complete, urgent, and routed to the right queue.",
+          "why_it_is_here": "The workflow directly matches referral operations and intake routing.",
+          "what_it_does": "Collects referral inputs, checks completeness, flags urgency, and prepares the next handoff.",
+          "source_link": "https://example.invalid/referral-intake-triage",
+          "local_door_source_path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/data-agentic-repos/workflow-search-index.json",
+          "reliability": "fixture-reference",
+          "possible_skill_to_extract": "referral-intake-triage"
+        }
+      ]
+    },
+    {
+      "name": "Strong Adjacent Matches",
+      "recommendations": []
+    },
+    {
+      "name": "Supporting Building Blocks",
+      "recommendations": []
+    },
+    {
+      "name": "Maybe Useful",
+      "recommendations": []
+    }
+  ]
+}
