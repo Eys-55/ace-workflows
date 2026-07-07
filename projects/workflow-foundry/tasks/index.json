@@ -61,8 +61,8 @@
       "task_id": "workflow-foundry-008",
       "title": "Add project testing mode sessions",
       "task_kind": "workflow-change",
-      "status": "in-progress",
-      "matt_phase": "code-review",
+      "status": "done",
+      "matt_phase": "done",
       "updated_at": "2026-07-07"
     },
     {

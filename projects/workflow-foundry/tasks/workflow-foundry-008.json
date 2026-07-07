@@ -3,8 +3,8 @@
   "project_slug": "workflow-foundry",
   "title": "Add project testing mode sessions",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "code-review",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Design and implement a foundry workflow mode where an operator specifies a project and starts an isolated testing session whose files, logs, and resume context are saved predictably so later task initiation or continuation can inspect those logs before deciding next work.",
   "acceptance_criteria": [
@@ -80,7 +80,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "code-review",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": ".agents/skills/testing-session/SKILL.md",
@@ -241,6 +241,10 @@
     {
       "date": "2026-07-07",
       "event": "Implemented testing-session lifecycle state helper, canonical testing-session skill, project preload discovery, validation checks, tracker tests, and issue acceptance updates; moved task to code-review."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Completed code-review with no blocking findings after spec review, workflow validation, tracker verification, skill validation, whitespace check, and secret-pattern scan; marked task done."
     }
   ],
   "created_at": "2026-07-07",
