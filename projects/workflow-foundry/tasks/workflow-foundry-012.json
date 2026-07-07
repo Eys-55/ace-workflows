@@ -1,0 +1,121 @@
+{
+  "task_id": "workflow-foundry-012",
+  "project_slug": "workflow-foundry",
+  "title": "Create one-way project skill connection workflow",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "grilling",
+  "explicit_next_action_required": true,
+  "summary": "Create a foundry workflow, likely as a skill derived from initiate-task, that connects an external project to the foundry as a one-way read-only skill source so the foundry can run approved project skills while the source project remains isolated, and foundry-run outputs are stored as foundry-owned records instead of project-owned testing or usage artifacts.",
+  "acceptance_criteria": [
+    "grilling identifies the source project, its skill surface, and the operator job for connecting it to the foundry",
+    "the workflow defines a one-way connection contract where the foundry can read or invoke approved project skills without writing into the source project",
+    "the workflow preserves project isolation and prevents foundry tracker state, generated artifacts, or workflow mutations from infecting the connected project",
+    "foundry-run records for connected project skills are stored under projects/workflow-foundry/artifacts/connected-runs/<source-project-slug>/<run-id>/ and labeled as foundry-owned",
+    "the connection discovers all source project skill paths by default, then compares the connected project against the foundry before deciding how each skill should be integrated or run",
+    "the comparison produces a foundry-owned integration report that classifies each discovered source skill as run-as-is, needs-foundry-wrapper, duplicates-foundry-skill, conflicts-with-foundry-rule, or do-not-run",
+    "no source project is connected, and no foundry-owned wrapper or adapter is created, without explicit operator approval for that integration",
+    "the operator-facing entrypoint remains initiate-task, with explicit connection intent activating additional connection workflow behavior rather than a separate primary skill",
+    "connection intent can be expressed either with structured fields such as target:connection source_project:<slug-or-path> or with clear natural language that says the initiated task is for connecting or integrating a project's skills into the foundry",
+    "the workflow defines one foundry-owned connection record per source project, with every discovered skill marked as connected or not connected and classified by the integration report",
+    "project-level connection records live under projects/workflow-foundry/artifacts/connections/<source-project-slug>.json while individual run outputs remain under projects/workflow-foundry/artifacts/connected-runs/<source-project-slug>/<run-id>/",
+    "the derived task flow preserves initiate-task preload, phase guard, Matt Pocock phase handling, and ECC concepts",
+    "an eval gate or fixture proves only approved connected skills are discoverable and that source-project files remain unchanged"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry state, every non-done workflow-foundry task, Matt/ECC references, and initiate-task before shaping the one-way project skill connection workflow.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-009.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+      "references/matt-pocock-skills.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md",
+      "scripts/query-workflow-state.mjs",
+      "scripts/validate-workflow-state.mjs"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "grilling",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-001",
+    "workflow-foundry-006",
+    "workflow-foundry-011"
+  ],
+  "linked_artifacts": [
+    ".agents/skills/initiate-task/SKILL.md"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-07",
+      "event": "Created intake task after user invoked initiate-task for a one-way project skill connection workflow where the foundry can use approved project skills while the source project remains isolated."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Moved to grilling after user asked to grill the one-way project skill connection workflow."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved first boundary: connected project skill source files are read-only for the foundry; the foundry may run approved skills, but any files or records produced by a foundry run must be stored and labeled as foundry-owned rather than as source-project testing or usage artifacts."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved foundry-owned run storage: connected project skill run records should live under projects/workflow-foundry/artifacts/connected-runs/<source-project-slug>/<run-id>/, separate from source-project testing sessions or project-owned usage artifacts."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved discovery mode: connected projects should expose all skill paths to the foundry by default, but integration must compare the source project against the foundry so skills are connected intentionally rather than through a narrow allowlist or blind import."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved comparison output: the foundry-owned integration report should classify every discovered source skill as run-as-is, needs-foundry-wrapper, duplicates-foundry-skill, conflicts-with-foundry-rule, or do-not-run."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved integration approval gate: source project connection should be rare and explicit; the foundry must not connect a project or create a foundry-owned wrapper or adapter unless the operator deliberately approves that integration."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved connection record granularity: create one foundry-owned connection record for the whole source project, and record inside it which discovered skills are connected or not connected along with their comparison classification."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved connection storage: keep project-level connection records under projects/workflow-foundry/artifacts/connections/<source-project-slug>.json, separate from per-run outputs under projects/workflow-foundry/artifacts/connected-runs/<source-project-slug>/<run-id>/."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved operator entrypoint: keep initiate-task as the primary user-facing command, and activate connection-specific behavior only when the operator explicitly says the initiated task is for connecting a project or connection integration."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved invocation shape: support a structured initiate-task form such as target:connection source_project:<slug-or-path>, while also accepting clear natural-language requests that explicitly say the task is for connecting or integrating a project's skills into the foundry."
+    }
+  ],
+  "created_at": "2026-07-07",
+  "updated_at": "2026-07-07"
+}

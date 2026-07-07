@@ -2,6 +2,9 @@
 
 Status: quarantined, broken, not canonical.
 
+Machine-readable marker:
+`projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/quarantine.json`
+
 Imported on: 2026-07-07
 
 ## Source
@@ -30,7 +33,12 @@ Imported on: 2026-07-07
 
 ## Quarantine Rules
 
+- The machine-readable `quarantine.json` marker is authoritative for tooling.
 - Treat every imported skill as untrusted until audited.
+- Do not report imported skills as `real-life-workflows` skills.
+- Do not treat imported skills as callable, active, or discoverable skill
+  surfaces.
+- Do not promote any imported skill as-is.
 - Do not move any imported skill into `.agents/skills`.
 - Do not wire imported commands, prompts, scripts, or references into the active workflow surface.
 - Do not use imported workflow catalog rows as accepted source-of-truth until the audit checks source quality, duplication, and schema consistency.

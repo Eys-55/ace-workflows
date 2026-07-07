@@ -22,6 +22,7 @@ function usage() {
   node scripts/query-workflow-state.mjs --list-agents-md
   node scripts/query-workflow-state.mjs --project <slug> --agents-md
   node scripts/query-workflow-state.mjs --project <slug> --snapshot
+  node scripts/query-workflow-state.mjs --project <slug> --quarantine-imports
   node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
   node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>] [--phase <phase>]
   node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
@@ -39,6 +40,21 @@ async function exists(filePath) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+async function countImportedSkillFiles(importDir) {
+  const skillsDir = path.join(importDir, "skills");
+  if (!(await exists(skillsDir))) return 0;
+
+  const entries = await readdir(skillsDir, { withFileTypes: true });
+  let count = 0;
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    if (await exists(path.join(skillsDir, entry.name, "SKILL.md"))) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 async function loadAgentsRegistry() {
@@ -184,6 +200,49 @@ async function printTestingSessions(projectSlug) {
   }
 }
 
+async function printQuarantineImports(projectSlug) {
+  const { projectDir } = await loadProject(projectSlug);
+  const importsDir = path.join(projectDir, "quarantine", "imports");
+
+  if (!(await exists(importsDir))) {
+    console.log("No quarantine imports found.");
+    return;
+  }
+
+  const entries = await readdir(importsDir, { withFileTypes: true });
+  const importDirs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
+
+  if (importDirs.length === 0) {
+    console.log("No quarantine imports found.");
+    return;
+  }
+
+  for (const importId of importDirs) {
+    const importDir = path.join(importsDir, importId);
+    const markerFile = path.join(importDir, "quarantine.json");
+    const importedSkillCount = await countImportedSkillFiles(importDir);
+
+    if (!(await exists(markerFile))) {
+      console.log(
+        `${importId}\tmissing-quarantine-json\t${importedSkillCount}\tfalse\tfalse\t${path.relative(root, importDir)}`,
+      );
+      continue;
+    }
+
+    const marker = await readJson(markerFile);
+    console.log(
+      [
+        marker.import_id ?? importId,
+        marker.status ?? "unknown",
+        marker.imported_skill_count ?? importedSkillCount,
+        marker.callable === true ? "callable" : "not-callable",
+        marker.report_as_project_skills === true ? "reportable-as-project-skills" : "not-project-skills",
+        path.relative(root, markerFile),
+      ].join("\t"),
+    );
+  }
+}
+
 async function printProjectSnapshot(projectSlug) {
   const { project, index } = await loadProject(projectSlug);
   const agentsEntries = await loadAgentsRegistry();
@@ -252,6 +311,8 @@ try {
       await listAgentsMd(project);
     } else if (hasFlag("--snapshot")) {
       await printProjectSnapshot(project);
+    } else if (hasFlag("--quarantine-imports")) {
+      await printQuarantineImports(project);
     } else if (hasFlag("--testing-sessions")) {
       await printTestingSessions(project);
     } else if (hasFlag("--list-tasks")) {

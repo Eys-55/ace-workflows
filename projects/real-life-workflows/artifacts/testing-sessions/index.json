@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "project_slug": "real-life-workflows",
+  "updated_at": "2026-07-07T11:10:29.842Z",
+  "sessions": [
+    {
+      "session_id": "real-life-workflows-20260707T110147Z",
+      "project_slug": "real-life-workflows",
+      "status": "stopped",
+      "goal": "Test the agent catalog across the 171 catalog doors/rows while keeping normal project state read-only.",
+      "actor": "testing-session",
+      "started_at": "2026-07-07T11:01:47.070Z",
+      "updated_at": "2026-07-07T11:10:29.842Z",
+      "stopped_at": "2026-07-07T11:10:29.842Z",
+      "path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z",
+      "session_path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z/session.json",
+      "events_path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z/events.jsonl",
+      "notes_path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z/notes.md",
+      "event_count": 7
+    }
+  ]
+}

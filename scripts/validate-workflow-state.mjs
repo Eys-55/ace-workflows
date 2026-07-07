@@ -28,11 +28,13 @@ const allowedPhases = new Set([
   "done",
 ]);
 const allowedAgentRoles = new Set(["root-workflow-foundry", "project-domain"]);
+const allowedQuarantineStatuses = new Set(["quarantined"]);
 const skillInvocationNames = [
   "workflow-help",
   "setup-workflow-project",
   "initiate-task",
   "continue-task",
+  "audit-foundry",
   "testing-session",
 ];
 const projectAgentsForbiddenPatterns = [
@@ -680,6 +682,107 @@ async function validateProject(projectDir, agentsEntries) {
   return openTasks;
 }
 
+function listSkillImportFiles(files, importRoot) {
+  const relativeImportRoot = relative(importRoot);
+  return files
+    .map(relative)
+    .filter((file) =>
+      file.startsWith(`${relativeImportRoot}/skills/`) && file.endsWith("/SKILL.md"),
+    )
+    .sort();
+}
+
+async function validateQuarantineImport(projectSlug, importRoot, files) {
+  const markerFile = path.join(importRoot, "quarantine.json");
+  const relativeMarkerFile = relative(markerFile);
+  const skillFiles = listSkillImportFiles(files, importRoot);
+
+  if (skillFiles.length === 0) return;
+
+  if (!(await exists(markerFile))) {
+    errors.push(`${relative(importRoot)} contains imported skills but is missing quarantine.json`);
+    return;
+  }
+
+  const marker = await readJson(markerFile);
+  if (!marker) return;
+
+  requireString(marker, "project_slug", markerFile);
+  requireString(marker, "import_id", markerFile);
+  requireString(marker, "status", markerFile);
+  requireString(marker, "active_skill_surface_path", markerFile);
+  requireArray(marker, "boundaries", markerFile);
+  requireArray(marker, "imported_skills", markerFile);
+
+  const expectedImportId = path.basename(importRoot);
+  if (marker.import_id !== expectedImportId) {
+    errors.push(`${relativeMarkerFile} import_id must equal "${expectedImportId}"`);
+  }
+
+  if (marker.project_slug !== projectSlug) {
+    errors.push(`${relativeMarkerFile} project_slug must equal "${projectSlug}"`);
+  }
+
+  if (!allowedQuarantineStatuses.has(marker.status)) {
+    errors.push(`${relativeMarkerFile} status must be "quarantined"`);
+  }
+
+  for (const [key, expectedValue] of Object.entries({
+    source_evidence_only: true,
+    callable: false,
+    active_skill_surface: false,
+    discoverable_as_active_skill: false,
+    report_as_project_skills: false,
+    promotable_as_is: false,
+  })) {
+    if (marker[key] !== expectedValue) {
+      errors.push(`${relativeMarkerFile} ${key} must be ${expectedValue}`);
+    }
+  }
+
+  if (marker.imported_skill_count !== skillFiles.length) {
+    errors.push(
+      `${relativeMarkerFile} imported_skill_count must equal imported SKILL.md count ${skillFiles.length}`,
+    );
+  }
+
+  const markerSkillPaths = new Set(
+    Array.isArray(marker.imported_skills)
+      ? marker.imported_skills.map((skill) => skill.path).filter(Boolean)
+      : [],
+  );
+  const actualSkillPaths = new Set(skillFiles);
+
+  for (const skillFile of skillFiles) {
+    if (!markerSkillPaths.has(skillFile)) {
+      errors.push(`${relativeMarkerFile} imported_skills must include ${skillFile}`);
+    }
+  }
+
+  for (const markerSkillPath of markerSkillPaths) {
+    if (!actualSkillPaths.has(markerSkillPath)) {
+      errors.push(`${relativeMarkerFile} imported_skills includes missing file ${markerSkillPath}`);
+    }
+  }
+}
+
+async function validateQuarantineImports(files) {
+  const importRoots = new Set();
+  for (const file of files) {
+    const relativeFile = relative(file);
+    const match = relativeFile.match(/^(projects\/[^/]+)\/quarantine\/imports\/([^/]+)\/skills\/[^/]+\/SKILL\.md$/);
+    if (!match) continue;
+    importRoots.add(`${match[1]}/quarantine/imports/${match[2]}`);
+  }
+
+  for (const relativeImportRoot of [...importRoots].sort()) {
+    const [, projectSlug] =
+      relativeImportRoot.match(/^projects\/([^/]+)\/quarantine\/imports\//) ?? [];
+    if (!projectSlug) continue;
+    await validateQuarantineImport(projectSlug, path.join(root, relativeImportRoot), files);
+  }
+}
+
 const files = await listFiles(root);
 for (const file of files) {
   if (file.includes(`${path.sep}.git${path.sep}`)) continue;
@@ -689,6 +792,7 @@ for (const file of files) {
 }
 
 await validateSkillSurface(files);
+await validateQuarantineImports(files);
 
 const agentsEntries = await validateAgentsRegistry(files);
 

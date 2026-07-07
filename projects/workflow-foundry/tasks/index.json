@@ -70,6 +70,30 @@
       "title": "Create tracker UI runner skill and project workflow view",
       "task_kind": "workflow-change",
       "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "workflow-foundry-010",
+      "title": "Create foundry explainer Markdown",
+      "task_kind": "workflow-change",
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "workflow-foundry-011",
+      "title": "Create audit-foundry skill",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "workflow-foundry-012",
+      "title": "Create one-way project skill connection workflow",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
       "matt_phase": "grilling",
       "updated_at": "2026-07-07"
     }

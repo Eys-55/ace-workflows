@@ -4,7 +4,7 @@
   "title": "Create tracker UI runner skill and project workflow view",
   "task_kind": "workflow-change",
   "status": "in-progress",
-  "matt_phase": "grilling",
+  "matt_phase": "code-review",
   "explicit_next_action_required": true,
   "summary": "Create a foundry skill that starts or opens the workflow tracker UI as a one-skill operation, and improve the tracker UI so operators can choose a project, inspect actual workflow tasks per project, and view linked artifacts without cramped wrapping.",
   "acceptance_criteria": [
@@ -14,7 +14,7 @@
     "the UI provides a project chooser rather than only an all-project/current-project toggle",
     "the selected project view foregrounds workflow tasks and their status, Matt phase, next action, and useful workflow context",
     "linked artifacts are truncated, summarized, or progressively disclosed so long paths do not create cramped table wrapping",
-    "each task exposes a safe continue action that generates the exact $continue-task command and can use a best-effort Codex app handoff only when a supported mechanism exists",
+    "each task exposes a safe continue action that generates the exact $continue-task command for copying",
     "the UI remains read-only against project and task JSON",
     "tests or generated-output checks prove the project filter and artifact display behavior",
     "workflow state validation and tracker verification pass"
@@ -49,18 +49,69 @@
       ".agents/skills/initiate-task/SKILL.md",
       ".agents/skills/continue-task/SKILL.md",
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-009-tracker-ui-runner.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-001-derived-state.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-002-project-console-ui.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-003-task-detail-command.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-004-runner-skill-verification.md",
       "projects/workflow-foundry/tracker/src/pages/index.astro",
       "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
       "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
       "projects/workflow-foundry/tracker/tests/generated-output.test.mjs",
       "projects/workflow-foundry/tracker/package.json",
+      "projects/workflow-foundry/artifacts/reviews/workflow-foundry-009-tracker-ui-smoke.png",
       "scripts/query-workflow-state.mjs",
-      "scripts/validate-workflow-state.mjs"
+      "scripts/validate-workflow-state.mjs",
+      "projects/workflow-foundry/tasks/workflow-foundry-010.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-012.json"
     ]
   },
   "phase_guard": {
-    "selected_next_action": "grilling",
-    "approved_artifacts": [],
+    "selected_next_action": "code-review",
+    "approved_artifacts": [
+      {
+        "path": ".agents/skills/workflow-tracker-ui/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for the tracker UI runner skill.",
+        "approved_at": "2026-07-07"
+      },
+      {
+        "path": ".agents/skills/workflow-tracker-ui/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for the tracker UI runner skill.",
+        "approved_at": "2026-07-07"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/src/pages/index.astro",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for the project workflow view.",
+        "approved_at": "2026-07-07"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for derived tracker state.",
+        "approved_at": "2026-07-07"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation with tracker data tests.",
+        "approved_at": "2026-07-07"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/tests/generated-output.test.mjs",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation with generated-output tests.",
+        "approved_at": "2026-07-07"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/package.json",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for tracker verification scripts if needed.",
+        "approved_at": "2026-07-07"
+      }
+    ],
     "process_exceptions": []
   },
   "dependencies": [],
@@ -72,13 +123,18 @@
   ],
   "linked_artifacts": [
     "projects/workflow-foundry/artifacts/prds/workflow-foundry-009-tracker-ui-runner.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-001-derived-state.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-002-project-console-ui.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-003-task-detail-command.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-004-runner-skill-verification.md",
     ".agents/skills/workflow-tracker-ui/SKILL.md",
     ".agents/skills/workflow-tracker-ui/agents/openai.yaml",
     "projects/workflow-foundry/tracker/src/pages/index.astro",
     "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
     "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
     "projects/workflow-foundry/tracker/tests/generated-output.test.mjs",
-    "projects/workflow-foundry/tracker/package.json"
+    "projects/workflow-foundry/tracker/package.json",
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-009-tracker-ui-smoke.png"
   ],
   "session_log": [
     {
@@ -128,6 +184,86 @@
     {
       "date": "2026-07-07",
       "event": "Resolved lifecycle visualization: the right pane should include a lifecycle rail showing Intake/Preflight before Grilling, PRD, Issues, Implement, Code Review, and Done, with the selected task highlighted at its current point."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved task list default: show active/open tasks as the primary list and keep completed tasks available in a collapsed Done section."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved project sidebar content: each project entry should show project name, slug, active task count, blocked count, and the hottest/current phase while staying compact as navigation rather than a dashboard."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved linked artifact presentation: group artifacts by type such as PRD, Issues, Skills, Tracker, Tests, and Other, but show human-readable titles or filenames first rather than raw paths, with restrained color cues for organization."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved task row styling: use dense flat outlined rows with subtle fill, text-first content, and no shadow, bevel, or dimensional card treatment."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved task detail panel behavior: use a right-side drawer inside the task pane on desktop and an expanded section under the selected task on mobile."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Removed direct Codex app handoff from current UI scope at user request; continue action should only generate/copy the exact $continue-task command for now."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved continue command format: copied commands must be super explicit and always include both project:<slug> and task:<task-id>."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved continue command UI: the detail panel should show the explicit $continue-task command in a monospace command box with a copy button."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved session log display: show the latest 3-5 session events by default in the task detail panel, with an expandable control for the full log."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved project sidebar search: include a compact text filter over project name and slug so the sidebar scales as more projects are added."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved task pane search: include a selected-project-scoped task filter over task title, id, status, phase, and artifact title."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved right-pane project summary: show a compact selected-project summary strip with Open, Blocked, In Review, Done, plus goal and domain."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved theme behavior: dark mode remains the default tracker theme, with the existing light/dark toggle preserved."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved UI persistence: remember the last selected project and task in localStorage as read-only browser UI state, without writing to workflow JSON."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved lifecycle rail interaction: rail phase chips should be clickable filters scoped to the selected project, while still highlighting the selected task's current phase."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Resolved task row next-action display: show a one-line truncated next action in each task row, with the full next action available in the selected task detail panel."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Closed grilling at user direction, refreshed the PRD from all accepted design decisions, created four vertical-slice issue artifacts, and moved the task to implement with explicit approvals for the tracker UI, data tests, and workflow-tracker-ui skill files."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Implemented the v2 tracker console, derived workflow-state fields, generated-output coverage, and workflow-tracker-ui runner skill."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Verified with npm run verify, workflow-state validation, Chrome smoke check at http://127.0.0.1:4321, and saved review screenshot evidence."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Completed a focused code-review pass for this task's touched files with no blocking findings; kept the task in code-review while artifacts remain uncommitted so workflow validation can link changed files to a non-done task."
     }
   ],
   "created_at": "2026-07-07",

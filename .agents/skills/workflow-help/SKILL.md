@@ -32,6 +32,7 @@ SKILLS
 - $setup-workflow-project
 - $initiate-task
 - $continue-task
+- $audit-foundry
 - $testing-session
 - $review-project-state
 
@@ -40,6 +41,7 @@ CODEX-DISCOVERABLE SKILL FILES
 - .agents/skills/setup-workflow-project/SKILL.md
 - .agents/skills/initiate-task/SKILL.md
 - .agents/skills/continue-task/SKILL.md
+- .agents/skills/audit-foundry/SKILL.md
 - .agents/skills/testing-session/SKILL.md
 - .agents/skills/review-project-state/SKILL.md
 
@@ -61,10 +63,12 @@ TASK FLOW
 - initiate task
 - continue task
 - review project state
+- audit foundry state
 - follow Matt Pocock phases inside the selected task
 
 CONNECTED FLOW
 - $workflow-help -> $setup-workflow-project -> $initiate-task -> $continue-task
+- $audit-foundry -> Markdown report artifact -> recommended next tracker action
 - $testing-session -> captured project run state -> future preload discovery
 - use $continue-task or $review-project-state when project state already exists
 ```
@@ -91,6 +95,16 @@ CONNECTED FLOW
 - Resume an existing task from its saved snapshot.
 - Loads all project state and every non-done task before action.
 - If no task id is provided, list/select available tasks.
+
+`$audit-foundry`
+
+- Write a Markdown audit report for the foundry or project tracker state.
+- Defaults to foundry-only; use `scope:foundry-projects`, `scope:projects`, or
+  `project:<slug>` for broader or narrower reports.
+- Stores reports under `projects/workflow-foundry/artifacts/reviews/`.
+- Read-only against source state except for the report artifact.
+- Use when the operator wants the current state explained and saved before
+  deciding the next tracker action.
 
 `$testing-session`
 

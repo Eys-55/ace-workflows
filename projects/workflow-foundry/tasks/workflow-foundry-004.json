@@ -35,7 +35,10 @@
       "projects/workflow-foundry/tasks/workflow-foundry-006.json",
       "projects/workflow-foundry/tasks/workflow-foundry-007.json",
       "projects/workflow-foundry/tasks/workflow-foundry-008.json",
-      "projects/workflow-foundry/tasks/workflow-foundry-009.json"
+      "projects/workflow-foundry/tasks/workflow-foundry-009.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-010.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-012.json"
     ]
   },
   "phase_guard": {
@@ -64,7 +67,10 @@
     "projects/workflow-foundry/tasks/workflow-foundry-007.json",
     "scripts/validate-workflow-state.mjs",
     "projects/workflow-foundry/tasks/workflow-foundry-008.json",
-    "projects/workflow-foundry/tasks/workflow-foundry-009.json"
+    "projects/workflow-foundry/tasks/workflow-foundry-009.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-010.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-012.json"
   ],
   "session_log": [
     {
@@ -110,6 +116,18 @@
     {
       "date": "2026-07-07",
       "event": "Tracked creation of workflow-foundry-009 for the tracker UI runner skill and project workflow view request."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-010 for the foundry explainer Markdown request and refreshed non-done task preload snapshots."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-011 for the foundry self-audit and workflow search skill request and refreshed task preload snapshots."
+    },
+    {
+      "date": "2026-07-07",
+      "event": "Tracked creation of workflow-foundry-012 for the one-way project skill connection workflow and refreshed non-done task preload snapshots."
     }
   ],
   "created_at": "2026-07-06",

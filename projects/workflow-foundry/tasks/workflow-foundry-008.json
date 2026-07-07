@@ -76,7 +76,10 @@
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/tracker/package.json",
-      "projects/workflow-foundry/tracker/tests/testing-session-state.test.mjs"
+      "projects/workflow-foundry/tracker/tests/testing-session-state.test.mjs",
+      "projects/workflow-foundry/tasks/workflow-foundry-010.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-012.json"
     ]
   },
   "phase_guard": {

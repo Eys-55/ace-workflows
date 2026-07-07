@@ -16,6 +16,14 @@
       "status": "done",
       "matt_phase": "done",
       "updated_at": "2026-07-07"
+    },
+    {
+      "task_id": "real-life-workflows-003",
+      "title": "Audit polluted imported skill surface",
+      "task_kind": "tracker-maintenance",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-07"
     }
   ]
 }

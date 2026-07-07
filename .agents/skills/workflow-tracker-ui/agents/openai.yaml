@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workflow Tracker UI"
+  short_description: "Open or verify the project workflow tracker"
+  default_prompt: "Use $workflow-tracker-ui to open the Workflow Foundry tracker UI quickly."

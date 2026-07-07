@@ -65,7 +65,9 @@
       "projects/workflow-foundry/artifacts/handoffs/workflow-foundry-010-hermes-foundry-prompt.md",
       "/tmp/mattpocock-skills-inspect/skills/engineering/ask-matt/SKILL.md",
       "/tmp/mattpocock-skills-inspect/skills/engineering/grill-with-docs/SKILL.md",
-      "/tmp/mattpocock-skills-inspect/skills/productivity/grilling/SKILL.md"
+      "/tmp/mattpocock-skills-inspect/skills/productivity/grilling/SKILL.md",
+      "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-012.json"
     ]
   },
   "phase_guard": {

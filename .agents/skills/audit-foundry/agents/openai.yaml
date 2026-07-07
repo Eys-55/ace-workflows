@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Foundry"
+  short_description: "Write foundry and project audit reports"
+  default_prompt: "Use $audit-foundry to write a Markdown audit report for the workflow foundry."

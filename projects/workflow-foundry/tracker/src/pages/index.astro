@@ -8,6 +8,10 @@ const statusCounts = workflow.projects
     counts[task.status] = (counts[task.status] ?? 0) + 1;
     return counts;
   }, {});
+
+function taskCountLabel(count) {
+  return count === 1 ? "1 task" : `${count} tasks`;
+}
 ---
 
 <!doctype html>
@@ -15,38 +19,41 @@ const statusCounts = workflow.projects
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
     <title>Workflow Foundry Tracker</title>
     <style>
       :root {
         color-scheme: dark;
-        --bg: #101114;
-        --panel: #181a20;
-        --panel-strong: #20242c;
-        --text: #f5f6f8;
-        --muted: #a6acb8;
-        --line: #303641;
-        --accent: #7dd3fc;
+        --bg: #111318;
+        --panel: #181b22;
+        --panel-strong: #20242d;
+        --panel-soft: #151820;
+        --text: #f5f7fa;
+        --muted: #a8b0bf;
+        --line: #323945;
+        --accent: #67e8f9;
         --green: #86efac;
         --yellow: #fde68a;
         --red: #fca5a5;
         --blue: #93c5fd;
-        --shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+        --violet: #c4b5fd;
       }
 
       [data-theme="light"] {
         color-scheme: light;
         --bg: #f6f7f9;
         --panel: #ffffff;
-        --panel-strong: #eef1f5;
-        --text: #181b20;
-        --muted: #5e6675;
-        --line: #d9dee7;
+        --panel-strong: #edf1f5;
+        --panel-soft: #f9fafb;
+        --text: #171a21;
+        --muted: #5f6876;
+        --line: #d8dee8;
         --accent: #0369a1;
         --green: #15803d;
         --yellow: #92400e;
         --red: #b91c1c;
         --blue: #1d4ed8;
-        --shadow: 0 12px 26px rgba(24, 27, 32, 0.08);
+        --violet: #6d28d9;
       }
 
       * {
@@ -69,33 +76,37 @@ const statusCounts = workflow.projects
         font: inherit;
       }
 
+      button {
+        cursor: pointer;
+      }
+
       .shell {
-        width: min(1440px, 100%);
+        width: min(1540px, 100%);
         margin: 0 auto;
-        padding: 24px;
+        padding: 22px;
       }
 
       .topbar {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
-        gap: 20px;
+        gap: 18px;
         align-items: start;
-        padding: 22px 0 18px;
+        padding: 14px 0 18px;
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(28px, 4vw, 44px);
-        line-height: 1;
+        font-size: 34px;
+        line-height: 1.05;
         letter-spacing: 0;
       }
 
       .subtitle {
         max-width: 780px;
-        margin: 10px 0 0;
+        margin: 8px 0 0;
         color: var(--muted);
         font-size: 15px;
-        line-height: 1.5;
+        line-height: 1.45;
       }
 
       .controls {
@@ -105,17 +116,21 @@ const statusCounts = workflow.projects
         gap: 10px;
       }
 
-      .control {
-        min-height: 40px;
+      .control,
+      .iconless-button,
+      .phase-chip,
+      .copy-button {
+        min-height: 38px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel);
         color: var(--text);
-        padding: 8px 12px;
-        cursor: pointer;
+        padding: 8px 11px;
       }
 
-      .control[aria-pressed="true"] {
+      .control[aria-pressed="true"],
+      .phase-chip[aria-pressed="true"],
+      .phase-chip.current-phase {
         border-color: var(--accent);
         background: var(--panel-strong);
       }
@@ -123,23 +138,24 @@ const statusCounts = workflow.projects
       .summary {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-        margin: 18px 0;
+        gap: 10px;
+        margin: 0 0 16px;
       }
 
       .metric,
-      .project {
+      .project-sidebar,
+      .workspace {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel);
-        box-shadow: var(--shadow);
       }
 
       .metric {
-        padding: 14px;
+        padding: 12px;
       }
 
-      .metric span {
+      .metric span,
+      .eyebrow {
         display: block;
         color: var(--muted);
         font-size: 12px;
@@ -148,103 +164,271 @@ const statusCounts = workflow.projects
 
       .metric strong {
         display: block;
-        margin-top: 6px;
-        font-size: 24px;
+        margin-top: 5px;
+        font-size: 22px;
       }
 
-      .projects {
+      .app-grid {
         display: grid;
-        gap: 16px;
-        margin-top: 20px;
-      }
-
-      .project {
-        overflow: clip;
-      }
-
-      .project-header {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 16px;
+        grid-template-columns: minmax(230px, 300px) minmax(0, 1fr);
+        gap: 14px;
         align-items: start;
-        padding: 18px;
-        border-bottom: 1px solid var(--line);
+      }
+
+      .project-sidebar {
+        position: sticky;
+        top: 16px;
+        padding: 12px;
+      }
+
+      .field {
+        width: 100%;
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        color: var(--text);
+        padding: 8px 10px;
+      }
+
+      .field::placeholder {
+        color: var(--muted);
+      }
+
+      .project-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .project-button {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        color: var(--text);
+        padding: 10px;
+        text-align: left;
+      }
+
+      .project-button[aria-current="true"] {
+        border-color: var(--accent);
         background: var(--panel-strong);
       }
 
-      .project h2 {
-        margin: 0;
-        font-size: 20px;
+      .project-name,
+      .task-title {
+        display: block;
+        font-weight: 700;
+        line-height: 1.25;
       }
 
-      .project-meta,
-      .snapshot {
+      .project-slug,
+      .task-id,
+      .muted,
+      .artifact-path {
         color: var(--muted);
-        font-size: 13px;
-        line-height: 1.45;
       }
 
-      .badges {
+      .project-button-meta,
+      .task-meta,
+      .artifact-summary {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 8px;
+        gap: 6px;
+        margin-top: 8px;
       }
 
-      .badge {
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 4px 8px;
-        color: var(--muted);
-        font-size: 12px;
-        white-space: nowrap;
-      }
-
-      .task-table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      .task-table th,
-      .task-table td {
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--line);
-        text-align: left;
-        vertical-align: top;
-        font-size: 13px;
-      }
-
-      .task-table th {
-        color: var(--muted);
-        background: var(--panel);
-        font-size: 12px;
-        text-transform: uppercase;
-      }
-
-      .task-title {
-        min-width: 240px;
-      }
-
-      .task-title strong,
-      .task-title span {
-        display: block;
-      }
-
-      .task-title span,
-      .artifact-list {
-        margin-top: 4px;
-        color: var(--muted);
-      }
-
-      .pill {
+      .mini-pill,
+      .artifact-pill,
+      .status-pill {
         display: inline-flex;
         align-items: center;
-        min-height: 24px;
+        max-width: 100%;
+        min-height: 22px;
+        border: 1px solid var(--line);
         border-radius: 999px;
         padding: 3px 8px;
         background: var(--panel-strong);
         color: var(--muted);
+        font-size: 12px;
         white-space: nowrap;
+      }
+
+      .workspace {
+        min-width: 0;
+        padding: 14px;
+      }
+
+      .project-pane[hidden],
+      .task-detail[hidden],
+      .task-row[hidden],
+      .project-button[hidden],
+      .task-section[hidden] {
+        display: none;
+      }
+
+      .project-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: start;
+        margin-bottom: 12px;
+      }
+
+      .project-heading h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.15;
+      }
+
+      .project-context {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .project-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .stat-box {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        padding: 10px;
+      }
+
+      .stat-box span {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      .stat-box strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 20px;
+      }
+
+      .rail {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        padding: 10px;
+        margin: 12px 0;
+      }
+
+      .rail-label {
+        margin-bottom: 8px;
+      }
+
+      .phase-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .phase-chip {
+        min-height: 32px;
+        font-size: 12px;
+      }
+
+      .task-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+      }
+
+      .task-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+        gap: 12px;
+        align-items: start;
+      }
+
+      .task-list,
+      .detail-stack {
+        min-width: 0;
+      }
+
+      .task-section {
+        display: grid;
+        gap: 8px;
+      }
+
+      .task-section + .task-section,
+      .done-group {
+        margin-top: 12px;
+      }
+
+      .section-title {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .task-row {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        padding: 0;
+      }
+
+      .task-row[aria-selected="true"] {
+        border-color: var(--accent);
+        background: var(--panel-strong);
+      }
+
+      .task-button {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .task-row-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .task-title,
+      .task-id,
+      .next-action {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .task-title,
+      .next-action {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      .task-id {
+        display: block;
+        margin-top: 4px;
+        white-space: nowrap;
+      }
+
+      .next-action {
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.35;
       }
 
       .status-in-progress,
@@ -264,69 +448,142 @@ const statusCounts = workflow.projects
         color: var(--yellow);
       }
 
-      .artifact-list {
-        max-width: 360px;
-        word-break: break-word;
+      .phase-grilling,
+      .phase-prd,
+      .phase-issues {
+        color: var(--violet);
+      }
+
+      .task-detail {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        padding: 14px;
+      }
+
+      .task-detail h3 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      .detail-block {
+        border-top: 1px solid var(--line);
+        margin-top: 12px;
+        padding-top: 12px;
+      }
+
+      .detail-block h4 {
+        margin: 0 0 8px;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+
+      .command-box {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 8px;
+      }
+
+      code {
+        overflow-wrap: anywhere;
+        color: var(--accent);
+        font-family:
+          "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 12px;
+      }
+
+      .artifact-group {
+        display: grid;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 8px;
+      }
+
+      details + details {
+        margin-top: 8px;
+      }
+
+      summary {
+        cursor: pointer;
+        color: var(--text);
+      }
+
+      .path-list,
+      .session-list {
+        display: grid;
+        gap: 7px;
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+
+      .artifact-path {
+        overflow-wrap: anywhere;
+        font-size: 12px;
       }
 
       .snapshot {
-        margin-top: 20px;
-        padding: 12px 0 4px;
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
       }
 
-      @media (max-width: 900px) {
-        .topbar,
-        .project-header {
+      @media (max-width: 1080px) {
+        .app-grid,
+        .task-layout {
           grid-template-columns: 1fr;
         }
 
-        .controls,
-        .badges {
-          justify-content: flex-start;
+        .project-sidebar {
+          position: static;
         }
 
-        .summary {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .task-table,
-        .task-table tbody,
-        .task-table tr,
-        .task-table td {
-          display: block;
-          width: 100%;
-        }
-
-        .task-table thead {
-          display: none;
-        }
-
-        .task-table tr {
-          border-bottom: 1px solid var(--line);
-          padding: 10px 0;
-        }
-
-        .task-table td {
-          border-bottom: 0;
-          padding: 8px 14px;
-        }
-
-        .task-table td::before {
-          content: attr(data-label);
-          display: block;
-          margin-bottom: 4px;
-          color: var(--muted);
-          font-size: 11px;
-          text-transform: uppercase;
+        .task-detail {
+          margin-top: 8px;
         }
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 760px) {
         .shell {
-          padding: 16px;
+          padding: 14px;
         }
 
-        .summary {
+        .topbar,
+        .project-heading,
+        .task-toolbar,
+        .task-row-header {
+          grid-template-columns: 1fr;
+        }
+
+        .controls {
+          justify-content: flex-start;
+        }
+
+        .summary,
+        .project-stats {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 28px;
+        }
+
+        .summary,
+        .project-stats {
           grid-template-columns: 1fr;
         }
       }
@@ -345,9 +602,6 @@ const statusCounts = workflow.projects
         <div class="controls" aria-label="Tracker view controls">
           <button class="control" type="button" id="theme-toggle" aria-pressed="true">
             Dark mode
-          </button>
-          <button class="control" type="button" id="project-toggle" aria-pressed="false">
-            Current project only
           </button>
         </div>
       </header>
@@ -371,79 +625,312 @@ const statusCounts = workflow.projects
         </div>
       </section>
 
-      <section class="projects" aria-label="Projects">
-        {
-          workflow.projects.map((project) => (
-            <article
-              class="project"
-              data-project={project.slug}
-              data-current-project={String(project.slug === workflow.currentProjectSlug)}
-            >
-              <header class="project-header">
-                <div>
-                  <h2>{project.name}</h2>
-                  <div class="project-meta">
-                    {project.slug} · {project.state} · {project.domain}
-                  </div>
-                  <div class="project-meta">{project.goal}</div>
-                </div>
-                <div class="badges" aria-label={`${project.name} task summary`}>
-                  <span class="badge">{project.tasks.length} tasks</span>
-                  <span class="badge">updated {project.updatedAt}</span>
-                </div>
-              </header>
+      <div class="app-grid">
+        <aside class="project-sidebar" aria-label="Projects">
+          <label class="eyebrow" for="project-search">Search projects</label>
+          <input
+            class="field"
+            id="project-search"
+            type="search"
+            placeholder="Search projects"
+            autocomplete="off"
+          />
+          <div class="project-list">
+            {
+              workflow.projects.map((project) => (
+                <button
+                  class="project-button"
+                  type="button"
+                  data-project-button
+                  data-project-target={project.slug}
+                  data-project-search={`${project.name} ${project.slug}`.toLowerCase()}
+                  aria-current={String(project.slug === workflow.currentProjectSlug)}
+                >
+                  <span class="project-name">{project.name}</span>
+                  <span class="project-slug">{project.slug}</span>
+                  <span class="project-button-meta">
+                    <span class="mini-pill">{taskCountLabel(project.activeTaskCount)} active</span>
+                    <span class="mini-pill">{project.stats.blocked} blocked</span>
+                    <span class={`mini-pill phase-${project.hotPhase}`}>{project.hotPhase}</span>
+                  </span>
+                </button>
+              ))
+            }
+          </div>
+        </aside>
 
-              <table class="task-table">
-                <thead>
-                  <tr>
-                    <th>Task</th>
-                    <th>Kind</th>
-                    <th>Status</th>
-                    <th>Matt phase</th>
-                    <th>Phase guard</th>
-                    <th>Linked artifacts</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {project.tasks.map((task) => (
-                    <tr>
-                      <td class="task-title" data-label="Task">
-                        <strong>{task.title}</strong>
-                        <span>{task.id}</span>
-                      </td>
-                      <td data-label="Kind">
-                        <span class="pill">{task.kind}</span>
-                      </td>
-                      <td data-label="Status">
-                        <span class={`pill status-${task.status}`}>{task.status}</span>
-                      </td>
-                      <td data-label="Matt phase">
-                        <span class={`pill phase-${task.mattPhase}`}>{task.mattPhase}</span>
-                      </td>
-                      <td data-label="Phase guard">
-                        <span class="pill">
-                          next: {task.phaseGuard.selectedNextAction}
-                        </span>
-                        <div class="artifact-list">
-                          {task.phaseGuard.approvedArtifactCount} approvals ·{" "}
-                          {task.phaseGuard.processExceptionCount} exceptions
-                        </div>
-                      </td>
-                      <td data-label="Linked artifacts">
-                        <div class="artifact-list">
-                          {task.linkedArtifacts.length > 0
-                            ? task.linkedArtifacts.join(", ")
-                            : "None"}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </article>
-          ))
-        }
-      </section>
+        <section class="workspace" aria-label="Selected project workflow">
+          {
+            workflow.projects.map((project) => {
+              const activeTasks = project.tasks.filter((task) => task.status !== "done");
+              const doneTasks = project.tasks.filter((task) => task.status === "done");
+              const defaultTask =
+                [...activeTasks].reverse().find((task) => task.lifecyclePhase === project.hotPhase) ??
+                activeTasks.find((task) => task.status === "in-progress") ??
+                activeTasks[0] ??
+                project.tasks[0];
+
+              return (
+                <section
+                  class="project-pane"
+                  data-project-panel
+                  data-project={project.slug}
+                  hidden={project.slug !== workflow.currentProjectSlug}
+                >
+                  <header class="project-heading">
+                    <div>
+                      <span class="eyebrow">Selected project</span>
+                      <h2>{project.name}</h2>
+                      <div class="project-context">
+                        {project.slug} · {project.state} · {project.domain}
+                      </div>
+                      <div class="project-context">{project.goal}</div>
+                    </div>
+                    <span class="mini-pill">updated {project.updatedAt}</span>
+                  </header>
+
+                  <section class="project-stats" aria-label={`${project.name} summary`}>
+                    <div class="stat-box">
+                      <span>Open</span>
+                      <strong>{project.stats.open}</strong>
+                    </div>
+                    <div class="stat-box">
+                      <span>Blocked</span>
+                      <strong>{project.stats.blocked}</strong>
+                    </div>
+                    <div class="stat-box">
+                      <span>In Review</span>
+                      <strong>{project.stats.inReview}</strong>
+                    </div>
+                    <div class="stat-box">
+                      <span>Done</span>
+                      <strong>{project.stats.done}</strong>
+                    </div>
+                  </section>
+
+                  <section class="rail" aria-label="Lifecycle rail">
+                    <div class="eyebrow rail-label">Lifecycle rail</div>
+                    <div class="phase-list">
+                      <button
+                        class="phase-chip"
+                        type="button"
+                        data-phase-filter="all"
+                        aria-pressed="true"
+                      >
+                        All
+                      </button>
+                      {workflow.lifecycleStages.map((stage) => (
+                        <button
+                          class={`phase-chip phase-${stage.id}`}
+                          type="button"
+                          data-phase-filter={stage.id}
+                          aria-pressed="false"
+                        >
+                          {stage.label}
+                        </button>
+                      ))}
+                    </div>
+                  </section>
+
+                  <div class="task-toolbar">
+                    <label class="eyebrow" for={`task-search-${project.slug}`}>
+                      Search selected project tasks
+                    </label>
+                    <input
+                      class="field"
+                      id={`task-search-${project.slug}`}
+                      type="search"
+                      placeholder="Search selected project tasks"
+                      autocomplete="off"
+                      data-task-search
+                    />
+                  </div>
+
+                  <div class="task-layout">
+                    <div class="task-list">
+                      <section class="task-section" data-task-section>
+                        <h3 class="section-title">Active workflows</h3>
+                        {activeTasks.map((task) => (
+                          <article
+                            class="task-row"
+                            data-task-row
+                            data-task-id={task.id}
+                            data-phase={task.lifecyclePhase}
+                            data-search={task.searchText}
+                            aria-selected={String(task.id === defaultTask?.id)}
+                          >
+                            <button class="task-button" type="button" data-task-button>
+                              <span class="task-row-header">
+                                <span>
+                                  <span class="task-title">{task.title}</span>
+                                  <span class="task-id">{task.id}</span>
+                                </span>
+                                <span class={`status-pill status-${task.status}`}>
+                                  {task.status}
+                                </span>
+                              </span>
+                              <span class="task-meta">
+                                <span class="mini-pill">{task.kind}</span>
+                                <span class={`mini-pill phase-${task.lifecyclePhase}`}>
+                                  {task.lifecyclePhase}
+                                </span>
+                                <span class="mini-pill">
+                                  {task.phaseGuard.approvedArtifactCount} approvals
+                                </span>
+                              </span>
+                              <span class="next-action">Next: {task.nextActionLabel}</span>
+                              <span class="artifact-summary">
+                                {task.artifactGroupList
+                                  .filter((group) => group.count > 0)
+                                  .map((group) => (
+                                    <span class="artifact-pill">
+                                      {group.label} {group.count}
+                                    </span>
+                                  ))}
+                              </span>
+                            </button>
+                          </article>
+                        ))}
+                      </section>
+
+                      {doneTasks.length > 0 && (
+                        <details class="done-group">
+                          <summary>Done · {doneTasks.length}</summary>
+                          <section class="task-section" data-task-section>
+                            {doneTasks.map((task) => (
+                              <article
+                                class="task-row"
+                                data-task-row
+                                data-task-id={task.id}
+                                data-phase={task.lifecyclePhase}
+                                data-search={task.searchText}
+                                aria-selected={String(task.id === defaultTask?.id)}
+                              >
+                                <button class="task-button" type="button" data-task-button>
+                                  <span class="task-row-header">
+                                    <span>
+                                      <span class="task-title">{task.title}</span>
+                                      <span class="task-id">{task.id}</span>
+                                    </span>
+                                    <span class={`status-pill status-${task.status}`}>
+                                      {task.status}
+                                    </span>
+                                  </span>
+                                  <span class="next-action">Next: {task.nextActionLabel}</span>
+                                </button>
+                              </article>
+                            ))}
+                          </section>
+                        </details>
+                      )}
+                    </div>
+
+                    <aside class="detail-stack" aria-label={`${project.name} task detail`}>
+                      {project.tasks.map((task) => (
+                        <section
+                          class="task-detail"
+                          data-task-detail
+                          data-task-id={task.id}
+                          hidden={task.id !== defaultTask?.id}
+                        >
+                          <span class="eyebrow">Task detail</span>
+                          <h3>{task.title}</h3>
+                          <div class="project-context">{task.id}</div>
+                          <div class="task-meta">
+                            <span class={`mini-pill status-${task.status}`}>{task.status}</span>
+                            <span class={`mini-pill phase-${task.lifecyclePhase}`}>
+                              {task.lifecyclePhase}
+                            </span>
+                            <span class="mini-pill">{task.kind}</span>
+                          </div>
+
+                          <section class="detail-block">
+                            <h4>Continue</h4>
+                            <div class="command-box">
+                              <code>{task.continueCommand}</code>
+                              <button
+                                class="copy-button"
+                                type="button"
+                                data-copy-command={task.continueCommand}
+                              >
+                                Copy
+                              </button>
+                            </div>
+                          </section>
+
+                          <section class="detail-block">
+                            <h4>Next Action</h4>
+                            <p class="muted">Next: {task.nextActionLabel}</p>
+                            <p class="muted">
+                              Phase guard: {task.phaseGuard.selectedNextAction};{" "}
+                              {task.phaseGuard.approvedArtifactCount} approvals;{" "}
+                              {task.phaseGuard.processExceptionCount} exceptions.
+                            </p>
+                            <p class="muted">
+                              Preflight: project JSON loaded, task JSON loaded, linked
+                              artifacts counted, workflow state remains read-only.
+                            </p>
+                          </section>
+
+                          <section class="detail-block">
+                            <h4>Linked Artifacts</h4>
+                            <div class="artifact-group">
+                              {task.artifactGroupList
+                                .filter((group) => group.count > 0)
+                                .map((group) => (
+                                  <details>
+                                    <summary>
+                                      {group.label} · {group.count}
+                                    </summary>
+                                    <ul class="path-list">
+                                      {group.items.map((artifact) => (
+                                        <li>
+                                          <strong>{artifact.label}</strong>
+                                          <div class="artifact-path">{artifact.path}</div>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </details>
+                                ))}
+                            </div>
+                          </section>
+
+                          <section class="detail-block">
+                            <h4>Session Log</h4>
+                            {task.recentSessionEvents.length > 0 ? (
+                              <ul class="session-list">
+                                {task.recentSessionEvents.map((entry) => (
+                                  <li>
+                                    <span class="muted">{entry.date}</span> · {entry.event}
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p class="muted">No session events recorded.</p>
+                            )}
+                            {task.sessionLog.length > task.recentSessionEvents.length && (
+                              <details>
+                                <summary>Full log · {task.sessionLog.length}</summary>
+                                <ul class="session-list">
+                                  {task.sessionLog.map((entry) => (
+                                    <li>
+                                      <span class="muted">{entry.date}</span> · {entry.event}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </details>
+                            )}
+                          </section>
+                        </section>
+                      ))}
+                    </aside>
+                  </div>
+                </section>
+              );
+            })
+          }
+        </section>
+      </div>
 
       <footer class="snapshot">
         Generated {workflow.generatedAt}. Source: projects/*/project.json and
@@ -454,8 +941,103 @@ const statusCounts = workflow.projects
     <script>
       const root = document.documentElement;
       const themeToggle = document.querySelector("#theme-toggle");
-      const projectToggle = document.querySelector("#project-toggle");
-      const projectCards = Array.from(document.querySelectorAll("[data-project]"));
+      const projectSearch = document.querySelector("#project-search");
+      const projectButtons = Array.from(document.querySelectorAll("[data-project-button]"));
+      const projectPanels = Array.from(document.querySelectorAll("[data-project-panel]"));
+      const storage = {
+        project: "workflow-foundry-tracker-project",
+        task: "workflow-foundry-tracker-task",
+      };
+
+      function readStored(key) {
+        try {
+          return window.localStorage.getItem(key);
+        } catch {
+          return null;
+        }
+      }
+
+      function writeStored(key, value) {
+        try {
+          window.localStorage.setItem(key, value);
+        } catch {
+          // localStorage is optional browser UI state only.
+        }
+      }
+
+      function activePanel() {
+        return projectPanels.find((panel) => !panel.hidden);
+      }
+
+      function selectProject(slug) {
+        projectButtons.forEach((button) => {
+          const isActive = button.dataset.projectTarget === slug;
+          button.setAttribute("aria-current", String(isActive));
+        });
+
+        projectPanels.forEach((panel) => {
+          panel.hidden = panel.dataset.project !== slug;
+        });
+
+        const panel = activePanel();
+        if (!panel) return;
+
+        writeStored(storage.project, slug);
+        const storedTask = readStored(`${storage.task}:${slug}`);
+        const task =
+          (storedTask && panel.querySelector(`[data-task-row][data-task-id="${storedTask}"]`)) ||
+          panel.querySelector('[data-task-row][aria-selected="true"]') ||
+          panel.querySelector("[data-task-row]");
+
+        if (task instanceof HTMLElement) {
+          selectTask(task.dataset.taskId);
+        }
+
+        applyTaskFilters(panel);
+      }
+
+      function selectTask(taskId) {
+        if (!taskId) return;
+        const panel = activePanel();
+        if (!panel) return;
+
+        panel.querySelectorAll("[data-task-row]").forEach((row) => {
+          row.setAttribute("aria-selected", String(row.dataset.taskId === taskId));
+        });
+
+        panel.querySelectorAll("[data-task-detail]").forEach((detail) => {
+          detail.hidden = detail.dataset.taskId !== taskId;
+        });
+
+        const selectedRow = panel.querySelector(`[data-task-row][data-task-id="${taskId}"]`);
+        const selectedPhase = selectedRow instanceof HTMLElement ? selectedRow.dataset.phase : "";
+
+        panel.querySelectorAll("[data-phase-filter]").forEach((button) => {
+          button.classList.toggle("current-phase", button.dataset.phaseFilter === selectedPhase);
+        });
+
+        writeStored(`${storage.task}:${panel.dataset.project}`, taskId);
+      }
+
+      function applyTaskFilters(panel) {
+        const query = panel.querySelector("[data-task-search]")?.value.trim().toLowerCase() ?? "";
+        const activePhase =
+          panel.querySelector('[data-phase-filter][aria-pressed="true"]')?.dataset.phaseFilter ??
+          "all";
+
+        panel.querySelectorAll("[data-task-row]").forEach((row) => {
+          const matchesQuery = row.dataset.search?.includes(query) ?? true;
+          const matchesPhase = activePhase === "all" || row.dataset.phase === activePhase;
+          row.hidden = !matchesQuery || !matchesPhase;
+        });
+
+        panel.querySelectorAll("[data-task-section]").forEach((section) => {
+          const visibleRows = Array.from(section.querySelectorAll("[data-task-row]")).some(
+            (row) => !row.hidden,
+          );
+          section.hidden = !visibleRows;
+        });
+      }
 
       themeToggle?.addEventListener("click", () => {
         const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
@@ -464,15 +1046,58 @@ const statusCounts = workflow.projects
         themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
       });
 
-      projectToggle?.addEventListener("click", () => {
-        const onlyCurrent = projectToggle.getAttribute("aria-pressed") !== "true";
-        projectToggle.setAttribute("aria-pressed", String(onlyCurrent));
-        projectCards.forEach((card) => {
-          if (card instanceof HTMLElement) {
-            card.hidden = onlyCurrent && card.dataset.currentProject !== "true";
-          }
+      projectSearch?.addEventListener("input", () => {
+        const query = projectSearch.value.trim().toLowerCase();
+        projectButtons.forEach((button) => {
+          button.hidden = !(button.dataset.projectSearch ?? "").includes(query);
         });
       });
+
+      projectButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          selectProject(button.dataset.projectTarget);
+        });
+      });
+
+      projectPanels.forEach((panel) => {
+        panel.querySelector("[data-task-search]")?.addEventListener("input", () => {
+          applyTaskFilters(panel);
+        });
+
+        panel.querySelectorAll("[data-phase-filter]").forEach((button) => {
+          button.addEventListener("click", () => {
+            panel.querySelectorAll("[data-phase-filter]").forEach((phaseButton) => {
+              phaseButton.setAttribute("aria-pressed", String(phaseButton === button));
+            });
+            applyTaskFilters(panel);
+          });
+        });
+
+        panel.querySelectorAll("[data-task-button]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const row = button.closest("[data-task-row]");
+            if (row instanceof HTMLElement) selectTask(row.dataset.taskId);
+          });
+        });
+
+        panel.querySelectorAll("[data-copy-command]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            const command = button.dataset.copyCommand ?? "";
+            if (navigator.clipboard) {
+              await navigator.clipboard.writeText(command);
+              button.textContent = "Copied";
+              window.setTimeout(() => {
+                button.textContent = "Copy";
+              }, 1200);
+            }
+          });
+        });
+      });
+
+      const initialProject =
+        readStored(storage.project) ??
+        document.querySelector("[data-project-panel]:not([hidden])")?.dataset.project;
+      if (initialProject) selectProject(initialProject);
     </script>
   </body>
 </html>
