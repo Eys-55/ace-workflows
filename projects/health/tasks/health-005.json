@@ -1,0 +1,475 @@
+{
+  "task_id": "health-005",
+  "project_slug": "health",
+  "title": "Build standalone Philippines health coverage workflow repo",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "code-review",
+  "explicit_next_action_required": true,
+  "summary": "Built and pushed the standalone `philippines-health-coverage` workflow repo. The foundry remained only the factory: the shipped repo contains its own skills, references, artifacts, package metadata, validators, eval fixtures, and rollout instructions for public-source PhilHealth, HMO, and insurance research without depending on this foundry at runtime.",
+  "acceptance_criteria": [
+    "The plan is grounded in current Health artifacts, not generic healthcare ideas.",
+    "The plan uses real-life-workflows only as source-grounded workflow research, not as active imported skill promotion.",
+    "The plan follows ECC workflow-repo and skill-pack shape: repo/package metadata plus skills with SKILL.md, agents/openai.yaml, references, scripts, and assets only where justified.",
+    "The plan defines installability: manifest, package files, smoke tests, and validation commands.",
+    "The plan uses `philippines-health-coverage` as the standalone repo and package identity.",
+    "The plan defines a standalone top-level repo structure with AGENTS.md, README.md, package.json, skill-manifest.json, skills/, references/, artifacts/, evals/, and scripts/.",
+    "The plan puts seeded registry, source atlas, comparison readiness, navigator flow, and related validated JSON data under the shipped repo's artifacts/ directory as product data.",
+    "The plan keeps eval fixtures and expected behaviors under evals/ and deterministic validators or package smoke checks under scripts/.",
+    "The plan treats the installable product as a standalone Philippines health coverage repo with skills inside it, not as a foundry-local skill or a runtime extension of this foundry.",
+    "The plan exposes a full multi-skill v1 workflow repo, with each skill owning a clear public-source research job and sharing validated artifacts, references, evals, and scripts.",
+    "The plan includes the approved v1 skill set: coverage-source-research, coverage-entity-lookup, coverage-provider-deep-dive, coverage-type-compare, coverage-navigator, and coverage-evidence-audit.",
+    "The plan requires every v1 skill SKILL.md to define an explicit input contract with required inputs, optional inputs, artifact dependencies, and stop conditions.",
+    "The plan defines a shared ECC-style output contract for every v1 skill with query, sources_used, confidence_boundary, human_review_required, blocked_decisions, and next_questions.",
+    "The plan defines a Philippines-first skill set with clear user jobs and safety boundaries, while keeping schemas extensible for later countries.",
+    "The plan defines eval fixtures before any user-facing skill promotion.",
+    "The plan keeps healthcare outputs educational and blocks medical advice, PHI handling, coverage decisions, claims decisions, and recommendations.",
+    "The plan identifies what belongs in the standalone shipped repo versus what is only factory-side manufacturing evidence and must not be required by the shipped repo."
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Start from the pushed Health artifact foundation and plan the standalone `philippines-health-coverage` workflow repo with skills inside it. Load ECC skill-creation and agentic workflow references before writing any implementation-plan artifact. Keep the task in grilling until Matt grilling settles exact package scope and artifact path approvals.",
+    "must_load": [
+      "AGENTS.md",
+      "references/matt-pocock-skills.md",
+      "registry/agents-md.json",
+      "projects/health/AGENTS.md",
+      "projects/health/project.json",
+      "projects/health/tasks/index.json",
+      "projects/health/tasks/health-003.json",
+      "projects/health/tasks/health-005.json",
+      "projects/health/tasks/health-004.json",
+      "projects/health/tasks/health-002.json",
+      "projects/health/artifacts/prds/health-002-philippines-insurance-hmo-navigator.md",
+      "projects/health/artifacts/plans/health-002-full-implementation-plan.md",
+      "projects/health/artifacts/evals/philippines-health-coverage-eval-fixtures.json",
+      "projects/health/artifacts/evals/validate-philippines-health-coverage-slices.mjs",
+      "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+      "projects/health/artifacts/navigator/philippines-health-coverage-navigator-flow.json",
+      "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
+      "projects/real-life-workflows/AGENTS.md",
+      "projects/real-life-workflows/project.json",
+      "projects/real-life-workflows/skill-manifest.json",
+      "projects/real-life-workflows/package.json",
+      "projects/real-life-workflows/README.md",
+      "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md",
+      "/Users/acecanacan/.codex/skills/.system/skill-creator/SKILL.md",
+      "/Users/acecanacan/.agents/skills/everything-claude-code/SKILL.md",
+      "/Users/acecanacan/.codex/skills/agentic-engineering/SKILL.md",
+      "/Users/acecanacan/.codex/skills/dynamic-workflow-mode/SKILL.md",
+      "/Users/acecanacan/.agents/skills/eval-harness/SKILL.md",
+      "/Users/acecanacan/.agents/skills/verification-loop/SKILL.md",
+      "/Users/acecanacan/.codex/skills/healthcare-phi-compliance/SKILL.md"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "code-review",
+    "approved_artifacts": [
+      {
+        "path": "projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md",
+        "phase": "prd",
+        "approval_note": "Approved by operator through continue-task to synthesize the PRD for the standalone philippines-health-coverage workflow repo.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/issues/health-005-issue-001-repo-skeleton-product-boundary.md",
+        "phase": "issues",
+        "approval_note": "Approved issue slice for standalone repo skeleton and product boundary.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/issues/health-005-issue-002-artifact-migration.md",
+        "phase": "issues",
+        "approval_note": "Approved issue slice for artifact migration into the standalone shipped repo.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/issues/health-005-issue-003-contract-foundation.md",
+        "phase": "issues",
+        "approval_note": "Approved issue slice for shared skill input and output contracts.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/issues/health-005-issue-004-six-skill-surfaces.md",
+        "phase": "issues",
+        "approval_note": "Approved issue slice for the six v1 skill surfaces.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/issues/health-005-issue-005-evals-safety-release-gate.md",
+        "phase": "issues",
+        "approval_note": "Approved issue slice for evals and safety release gate.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/issues/health-005-issue-006-package-smoke-handoff.md",
+        "phase": "issues",
+        "approval_note": "Approved issue slice for package smoke checks and handoff.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md",
+        "phase": "implement",
+        "approval_note": "Approved by operator after Matt grilling to write the implementation plan for the standalone philippines-health-coverage workflow repo.",
+        "approved_at": "2026-07-08"
+      }
+    ],
+    "process_exceptions": []
+  },
+  "capability_dependencies": [
+    {
+      "dependency_id": "real-life-workflows-health-skill-pack-research",
+      "dependency_project": "real-life-workflows",
+      "purpose": "Research real healthcare workflow patterns and prepare source-grounded workflow-understanding packet material for the installable Philippines health coverage workflow repo implementation plan.",
+      "source": "operator-explicit",
+      "status": "confirmed",
+      "selected_skills": [
+        {
+          "skill": "real-life-workflow-search",
+          "purpose": "Search the Real Life Workflows source universe for healthcare research, referral, claims, document packet, human-review, and workflow-pack patterns relevant to the installable Philippines health coverage repo and its skills.",
+          "call_boundary": "Use only as factory-side source research for this Health task's approved dependency steps. Do not create runtime dependency from the shipped Philippines health coverage repo back to real-life-workflows or this foundry.",
+          "expected_artifacts": [
+            "healthcare workflow-understanding packet",
+            "source-backed workflow-pattern notes",
+            "candidate skill extraction map"
+          ],
+          "allowed_writes": [
+            "projects/health/artifacts/workflow-packets/",
+            "projects/health/artifacts/plans/"
+          ],
+          "protected_paths": [
+            "projects/real-life-workflows/AGENTS.md",
+            "projects/real-life-workflows/project.json",
+            "projects/real-life-workflows/tasks/",
+            "projects/real-life-workflows/skills/",
+            "projects/real-life-workflows/quarantine/"
+          ]
+        }
+      ]
+    }
+  ],
+  "dependency_steps": [
+    {
+      "step_id": "dep-step-001",
+      "capability_dependency_id": "real-life-workflows-health-skill-pack-research",
+      "dependency_project": "real-life-workflows",
+      "selected_skill": "real-life-workflow-search",
+      "purpose": "Create or reuse source-grounded real-life healthcare workflow packet evidence before drafting the installable Philippines health coverage workflow repo implementation plan.",
+      "expected_inputs": [
+        "Health project artifact foundation from health-002 and health-004",
+        "Philippines-first public-source healthcare research workflow pack for people researching insurance and HMO domains",
+        "need for an installable Codex/Claude Code/opencode repo product with skills inside it",
+        "no PHI handling, no user-patient-document handling, no-medical-advice, human-review, and source-evidence boundaries"
+      ],
+      "expected_outputs": [
+        "workflow-understanding packet under projects/health/artifacts/workflow-packets/ after phase approval",
+        "implementation plan under projects/health/artifacts/plans/ after phase approval",
+        "standalone shipped-repo boundary that does not depend on foundry project paths at runtime",
+        "top-level shipped repo structure: AGENTS.md, README.md, package.json, skill-manifest.json, skills/, references/, artifacts/, evals/, scripts/",
+        "shipped repo artifact map that places seeded validated JSON product data under artifacts/",
+        "shipped repo eval and validation map that places fixture data under evals/ and executable validators under scripts/",
+        "approved v1 skill map for coverage-source-research, coverage-entity-lookup, coverage-provider-deep-dive, coverage-type-compare, coverage-navigator, and coverage-evidence-audit",
+        "shared v1 skill input contract requiring required inputs, optional inputs, artifact dependencies, and stop conditions in each SKILL.md",
+        "shared v1 skill output contract requiring query, sources_used, confidence_boundary, human_review_required, blocked_decisions, and next_questions"
+      ],
+      "allowed_writes": [
+        "projects/health/artifacts/workflow-packets/",
+        "projects/health/artifacts/plans/"
+      ],
+      "protected_paths": [
+        "projects/real-life-workflows/AGENTS.md",
+        "projects/real-life-workflows/project.json",
+        "projects/real-life-workflows/tasks/",
+        "projects/real-life-workflows/skills/",
+        "projects/real-life-workflows/quarantine/"
+      ],
+      "provenance_requirements": [
+        "primary project",
+        "primary task id",
+        "dependency project",
+        "selected skill",
+        "query or reused packet",
+        "generated artifact path",
+        "phase",
+        "timestamp"
+      ],
+      "dependency_write_plan": {
+        "expected_output_paths": [
+          "projects/health/artifacts/issues/health-005-issue-001-repo-skeleton-product-boundary.md",
+          "projects/health/artifacts/issues/health-005-issue-002-artifact-migration.md",
+          "projects/health/artifacts/issues/health-005-issue-003-contract-foundation.md",
+          "projects/health/artifacts/issues/health-005-issue-004-six-skill-surfaces.md",
+          "projects/health/artifacts/issues/health-005-issue-005-evals-safety-release-gate.md",
+          "projects/health/artifacts/issues/health-005-issue-006-package-smoke-handoff.md",
+          "/Users/acecanacan/Documents/philippines-health-coverage/"
+        ],
+        "allowed_write_zones": [
+          "projects/health/artifacts/issues/",
+          "/Users/acecanacan/Documents/philippines-health-coverage/"
+        ],
+        "protected_paths": [
+          "projects/real-life-workflows/AGENTS.md",
+          "projects/real-life-workflows/project.json",
+          "projects/real-life-workflows/tasks/",
+          "projects/real-life-workflows/skills/",
+          "projects/real-life-workflows/quarantine/",
+          "projects/health/tasks/",
+          "registry/agents-md.json"
+        ],
+        "promotion_rules": [
+          "Use foundry-side Health artifacts only as manufacturing inputs.",
+          "The shipped philippines-health-coverage repo must have repo-local paths and no runtime dependency on the foundry.",
+          "Do not mutate real-life-workflows trackers or skill definitions.",
+          "Treat the six issue artifacts as manufacturing slices, not shipped runtime docs."
+        ],
+        "provenance_requirements": [
+          "record primary task id health-005",
+          "record source artifacts from health-002 and health-004",
+          "record generated standalone repo path /Users/acecanacan/Documents/philippines-health-coverage",
+          "record generated issue artifact paths"
+        ],
+        "stop_conditions": [
+          "Stop if a dependency call attempts to mutate real-life-workflows tracker or skill files.",
+          "Stop if the shipped repo references this foundry or dependency project as a runtime requirement.",
+          "Stop if a shipped skill permits PHI, patient documents, medical advice, eligibility decisions, coverage determinations, claims decisions, rankings, or purchase recommendations.",
+          "Stop if package validation cannot prove the standalone repo contains required skills, artifacts, evals, references, scripts, and manifest metadata."
+        ],
+        "approved_at": "2026-07-08",
+        "mutates_dependency_tracker": false
+      }
+    }
+  ],
+  "dependency_artifacts": [
+    {
+      "artifact_id": "health-005-dep-artifact-001",
+      "owner_task_id": "health-005",
+      "dependency_step_id": "dep-step-001",
+      "dependency_project": "real-life-workflows",
+      "source_skill": "real-life-workflow-search",
+      "phase": "implement",
+      "purpose": "Use Health 002/004 artifact foundations and real-life-workflows research patterns to manufacture the standalone philippines-health-coverage workflow repo as an installable multi-skill package.",
+      "artifact_status": "execution-evidence",
+      "generated_files": [
+        "/Users/acecanacan/Documents/philippines-health-coverage/AGENTS.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/README.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/package.json",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skill-manifest.json",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-source-research/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-entity-lookup/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-provider-deep-dive/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-type-compare/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-navigator/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-evidence-audit/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/references/workflow-contracts.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/references/safety-boundaries.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/references/artifact-map.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/artifacts/",
+        "/Users/acecanacan/Documents/philippines-health-coverage/evals/",
+        "/Users/acecanacan/Documents/philippines-health-coverage/scripts/validate-artifacts.mjs",
+        "/Users/acecanacan/Documents/philippines-health-coverage/scripts/validate-skill-contracts.mjs",
+        "/Users/acecanacan/Documents/philippines-health-coverage/scripts/package-smoke-check.mjs",
+        "https://github.com/Eys-55/philippines-health-coverage",
+        "https://github.com/Eys-55/philippines-health-coverage/commit/9e3afeaa8d7bcfaa9c57a357232b4047b8f54d99"
+      ],
+      "protected_boundary_metadata": [
+        "generated repo outside ace-workflows as a standalone product boundary",
+        "shipped repo has no runtime dependency on ace-workflows or real-life-workflows",
+        "did not mutate real-life-workflows tracker files or skill definitions",
+        "skills block PHI handling, patient documents, medical advice, eligibility decisions, coverage determinations, claims decisions, provider-network verification, rankings, and purchase recommendations",
+        "package validation passed with npm run validate and npm pack --dry-run --json",
+        "pushed public GitHub repo https://github.com/Eys-55/philippines-health-coverage at commit 9e3afeaa8d7bcfaa9c57a357232b4047b8f54d99"
+      ],
+      "mutates_dependency_tracker": false
+    }
+  ],
+  "dependency_provenance": [
+    {
+      "primary_project": "health",
+      "primary_task_id": "health-005",
+      "dependency_step_id": "dep-step-001",
+      "dependency_project": "real-life-workflows",
+      "selected_skill": "real-life-workflow-search",
+      "dependency_write_plan": "dependency_steps[0].dependency_write_plan",
+      "phase": "implement",
+      "timestamp": "2026-07-08T08:39:06Z",
+      "artifact_status": "execution-evidence",
+      "helper_skills_used": [
+        "skill-creator",
+        "everything-claude-code",
+        "agentic-engineering",
+        "dynamic-workflow-mode",
+        "eval-harness",
+        "verification-loop"
+      ],
+      "inputs": [
+        "projects/health/artifacts/prds/health-002-philippines-insurance-hmo-navigator.md",
+        "projects/health/artifacts/plans/health-002-full-implementation-plan.md",
+        "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+        "projects/health/artifacts/deep-dives/maxicare-hmo-deep-dive-packet.json",
+        "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
+        "projects/health/artifacts/navigator/philippines-health-coverage-navigator-flow.json",
+        "projects/health/artifacts/evals/philippines-health-coverage-eval-fixtures.json",
+        "projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md",
+        "projects/health/artifacts/issues/health-005-issue-001-repo-skeleton-product-boundary.md",
+        "projects/health/artifacts/issues/health-005-issue-002-artifact-migration.md",
+        "projects/health/artifacts/issues/health-005-issue-003-contract-foundation.md",
+        "projects/health/artifacts/issues/health-005-issue-004-six-skill-surfaces.md",
+        "projects/health/artifacts/issues/health-005-issue-005-evals-safety-release-gate.md",
+        "projects/health/artifacts/issues/health-005-issue-006-package-smoke-handoff.md",
+        "projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md"
+      ],
+      "generated_artifacts": [
+        "/Users/acecanacan/Documents/philippines-health-coverage/AGENTS.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/README.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/package.json",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skill-manifest.json",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-source-research/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-entity-lookup/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-provider-deep-dive/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-type-compare/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-navigator/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/coverage-evidence-audit/SKILL.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/references/workflow-contracts.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/references/safety-boundaries.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/references/artifact-map.md",
+        "/Users/acecanacan/Documents/philippines-health-coverage/artifacts/",
+        "/Users/acecanacan/Documents/philippines-health-coverage/evals/",
+        "/Users/acecanacan/Documents/philippines-health-coverage/scripts/validate-artifacts.mjs",
+        "/Users/acecanacan/Documents/philippines-health-coverage/scripts/validate-skill-contracts.mjs",
+        "/Users/acecanacan/Documents/philippines-health-coverage/scripts/package-smoke-check.mjs",
+        "https://github.com/Eys-55/philippines-health-coverage",
+        "https://github.com/Eys-55/philippines-health-coverage/commit/9e3afeaa8d7bcfaa9c57a357232b4047b8f54d99"
+      ]
+    }
+  ],
+  "dependencies": [
+    "health-002",
+    "health-004"
+  ],
+  "related_tasks": [
+    "health-002",
+    "health-003",
+    "health-004",
+    "real-life-workflows-002",
+    "real-life-workflows-004"
+  ],
+  "linked_artifacts": [
+    "projects/health/tasks/index.json",
+    "projects/health/tasks/health-005.json",
+    "projects/health/tasks/health-002.json",
+    "projects/health/tasks/health-004.json",
+    "projects/health/artifacts/prds/health-002-philippines-insurance-hmo-navigator.md",
+    "projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md",
+    "projects/health/artifacts/issues/health-005-issue-001-repo-skeleton-product-boundary.md",
+    "projects/health/artifacts/issues/health-005-issue-002-artifact-migration.md",
+    "projects/health/artifacts/issues/health-005-issue-003-contract-foundation.md",
+    "projects/health/artifacts/issues/health-005-issue-004-six-skill-surfaces.md",
+    "projects/health/artifacts/issues/health-005-issue-005-evals-safety-release-gate.md",
+    "projects/health/artifacts/issues/health-005-issue-006-package-smoke-handoff.md",
+    "projects/health/artifacts/plans/health-002-full-implementation-plan.md",
+    "projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md",
+    "projects/health/artifacts/evals/philippines-health-coverage-eval-fixtures.json",
+    "projects/health/artifacts/evals/validate-philippines-health-coverage-slices.mjs",
+    "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+    "projects/health/artifacts/navigator/philippines-health-coverage-navigator-flow.json",
+    "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
+    "projects/real-life-workflows/skill-manifest.json",
+    "projects/real-life-workflows/package.json",
+    "projects/real-life-workflows/README.md",
+    "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md",
+    "/Users/acecanacan/Documents/philippines-health-coverage/",
+    "https://github.com/Eys-55/philippines-health-coverage"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-08",
+      "event": "Created after operator approved a task to plan an installable healthcare research skill pack grounded in Health artifacts, real-life-workflows research, and ECC/Codex skill-pack conventions."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Started task from intake and advanced to Matt grilling. Artifact approvals remain empty until package scope, dependency write plan, and implementation-plan path are approved."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: v1 scope is public-source insurance/HMO research only. No PHI handling, user-patient documents, patient-context workflows, medical advice, eligibility decisions, claims decisions, or coverage determinations belong in the v1 package."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: v1 package is Philippines-first, grounded primarily in existing PhilHealth, HMO, insurance, source-atlas, navigator, comparison, and eval artifacts. Package schemas and skill wording may remain extensible for later countries, but v1 should not become a country-agnostic framework."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: v1 should expose one main user-facing healthcare research skill. Narrower flows such as source discovery, entity lookup, comparison readiness, provider deep dive, and navigator routing should live behind that entrypoint as references, eval fixtures, or internal routing logic."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision superseded: operator wants the standalone philippines-health-coverage repo to be a full multi-skill v1 workflow product, not a one-skill MVP. Plan should define multiple skills with clear jobs, shared product artifacts, eval gates, and package validation."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: approved v1 skill set is coverage-source-research, coverage-entity-lookup, coverage-provider-deep-dive, coverage-type-compare, coverage-navigator, and coverage-evidence-audit."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: every v1 skill should share an ECC-style output contract with query, sources_used, confidence_boundary, human_review_required, blocked_decisions, and next_questions."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: every v1 skill SKILL.md should define an explicit input contract with required inputs, optional inputs, artifact dependencies, and stop conditions."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Operator corrected product framing: this is not a foundry-local skill. The foundry builds an installable Philippines health coverage workflow repo, and that repo contains the skills, references, package metadata, artifacts, and validators."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Operator clarified factory boundary: the foundry has no runtime or product connection to the shipped Philippines health coverage repo. Treat the foundry like a factory building phones; the product must be standalone and must not use or depend on the factory."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: the standalone repo and package identity is philippines-health-coverage."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: the shipped philippines-health-coverage repo should have its own top-level AGENTS.md, README.md, package.json, skill-manifest.json, skills/, references/, artifacts/, evals/, and scripts/."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: seeded registry, source atlas, comparison readiness, navigator flow, and related validated JSON should ship under artifacts/ as product data, not only as examples under references/."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Grilling decision recorded: evals/ should contain fixtures and expected behaviors, while scripts/ should contain deterministic validators and package smoke checks."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Operator approved moving from grilling to PRD/planning artifact creation and approved projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md as the implementation-plan artifact."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Continued task through Matt to-prd, approved and wrote projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md, then advanced saved phase to issues."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Split the PRD into six issue artifacts, approved them as issue slices, added the implementation write plan, and advanced saved phase to implement."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Implemented, validated, committed, and pushed the standalone philippines-health-coverage repo to https://github.com/Eys-55/philippines-health-coverage at commit 9e3afeaa8d7bcfaa9c57a357232b4047b8f54d99. npm run validate and npm pack --dry-run --json both passed before push."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Advanced saved Matt phase to code-review so the pushed standalone package can be reviewed and closed from an explicit tracker state."
+    }
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}

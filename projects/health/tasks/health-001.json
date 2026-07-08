@@ -30,7 +30,8 @@
       "projects/health/tasks/health-001.json",
       "projects/health/tasks/health-002.json",
       "projects/health/tasks/health-003.json",
-      "projects/health/tasks/health-004.json"
+      "projects/health/tasks/health-004.json",
+      "projects/health/tasks/health-005.json"
     ]
   },
   "phase_guard": {
