@@ -1,0 +1,268 @@
+{
+  "task_id": "health-006",
+  "project_slug": "health",
+  "title": "Review standalone health workflow against real-life workflow patterns",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "implement",
+  "explicit_next_action_required": true,
+  "summary": "Review the standalone Philippines health coverage workflow product against many Real Life Workflows patterns, then produce an extensive source-grounded improvement research artifact and roadmap. Treat the standalone workflow as a product for people, not as a foundry-local workflow.",
+  "acceptance_criteria": [
+    "The review treats `philippines-health-coverage` as the standalone product boundary, not as a foundry-local runtime.",
+    "The review compares the standalone health workflow against many Real Life Workflows doors and adjacent workflow patterns.",
+    "The review evaluates product usability, skill-pack shape, artifacts, evals, safety boundaries, installability, and user workflow fit.",
+    "The review separates shipped standalone product improvements from foundry-side manufacturing evidence.",
+    "The review preserves no-PHI, no-medical-advice, no-eligibility-decision, no-coverage-decision, no-claims-decision, and human-review boundaries.",
+    "The final artifact includes concrete improvements, prioritized next actions, and a rundown of what else can be built.",
+    "Repository workflow-state validation passes before any commit or push.",
+    "Any GitHub push happens only after explicit checkpoint approval."
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Start from the completed standalone `philippines-health-coverage` workflow repo and Health project artifacts. Use Real Life Workflows only as source-grounded comparison research; do not create runtime dependency from the standalone health workflow back to the foundry or dependency project.",
+    "must_load": [
+      "AGENTS.md",
+      "references/matt-pocock-skills.md",
+      "registry/agents-md.json",
+      "projects/health/AGENTS.md",
+      "projects/health/project.json",
+      "projects/health/tasks/index.json",
+      "projects/health/tasks/health-003.json",
+      "projects/health/tasks/health-006.json",
+      "projects/health/tasks/health-005.json",
+      "projects/health/tasks/health-004.json",
+      "projects/health/tasks/health-002.json",
+      "projects/real-life-workflows/AGENTS.md",
+      "projects/real-life-workflows/project.json",
+      "projects/real-life-workflows/tasks/index.json",
+      "projects/real-life-workflows/skill-manifest.json",
+      "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "implement",
+    "approved_artifacts": [
+      {
+        "path": "projects/health/artifacts/workflow-packets/health-006-real-world-comparison-packet.md",
+        "phase": "implement",
+        "approval_note": "Approved by operator through explicit go-ahead to self-grill, compare the standalone health workflow against many Real Life Workflows patterns, and write the dependency comparison packet.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md",
+        "phase": "implement",
+        "approval_note": "Approved by operator through explicit go-ahead to write the extensive standalone health workflow review.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "projects/health/artifacts/plans/health-006-improvement-roadmap.md",
+        "phase": "implement",
+        "approval_note": "Approved by operator through explicit go-ahead to write the prioritized improvement roadmap for the standalone product.",
+        "approved_at": "2026-07-08"
+      }
+    ],
+    "process_exceptions": []
+  },
+  "capability_dependencies": [
+    {
+      "dependency_id": "real-life-workflows-health-product-review",
+      "dependency_project": "real-life-workflows",
+      "purpose": "Compare the standalone health workflow product against many real-world workflow patterns and prepare source-grounded improvement evidence.",
+      "source": "operator-explicit",
+      "status": "confirmed",
+      "selected_skills": [
+        {
+          "skill": "real-life-workflow-search",
+          "purpose": "Search the Real Life Workflows source universe for healthcare, evidence-research, comparison, audit, document-packet, human-review, and public-service workflow patterns relevant to improving the standalone health workflow.",
+          "call_boundary": "Use only as factory-side comparison research for this Health task. Do not create runtime dependency from the standalone health workflow back to real-life-workflows or this foundry.",
+          "expected_artifacts": [
+            "workflow-understanding packets",
+            "cross-workflow comparison notes",
+            "standalone product improvement recommendations"
+          ],
+          "allowed_writes": [
+            "projects/health/artifacts/workflow-packets/",
+            "projects/health/artifacts/reviews/",
+            "projects/health/artifacts/plans/"
+          ],
+          "protected_paths": [
+            "projects/real-life-workflows/AGENTS.md",
+            "projects/real-life-workflows/project.json",
+            "projects/real-life-workflows/tasks/",
+            "projects/real-life-workflows/skills/",
+            "projects/real-life-workflows/quarantine/"
+          ]
+        }
+      ]
+    }
+  ],
+  "dependency_steps": [
+    {
+      "step_id": "dep-step-001",
+      "capability_dependency_id": "real-life-workflows-health-product-review",
+      "dependency_project": "real-life-workflows",
+      "selected_skill": "real-life-workflow-search",
+      "purpose": "Create or reuse source-grounded real-world workflow comparison evidence before writing the standalone health workflow improvement review.",
+      "expected_inputs": [
+        "standalone `philippines-health-coverage` workflow product for people",
+        "completed Health project artifacts from health-002, health-004, and health-005",
+        "need to compare against many real-world workflow patterns, not only healthcare examples",
+        "no PHI, no medical advice, no coverage decisions, no claims decisions, and human-review boundaries"
+      ],
+      "expected_outputs": [
+        "workflow-understanding packets under projects/health/artifacts/workflow-packets/ after phase approval",
+        "extensive standalone product review under projects/health/artifacts/reviews/ after phase approval",
+        "prioritized improvement roadmap under projects/health/artifacts/plans/ after phase approval"
+      ],
+      "allowed_writes": [
+        "projects/health/artifacts/workflow-packets/",
+        "projects/health/artifacts/reviews/",
+        "projects/health/artifacts/plans/"
+      ],
+      "protected_paths": [
+        "projects/real-life-workflows/AGENTS.md",
+        "projects/real-life-workflows/project.json",
+        "projects/real-life-workflows/tasks/",
+        "projects/real-life-workflows/skills/",
+        "projects/real-life-workflows/quarantine/"
+      ],
+      "provenance_requirements": [
+        "primary project",
+        "primary task id",
+        "dependency project",
+        "selected skill",
+        "query or reused packet",
+        "generated artifact path",
+        "phase",
+        "timestamp"
+      ],
+      "dependency_write_plan": {
+        "expected_output_paths": [
+          "projects/health/artifacts/workflow-packets/health-006-real-world-comparison-packet.md",
+          "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md",
+          "projects/health/artifacts/plans/health-006-improvement-roadmap.md"
+        ],
+        "allowed_write_zones": [
+          "projects/health/artifacts/workflow-packets/",
+          "projects/health/artifacts/reviews/",
+          "projects/health/artifacts/plans/"
+        ],
+        "protected_paths": [
+          "projects/real-life-workflows/AGENTS.md",
+          "projects/real-life-workflows/project.json",
+          "projects/real-life-workflows/tasks/",
+          "projects/real-life-workflows/skills/",
+          "projects/real-life-workflows/quarantine/",
+          "/Users/acecanacan/Documents/philippines-health-coverage/"
+        ],
+        "promotion_rules": [
+          "Use Real Life Workflows results only as source-grounded comparison evidence.",
+          "Do not create runtime dependency from the standalone health workflow to this foundry or to real-life-workflows.",
+          "Keep implementation recommendations as foundry review artifacts until a later task applies them to the standalone repo.",
+          "Do not mutate the standalone repo during this review task."
+        ],
+        "provenance_requirements": [
+          "record primary task id health-006",
+          "record dependency project real-life-workflows",
+          "record selected skill real-life-workflow-search",
+          "record generated artifact paths",
+          "record standalone repo path reviewed"
+        ],
+        "stop_conditions": [
+          "Stop if a dependency call attempts to mutate real-life-workflows tracker or skill files.",
+          "Stop if a write targets the standalone repo instead of the approved Health review artifacts.",
+          "Stop if recommendations require PHI handling, medical advice, coverage decisions, claims decisions, rankings, or purchase recommendations."
+        ],
+        "approved_at": "2026-07-08",
+        "mutates_dependency_tracker": false
+      }
+    }
+  ],
+  "dependencies": [
+    "health-005"
+  ],
+  "related_tasks": [
+    "health-002",
+    "health-004",
+    "health-005"
+  ],
+  "dependency_artifacts": [
+    {
+      "artifact_id": "health-006-dep-artifact-001",
+      "owner_task_id": "health-006",
+      "dependency_step_id": "dep-step-001",
+      "dependency_project": "real-life-workflows",
+      "source_skill": "real-life-workflow-search",
+      "phase": "implement",
+      "purpose": "Create source-grounded workflow comparison evidence for reviewing the standalone Philippines health coverage workflow product.",
+      "artifact_status": "promoted",
+      "promotion_metadata": {
+        "promoted_at": "2026-07-08",
+        "promoted_by_task": "health-006",
+        "promotion_reason": "Used as official comparison evidence for the standalone health workflow product review.",
+        "prd_reference": "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md"
+      },
+      "generated_files": [
+        "projects/health/artifacts/workflow-packets/health-006-real-world-comparison-packet.md"
+      ],
+      "protected_boundary_metadata": [
+        "mutated_dependency_project=false",
+        "mutated_standalone_repo=false",
+        "runtime_dependency_created=false"
+      ]
+    }
+  ],
+  "dependency_provenance": [
+    {
+      "primary_project": "health",
+      "primary_task_id": "health-006",
+      "dependency_step_id": "dep-step-001",
+      "dependency_project": "real-life-workflows",
+      "selected_skill": "real-life-workflow-search",
+      "helper_skills_used": [],
+      "phase": "implement",
+      "timestamp": "2026-07-08",
+      "inputs": [
+        "standalone public-source health coverage workflow product evidence research comparison navigator audit human review document packet public service",
+        "standalone repo review at /Users/acecanacan/Documents/philippines-health-coverage",
+        "existing Health artifacts from health-002, health-004, and health-005"
+      ],
+      "generated_artifacts": [
+        "projects/health/artifacts/workflow-packets/health-006-real-world-comparison-packet.md",
+        "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md",
+        "projects/health/artifacts/plans/health-006-improvement-roadmap.md"
+      ],
+      "dependency_write_plan": "dependency_steps[0].dependency_write_plan",
+      "artifact_status": "promoted"
+    }
+  ],
+  "linked_artifacts": [
+    "projects/health/artifacts/workflow-packets/health-006-real-world-comparison-packet.md",
+    "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md",
+    "projects/health/artifacts/plans/health-006-improvement-roadmap.md"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-08",
+      "event": "Created after operator approved a dependency-backed review task for the standalone health workflow product."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Moved to implementation after operator said yes go; approved review, roadmap, and workflow-packet artifact paths for a self-grilled comparison review."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Completed the standalone product review, improvement roadmap, and Real Life Workflows comparison packet. The standalone repo was reviewed but not mutated."
+    }
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}

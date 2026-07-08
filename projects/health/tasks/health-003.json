@@ -32,7 +32,8 @@
       "projects/health/tasks/index.json",
       "projects/health/tasks/health-003.json",
       "projects/health/tasks/health-004.json",
-      "projects/health/tasks/health-005.json"
+      "projects/health/tasks/health-005.json",
+      "projects/health/tasks/health-006.json"
     ]
   },
   "phase_guard": {
@@ -55,6 +56,7 @@
     "projects/health/tasks/health-003.json",
     "projects/health/tasks/health-004.json",
     "projects/health/tasks/health-005.json",
+    "projects/health/tasks/health-006.json",
     "projects/health/artifacts/plans/health-002-full-implementation-plan.md",
     "projects/health/artifacts/issues/health-004-issue-003-source-atlas-and-refresh-rules.md",
     "projects/health/artifacts/issues/health-004-issue-004-single-hmo-deep-dive.md",
@@ -66,7 +68,10 @@
     "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
     "projects/health/artifacts/navigator/philippines-health-coverage-navigator-flow.json",
     "projects/health/artifacts/evals/philippines-health-coverage-eval-fixtures.json",
-    "projects/health/artifacts/evals/validate-philippines-health-coverage-slices.mjs"
+    "projects/health/artifacts/evals/validate-philippines-health-coverage-slices.mjs",
+    "projects/health/artifacts/workflow-packets/health-006-real-world-comparison-packet.md",
+    "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md",
+    "projects/health/artifacts/plans/health-006-improvement-roadmap.md"
   ],
   "session_log": [
     {
@@ -92,6 +97,14 @@
     {
       "date": "2026-07-08",
       "event": "Closed health-005 locally after the standalone philippines-health-coverage repo validation passed; this checkpoint remains open until the ace-workflows cleanup commit is pushed."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Linked health-006 so the open tracker-maintenance task accounts for the new standalone health workflow review task."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Linked the health-006 review, roadmap, and workflow-packet artifacts so the open checkpoint accounts for the completed review until the cleanup commit is pushed."
     }
   ],
   "created_at": "2026-07-08",

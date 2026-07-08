@@ -40,6 +40,14 @@
       "status": "done",
       "matt_phase": "done",
       "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "health-006",
+      "title": "Review standalone health workflow against real-life workflow patterns",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "implement",
+      "updated_at": "2026-07-08"
     }
   ]
 }
