@@ -3,8 +3,8 @@
   "project_slug": "workflow-foundry",
   "title": "Expose workflow skills in Codex app",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "code-review",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Make .agents/skills the only active workflow surface so Codex discovers and invokes workflow operations as skills, and audit the workflow-building system so operator-facing docs and package surfaces stop presenting npx, Python, npm, or raw helper commands as the primary way Ace uses skills in Codex, Claude Code, opencode, or Antigravity-style agent runtimes.",
   "acceptance_criteria": [
@@ -74,7 +74,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "code-review",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-003-skill-first-runtime-surface.md",
@@ -325,6 +325,10 @@
     {
       "date": "2026-07-08",
       "event": "Implemented the skill-first runtime surface rule, added section-aware command-first validation, repaired active skill and Real Life Workflows package docs, linked audit report validation blockers to workflow-foundry-011, and wrote the focused code-review artifact."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Completed workflow-foundry-003 after validation, focused review, and implementation checkpoint commit; final tracker closeout is ready for push."
     }
   ],
   "created_at": "2026-07-06",

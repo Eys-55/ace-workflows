@@ -16,7 +16,7 @@ open task rather than reverting or hiding them.
 - [x] Package/readme validators affected by repaired surfaces pass.
 - [x] A focused review artifact records standards and spec findings.
 - [x] Dirty unrelated files are preserved and not reverted.
-- [ ] The completed changes are committed and pushed after validation.
+- [x] The completed changes are committed and pushed after validation.
 
 ## Blocked by
 
