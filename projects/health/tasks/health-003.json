@@ -105,6 +105,10 @@
     {
       "date": "2026-07-08",
       "event": "Linked the health-006 review, roadmap, and workflow-packet artifacts so the open checkpoint accounts for the completed review until the cleanup commit is pushed."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Accounted for the tracker follow-up marking health-006 done after review commit ee50449."
     }
   ],
   "created_at": "2026-07-08",

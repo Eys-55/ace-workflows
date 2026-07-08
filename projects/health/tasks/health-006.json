@@ -3,8 +3,8 @@
   "project_slug": "health",
   "title": "Review standalone health workflow against real-life workflow patterns",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "implement",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Review the standalone Philippines health coverage workflow product against many Real Life Workflows patterns, then produce an extensive source-grounded improvement research artifact and roadmap. Treat the standalone workflow as a product for people, not as a foundry-local workflow.",
   "acceptance_criteria": [
@@ -261,6 +261,10 @@
     {
       "date": "2026-07-08",
       "event": "Completed the standalone product review, improvement roadmap, and Real Life Workflows comparison packet. The standalone repo was reviewed but not mutated."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Marked done after review artifact commit ee50449."
     }
   ],
   "created_at": "2026-07-08",
