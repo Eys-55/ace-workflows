@@ -5,16 +5,24 @@
       "task_id": "health-001",
       "title": "Set up health workflow project tracker",
       "task_kind": "tracker-maintenance",
-      "status": "in-progress",
-      "matt_phase": "intake",
+      "status": "done",
+      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
       "task_id": "health-002",
       "title": "Discover health workflow candidates from real-life workflows",
       "task_kind": "workflow-change",
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "health-003",
+      "title": "Record health workflow completion checkpoint",
+      "task_kind": "tracker-maintenance",
       "status": "in-progress",
-      "matt_phase": "implement",
+      "matt_phase": "intake",
       "updated_at": "2026-07-08"
     }
   ]

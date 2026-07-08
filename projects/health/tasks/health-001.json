@@ -3,8 +3,8 @@
   "project_slug": "health",
   "title": "Set up health workflow project tracker",
   "task_kind": "tracker-maintenance",
-  "status": "in-progress",
-  "matt_phase": "intake",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Bootstrap the health project scaffold so future health workflow tasks can be tracked under a registered project.",
   "acceptance_criteria": [
@@ -28,7 +28,8 @@
       "projects/health/project.json",
       "projects/health/tasks/index.json",
       "projects/health/tasks/health-001.json",
-      "projects/health/tasks/health-002.json"
+      "projects/health/tasks/health-002.json",
+      "projects/health/tasks/health-003.json"
     ]
   },
   "phase_guard": {
@@ -54,6 +55,10 @@
     {
       "date": "2026-07-08",
       "note": "Linked health-002 so the bootstrap tracker-maintenance task accounts for the first workflow-change task file."
+    },
+    {
+      "date": "2026-07-08",
+      "note": "Completed after the health project scaffold and registry registration were validated and pushed to GitHub in commit 9f966aa."
     }
   ],
   "created_at": "2026-07-08",
