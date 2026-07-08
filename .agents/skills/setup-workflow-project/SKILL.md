@@ -8,6 +8,13 @@ description: Set up a new workflow project in this repo by creating the JSON pro
 Use this skill to initialize a project workspace. It creates project-level JSON
 state; it does not create a task unless the user also invokes task initiation.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: workflow projects are built as skill-first packages for
+agent runtimes. Use `$skill-name` workflow surfaces for operator actions.
+Command helpers may support validation or setup internals, but they are not the
+primary skill-calling surface.
+
 ## Required Reading
 
 Before acting:
@@ -155,7 +162,7 @@ For an existing project, the next surface is:
 $review-project-state project:<project-slug>
 ```
 
-## Validation
+## Developer Verification
 
 Run:
 

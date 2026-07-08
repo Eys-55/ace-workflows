@@ -10,6 +10,12 @@ the agent actively using a selected project workflow while normal project state
 remains read-only. The only allowed writes are the testing-session index and the
 selected session folder.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: testing mode is exposed through `$testing-session`.
+The state helper is internal support for deterministic session files, not the
+operator-facing way to call this skill.
+
 ## Required Reading
 
 Before acting:
@@ -51,7 +57,7 @@ For `action:start`:
 1. Require `project:<slug>`.
 2. Accept optional `goal:"..."`.
 3. Load the project state read-only.
-4. Run:
+4. Use the internal state helper:
 
 ```bash
 node scripts/testing-session-state.mjs action:start project:<slug> [goal:"..."]
@@ -87,7 +93,7 @@ testing-session state.
 
 ## Status
 
-For `action:status`, run:
+For `action:status`, use the internal state helper:
 
 ```bash
 node scripts/testing-session-state.mjs action:status session:<session-id>
@@ -98,7 +104,7 @@ unless the user asks for exact evidence.
 
 ## Stop
 
-For `action:stop`, run:
+For `action:stop`, use the internal state helper:
 
 ```bash
 node scripts/testing-session-state.mjs action:stop session:<session-id>

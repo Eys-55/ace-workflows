@@ -8,6 +8,13 @@ description: Show the available ace-workflows skills, scripts, task states, AGEN
 Use this skill to explain what the workflow repo can do right now. This is a
 read-only guide surface.
 
+## Skill-First Runtime Rule
+
+Root `AGENTS.md` is the source of truth: this foundry builds skill-first
+workflow packs for Codex, Claude Code, opencode, and Antigravity-style
+environments. Lead with `$skill-name` surfaces. Treat scripts as state helpers
+or validation support, not as the primary way to call skills.
+
 ## Required Reading
 
 Before answering:
@@ -45,7 +52,7 @@ CODEX-DISCOVERABLE SKILL FILES
 - .agents/skills/testing-session/SKILL.md
 - .agents/skills/review-project-state/SKILL.md
 
-SCRIPTS
+STATE HELPERS
 - node scripts/validate-workflow-state.mjs
 - node scripts/query-workflow-state.mjs --list-projects
 - node scripts/query-workflow-state.mjs --list-agents-md
@@ -154,12 +161,14 @@ Every live `AGENTS.md` must be registered in `registry/agents-md.json`.
 
 ## Safety Rules
 
-- Python is forbidden.
+- Python files are forbidden.
 - JSON is the source of truth for project/task state.
 - `.agents/skills` is the source of truth for skill instructions.
 - Markdown is the source of truth for references, artifacts, reviews, and
   handoffs.
 - `.mjs` is allowed only for JSON query/validation helpers.
+- Do not present `npx`, `npm`, Python, or raw helper commands as the primary
+  operator path for calling a workflow skill.
 - Task work must load `project.json`, `tasks/index.json`, and every non-done
   task JSON first.
 - Task work must load root `AGENTS.md`, the registry, and project `AGENTS.md`

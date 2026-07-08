@@ -8,6 +8,13 @@ description: Continue an existing JSON-tracked workflow task in ace-workflows. U
 Use this skill to continue an existing task. It is a discoverable alias for the
 continue behavior defined in `.agents/skills/initiate-task/SKILL.md`.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: continue work through `$continue-task` and the selected
+task's saved phase. Do not make `npx`, `npm`, Python, or raw helper commands the
+operator-facing way to call a workflow skill. Helper commands are internal
+support or verification only.
+
 ## Required Reading
 
 Before acting:

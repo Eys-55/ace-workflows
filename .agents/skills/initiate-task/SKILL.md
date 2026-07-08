@@ -15,6 +15,14 @@ operations are exposed as skills:
 Matt Pocock phases are task state. Do not split them into separate repo-local
 skills.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: workflow products in this repo are built as skills and
+workflow packs for Codex, Claude Code, opencode, and Antigravity-style
+environments. Do not turn task initiation into an `npx`, `npm`, Python, or raw
+script calling workflow. Helper scripts may support validation and JSON state
+inspection only.
+
 ## Required Reading
 
 Before acting:
@@ -467,7 +475,7 @@ ACTION
 - explicit next instruction required
 ```
 
-## Validation
+## Developer Verification
 
 Run before committing workflow-state changes:
 

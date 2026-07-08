@@ -55,13 +55,14 @@ claim that every upstream workflow is ready to run.
 
 ## Install
 
-Install the local package from this repository:
+Install the local package only when you are testing or exporting the skill pack
+outside this repo's active `.agents/skills` surface:
 
 ```bash
 npm install ./projects/real-life-workflows
 ```
 
-That installs the package and exposes the first callable skill surface:
+That package exposes the first exportable skill surface for agent runtimes:
 
 ```text
 real-life-workflow-search
@@ -70,14 +71,16 @@ real-life-workflow-search
 The package is local-installable first. It is not presented as a published npm
 package.
 
-## Call The Skill
+## Agent Runtime Usage
 
-Use the packaged command after install:
+Use `real-life-workflow-search` as a skill in Codex, Claude Code, opencode, or
+another compatible agent runtime. The caller provides a workflow topic and an
+approved artifact path, and the skill writes a workflow-understanding packet.
 
-```bash
-npx real-life-workflow-search \
-  --query "customer billing exception workflows" \
-  --output projects/customer-ops/artifacts/workflow-packets/customer-billing-exceptions.md
+```text
+Use $real-life-workflow-search to create a workflow-understanding packet for
+"customer billing exception workflows" and write it under the primary project's
+approved workflow-packets artifact area.
 ```
 
 The output path should be inside the caller or primary project's approved
@@ -85,11 +88,10 @@ artifact area. The skill writes a packet every run and reports the packet path.
 
 For broader searches:
 
-```bash
-npx real-life-workflow-search \
-  --query "document evidence research workflows" \
-  --limit 20 \
-  --output projects/research-ops/artifacts/workflow-packets/document-evidence.md
+```text
+Use $real-life-workflow-search with a broader recommendation limit for
+"document evidence research workflows" and write the packet under the primary
+project's approved workflow-packets artifact area.
 ```
 
 Agent harnesses can discover the packaged skill through:
@@ -98,6 +100,17 @@ Agent harnesses can discover the packaged skill through:
 skills/real-life-workflow-search/SKILL.md
 skills/real-life-workflow-search/agents/openai.yaml
 skill-manifest.json
+```
+
+## Package Smoke Test
+
+Use this only to verify the local package command wrapper, not as the normal
+operator path for calling the skill:
+
+```bash
+npx real-life-workflow-search \
+  --query "customer billing exception workflows" \
+  --output projects/customer-ops/artifacts/workflow-packets/customer-billing-exceptions.md
 ```
 
 ## Packet Output
@@ -153,7 +166,7 @@ legal, financial, compliance, engineering, safety, eligibility, coverage, or
 operational correctness. Human review is required before external action or
 before turning a packet into a reusable production skill.
 
-## Validate
+## Developer Verification
 
 From the repository root:
 

@@ -10,6 +10,12 @@ project dashboard: load everything before recommending or editing anything.
 Use it as mandatory preflight when a project already exists, the task is risky,
 or the next action could conflict with unfinished work.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: this foundry operates through skill-first workflow
+surfaces for Codex and other agent runtimes. Query helpers may be used to inspect
+JSON state, but they do not replace `$skill-name` task flow.
+
 ## Required Reading
 
 Before acting:

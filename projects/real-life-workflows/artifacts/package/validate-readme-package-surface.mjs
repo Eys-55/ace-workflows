@@ -40,6 +40,14 @@ function requireNotIncludes(contents, needle, label) {
   }
 }
 
+function requireOrder(contents, before, after, label) {
+  const beforeIndex = contents.indexOf(before);
+  const afterIndex = contents.indexOf(after);
+  if (beforeIndex === -1 || afterIndex === -1 || beforeIndex >= afterIndex) {
+    fail(`${label}: expected "${before}" before "${after}"`);
+  }
+}
+
 async function validateReadme() {
   const readme = await readFile(path.join(projectDir, "README.md"), "utf8");
 
@@ -52,7 +60,14 @@ async function validateReadme() {
   requireIncludes(readme, "artifacts/counts/upstream-source-universe-counts.json", "README.md");
   requireIncludes(readme, "real-life-workflow-search", "README.md");
   requireIncludes(readme, "npm install ./projects/real-life-workflows", "README.md");
+  requireIncludes(readme, "## Agent Runtime Usage", "README.md");
+  requireIncludes(readme, "Use $real-life-workflow-search", "README.md");
+  requireIncludes(readme, "## Package Smoke Test", "README.md");
+  requireIncludes(readme, "Use this only to verify the local package command wrapper", "README.md");
+  requireIncludes(readme, "npx real-life-workflow-search", "README.md");
+  requireOrder(readme, "## Agent Runtime Usage", "## Package Smoke Test", "README.md");
   requireNotIncludes(readme, "171 repos", "README.md");
+  requireNotIncludes(readme, "## Call The Skill", "README.md");
 }
 
 async function validateCounts() {
@@ -111,6 +126,14 @@ async function validateSkill() {
   requireIncludes(skill, "provenance", "SKILL.md");
   requireIncludes(skill, "`node_modules`", "SKILL.md");
   requireIncludes(skill, "not active callable skills", "SKILL.md");
+  requireIncludes(skill, "## Agent Runtime Usage", "SKILL.md");
+  requireIncludes(skill, "## Skill Invocation", "SKILL.md");
+  requireIncludes(skill, "Use $real-life-workflow-search", "SKILL.md");
+  requireIncludes(skill, "## Package Smoke Test", "SKILL.md");
+  requireIncludes(skill, "not the\nnormal operator-facing skill invocation path", "SKILL.md");
+  requireIncludes(skill, "npx real-life-workflow-search", "SKILL.md");
+  requireNotIncludes(skill, "## Run", "SKILL.md");
+  requireOrder(skill, "## Skill Invocation", "## Package Smoke Test", "SKILL.md");
 
   const openaiYaml = await readFile(
     path.join(projectDir, "skills/real-life-workflow-search/agents/openai.yaml"),

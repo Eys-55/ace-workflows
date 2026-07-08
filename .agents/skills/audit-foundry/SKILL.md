@@ -9,6 +9,13 @@ Use this skill to write a durable Markdown audit report, then summarize the
 report in chat. The audit is read-only against workflow source state. The only
 normal write is the audit report artifact.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: this audit reports whether the foundry remains
+skill-first and agent-runtime-first. Query helpers may support evidence
+gathering, but audit usage starts from `$audit-foundry`, not command-first
+workflow invocation.
+
 ## Invocation
 
 Supported forms:
@@ -38,7 +45,7 @@ Always start from the repo root and read:
 10. `scripts/query-workflow-state.mjs`.
 11. `scripts/validate-workflow-state.mjs`.
 
-Run the query helper when available:
+Use the query helper as internal evidence support when available:
 
 ```bash
 node scripts/query-workflow-state.mjs --project workflow-foundry --list-tasks
@@ -67,7 +74,7 @@ Audit the workflow-foundry control plane:
 
 Use for `scope:foundry-projects`.
 
-Run the foundry-only audit, then load each discoverable project:
+Complete the foundry-only audit, then load each discoverable project:
 
 1. Run `node scripts/query-workflow-state.mjs --list-projects`.
 2. For each project, read `AGENTS.md`, `project.json`, `tasks/index.json`, and

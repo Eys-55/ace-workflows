@@ -8,6 +8,12 @@ description: Open the Workflow Foundry tracker UI quickly, start it when needed,
 Use this skill when the user wants to open, run, inspect, or verify the
 Workflow Foundry tracker UI.
 
+## Skill-First Runtime Rule
+
+Follow root `AGENTS.md`: `$workflow-tracker-ui` is the operator surface. The
+Astro/npm commands below are internal support for opening or verifying the
+tracker UI, not the primary way to call this skill.
+
 ## Default: Fast Open
 
 1. Work from the repo root.
@@ -24,7 +30,7 @@ Workflow Foundry tracker UI.
 5. Wait until `http://127.0.0.1:4321` responds, then open it for the user.
 6. Report the URL and whether the server was reused or started.
 
-## Verification Mode
+## Developer Verification Mode
 
 Use this branch only when the user asks to verify, test, build, or check the
 tracker before opening it.

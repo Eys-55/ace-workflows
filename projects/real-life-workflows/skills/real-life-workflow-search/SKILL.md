@@ -8,6 +8,12 @@ description: Search the Real Life Workflows source universe and write a full wor
 Use this skill to search the Real Life Workflows catalog and create a durable
 workflow-understanding packet.
 
+## Agent Runtime Usage
+
+This is a packaged skill for agent runtimes such as Codex, Claude Code,
+opencode, and Antigravity-style environments. Invoke it as a skill from the
+runtime surface. Do not treat the command wrapper as the primary operator path.
+
 ## Contract
 
 - Start from the operator's workflow topic or job-to-understand.
@@ -33,9 +39,28 @@ Do not write packets into:
 If the caller has no approved artifact area, stop and ask for one. Do not pick
 a dependency-owned path as a fallback.
 
-## Run
+## Skill Invocation
 
-Prefer the packaged helper when it is available:
+Ask the agent runtime to use `$real-life-workflow-search` with the workflow
+topic and approved output artifact area:
+
+```text
+Use $real-life-workflow-search to create a workflow-understanding packet for
+"customer billing exception workflows" and write it to the primary project's
+approved workflow-packets artifact area.
+```
+
+Use a limit only when the operator asks for broader or narrower output:
+
+```text
+Use $real-life-workflow-search with a broader recommendation limit for
+"document evidence research workflows".
+```
+
+## Package Smoke Test
+
+Use the command wrapper only to verify the exported local package. It is not the
+normal operator-facing skill invocation path:
 
 ```bash
 npx real-life-workflow-search \
@@ -43,16 +68,7 @@ npx real-life-workflow-search \
   --output projects/example/artifacts/workflow-packets/customer-billing-exceptions.md
 ```
 
-Use a limit only when the operator asks for broader or narrower output:
-
-```bash
-npx real-life-workflow-search \
-  --query "document evidence research workflows" \
-  --limit 20 \
-  --output projects/example/artifacts/workflow-packets/document-evidence.md
-```
-
-The helper refuses protected output paths and creates parent directories for
+The wrapper refuses protected output paths and creates parent directories for
 valid packet paths.
 
 ## Packet Shape

@@ -21,9 +21,9 @@
       "task_id": "workflow-foundry-003",
       "title": "Expose workflow skills in Codex app",
       "task_kind": "workflow-change",
-      "status": "todo",
-      "matt_phase": "intake",
-      "updated_at": "2026-07-07"
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-004",
@@ -87,7 +87,7 @@
       "task_kind": "workflow-change",
       "status": "in-progress",
       "matt_phase": "code-review",
-      "updated_at": "2026-07-07"
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-012",

@@ -77,6 +77,25 @@ directly linked reference files.
 `SKILL.md` must include `name` and `description` metadata. The folder name must
 match the frontmatter `name`.
 
+## Skill-First Runtime Surface
+
+This foundry builds skills and workflow packs for agent runtimes first: Codex,
+Claude Code, opencode, and Antigravity-style environments. Operator-facing
+workflow docs must lead with skill invocation and agent-runtime usage, not
+manual package or script commands.
+
+For normal Ace/Codex work, `.agents/skills/` is the active local skill surface.
+Project-local packaged skills may exist as exportable artifacts for other agent
+runtimes, but they are not automatically active local Codex skills. Their docs
+must still be skill-first and agent-runtime-first.
+
+Do not present `npx`, `npm`, Python, or raw helper scripts as the primary way to
+call a workflow skill. Command-like helpers are allowed only when they are
+clearly framed as deterministic validation, query helpers, package metadata,
+developer/package smoke tests, or internal support that a skill calls. Audit and
+classify command-like surfaces before deleting them; deletion is not the default
+first move.
+
 ## Allowed File Types
 
 Python is not allowed in this repository.

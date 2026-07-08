@@ -94,6 +94,28 @@ const coreScriptArtifacts = new Set([
 const forbiddenPrimarySlashPattern = new RegExp(
   `(^|\\s)/(?:${skillInvocationNames.join("|")})\\b`,
 );
+const commandFirstSkillUsagePattern =
+  /(^|[\s`])(?:npx|npm|pnpm|yarn|bun|python|python3)\b|(^|[\s`])node\s+(?:scripts\/|projects\/[^/\s]+\/artifacts\/)/;
+const commandFirstOperatorHeadings = [
+  "agent runtime usage",
+  "call skill",
+  "call the skill",
+  "how to use",
+  "operator usage",
+  "run",
+  "skill invocation",
+  "usage",
+  "use",
+  "use the skill",
+];
+const commandSupportHeadings = [
+  "developer verification",
+  "developer verification mode",
+  "install",
+  "package smoke test",
+  "state helpers",
+  "validation",
+];
 
 async function exists(filePath) {
   try {
@@ -248,6 +270,66 @@ function validateNoPrimarySlashInvocation(filePath, contents) {
     errors.push(
       `${relative(filePath)} must use $skill-name invocation, not primary slash-command invocation`,
     );
+  }
+}
+
+function normalizeHeading(heading) {
+  return heading
+    .replace(/`/g, "")
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+function isCommandFirstOperatorHeading(heading) {
+  const normalized = normalizeHeading(heading);
+  return commandFirstOperatorHeadings.some(
+    (operatorHeading) =>
+      normalized === operatorHeading || normalized.endsWith(` ${operatorHeading}`),
+  );
+}
+
+function isCommandSupportHeading(heading) {
+  const normalized = normalizeHeading(heading);
+  return commandSupportHeadings.some(
+    (supportHeading) =>
+      normalized === supportHeading || normalized.endsWith(` ${supportHeading}`),
+  );
+}
+
+function isSkillFirstRuntimeSurfaceFile(filePath) {
+  const file = relative(filePath);
+  return (
+    file === "AGENTS.md" ||
+    /^\.agents\/skills\/[^/]+\/SKILL\.md$/.test(file) ||
+    /^projects\/[^/]+\/README\.md$/.test(file) ||
+    /^projects\/[^/]+\/skills\/[^/]+\/SKILL\.md$/.test(file)
+  );
+}
+
+function validateSkillFirstRuntimeSurface(filePath, contents) {
+  let currentHeading = "";
+
+  for (const [index, line] of contents.split("\n").entries()) {
+    const headingMatch = line.match(/^(#{1,6})\s+(.+?)\s*#*\s*$/);
+    if (headingMatch) {
+      currentHeading = headingMatch[2];
+      continue;
+    }
+
+    if (!commandFirstSkillUsagePattern.test(line)) continue;
+    if (!isCommandFirstOperatorHeading(currentHeading)) continue;
+    if (isCommandSupportHeading(currentHeading)) continue;
+
+    errors.push(
+      `${relative(filePath)}:${index + 1} presents command-first skill usage under "${currentHeading}"; move command examples to Developer Verification, Package Smoke Test, or internal helper sections`,
+    );
+  }
+}
+
+async function validateSkillFirstRuntimeSurfaces(files) {
+  for (const filePath of files.filter(isSkillFirstRuntimeSurfaceFile)) {
+    validateSkillFirstRuntimeSurface(filePath, await readText(filePath));
   }
 }
 
@@ -1208,6 +1290,7 @@ for (const file of files) {
 }
 
 await validateSkillSurface(files);
+await validateSkillFirstRuntimeSurfaces(files);
 await validateQuarantineImports(files);
 
 const agentsEntries = await validateAgentsRegistry(files);
