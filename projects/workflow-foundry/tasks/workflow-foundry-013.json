@@ -3,8 +3,8 @@
   "project_slug": "workflow-foundry",
   "title": "Create audit review and cleanup workflow skills",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "code-review",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Design a foundry-owned workflow surface for turning audit findings into reviewable, approval-gated cleanup work. The likely split is audit-review for interpreting audit reports and audit-cleanup for executing approved cleanup, while preserving audit-foundry as read-only.",
   "acceptance_criteria": [
@@ -51,7 +51,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "code-review",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": ".agents/skills/audit-review/SKILL.md",
@@ -177,6 +177,10 @@
     {
       "date": "2026-07-08",
       "event": "Completed focused standards/spec review against the combined PRD and local issue artifacts; no blocking issues found, with residual risk limited to future agents following the workflow contract."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Closed after implementation, validation, tracker verification, and focused code review completed; implementation artifacts were committed before closure so validation could enforce non-done task ownership during the implementation checkpoint."
     }
   ],
   "created_at": "2026-07-08",
