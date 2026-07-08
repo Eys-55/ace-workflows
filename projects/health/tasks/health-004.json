@@ -3,8 +3,8 @@
   "project_slug": "health",
   "title": "Implement remaining Health 002 plan slices",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "implement",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Implement the remaining slices from the completed health-002 Philippines insurance and HMO navigator plan: standalone implementation plan, source atlas, single-HMO deep dive, comparison-readiness matrix, navigator flow, and eval fixtures.",
   "acceptance_criteria": [
@@ -363,6 +363,10 @@
     {
       "date": "2026-07-08",
       "event": "Implemented remaining Health 002 plan slices: standalone plan, source atlas, Maxicare deep dive, comparison-readiness matrix, navigator flow, eval fixtures, issue slices, and deterministic validator."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Marked done after local implementation checkpoint commit 939ebb4."
     }
   ],
   "created_at": "2026-07-08",
