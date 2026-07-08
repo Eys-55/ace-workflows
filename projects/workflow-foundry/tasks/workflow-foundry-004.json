@@ -3,10 +3,10 @@
   "project_slug": "workflow-foundry",
   "title": "Maintain workflow tracker state",
   "task_kind": "tracker-maintenance",
-  "status": "todo",
+  "status": "in-progress",
   "matt_phase": "intake",
   "explicit_next_action_required": true,
-  "summary": "Track auditable maintenance of the workflow-foundry JSON tracker itself, including task index consistency, task JSON updates, registry alignment, and validation behavior.",
+  "summary": "Track auditable maintenance of the workflow-foundry JSON tracker itself. This task currently accounts for the approved cleanup that closes stale/completed tasks, registers the LinkedIn Posts scaffold state, and keeps only genuine follow-up work open.",
   "acceptance_criteria": [
     "tracker edits are made through a tracker-maintenance task",
     "tasks/index.json and task JSON files remain consistent",
@@ -38,7 +38,22 @@
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
       "projects/workflow-foundry/tasks/workflow-foundry-010.json",
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
-      "projects/workflow-foundry/tasks/workflow-foundry-012.json"
+      "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+      "projects/real-life-workflows/AGENTS.md",
+      "projects/real-life-workflows/project.json",
+      "projects/real-life-workflows/tasks/index.json",
+      "projects/real-life-workflows/tasks/real-life-workflows-003.json",
+      "projects/linkedin-posts/AGENTS.md",
+      "projects/linkedin-posts/project.json",
+      "projects/linkedin-posts/tasks/index.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-001.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+      "projects/health/AGENTS.md",
+      "projects/health/project.json",
+      "projects/health/tasks/index.json",
+      "projects/health/tasks/health-003.json",
+      "projects/health/tasks/health-005.json",
+      "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs"
     ]
   },
   "phase_guard": {
@@ -70,7 +85,16 @@
     "projects/workflow-foundry/tasks/workflow-foundry-009.json",
     "projects/workflow-foundry/tasks/workflow-foundry-010.json",
     "projects/workflow-foundry/tasks/workflow-foundry-011.json",
-    "projects/workflow-foundry/tasks/workflow-foundry-012.json"
+    "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+    "projects/real-life-workflows/tasks/real-life-workflows-003.json",
+    "projects/linkedin-posts/AGENTS.md",
+    "projects/linkedin-posts/project.json",
+    "projects/linkedin-posts/tasks/index.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-001.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+    "projects/health/tasks/index.json",
+    "projects/health/tasks/health-003.json",
+    "projects/health/tasks/health-005.json"
   ],
   "session_log": [
     {
@@ -128,8 +152,12 @@
     {
       "date": "2026-07-07",
       "event": "Tracked creation of workflow-foundry-012 for the one-way project skill connection workflow and refreshed non-done task preload snapshots."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Continued as the current tracker-maintenance accounting task for the approved cleanup plan; linked changed tracker files across workflow-foundry, real-life-workflows, linkedin-posts, and health while preserving future work tasks."
     }
   ],
   "created_at": "2026-07-06",
-  "updated_at": "2026-07-07"
+  "updated_at": "2026-07-08"
 }

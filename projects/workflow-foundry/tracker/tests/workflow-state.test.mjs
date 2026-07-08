@@ -11,12 +11,26 @@ test("loads all projects and task details from repo JSON", async () => {
   assert.equal(state.currentProjectSlug, "workflow-foundry");
   assert.ok(workflowFoundry, "workflow-foundry project should be present");
   assert.equal(workflowFoundry.state, "active");
-  assert.equal(workflowFoundry.stats.open, 10);
-  assert.equal(workflowFoundry.stats.blocked, 0);
-  assert.equal(workflowFoundry.stats.inReview, 3);
-  assert.equal(workflowFoundry.stats.done, 2);
-  assert.equal(workflowFoundry.activeTaskCount, 10);
-  assert.equal(workflowFoundry.hotPhase, "code-review");
+  const expectedStats = workflowFoundry.tasks.reduce(
+    (stats, task) => ({
+      open: stats.open + (task.status === "done" ? 0 : 1),
+      blocked: stats.blocked + (task.status === "blocked" ? 1 : 0),
+      inReview: stats.inReview + (task.mattPhase === "code-review" ? 1 : 0),
+      done: stats.done + (task.status === "done" ? 1 : 0),
+    }),
+    { open: 0, blocked: 0, inReview: 0, done: 0 },
+  );
+  const expectedHotPhase =
+    ["implement", "code-review", "issues", "prd", "grilling", "intake"].find(
+      (phase) =>
+        workflowFoundry.tasks.some(
+          (task) => task.status !== "done" && task.lifecyclePhase === phase,
+        ),
+    ) ?? "done";
+
+  assert.deepEqual(workflowFoundry.stats, expectedStats);
+  assert.equal(workflowFoundry.activeTaskCount, expectedStats.open);
+  assert.equal(workflowFoundry.hotPhase, expectedHotPhase);
 
   const trackerTask = workflowFoundry.tasks.find(
     (task) => task.id === "workflow-foundry-005",
@@ -24,16 +38,16 @@ test("loads all projects and task details from repo JSON", async () => {
 
   assert.ok(trackerTask, "tracker task should be present");
   assert.equal(trackerTask.kind, "workflow-change");
-  assert.equal(trackerTask.status, "in-progress");
-  assert.equal(trackerTask.mattPhase, "code-review");
-  assert.equal(trackerTask.lifecyclePhase, "code-review");
+  assert.equal(trackerTask.status, "done");
+  assert.equal(trackerTask.mattPhase, "done");
+  assert.equal(trackerTask.lifecyclePhase, "done");
   assert.equal(trackerTask.explicitNextActionRequired, true);
-  assert.equal(trackerTask.phaseGuard.selectedNextAction, "code-review");
+  assert.equal(trackerTask.phaseGuard.selectedNextAction, "none");
   assert.equal(
     trackerTask.continueCommand,
     "$continue-task project:workflow-foundry task:workflow-foundry-005",
   );
-  assert.equal(trackerTask.nextActionLabel, "code-review");
+  assert.equal(trackerTask.nextActionLabel, "explicit next action required");
   assert.ok(
     trackerTask.linkedArtifacts.includes(
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-005-astro-tracker.md",
@@ -60,7 +74,8 @@ test("derives task command, lifecycle, artifact groups, and recent session event
   );
 
   assert.ok(trackerRunnerTask, "tracker runner task should be present");
-  assert.equal(trackerRunnerTask.lifecyclePhase, "code-review");
+  assert.equal(trackerRunnerTask.status, "done");
+  assert.equal(trackerRunnerTask.lifecyclePhase, "done");
   assert.equal(
     trackerRunnerTask.continueCommand,
     "$continue-task project:workflow-foundry task:workflow-foundry-009",

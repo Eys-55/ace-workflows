@@ -1,0 +1,16 @@
+{
+  "project_slug": "linkedin-posts",
+  "name": "LinkedIn Posts",
+  "project_state": "active",
+  "goal": "Create LinkedIn post workflows from foundry, project, multi-project, or whole-system context.",
+  "domain": "content automation",
+  "agents_md": "projects/linkedin-posts/AGENTS.md",
+  "active_conventions": [],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}

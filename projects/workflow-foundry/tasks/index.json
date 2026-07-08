@@ -5,17 +5,17 @@
       "task_id": "workflow-foundry-001",
       "title": "Connect workflow skills and handoffs",
       "task_kind": "workflow-change",
-      "status": "todo",
-      "matt_phase": "intake",
-      "updated_at": "2026-07-07"
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-002",
       "title": "Add tracker-edit tasks",
       "task_kind": "tracker-maintenance",
-      "status": "todo",
-      "matt_phase": "intake",
-      "updated_at": "2026-07-07"
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-003",
@@ -29,17 +29,17 @@
       "task_id": "workflow-foundry-004",
       "title": "Maintain workflow tracker state",
       "task_kind": "tracker-maintenance",
-      "status": "todo",
+      "status": "in-progress",
       "matt_phase": "intake",
-      "updated_at": "2026-07-07"
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-005",
       "title": "Create dark-mode project task tracker UI",
       "task_kind": "workflow-change",
-      "status": "in-progress",
-      "matt_phase": "code-review",
-      "updated_at": "2026-07-07"
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-006",
@@ -69,9 +69,9 @@
       "task_id": "workflow-foundry-009",
       "title": "Create tracker UI runner skill and project workflow view",
       "task_kind": "workflow-change",
-      "status": "in-progress",
-      "matt_phase": "code-review",
-      "updated_at": "2026-07-07"
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-010",
@@ -85,8 +85,8 @@
       "task_id": "workflow-foundry-011",
       "title": "Create audit-foundry skill",
       "task_kind": "workflow-change",
-      "status": "in-progress",
-      "matt_phase": "code-review",
+      "status": "done",
+      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {

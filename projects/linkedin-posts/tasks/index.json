@@ -1,0 +1,21 @@
+{
+  "project_slug": "linkedin-posts",
+  "tasks": [
+    {
+      "task_id": "linkedin-posts-001",
+      "title": "Set up LinkedIn Posts project tracker",
+      "task_kind": "tracker-maintenance",
+      "status": "done",
+      "matt_phase": "done",
+      "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "linkedin-posts-002",
+      "title": "Create LinkedIn post generation workflow",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "issues",
+      "updated_at": "2026-07-08"
+    }
+  ]
+}

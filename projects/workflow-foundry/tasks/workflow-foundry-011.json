@@ -3,8 +3,8 @@
   "project_slug": "workflow-foundry",
   "title": "Create audit-foundry skill",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "code-review",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Create a foundry-owned, skill-first ECC audit workflow that writes Markdown reports for foundry-only, foundry-plus-projects, projects-only, and specific-project audit scopes. It audits organization, tracker consistency, active skill surfaces, validation behavior, generated UI state, open workflow tasks, and project state as required by the selected report type. Project integration and connection registration are deferred to a later task.",
   "acceptance_criteria": [
@@ -81,7 +81,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "code-review",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": ".agents/skills/audit-foundry/SKILL.md",
@@ -225,6 +225,10 @@
     {
       "date": "2026-07-08",
       "event": "Linked two real audit-foundry report artifacts created during foundry verification so validation can distinguish owned audit outputs from untracked planning files."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Closed during cleanup after audit-foundry implementation and focused code review completed with linked report artifacts."
     }
   ],
   "created_at": "2026-07-07",

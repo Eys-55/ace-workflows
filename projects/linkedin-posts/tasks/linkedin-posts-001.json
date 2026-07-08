@@ -1,0 +1,65 @@
+{
+  "task_id": "linkedin-posts-001",
+  "project_slug": "linkedin-posts",
+  "title": "Set up LinkedIn Posts project tracker",
+  "task_kind": "tracker-maintenance",
+  "status": "done",
+  "matt_phase": "done",
+  "explicit_next_action_required": true,
+  "summary": "Bootstrap the LinkedIn Posts project scaffold, project tracker, and AGENTS.md registry entry so future LinkedIn post workflow tasks can be initiated from a valid project state.",
+  "acceptance_criteria": [
+    "projects/linkedin-posts/AGENTS.md exists as a project-domain instruction file",
+    "projects/linkedin-posts/project.json records the active project goal and ECC concepts",
+    "projects/linkedin-posts/tasks/index.json tracks the setup task",
+    "registry/agents-md.json registers projects/linkedin-posts/AGENTS.md",
+    "node scripts/validate-workflow-state.mjs passes or reports only unrelated pre-existing worktree issues"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load root rules, registry, LinkedIn Posts project state, and the setup task before changing tracker state.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/linkedin-posts/AGENTS.md",
+      "projects/linkedin-posts/project.json",
+      "projects/linkedin-posts/tasks/index.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-001.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-002.json"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "none",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [],
+  "linked_artifacts": [
+    "registry/agents-md.json",
+    "projects/linkedin-posts/AGENTS.md",
+    "projects/linkedin-posts/project.json",
+    "projects/linkedin-posts/tasks/index.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-001.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-002.json"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-08",
+      "event": "Created tracker-maintenance task while setting up the LinkedIn Posts project scaffold."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Linked the first workflow-change task file so task initiation remains valid under tracker-maintenance validation."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Closed during cleanup after the LinkedIn Posts project scaffold, project tracker, registry entry, and first workflow task were present and valid."
+    }
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}

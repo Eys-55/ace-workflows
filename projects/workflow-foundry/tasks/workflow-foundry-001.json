@@ -3,8 +3,8 @@
   "project_slug": "workflow-foundry",
   "title": "Connect workflow skills and handoffs",
   "task_kind": "workflow-change",
-  "status": "todo",
-  "matt_phase": "intake",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Tighten the existing workflow skills so setup, help, review, initiate, and continue connect through explicit handoffs, live registry state, and enforceable JSON validation.",
   "acceptance_criteria": [
@@ -104,8 +104,12 @@
     {
       "date": "2026-07-07",
       "event": "Updated snapshot to include workflow-foundry-006 after adding the foundry expansion discovery intake task."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Closed during cleanup after downstream workflow-help, setup/initiate/continue handoffs, query helper, and validation behavior had already been implemented and validated by later workflow-foundry tasks."
     }
   ],
   "created_at": "2026-07-06",
-  "updated_at": "2026-07-07"
+  "updated_at": "2026-07-08"
 }

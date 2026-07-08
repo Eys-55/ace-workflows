@@ -41,6 +41,19 @@
       ]
     },
     {
+      "path": "projects/linkedin-posts/AGENTS.md",
+      "role": "project-domain",
+      "scope": "projects/linkedin-posts",
+      "owning_project": "linkedin-posts",
+      "live": true,
+      "allowed_content": [
+        "project domain behavior",
+        "project vocabulary",
+        "project source rules",
+        "project agent workflow guidance"
+      ]
+    },
+    {
       "path": "projects/health/AGENTS.md",
       "role": "project-domain",
       "scope": "projects/health",

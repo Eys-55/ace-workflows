@@ -3,8 +3,8 @@
   "project_slug": "health",
   "title": "Build standalone Philippines health coverage workflow repo",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "code-review",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Built and pushed the standalone `philippines-health-coverage` workflow repo. The foundry remained only the factory: the shipped repo contains its own skills, references, artifacts, package metadata, validators, eval fixtures, and rollout instructions for public-source PhilHealth, HMO, and insurance research without depending on this foundry at runtime.",
   "acceptance_criteria": [
@@ -71,7 +71,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "code-review",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": "projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md",
@@ -468,6 +468,10 @@
     {
       "date": "2026-07-08",
       "event": "Advanced saved Matt phase to code-review so the pushed standalone package can be reviewed and closed from an explicit tracker state."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Closed during cleanup after the standalone philippines-health-coverage repo was implemented, validated, committed, pushed, and left clean at the recorded GitHub commit."
     }
   ],
   "created_at": "2026-07-08",
