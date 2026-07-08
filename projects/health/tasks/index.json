@@ -1,0 +1,21 @@
+{
+  "project_slug": "health",
+  "tasks": [
+    {
+      "task_id": "health-001",
+      "title": "Set up health workflow project tracker",
+      "task_kind": "tracker-maintenance",
+      "status": "in-progress",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "health-002",
+      "title": "Discover health workflow candidates from real-life workflows",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "implement",
+      "updated_at": "2026-07-08"
+    }
+  ]
+}

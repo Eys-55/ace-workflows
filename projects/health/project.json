@@ -1,0 +1,20 @@
+{
+  "project_slug": "health",
+  "name": "Health",
+  "project_state": "active",
+  "goal": "Build health workflow packs that help an agentic engineer learn real healthcare workflows one by one before designing agentic systems around them.",
+  "domain": "healthcare workflow discovery and education",
+  "agents_md": "projects/health/AGENTS.md",
+  "active_conventions": [
+    "source-grounded workflow packets",
+    "human-reviewed high-stakes boundaries",
+    "educational first-pass explanations"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}

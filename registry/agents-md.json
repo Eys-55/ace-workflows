@@ -39,6 +39,19 @@
         "project source rules",
         "project agent workflow guidance"
       ]
+    },
+    {
+      "path": "projects/health/AGENTS.md",
+      "role": "project-domain",
+      "scope": "projects/health",
+      "owning_project": "health",
+      "live": true,
+      "allowed_content": [
+        "project domain behavior",
+        "project vocabulary",
+        "project source rules",
+        "project agent workflow guidance"
+      ]
     }
   ]
 }

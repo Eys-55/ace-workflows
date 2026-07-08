@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Philippines Health Coverage Registry",
+  "type": "object",
+  "required": ["version", "generated_for", "last_checked_at", "sources", "entities"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "generated_for": { "type": "string", "minLength": 1 },
+    "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "scope_note": { "type": "string" },
+    "advice_boundary": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" },
+      "minItems": 1
+    },
+    "entities": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entity" },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["source_id", "source_type", "title", "url", "authority_level", "last_checked_at"],
+      "additionalProperties": false,
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "source_type": {
+          "type": "string",
+          "enum": ["regulator", "public-payer", "provider", "market-performance", "educational"]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "minLength": 1 },
+        "authority_level": {
+          "type": "string",
+          "enum": ["official", "provider-published", "secondary"]
+        },
+        "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "notes": { "type": "string" }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "required": [
+        "entity_id",
+        "entity_type",
+        "canonical_name",
+        "display_name",
+        "country",
+        "priority",
+        "aliases",
+        "source_ids",
+        "last_checked_at",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "entity_type": {
+          "type": "string",
+          "enum": ["public-payer", "hmo", "life-insurer", "non-life-insurer", "composite-insurer"]
+        },
+        "canonical_name": { "type": "string", "minLength": 1 },
+        "display_name": { "type": "string", "minLength": 1 },
+        "legal_name": { "type": "string" },
+        "brand_names": { "type": "array", "items": { "type": "string" } },
+        "former_names": { "type": "array", "items": { "type": "string" } },
+        "aliases": { "type": "array", "items": { "type": "string" } },
+        "country": { "type": "string", "const": "Philippines" },
+        "priority": { "type": "string", "enum": ["primary", "secondary", "seed"] },
+        "status": {
+          "type": "string",
+          "enum": ["official-anchor", "listed", "listed-with-regulatory-note", "seed"]
+        },
+        "source_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "official_domains": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" },
+        "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    }
+  }
+}

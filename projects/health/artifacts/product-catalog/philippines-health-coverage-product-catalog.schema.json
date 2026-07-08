@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Philippines Health Coverage Product Catalog",
+  "type": "object",
+  "required": [
+    "version",
+    "generated_for",
+    "last_checked_at",
+    "registry_reference",
+    "sources",
+    "regulatory_patterns",
+    "product_surfaces"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "generated_for": { "type": "string", "minLength": 1 },
+    "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "registry_reference": { "type": "string", "minLength": 1 },
+    "scope_note": { "type": "string" },
+    "advice_boundary": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" },
+      "minItems": 1
+    },
+    "regulatory_patterns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/regulatory_pattern" },
+      "minItems": 1
+    },
+    "product_surfaces": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/product_surface" },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["source_id", "source_type", "title", "url", "authority_level", "last_checked_at"],
+      "additionalProperties": false,
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "source_type": {
+          "type": "string",
+          "enum": ["public-payer", "regulator", "provider", "insurer", "educational"]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "minLength": 1 },
+        "authority_level": {
+          "type": "string",
+          "enum": ["official", "provider-published", "secondary"]
+        },
+        "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "notes": { "type": "string" }
+      }
+    },
+    "regulatory_pattern": {
+      "type": "object",
+      "required": [
+        "pattern_id",
+        "applies_to_entity_type",
+        "pattern_name",
+        "coverage_tags",
+        "source_ids",
+        "last_checked_at",
+        "educational_summary",
+        "advice_boundary"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "pattern_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "applies_to_entity_type": { "type": "string", "enum": ["hmo"] },
+        "pattern_name": { "type": "string", "minLength": 1 },
+        "coverage_tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "source_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "educational_summary": { "type": "string", "minLength": 1 },
+        "advice_boundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "product_surface": {
+      "type": "object",
+      "required": [
+        "product_id",
+        "entity_id",
+        "entity_type_snapshot",
+        "product_name",
+        "product_type",
+        "market_segments",
+        "coverage_tags",
+        "evidence_level",
+        "source_ids",
+        "extraction_status",
+        "last_checked_at",
+        "educational_summary",
+        "user_questions",
+        "human_review_required",
+        "advice_boundary"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "product_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "entity_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "entity_type_snapshot": { "type": "string", "minLength": 1 },
+        "product_name": { "type": "string", "minLength": 1 },
+        "product_aliases": { "type": "array", "items": { "type": "string" } },
+        "product_type": { "type": "string", "minLength": 1 },
+        "market_segments": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "coverage_tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "evidence_level": { "type": "string", "minLength": 1 },
+        "source_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "extraction_status": { "type": "string", "minLength": 1 },
+        "last_checked_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "educational_summary": { "type": "string", "minLength": 1 },
+        "user_questions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "human_review_required": { "type": "boolean", "const": true },
+        "advice_boundary": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

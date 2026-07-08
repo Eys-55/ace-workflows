@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "generated_for": "health-002",
+  "last_checked_at": "2026-07-08",
+  "registry_reference": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
+  "scope_note": "Seed catalog for Philippines health coverage literacy workflows. This is a category-level extraction surface, not a complete plan database.",
+  "advice_boundary": "Educational workflow data only. This catalog does not provide medical advice, insurance advice, legal advice, financial advice, claims decisions, coverage determinations, rankings, or purchase recommendations.",
+  "sources": [
+    {
+      "source_id": "philhealth-benefits-page",
+      "source_type": "public-payer",
+      "title": "PhilHealth Benefits",
+      "url": "https://www.philhealth.gov.ph/benefits/",
+      "authority_level": "official",
+      "last_checked_at": "2026-07-08",
+      "notes": "Official PhilHealth benefit categories and benefit mechanics page."
+    },
+    {
+      "source_id": "ic-hmo-product-circular-2017-19",
+      "source_type": "regulator",
+      "title": "Insurance Commission Circular Letter 2017-19 on HMO products and forms",
+      "url": "https://www.insurance.gov.ph/wp-content/uploads/2022/09/CL2017_19.pdf",
+      "authority_level": "official",
+      "last_checked_at": "2026-07-08",
+      "notes": "Official HMO product definition, product contract, and benefit-category source."
+    },
+    {
+      "source_id": "maxicare-plans",
+      "source_type": "provider",
+      "title": "Maxicare Plans",
+      "url": "https://www.maxicare.com.ph/maxicare-plans/",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published product surface for individual/family, MSME, corporate, prepaid, and emergency-oriented Maxicare products."
+    },
+    {
+      "source_id": "medicard-healthcare-programs",
+      "source_type": "provider",
+      "title": "MediCard Healthcare Packages",
+      "url": "https://www.medicardphils.com/healthcare-programs/",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published package archive for MediCard individual, family, SME, corporate, and emergency products."
+    },
+    {
+      "source_id": "medicard-hero",
+      "source_type": "provider",
+      "title": "MediCard H.E.R.O. Health Emergency Response On-demand",
+      "url": "https://www.medicardphils.com/healthcare-programs/medicard-h-e-r-o-health-emergency-response-on-demand/",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published emergency response product surface."
+    },
+    {
+      "source_id": "philcare-services",
+      "source_type": "provider",
+      "title": "PhilCare Services",
+      "url": "https://philcare.com.ph/services",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published service surface for PhilCare Health LUXE and related coverage categories."
+    },
+    {
+      "source_id": "aia-health-products",
+      "source_type": "insurer",
+      "title": "AIA Philippines Health Products",
+      "url": "https://www.aia.com.ph/en/our-products/health",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published health product category page for AIA Philippines."
+    },
+    {
+      "source_id": "sunlife-health-protection",
+      "source_type": "insurer",
+      "title": "Sun Life Philippines Health Protection Products",
+      "url": "https://www.sunlife.com.ph/en/insurance/health-protection/",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published health protection product category page."
+    },
+    {
+      "source_id": "prulife-health-products",
+      "source_type": "insurer",
+      "title": "Pru Life UK Health Products",
+      "url": "https://www.prulifeuk.com.ph/en/products/health/",
+      "authority_level": "provider-published",
+      "last_checked_at": "2026-07-08",
+      "notes": "Provider-published health product category page."
+    }
+  ],
+  "regulatory_patterns": [
+    {
+      "pattern_id": "hmo-product-regulatory-baseline",
+      "applies_to_entity_type": "hmo",
+      "pattern_name": "HMO Product Regulatory Baseline",
+      "coverage_tags": [
+        "inpatient",
+        "outpatient",
+        "emergency",
+        "preventive",
+        "dental",
+        "maternity",
+        "diagnostic",
+        "provider-network",
+        "cashless-access"
+      ],
+      "source_ids": ["ic-hmo-product-circular-2017-19"],
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "The Insurance Commission circular frames HMO products as prepaid healthcare-service arrangements delivered through a selected provider network for a specified period, with possible benefit categories including inpatient, outpatient, emergency, annual physical exam, executive check-up, dental, maternity, and ancillary services.",
+      "advice_boundary": "Use as a regulator-published product taxonomy only. Do not infer that any specific HMO plan includes every listed category."
+    }
+  ],
+  "product_surfaces": [
+    {
+      "product_id": "philhealth-inpatient-benefits",
+      "entity_id": "philhealth",
+      "entity_type_snapshot": "public-payer",
+      "product_name": "Inpatient Benefits",
+      "product_aliases": ["PhilHealth inpatient benefits", "All Case Rates inpatient benefits"],
+      "product_type": "public-benefit-category",
+      "market_segments": ["public-member", "general"],
+      "coverage_tags": ["public-benefit", "inpatient", "provider-network"],
+      "evidence_level": "official",
+      "source_ids": ["philhealth-benefits-page"],
+      "extraction_status": "category-level",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "PhilHealth describes inpatient benefits as benefits paid to accredited health facilities through All Case Rates, with the case rate deducted from the member's bill before discharge.",
+      "user_questions": [
+        "Is the facility PhilHealth-accredited for the case?",
+        "What documents does the facility require before discharge?",
+        "What part of the bill remains outside the PhilHealth case rate?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain the public benefit category only. Do not decide eligibility, reimbursement, admissibility, or final bill responsibility."
+    },
+    {
+      "product_id": "philhealth-outpatient-benefits",
+      "entity_id": "philhealth",
+      "entity_type_snapshot": "public-payer",
+      "product_name": "Outpatient Benefits",
+      "product_aliases": ["PhilHealth outpatient benefits", "Day surgery and outpatient packages"],
+      "product_type": "public-benefit-category",
+      "market_segments": ["public-member", "general"],
+      "coverage_tags": ["public-benefit", "outpatient", "diagnostic", "provider-network"],
+      "evidence_level": "official",
+      "source_ids": ["philhealth-benefits-page"],
+      "extraction_status": "category-level",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "PhilHealth lists outpatient benefit categories such as day surgeries, radiotherapy, hemodialysis, and outpatient blood transfusion, each with specific availability and claim rules.",
+      "user_questions": [
+        "Which outpatient benefit category is relevant?",
+        "Is the service available at the accredited facility?",
+        "Does the benefit have a session or day-limit rule?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain source-listed outpatient categories only. Do not calculate final benefits or advise where to undergo care."
+    },
+    {
+      "product_id": "philhealth-z-benefits",
+      "entity_id": "philhealth",
+      "entity_type_snapshot": "public-payer",
+      "product_name": "Z Benefits",
+      "product_aliases": ["PhilHealth Z Benefits", "Z Benefit Packages"],
+      "product_type": "public-benefit-category",
+      "market_segments": ["public-member", "general"],
+      "coverage_tags": ["public-benefit", "critical-illness", "inpatient", "provider-network"],
+      "evidence_level": "official",
+      "source_ids": ["philhealth-benefits-page"],
+      "extraction_status": "category-level",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "PhilHealth lists Z Benefits for selected high-cost conditions and procedures, with condition-specific benefit amounts and selection criteria.",
+      "user_questions": [
+        "Is the condition or procedure listed under a Z Benefit package?",
+        "Which contracted facility handles the package?",
+        "What selection criteria and forms apply?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain that Z Benefits exist and require specific criteria. Do not determine patient eligibility or clinical suitability."
+    },
+    {
+      "product_id": "maxicare-individual-family-hmo",
+      "entity_id": "maxicare-healthcare",
+      "entity_type_snapshot": "hmo",
+      "product_name": "MyMaxicare Individual and Family HMO Plans",
+      "product_aliases": ["MyMaxicare", "Maxicare individual and family plans"],
+      "product_type": "individual-family-hmo",
+      "market_segments": ["individual", "family"],
+      "coverage_tags": ["inpatient", "outpatient", "preventive", "emergency", "provider-network", "cashless-access"],
+      "evidence_level": "provider-published",
+      "source_ids": ["maxicare-plans", "ic-hmo-product-circular-2017-19"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Maxicare presents MyMaxicare as full-risk, full-coverage HMO plans for individuals and families, while the IC circular supplies the broader HMO product taxonomy.",
+      "user_questions": [
+        "Is the user shopping as an individual or family?",
+        "Which hospitals, clinics, and doctors must be verified in the network?",
+        "What exclusions, waiting periods, and annual benefit limits apply?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain the product surface and verification questions only. Do not recommend buying or claim that any doctor or hospital is covered."
+    },
+    {
+      "product_id": "maxicare-msme-healthcare-plans",
+      "entity_id": "maxicare-healthcare",
+      "entity_type_snapshot": "hmo",
+      "product_name": "Maxicare MSME Healthcare Plans",
+      "product_aliases": ["Maxicare SME plans", "Maxicare MSME plans"],
+      "product_type": "sme-hmo",
+      "market_segments": ["sme", "employer", "employee"],
+      "coverage_tags": ["outpatient", "inpatient", "preventive", "emergency", "provider-network", "cashless-access"],
+      "evidence_level": "provider-published",
+      "source_ids": ["maxicare-plans", "ic-hmo-product-circular-2017-19"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Maxicare lists programs for micro, small, and medium enterprises, including options intended for startups or growing businesses.",
+      "user_questions": [
+        "How many employees and dependents are being enrolled?",
+        "Is the employer comparing outpatient-only and full HMO structures?",
+        "Who manages member enrollment, dependents, and plan changes?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain the employer plan surface only. Do not advise a business to select a specific plan."
+    },
+    {
+      "product_id": "maxicare-corporate-healthcare-plans",
+      "entity_id": "maxicare-healthcare",
+      "entity_type_snapshot": "hmo",
+      "product_name": "Maxicare Corporate Healthcare Plans",
+      "product_aliases": ["Maxicare corporate plans"],
+      "product_type": "corporate-hmo",
+      "market_segments": ["corporate", "employer", "employee"],
+      "coverage_tags": ["inpatient", "outpatient", "preventive", "emergency", "provider-network", "cashless-access"],
+      "evidence_level": "provider-published",
+      "source_ids": ["maxicare-plans", "ic-hmo-product-circular-2017-19"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Maxicare lists corporate plans as comprehensive health benefits designed for employee needs.",
+      "user_questions": [
+        "Is the user an employee trying to understand an employer-issued plan?",
+        "Where are the official HR, HMO, and policy documents?",
+        "What provider network and pre-approval workflow applies?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain that corporate HMO terms are employer and contract specific. Do not infer coverage from a generic provider page."
+    },
+    {
+      "product_id": "maxicare-prepaid-health-cards",
+      "entity_id": "maxicare-healthcare",
+      "entity_type_snapshot": "hmo",
+      "product_name": "Maxicare Prepaid Health Cards",
+      "product_aliases": ["Maxicare prepaid cards", "Maxicare PRIMA"],
+      "product_type": "prepaid-health-card",
+      "market_segments": ["individual", "family", "general"],
+      "coverage_tags": ["prepaid", "outpatient", "emergency", "provider-network"],
+      "evidence_level": "provider-published",
+      "source_ids": ["maxicare-plans"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Maxicare groups prepaid health cards separately from comprehensive plans, including PRIMA and emergency-oriented card products.",
+      "user_questions": [
+        "Is the user looking at a prepaid card or a comprehensive HMO plan?",
+        "What exact card name and validity period apply?",
+        "Which services are limited to Maxicare clinics or listed partners?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Distinguish prepaid card surfaces from full HMO plans. Do not assume broad hospitalization coverage."
+    },
+    {
+      "product_id": "maxicare-lifesaver-emergency",
+      "entity_id": "maxicare-healthcare",
+      "entity_type_snapshot": "hmo",
+      "product_name": "Maxicare LifesavER",
+      "product_aliases": ["LifesavER", "Maxicare LifesavER Plus", "Maxicare LifesavER+"],
+      "product_type": "emergency-health-card",
+      "market_segments": ["individual", "family", "general"],
+      "coverage_tags": ["emergency", "prepaid", "provider-network"],
+      "evidence_level": "provider-published",
+      "source_ids": ["maxicare-plans"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Maxicare presents LifesavER products as emergency protection products, distinct from comprehensive HMO plan categories.",
+      "user_questions": [
+        "Which LifesavER variant is being considered?",
+        "What emergency cases, network rules, and limits are listed in the product terms?",
+        "How does this differ from the user's existing PhilHealth or HMO coverage?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain product category distinctions only. Do not determine emergency eligibility or coverage."
+    },
+    {
+      "product_id": "medicard-standard-hmo",
+      "entity_id": "medicard-philippines",
+      "entity_type_snapshot": "hmo",
+      "product_name": "MediCard Standard",
+      "product_aliases": ["MediCard Standard plan"],
+      "product_type": "individual-family-hmo",
+      "market_segments": ["individual", "family"],
+      "coverage_tags": ["hospital-income", "inpatient", "outpatient", "emergency", "preventive", "dental", "provider-network"],
+      "evidence_level": "provider-published",
+      "source_ids": ["medicard-healthcare-programs", "ic-hmo-product-circular-2017-19"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "MediCard lists Standard as a package for hospitalization, outpatient, emergency-room, annual physical exam, and dental care services.",
+      "user_questions": [
+        "Is the package for an individual or family?",
+        "What room, benefit, dental, and clinic limits appear in the plan terms?",
+        "Which services require LOA or prior coordination?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain provider-published categories only. Do not quote benefits as applicable without the current plan terms."
+    },
+    {
+      "product_id": "medicard-sme-corporate-hmo",
+      "entity_id": "medicard-philippines",
+      "entity_type_snapshot": "hmo",
+      "product_name": "MediCard HMO Plans for SMEs and Corporations",
+      "product_aliases": ["MediCard corporate plans", "MediCard SME plans"],
+      "product_type": "group-hmo",
+      "market_segments": ["sme", "corporate", "employer", "employee"],
+      "coverage_tags": ["inpatient", "outpatient", "preventive", "emergency", "provider-network", "cashless-access"],
+      "evidence_level": "provider-published",
+      "source_ids": ["medicard-healthcare-programs", "ic-hmo-product-circular-2017-19"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "MediCard lists HMO plans for SMEs and corporations as a separate package surface for employer-provided healthcare services.",
+      "user_questions": [
+        "Is the user an employer, HR operator, or employee?",
+        "Where is the company-specific benefit schedule?",
+        "What enrollment, dependent, LOA, and provider-network steps apply?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain group HMO workflow questions only. Do not infer employer-specific benefits."
+    },
+    {
+      "product_id": "medicard-hero-emergency-response",
+      "entity_id": "medicard-philippines",
+      "entity_type_snapshot": "hmo",
+      "product_name": "MediCard H.E.R.O.",
+      "product_aliases": ["Health Emergency Response On-demand", "MediCard HERO"],
+      "product_type": "emergency-health-card",
+      "market_segments": ["individual", "family", "general"],
+      "coverage_tags": ["emergency", "prepaid", "provider-network"],
+      "evidence_level": "provider-published",
+      "source_ids": ["medicard-healthcare-programs", "medicard-hero"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "MediCard presents H.E.R.O. as an emergency-response product surface, with its own annual coverage and emergency-use terms.",
+      "user_questions": [
+        "Is the case trauma, non-trauma, or otherwise excluded?",
+        "What annual limit, waiting period, and renewal rule applies?",
+        "Which hospitals or emergency workflows accept the product?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain the emergency product surface only. Do not decide whether a specific emergency is covered."
+    },
+    {
+      "product_id": "philcare-health-luxe",
+      "entity_id": "philhealthcare",
+      "entity_type_snapshot": "hmo",
+      "product_name": "PhilCare Health LUXE",
+      "product_aliases": ["Health LUXE"],
+      "product_type": "individual-family-hmo",
+      "market_segments": ["individual", "family", "general"],
+      "coverage_tags": ["preventive", "outpatient", "inpatient", "emergency", "travel-assist", "wellness", "provider-network"],
+      "evidence_level": "provider-published",
+      "source_ids": ["philcare-services", "ic-hmo-product-circular-2017-19"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "PhilCare describes Health LUXE as an all-inclusive health coverage program with preventive care, outpatient care, hospitalization, emergency care, travel assist, and lifestyle services.",
+      "user_questions": [
+        "Is Health LUXE the exact product being evaluated?",
+        "Which hospitals, clinics, and assistance services are included in the current terms?",
+        "What conditions, limits, and exclusions are listed in the plan document?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain the provider-published product surface only. Do not recommend purchase or infer actual coverage."
+    },
+    {
+      "product_id": "aia-health-products",
+      "entity_id": "aia-philippines-life-and-general",
+      "entity_type_snapshot": "composite-insurer",
+      "product_name": "AIA Philippines Health Products",
+      "product_aliases": ["AIA Health", "AIA health insurance products"],
+      "product_type": "insurer-health-protection",
+      "market_segments": ["individual", "family", "general"],
+      "coverage_tags": ["critical-illness", "reimbursement", "life-cover", "hospital-income"],
+      "evidence_level": "provider-published",
+      "source_ids": ["aia-health-products"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "AIA Philippines presents health products as protection from the financial impact of health-related expenses and serious illnesses.",
+      "user_questions": [
+        "Is the product a medical plan, critical illness plan, rider, or life insurance policy with health benefits?",
+        "What cash benefit, reimbursement, premium, waiting period, and exclusions apply?",
+        "Which licensed advisor or official policy document should verify details?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain insurer health-protection category only. Do not recommend a policy or provide financial advice."
+    },
+    {
+      "product_id": "sunlife-health-protection-products",
+      "entity_id": "sun-life-of-canada-philippines",
+      "entity_type_snapshot": "life-insurer",
+      "product_name": "Sun Life Health Protection Products",
+      "product_aliases": ["Sun Life health insurance", "Sun Life health protection"],
+      "product_type": "critical-illness-insurance",
+      "market_segments": ["individual", "family", "ofw", "senior", "general"],
+      "coverage_tags": ["critical-illness", "life-cover", "hospital-income", "wellness"],
+      "evidence_level": "provider-published",
+      "source_ids": ["sunlife-health-protection"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Sun Life lists multiple health protection products, including plans with critical illness, life insurance, hospitalization, wellness, senior, and OFW-oriented surfaces.",
+      "user_questions": [
+        "Which named Sun Life product is being compared?",
+        "Is the benefit a cash benefit, reimbursement, life insurance benefit, or rider?",
+        "What advisor-provided illustration and policy contract governs the benefit?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain product families only. Do not rank products or provide investment, financial, or insurance advice."
+    },
+    {
+      "product_id": "prulife-health-products",
+      "entity_id": "pru-life-insurance-corporation-of-uk",
+      "entity_type_snapshot": "life-insurer",
+      "product_name": "Pru Life UK Health Products",
+      "product_aliases": ["Pru Life UK health", "Pru Life UK critical illness protection"],
+      "product_type": "critical-illness-insurance",
+      "market_segments": ["individual", "family", "general"],
+      "coverage_tags": ["critical-illness", "hospital-income", "life-cover", "wellness"],
+      "evidence_level": "provider-published",
+      "source_ids": ["prulife-health-products"],
+      "extraction_status": "seed",
+      "last_checked_at": "2026-07-08",
+      "educational_summary": "Pru Life UK presents health products as helping ease the financial burden from hospitalization or critical illness, including diagnosis claims, daily hospital income, and critical illness coverage categories.",
+      "user_questions": [
+        "Which named Pru Life UK health product applies?",
+        "Is the user looking for hospitalization support, critical illness protection, or another policy structure?",
+        "What exclusions, waiting periods, and policy contract terms govern the product?"
+      ],
+      "human_review_required": true,
+      "advice_boundary": "Explain the insurer product category only. Do not recommend a policy or provide financial advice."
+    }
+  ]
+}

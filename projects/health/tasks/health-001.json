@@ -1,0 +1,61 @@
+{
+  "task_id": "health-001",
+  "project_slug": "health",
+  "title": "Set up health workflow project tracker",
+  "task_kind": "tracker-maintenance",
+  "status": "in-progress",
+  "matt_phase": "intake",
+  "explicit_next_action_required": true,
+  "summary": "Bootstrap the health project scaffold so future health workflow tasks can be tracked under a registered project.",
+  "acceptance_criteria": [
+    "projects/health/AGENTS.md is registered in registry/agents-md.json.",
+    "projects/health/project.json records the active health workflow project.",
+    "projects/health/tasks/index.json exists and can list future health tasks.",
+    "Repository workflow-state validation passes for the scaffolded project."
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "human boundary",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Health project scaffold created from setup-workflow-project after initiate-task found no existing health project.",
+    "must_load": [
+      "AGENTS.md",
+      "references/matt-pocock-skills.md",
+      "registry/agents-md.json",
+      "projects/health/AGENTS.md",
+      "projects/health/project.json",
+      "projects/health/tasks/index.json",
+      "projects/health/tasks/health-001.json",
+      "projects/health/tasks/health-002.json"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "none",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [],
+  "linked_artifacts": [
+    "registry/agents-md.json",
+    "projects/health/AGENTS.md",
+    "projects/health/project.json",
+    "projects/health/tasks/index.json",
+    "projects/health/tasks/health-001.json",
+    "projects/health/tasks/health-002.json"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-08",
+      "note": "Created during project setup after initiate-task discovered that projects/health did not exist."
+    },
+    {
+      "date": "2026-07-08",
+      "note": "Linked health-002 so the bootstrap tracker-maintenance task accounts for the first workflow-change task file."
+    }
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}
