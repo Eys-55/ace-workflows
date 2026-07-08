@@ -96,6 +96,14 @@
       "status": "done",
       "matt_phase": "done",
       "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "workflow-foundry-013",
+      "title": "Create audit review and cleanup workflow skills",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-08"
     }
   ]
 }

@@ -39,6 +39,7 @@
       "projects/workflow-foundry/tasks/workflow-foundry-010.json",
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-013.json",
       "projects/real-life-workflows/AGENTS.md",
       "projects/real-life-workflows/project.json",
       "projects/real-life-workflows/tasks/index.json",
@@ -86,6 +87,7 @@
     "projects/workflow-foundry/tasks/workflow-foundry-010.json",
     "projects/workflow-foundry/tasks/workflow-foundry-011.json",
     "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-013.json",
     "projects/real-life-workflows/tasks/real-life-workflows-003.json",
     "projects/linkedin-posts/AGENTS.md",
     "projects/linkedin-posts/project.json",
@@ -156,6 +158,10 @@
     {
       "date": "2026-07-08",
       "event": "Continued as the current tracker-maintenance accounting task for the approved cleanup plan; linked changed tracker files across workflow-foundry, real-life-workflows, linkedin-posts, and health while preserving future work tasks."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Tracked creation of workflow-foundry-013 for audit-review and audit-cleanup workflow skill design."
     }
   ],
   "created_at": "2026-07-06",

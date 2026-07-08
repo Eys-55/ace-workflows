@@ -55,6 +55,8 @@ const skillInvocationNames = [
   "initiate-task",
   "continue-task",
   "audit-foundry",
+  "audit-review",
+  "audit-cleanup",
   "testing-session",
 ];
 const projectAgentsForbiddenPatterns = [

@@ -70,7 +70,8 @@
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-001-root-skill-first-rule.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-002-validator-command-first-guard.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-003-repair-command-first-surfaces.md",
-      "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-004-validation-review-push.md"
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-004-validation-review-push.md",
+      "projects/workflow-foundry/tasks/workflow-foundry-013.json"
     ]
   },
   "phase_guard": {

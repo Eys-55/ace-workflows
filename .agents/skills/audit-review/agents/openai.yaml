@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Review"
+  short_description: "Review audit findings and draft cleanup plans"
+  default_prompt: "Use $audit-review to turn audit findings into a Markdown cleanup plan without mutating workflow state."

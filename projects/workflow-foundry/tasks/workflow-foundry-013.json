@@ -1,0 +1,184 @@
+{
+  "task_id": "workflow-foundry-013",
+  "project_slug": "workflow-foundry",
+  "title": "Create audit review and cleanup workflow skills",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "code-review",
+  "explicit_next_action_required": true,
+  "summary": "Design a foundry-owned workflow surface for turning audit findings into reviewable, approval-gated cleanup work. The likely split is audit-review for interpreting audit reports and audit-cleanup for executing approved cleanup, while preserving audit-foundry as read-only.",
+  "acceptance_criteria": [
+    "grilling resolves whether the operator wants two skills, audit-review and audit-cleanup, or one combined cleanup skill",
+    "the workflow preserves audit-foundry as a read-only report generator and does not silently add mutation behavior to audits",
+    "audit-review defines how to read audit reports, validation output, dirty state, and tracker state, then produce a cleanup recommendation or task draft",
+    "audit-cleanup defines how to execute only approved cleanup actions through the correct tracker task, phase guard, and validation gates",
+    "the workflow distinguishes report-only auditing, review/planning, tracker cleanup, source artifact cleanup, and Git checkpoint cleanup",
+    "cleanup work is approval-gated before editing source state, deleting files, changing task phases, or pushing to GitHub",
+    "the workflow follows Matt Pocock style and ECC workflow architecture",
+    "the eventual skill surface is skill-first under .agents/skills and avoids legacy command or prompt shims",
+    "validation proves the new skill metadata, help surface, and workflow-state rules remain coherent"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load workflow-foundry state, existing audit-foundry contract, active tracker-maintenance context, and all non-done workflow-foundry tasks before shaping audit review and cleanup skills.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "references/matt-pocock-skills.md",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-013.json",
+      ".agents/skills/audit-foundry/SKILL.md",
+      ".agents/skills/workflow-help/SKILL.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md",
+      "scripts/query-workflow-state.mjs",
+      "scripts/validate-workflow-state.mjs"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "code-review",
+    "approved_artifacts": [
+      {
+        "path": ".agents/skills/audit-review/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to continue workflow-foundry-013 through implementation for the audit-review skill.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": ".agents/skills/audit-review/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to expose audit-review as a Codex-accessible skill.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": ".agents/skills/audit-cleanup/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to continue workflow-foundry-013 through implementation for the audit-cleanup skill.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": ".agents/skills/audit-cleanup/agents/openai.yaml",
+        "phase": "implement",
+        "approval_note": "Approved by user instruction to expose audit-cleanup as a Codex-accessible skill.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": ".agents/skills/workflow-help/SKILL.md",
+        "phase": "implement",
+        "approval_note": "Approved to list audit-review and audit-cleanup in the canonical workflow help surface.",
+        "approved_at": "2026-07-08"
+      },
+      {
+        "path": "scripts/validate-workflow-state.mjs",
+        "phase": "implement",
+        "approval_note": "Approved to include audit-review and audit-cleanup in canonical skill invocation validation.",
+        "approved_at": "2026-07-08"
+      }
+    ],
+    "process_exceptions": []
+  },
+  "dependencies": [],
+  "related_tasks": [
+    "workflow-foundry-004",
+    "workflow-foundry-006",
+    "workflow-foundry-011"
+  ],
+  "linked_artifacts": [
+    "projects/workflow-foundry/artifacts/prds/workflow-foundry-013-audit-review-cleanup.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-013-issue-001-audit-review.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-013-issue-002-audit-cleanup.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-013-issue-003-help-validation-review.md",
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-013-code-review.md",
+    ".agents/skills/audit-review/SKILL.md",
+    ".agents/skills/audit-review/agents/openai.yaml",
+    ".agents/skills/audit-cleanup/SKILL.md",
+    ".agents/skills/audit-cleanup/agents/openai.yaml",
+    ".agents/skills/audit-foundry/SKILL.md",
+    ".agents/skills/workflow-help/SKILL.md",
+    "scripts/validate-workflow-state.mjs",
+    "projects/workflow-foundry/tasks/workflow-foundry-013.json"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-08",
+      "event": "Created intake task after user requested a foundry skill surface for audit-driven review and cleanup, likely split into audit-review and audit-cleanup, without weakening the read-only audit-foundry contract."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Moved to grilling after user explicitly asked to enter grilling; local Matt Pocock mirror paths were unavailable, so upstream mattpocock/skills raw references were inspected for grill-with-docs, grilling, and writing-great-skills before asking the first design question."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved first grilling decision: split the workflow into two skills, audit-review and audit-cleanup, so diagnostic/planning work stays separate from approval-gated mutation work."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved audit-review output decision: audit-review should produce a Markdown review artifact under projects/workflow-foundry/artifacts/reviews/ with findings, conflict classification, proposed cleanup actions, and exact initiate-task or continue-task execution paths, while not editing tracker state by default."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Captured audit-cleanup publication preference: cleanup should normally end with a GitHub checkpoint and push path because the operator wants cleaned workflow state pushed, while still preserving explicit approval boundaries for external writes."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved audit-cleanup push boundary: cleanup should perform local validation and prepare the GitHub checkpoint path, then stop at the final part and ask the operator for the final publish or push instruction instead of pushing automatically."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved audit-cleanup task boundary: cleanup must create or continue a suitable tracker task before mutating state, so audit-review report text becomes auditable task context rather than an untracked mutation command."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved cleanup approval model: audit-cleanup should require both JSON phase-guard enforcement and a linked Markdown cleanup plan or review artifact, with JSON acting as the source of truth for approved paths and actions and Markdown explaining the human-readable rationale."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved phase-guard update behavior: audit-cleanup may update the selected task's phase guard only after explicit chat approval that names the Markdown cleanup plan and selected task, then must validate before applying cleanup edits."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved audit-cleanup v1 categories: support tracker state cleanup, workflow artifact cleanup, validation cleanup, and Git checkpoint cleanup; leave source-code refactors and broad file deletion out of v1 unless explicitly included in the approved Markdown cleanup plan."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Resolved PRD packaging decision: write one combined PRD for audit-review and audit-cleanup because their boundary and handoff contract are the main design risk; split implementation into separate issues after the PRD."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Wrote the combined audit-review and audit-cleanup PRD and moved the task to PRD phase with issues as the next action."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Published three local issue artifacts for audit-review, audit-cleanup, and help/validation/review work; moved the task to issues phase with implement as the next action."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Moved to implement and approved audit-review skill files, audit-cleanup skill files, workflow-help update, and validation update."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Implemented audit-review and audit-cleanup skills with Codex metadata, updated workflow-help and validation, marked implementation issue criteria complete except final focused review and task closure, and moved to code-review."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Completed focused standards/spec review against the combined PRD and local issue artifacts; no blocking issues found, with residual risk limited to future agents following the workflow contract."
+    }
+  ],
+  "created_at": "2026-07-08",
+  "updated_at": "2026-07-08"
+}

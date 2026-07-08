@@ -40,6 +40,8 @@ SKILLS
 - $initiate-task
 - $continue-task
 - $audit-foundry
+- $audit-review
+- $audit-cleanup
 - $testing-session
 - $review-project-state
 
@@ -49,6 +51,8 @@ CODEX-DISCOVERABLE SKILL FILES
 - .agents/skills/initiate-task/SKILL.md
 - .agents/skills/continue-task/SKILL.md
 - .agents/skills/audit-foundry/SKILL.md
+- .agents/skills/audit-review/SKILL.md
+- .agents/skills/audit-cleanup/SKILL.md
 - .agents/skills/testing-session/SKILL.md
 - .agents/skills/review-project-state/SKILL.md
 
@@ -76,6 +80,7 @@ TASK FLOW
 CONNECTED FLOW
 - $workflow-help -> $setup-workflow-project -> $initiate-task -> $continue-task
 - $audit-foundry -> Markdown report artifact -> recommended next tracker action
+- $audit-foundry -> $audit-review -> Markdown cleanup plan -> $audit-cleanup
 - $testing-session -> captured project run state -> future preload discovery
 - use $continue-task or $review-project-state when project state already exists
 ```
@@ -112,6 +117,22 @@ CONNECTED FLOW
 - Read-only against source state except for the report artifact.
 - Use when the operator wants the current state explained and saved before
   deciding the next tracker action.
+
+`$audit-review`
+
+- Review audit reports, validation output, dirty state, and tracker state.
+- Write a Markdown cleanup plan or review artifact without mutating source
+  state by default.
+- Use when the operator wants conflicts classified before cleanup begins.
+
+`$audit-cleanup`
+
+- Execute approved cleanup through a selected tracker task, linked Markdown
+  cleanup plan, JSON phase guards, and validation gates.
+- Support tracker state cleanup, workflow artifact cleanup, validation cleanup,
+  and Git checkpoint cleanup.
+- Stop for final publish or push instruction unless the current operator turn
+  explicitly approves pushing.
 
 `$testing-session`
 
