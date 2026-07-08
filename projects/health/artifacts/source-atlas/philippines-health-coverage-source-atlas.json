@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "generated_for": "health-004",
+  "last_checked_at": "2026-07-08",
+  "registry_reference": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
+  "product_catalog_reference": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.json",
+  "advice_boundary": "Use this atlas to explain source roles and verification needs only. Do not decide coverage, eligibility, claims, medical suitability, purchase value, or provider ranking.",
+  "source_roles": [
+    {
+      "role_id": "public-payer-official",
+      "source_ids": ["philhealth-benefits", "philhealth-benefits-page"],
+      "authority_level": "official",
+      "allowed_uses": [
+        "explain PhilHealth as public health insurance anchor",
+        "identify public benefit categories",
+        "route users to official benefit and member-service pages"
+      ],
+      "blocked_uses": [
+        "patient eligibility decision",
+        "benefit amount guarantee",
+        "claims approval",
+        "medical advice"
+      ],
+      "refresh_cadence": "before every external-facing release or source-sensitive update",
+      "human_review_required": true
+    },
+    {
+      "role_id": "regulator-official",
+      "source_ids": ["ic-hmo-ca-2025-11-30", "ic-hmo-product-circular-2017-19"],
+      "authority_level": "official",
+      "allowed_uses": [
+        "verify whether an HMO appears in an Insurance Commission list",
+        "explain HMO product-form categories and regulatory source boundaries",
+        "separate authorization evidence from provider marketing"
+      ],
+      "blocked_uses": [
+        "claim a provider currently covers a specific hospital or doctor",
+        "rank HMO quality",
+        "determine product suitability",
+        "provide legal advice"
+      ],
+      "refresh_cadence": "before adding or removing regulated entities and before release",
+      "human_review_required": true
+    },
+    {
+      "role_id": "provider-published-product",
+      "source_ids": ["maxicare-plans"],
+      "authority_level": "provider-published",
+      "allowed_uses": [
+        "describe provider-published product surfaces",
+        "extract user verification questions",
+        "identify product families already linked to a canonical registry entity"
+      ],
+      "blocked_uses": [
+        "prove regulator authorization by itself",
+        "guarantee network access",
+        "recommend purchase",
+        "determine exclusions or final coverage"
+      ],
+      "refresh_cadence": "before product deep dives and before comparison output",
+      "human_review_required": true
+    },
+    {
+      "role_id": "workflow-understanding-evidence",
+      "source_ids": [
+        "health-workflow-candidates-packet",
+        "philippines-insurance-hmo-workflows-packet"
+      ],
+      "authority_level": "secondary",
+      "allowed_uses": [
+        "inspire workflow shape",
+        "identify adjacent workflow patterns",
+        "support task planning and skill extraction ideas"
+      ],
+      "blocked_uses": [
+        "prove current healthcare facts",
+        "serve as active callable dependency skill",
+        "replace official public-source verification",
+        "make operational healthcare decisions"
+      ],
+      "refresh_cadence": "when changing workflow design or selecting a new workflow family",
+      "human_review_required": true
+    }
+  ]
+}

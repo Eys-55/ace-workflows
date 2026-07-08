@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "generated_for": "health-004",
+  "last_checked_at": "2026-07-08",
+  "registry_reference": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
+  "product_catalog_reference": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.json",
+  "source_atlas_reference": "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+  "advice_boundary": "Use this matrix to explain comparable fields and missing evidence. Do not rank, recommend, score, decide eligibility, decide claims, or determine coverage.",
+  "comparison_dimensions": [
+    {
+      "dimension_id": "entity-type",
+      "field_sources": ["registry.entities.entity_type"],
+      "safe_question": "Is this PhilHealth, an HMO, an insurer, or another source category?",
+      "requires_human_review": false
+    },
+    {
+      "dimension_id": "market-segment",
+      "field_sources": ["product_catalog.product_surfaces.market_segments"],
+      "safe_question": "Is the product surface aimed at public members, individuals, families, employees, employers, SMEs, corporations, OFWs, seniors, or general users?",
+      "requires_human_review": true
+    },
+    {
+      "dimension_id": "product-type",
+      "field_sources": ["product_catalog.product_surfaces.product_type"],
+      "safe_question": "What product or benefit family is listed in normalized catalog data?",
+      "requires_human_review": true
+    },
+    {
+      "dimension_id": "source-authority",
+      "field_sources": ["source_atlas.source_roles.authority_level"],
+      "safe_question": "Is the evidence official, provider-published, or secondary workflow evidence?",
+      "requires_human_review": true
+    },
+    {
+      "dimension_id": "coverage-tags",
+      "field_sources": ["product_catalog.product_surfaces.coverage_tags"],
+      "safe_question": "Which high-level coverage tags are present for educational filtering?",
+      "requires_human_review": true
+    },
+    {
+      "dimension_id": "extraction-status",
+      "field_sources": ["product_catalog.product_surfaces.extraction_status"],
+      "safe_question": "Is this a seed, category-level, or needs-deep-dive product surface?",
+      "requires_human_review": false
+    }
+  ],
+  "blocked_outputs": [
+    "ranking",
+    "recommendation",
+    "best_for",
+    "eligibility_decision",
+    "coverage_determination",
+    "claims_decision",
+    "provider_network_guarantee",
+    "price_or_value_judgment"
+  ],
+  "minimum_ready_fields": [
+    "entity_id",
+    "entity_type_snapshot",
+    "product_type",
+    "market_segments",
+    "coverage_tags",
+    "source_ids",
+    "extraction_status",
+    "human_review_required",
+    "advice_boundary"
+  ]
+}

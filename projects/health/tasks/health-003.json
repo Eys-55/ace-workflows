@@ -27,7 +27,8 @@
       "projects/health/AGENTS.md",
       "projects/health/project.json",
       "projects/health/tasks/index.json",
-      "projects/health/tasks/health-003.json"
+      "projects/health/tasks/health-003.json",
+      "projects/health/tasks/health-004.json"
     ]
   },
   "phase_guard": {
@@ -47,12 +48,33 @@
     "projects/health/tasks/index.json",
     "projects/health/tasks/health-001.json",
     "projects/health/tasks/health-002.json",
-    "projects/health/tasks/health-003.json"
+    "projects/health/tasks/health-003.json",
+    "projects/health/tasks/health-004.json",
+    "projects/health/artifacts/plans/health-002-full-implementation-plan.md",
+    "projects/health/artifacts/issues/health-004-issue-003-source-atlas-and-refresh-rules.md",
+    "projects/health/artifacts/issues/health-004-issue-004-single-hmo-deep-dive.md",
+    "projects/health/artifacts/issues/health-004-issue-005-comparison-readiness-matrix.md",
+    "projects/health/artifacts/issues/health-004-issue-006-navigator-drilling-flow.md",
+    "projects/health/artifacts/issues/health-004-issue-007-eval-fixtures-and-release-gate.md",
+    "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+    "projects/health/artifacts/deep-dives/maxicare-hmo-deep-dive-packet.json",
+    "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
+    "projects/health/artifacts/navigator/philippines-health-coverage-navigator-flow.json",
+    "projects/health/artifacts/evals/philippines-health-coverage-eval-fixtures.json",
+    "projects/health/artifacts/evals/validate-philippines-health-coverage-slices.mjs"
   ],
   "session_log": [
     {
       "date": "2026-07-08",
       "event": "Opened to account for the completion checkpoint after commit 9f966aa was pushed to GitHub."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Linked health-004 so the open tracker-maintenance task accounts for the new Health follow-on implementation-plan task."
+    },
+    {
+      "date": "2026-07-08",
+      "event": "Kept open to account for the Health 004 implementation checkpoint until the local commit and GitHub push complete."
     }
   ],
   "created_at": "2026-07-08",

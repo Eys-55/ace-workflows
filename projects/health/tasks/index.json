@@ -24,6 +24,14 @@
       "status": "in-progress",
       "matt_phase": "intake",
       "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "health-004",
+      "title": "Implement remaining Health 002 plan slices",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "implement",
+      "updated_at": "2026-07-08"
     }
   ]
 }

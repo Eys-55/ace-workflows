@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "generated_for": "health-004",
+  "last_checked_at": "2026-07-08",
+  "entity_id": "maxicare-healthcare",
+  "registry_reference": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
+  "product_catalog_reference": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.json",
+  "source_atlas_reference": "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+  "advice_boundary": "This packet is an educational deep dive. It does not recommend Maxicare, determine coverage, verify a doctor or hospital network, decide claims, or advise purchase.",
+  "entity_summary": {
+    "display_name": "Maxicare",
+    "entity_type": "hmo",
+    "authorization_evidence_source_ids": ["ic-hmo-ca-2025-11-30"],
+    "product_description_source_ids": ["maxicare-plans"],
+    "verification_note": "Use regulator sources for HMO listing status and provider-published sources for product descriptions. Recheck both before external use."
+  },
+  "product_surface_ids": [
+    "maxicare-individual-family-hmo",
+    "maxicare-msme-healthcare-plans",
+    "maxicare-corporate-healthcare-plans",
+    "maxicare-prepaid-health-cards",
+    "maxicare-lifesaver-emergency"
+  ],
+  "workflow_questions": [
+    {
+      "question_id": "maxicare-user-context",
+      "question": "Is the user trying to understand an individual, family, MSME, corporate, prepaid, or emergency-oriented product surface?",
+      "routes_to": ["product-catalog", "comparison-readiness"],
+      "human_verification_needed": true
+    },
+    {
+      "question_id": "maxicare-network-check",
+      "question": "Which preferred doctors, hospitals, clinics, or Maxicare support channels must be verified directly before relying on access?",
+      "routes_to": ["provider-support", "human-review"],
+      "human_verification_needed": true
+    },
+    {
+      "question_id": "maxicare-limits-exclusions",
+      "question": "Which limits, exclusions, waiting periods, reimbursements, pre-approval rules, and documents must be checked in the actual plan contract or HR packet?",
+      "routes_to": ["human-review", "source-atlas"],
+      "human_verification_needed": true
+    }
+  ],
+  "blocked_outputs": [
+    "best Maxicare plan",
+    "guaranteed coverage",
+    "network guarantee",
+    "claim approval",
+    "medical recommendation",
+    "purchase recommendation"
+  ]
+}

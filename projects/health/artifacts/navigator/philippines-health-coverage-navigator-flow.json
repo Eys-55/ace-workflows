@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "generated_for": "health-004",
+  "last_checked_at": "2026-07-08",
+  "registry_reference": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
+  "product_catalog_reference": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.json",
+  "source_atlas_reference": "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+  "deep_dive_reference": "projects/health/artifacts/deep-dives/maxicare-hmo-deep-dive-packet.json",
+  "comparison_reference": "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
+  "advice_boundary": "This navigator flow is educational. It asks clarifying questions, routes to source-grounded artifacts, and names human verification steps. It does not provide medical, legal, financial, eligibility, coverage, claims, or purchase advice.",
+  "entry_questions": [
+    {
+      "question_id": "understand-public-hmo-insurer",
+      "prompt": "Are you trying to understand PhilHealth, an HMO, private insurance, or how these categories differ?",
+      "routes_to": ["registry", "product-catalog", "source-atlas"]
+    },
+    {
+      "question_id": "compare-options",
+      "prompt": "Are you trying to compare product surfaces without asking for a recommendation?",
+      "routes_to": ["comparison-readiness", "product-catalog"]
+    },
+    {
+      "question_id": "deep-dive-provider",
+      "prompt": "Are you trying to deep dive into one HMO or insurer before asking HR, support, a broker, or a hospital billing desk?",
+      "routes_to": ["deep-dive", "source-atlas"]
+    },
+    {
+      "question_id": "claim-or-eligibility",
+      "prompt": "Are you asking whether a specific claim, bill, service, patient, doctor, hospital, or condition is covered?",
+      "routes_to": ["refusal-with-human-review"]
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "registry",
+      "artifact": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
+      "output_contract": "Explain canonical entity type, aliases, source evidence, and why unlike categories should not be compared directly."
+    },
+    {
+      "route_id": "product-catalog",
+      "artifact": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.json",
+      "output_contract": "Explain product family, market segment, coverage tags, extraction status, source evidence, and verification questions."
+    },
+    {
+      "route_id": "source-atlas",
+      "artifact": "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
+      "output_contract": "Explain which source can support which claim and what it cannot prove."
+    },
+    {
+      "route_id": "deep-dive",
+      "artifact": "projects/health/artifacts/deep-dives/maxicare-hmo-deep-dive-packet.json",
+      "output_contract": "Explain one provider's product surfaces and verification questions without recommending a plan."
+    },
+    {
+      "route_id": "comparison-readiness",
+      "artifact": "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
+      "output_contract": "Show comparable normalized fields and missing evidence without ranking or recommending."
+    },
+    {
+      "route_id": "refusal-with-human-review",
+      "artifact": "human-review",
+      "output_contract": "Decline to decide eligibility, coverage, claims, medical suitability, or purchase value, then point to the correct human verification channel."
+    }
+  ],
+  "refusal_triggers": [
+    "Which plan should I buy?",
+    "Am I covered?",
+    "Will this claim be approved?",
+    "Is this doctor covered?",
+    "Which hospital should I choose?",
+    "What treatment should I get?"
+  ]
+}
