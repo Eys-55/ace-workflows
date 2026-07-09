@@ -192,6 +192,10 @@
     {
       "date": "2026-07-10",
       "event": "Validated the exact scoped staged snapshot in an isolated worktree. Root workflow-state validation passed; tracker verification passed eight data tests, the Astro production build, and one generated-output test; structural checks confirmed seven issues, all 44 PRD stories, resolvable blocker references, and no implementation artifact approval."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Created scoped checkpoint c3098f8 (docs: plan skill-first foundry revamp) and pushed it to origin/main. The commit contains only the workflow-foundry-006 PRD, seven issue artifacts, task index entry, and task state; unrelated Health, LinkedIn, workflow-foundry-014, and other dirty tracker changes remained outside the checkpoint."
     }
   ],
   "created_at": "2026-07-07",
