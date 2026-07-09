@@ -43,11 +43,11 @@
     },
     {
       "task_id": "workflow-foundry-006",
-      "title": "Create foundry expansion discovery workflow",
+      "title": "Design skill-first Workflow Foundry revamp",
       "task_kind": "workflow-change",
       "status": "in-progress",
-      "matt_phase": "grilling",
-      "updated_at": "2026-07-07"
+      "matt_phase": "issues",
+      "updated_at": "2026-07-10"
     },
     {
       "task_id": "workflow-foundry-007",

@@ -1,18 +1,26 @@
 {
   "task_id": "workflow-foundry-006",
   "project_slug": "workflow-foundry",
-  "title": "Create foundry expansion discovery workflow",
+  "title": "Design skill-first Workflow Foundry revamp",
   "task_kind": "workflow-change",
   "status": "in-progress",
-  "matt_phase": "grilling",
+  "matt_phase": "issues",
   "explicit_next_action_required": true,
-  "summary": "Create a workflow for inspecting the current foundry and identifying high-value additions such as new skills, validators, references, fixtures, or project workflow patterns before implementation work begins.",
+  "summary": "Design a complete skill-first revamp of the Workflow Foundry so requests to create skills become explicit callable skill-package contracts, use approved workflow capabilities when needed, and cannot be satisfied by Python, JavaScript, or helper-script substitutes. Trace the current routing and validation failure, define the target architecture and migration plan, and preserve Matt Pocock and ECC phase gates before implementation begins.",
   "acceptance_criteria": [
-    "grilling identifies the operator job for discovering what else belongs in the foundry",
-    "the workflow distinguishes candidate skill additions, validator additions, reference material, fixtures, and project tracker improvements",
-    "the workflow defines an evidence gate for deciding whether a candidate should become a task",
-    "the workflow preserves Matt Pocock style and ECC workflow architecture",
-    "the workflow produces a reviewable output artifact before any implementation artifacts are approved"
+    "grilling maps the complete request path from user intent through project selection, task draft, capability dependency selection, Matt phase work, approved artifacts, validation, review, and handoff",
+    "the revamp defines precise foundry terms for a canonical repo skill, a project-local packaged skill, a workflow artifact, and a deterministic helper so scripts cannot be mistaken for skills",
+    "task creation and continuation classify the requested deliverable before implementation instead of representing every request as an untyped workflow-change",
+    "a task classified as a canonical skill requires a lowercase hyphenated .agents/skills/<slug>/ folder with SKILL.md and agents/openai.yaml; optional scripts, references, and assets remain supporting resources rather than the product",
+    "a task classified as a project-local packaged skill names its product boundary and required skill bundle without silently promoting it into the active repo-local .agents/skills surface",
+    "Python remains forbidden in this repository; repo-local .mjs remains limited to deterministic JSON validation or query support; existing approved UI or package code stays within its explicit boundary; none of these can satisfy a skill deliverable by themselves",
+    "workflow-help exposes an explicit skill-construction route instead of leaving create-skill requests to generic global authoring guidance with conflicting destination roots",
+    "capability dependencies influence the required output contract and record provenance; shape-valid dependency metadata alone does not count as a successful skill outcome",
+    "validation fails missing SKILL.md, missing or invalid agents/openai.yaml, folder/frontmatter mismatch, script-only skill substitutes, unreferenced helpers, command-first wrappers, and workflow-help discovery drift",
+    "eval fixtures cover natural-language create-skill requests and prove the foundry chooses the correct skill surface before any code or helper artifact is approved",
+    "the migration preserves the existing task tracker, phase guards, audit separation, read-only tracker UI, source-project isolation, and approval boundary for external writes",
+    "the workflow preserves Matt Pocock presentation style and ECC workflow architecture",
+    "the workflow produces a reviewable target architecture and migration roadmap before any implementation artifacts are approved"
   ],
   "ecc_concepts_applied": [
     "workflow contract",
@@ -20,10 +28,13 @@
     "output artifact",
     "eval gate",
     "human boundary",
+    "handoff",
+    "reviewer lane",
+    "parallel task context",
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, all non-done tasks, and Matt/ECC workflow references before shaping a foundry expansion discovery workflow.",
+    "summary": "Load workflow-foundry state, all non-done tasks, the prior skill-first repair, current routing and validator surfaces, and Matt/ECC skill guidance before shaping the skill-first foundry revamp.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -40,6 +51,9 @@
       "references/matt-pocock-skills.md",
       ".agents/skills/initiate-task/SKILL.md",
       ".agents/skills/continue-task/SKILL.md",
+      ".agents/skills/workflow-help/SKILL.md",
+      "scripts/validate-workflow-state.mjs",
+      "projects/workflow-foundry/artifacts/prds/workflow-foundry-003-skill-first-runtime-surface.md",
       "projects/workflow-foundry/tasks/workflow-foundry-008.json",
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
       "projects/workflow-foundry/tasks/workflow-foundry-010.json",
@@ -49,16 +63,79 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "grilling",
-    "approved_artifacts": [],
+    "selected_next_action": "implement",
+    "approved_artifacts": [
+      {
+        "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-006-skill-first-foundry-revamp.md",
+        "phase": "prd",
+        "approval_note": "Approved by the user instruction to continue workflow-foundry-006 through PRD after accepting the recommended skill target routing law.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-001-validation-core-prefactor.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-002-deliverable-contract-migration.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-003-derived-skill-catalog.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-004-canonical-skill-tracer.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-005-standalone-skill-routing.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-006-multi-deliverable-routing.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-007-capability-outcome-reconciliation.md",
+        "phase": "issues",
+        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
+        "approved_at": "2026-07-10"
+      }
+    ],
     "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
     "workflow-foundry-001",
-    "workflow-foundry-004"
+    "workflow-foundry-003",
+    "workflow-foundry-004",
+    "workflow-foundry-009",
+    "workflow-foundry-011",
+    "workflow-foundry-012",
+    "workflow-foundry-013"
   ],
-  "linked_artifacts": [],
+  "linked_artifacts": [
+    "projects/workflow-foundry/artifacts/prds/workflow-foundry-006-skill-first-foundry-revamp.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-001-validation-core-prefactor.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-002-deliverable-contract-migration.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-003-derived-skill-catalog.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-004-canonical-skill-tracer.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-005-standalone-skill-routing.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-006-multi-deliverable-routing.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-007-capability-outcome-reconciliation.md"
+  ],
   "session_log": [
     {
       "date": "2026-07-07",
@@ -71,8 +148,52 @@
     {
       "date": "2026-07-07",
       "event": "Resolved operator job: inspect current foundry repo state across projects, skills, validators, trackers, and gaps, then produce a ranked shortlist of candidate workflow additions with evidence, expected value, and the next tracker task to create."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User resumed the task and identified the primary revamp failure: create-skill requests still drift into Python, JavaScript, or helper-script outputs instead of producing actual callable skills governed by the workflow dependency model and ECC."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Completed an evidence-first architecture trace. Root policy is skill-first, but workflow-help has no skill-construction route; initiate-task and continue-task model skill intent as a generic workflow-change; the validator checks existing SKILL.md files but does not require a complete skill bundle, agents/openai.yaml, deliverable-to-output consistency, dependency outcome evidence, or discovery reconciliation."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Reframed workflow-foundry-006 from general expansion discovery into the skill-first foundry revamp owner. Kept the task in grilling with no approved implementation artifacts while the target-surface routing rule remains unresolved."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User instructed the task to continue through PRD, accepting the recommended routing law: foundry/control-plane skills target the canonical repo skill surface, standalone product skills remain in their product repository, ambiguous destinations stop for clarification, and scripts may support but never replace a requested skill. Approved the project-local PRD artifact only; no implementation artifacts were approved."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Closed grilling with a versioned multi-deliverable contract model, three-way skill ownership routing, one dedicated model-invoked skill builder, thin lifecycle delegation, positive bundle and completion enforcement, capability outcome reconciliation, derived skill discovery, and hybrid routing plus disposable-repository regression seams."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Wrote the skill-first Workflow Foundry revamp PRD, moved the task to PRD phase, and set issue breakdown as the next action. No implementation artifacts, dependency calls, commits, or pushes were approved."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Completed a focused PRD review and tightened three contracts before handoff: legacy open tasks are phase-frozen until explicit versioned migration, behavioral eval evidence records raw scenarios and observed outcomes, and $build-workflow-skill is the stable model-invoked authoring authority."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User instructed the task to continue through issue breakdown and explicitly approved pushing the resulting checkpoint. The checkpoint remains scoped to workflow-foundry-006 and must exclude unrelated dirty project and tracker work."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Converted the approved PRD into seven blocker-ordered slices: one validation-core prefactor followed by end-to-end deliverable migration, derived discovery, canonical skill construction, standalone routing, multi-deliverable routing, and capability outcome reconciliation. Every routing slice includes deterministic and fresh-agent evidence, tracker schema writes remain owned by workflow-foundry-004, and no implementation artifact is approved."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Completed focused issue review and resolved all blockers: Issue 002 now requires workflow-foundry-004 tracker authorization and complete contract identity fields; Issue 005 covers both in-foundry packaged and standalone product routes; Issues 004 through 007 share one live-plus-deterministic scenario contract; and command-first regression criteria explicitly cover Quick Start, Getting Started, Example, and unheaded loopholes."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Validated the exact scoped staged snapshot in an isolated worktree. Root workflow-state validation passed; tracker verification passed eight data tests, the Astro production build, and one generated-output test; structural checks confirmed seven issues, all 44 PRD stories, resolvable blocker references, and no implementation artifact approval."
     }
   ],
   "created_at": "2026-07-07",
-  "updated_at": "2026-07-07"
+  "updated_at": "2026-07-10"
 }
