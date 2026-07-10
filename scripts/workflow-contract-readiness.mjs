@@ -16,6 +16,7 @@ import {
   validateTaskDeliverableState,
 } from "./workflow-contract-schema.mjs";
 import { validateSkillBundle } from "./workflow-skill-catalog.mjs";
+import { validateReleaseEvidenceDocument } from "./workflow-release-evidence-validation.mjs";
 
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
@@ -117,7 +118,8 @@ function validReleaseEvidence(document) {
     arrayOrEmpty(document.deterministic_runs).length > 0 &&
     document.deterministic_runs.every((run) => run?.result === "pass" && nonEmptyString(run?.observed_result)) &&
     document.final_review_record?.result === "pass" &&
-    document.full_verification?.result === "pass"
+    document.full_verification?.result === "pass" &&
+    validateReleaseEvidenceDocument(document).valid
   );
 }
 

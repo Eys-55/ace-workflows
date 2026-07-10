@@ -19,14 +19,14 @@ than grading an invented response.
 
 ## Acceptance criteria
 
-- [ ] One scenario format records id, raw prompt, fixture identity, repository context, expected route, required outcomes, forbidden outcomes, runner identity, observed result, timestamp, and pass or fail.
-- [ ] Baseline agents receive no new skill, rubric, expected layout, or leaked answer.
-- [ ] Health and evidence-auditor scenarios test materially different information architectures rather than noun-swapped dashboards.
-- [ ] Authority, embedded-chat, Foundry-leak, action-state, and package-lifecycle scenarios are present.
-- [ ] English, terse, and Taglish prompts are represented.
-- [ ] Raw observed failures and the exact failure codes are preserved in Markdown evidence.
-- [ ] No target application, reusable component, package, or Foundry UI code is created.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] One scenario format records id, raw prompt, fixture identity, repository context, expected route, required outcomes, forbidden outcomes, runner identity, observed result, timestamp, and pass or fail.
+- [x] Baseline agents receive no new skill, rubric, expected layout, or leaked answer.
+- [x] Health and evidence-auditor scenarios test materially different information architectures rather than noun-swapped dashboards.
+- [x] Authority, embedded-chat, Foundry-leak, action-state, and package-lifecycle scenarios are present.
+- [x] English, terse, and Taglish prompts are represented.
+- [x] Raw observed failures and the exact failure codes are preserved in Markdown evidence.
+- [x] No target application, reusable component, package, or Foundry UI code is created.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

@@ -91,6 +91,10 @@ CONNECTED FLOW
   for an existing task.
 - Route a create-skill or update-skill request through lifecycle approval, then
   delegate only the implementation-ready contract to `$build-workflow-skill`.
+- Route create-UI, revamp-UI, workflow-product, or local-sidecar intent through
+  the existing or newly approved target-project `ui-application` plus callable
+  skill contracts, then delegate the selected task to
+  `$build-workflow-product`. Do not create a duplicate workflow task.
 - Use the audit family for evidence-first reporting, review, and approved
   cleanup. Preserve each skill's mutation boundary.
 - Use `$testing-session` for isolated read-only run capture and

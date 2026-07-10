@@ -18,16 +18,16 @@ extend a competing hand-maintained skill inventory.
 
 ## Acceptance criteria
 
-- [ ] Every baseline scenario is rerun from a clean disposable context with the same raw prompt and fixture.
-- [ ] Evidence records runner, skill version, raw output, any disposable file tree and diff, failure codes, timestamp, and result; generated application files remain outside the committed Foundry artifact set.
-- [ ] Deterministic identity, metadata, reference-link, fixed-stack, prohibited-Foundry-code, and harness-parity checks pass.
-- [ ] Every successful skill output requires the downstream target-project plan to cover responsive behavior, keyboard and focus, action states, consequential handoff, recovery, startup, and stop.
-- [ ] Visual critique covers context, first impression, visual design, interface design, consistency, and real user context.
-- [ ] Health and evidence-auditor outputs meet domain specificity, task-fit IA, focusing mechanism, action clarity, and visual coherence thresholds with GENERIC_DASHBOARD=false.
-- [ ] Authority, embedded-chat, Foundry-boundary, and package-lifecycle scenarios achieve three consecutive passes.
-- [ ] This task reports skill-bundle, lifecycle, discovery, scenario, repository, security, and diff evidence; the skill separately requires target-project build, typecheck, lint, test, accessibility, security, dependency, secret, package, harness, screenshot, and trace evidence.
-- [ ] Standards and Spec review find no unresolved critical or important issues.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] Every baseline scenario is rerun from a clean disposable context with the same raw prompt and fixture.
+- [x] Evidence records runner, skill version, raw output, any disposable file tree and diff, failure codes, timestamp, and result; generated application files remain outside the committed Foundry artifact set.
+- [x] Deterministic identity, metadata, reference-link, fixed-stack, prohibited-Foundry-code, and harness-parity checks pass.
+- [x] Every successful skill output requires the downstream target-project plan to cover responsive behavior, keyboard and focus, action states, consequential handoff, recovery, startup, and stop.
+- [x] Visual critique covers context, first impression, visual design, interface design, consistency, and real user context.
+- [x] Health and evidence-auditor outputs meet domain specificity, task-fit IA, focusing mechanism, action clarity, and visual coherence thresholds with GENERIC_DASHBOARD=false.
+- [x] Authority, embedded-chat, Foundry-boundary, and package-lifecycle scenarios achieve three consecutive passes.
+- [x] This task reports skill-bundle, lifecycle, discovery, scenario, repository, security, and diff evidence; the skill separately requires target-project build, typecheck, lint, test, accessibility, security, dependency, secret, package, harness, screenshot, and trace evidence.
+- [x] Standards and Spec review find no unresolved critical or important issues.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

@@ -109,8 +109,8 @@
       "task_id": "workflow-foundry-015",
       "title": "Create Markdown-first build-workflow-product skill",
       "task_kind": "workflow-change",
-      "status": "in-progress",
-      "matt_phase": "issues",
+      "status": "done",
+      "matt_phase": "done",
       "updated_at": "2026-07-10"
     }
   ]

@@ -73,6 +73,13 @@ ownership; the builder must not create tasks or mutate task JSON. Before
 delegation, verify every approved implementation path is bound to the same
 deliverable, artifact id, and artifact role.
 
+For a selected task whose approved primary contracts include a
+`ui-application` plus a callable `packaged-skill` or `workflow-pack`, delegate
+the complete create or revamp job to `$build-workflow-product`. Keep tracker
+and phase ownership here. The product builder may invoke `$build-workflow-skill`
+for the callable bundle, but neither builder may duplicate the selected task or
+let UI files satisfy the skill contract.
+
 ## Capability Dependency Continuation
 
 If a continued task needs a new capability dependency mid-execution:

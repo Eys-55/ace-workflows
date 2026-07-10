@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Workflow Product"
+  short_description: "Create beautiful local workflow products"
+  default_prompt: "Use $build-workflow-product to create or revamp the selected workflow task as a beautiful, interactive local product."

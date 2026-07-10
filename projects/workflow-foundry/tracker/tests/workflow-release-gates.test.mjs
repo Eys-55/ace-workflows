@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { projectDeliverableReadiness } from "../../../../scripts/workflow-deliverable-contracts.mjs";
+import { validateReleaseEvidenceDocument } from "../../../../scripts/workflow-release-evidence-validation.mjs";
 
 const testDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(testDir, "../../../..");
@@ -61,4 +62,29 @@ test("release readiness replays the provenance-complete behavior evidence gate",
   assert.equal(runEvidence.ready, true);
   assert.equal(readiness.completion_ready, true);
   assert.deepEqual(readiness.blockers, []);
+});
+
+test("extended workflow-product release evidence rejects tampered history and review claims", async () => {
+  const evidencePath = path.join(
+    repoRoot,
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+  );
+  const evidence = JSON.parse(await readFile(evidencePath, "utf8"));
+  assert.deepEqual(validateReleaseEvidenceDocument(evidence), { valid: true, errors: [] });
+
+  const tamper = (mutate, expectedCode) => {
+    const document = structuredClone(evidence);
+    mutate(document);
+    const result = validateReleaseEvidenceDocument(document);
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.includes(expectedCode), `${expectedCode}: ${result.errors.join(", ")}`);
+  };
+
+  tamper((document) => { document.baseline_runs[0].raw_prompt = "different prompt"; }, "baseline-prompt-mismatch");
+  tamper((document) => { document.prior_runs[0].raw_event_log += "tampered"; }, "historical-event-hash-mismatch");
+  tamper((document) => { document.high_risk_pass3[0].evidence_ids.reverse(); }, "pass3-order-invalid");
+  tamper((document) => { document.pairwise_domain_review.final_review.raw_event_log += "tampered"; }, "pairwise-review-invalid");
+  tamper((document) => { document.full_verification.commands[0].exit_code = 1; }, "full-verification-invalid");
+  tamper((document) => { document.review_history.final_reviews[0].review.verdict = "FAIL"; }, "final-review-invalid");
+  tamper((document) => { delete document.deterministic_runs[0].exit_code; }, "deterministic-run-invalid");
 });

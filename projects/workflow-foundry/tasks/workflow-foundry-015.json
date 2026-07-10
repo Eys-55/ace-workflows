@@ -3,8 +3,8 @@
   "project_slug": "workflow-foundry",
   "title": "Create Markdown-first build-workflow-product skill",
   "task_kind": "workflow-change",
-  "status": "in-progress",
-  "matt_phase": "issues",
+  "status": "done",
+  "matt_phase": "done",
   "explicit_next_action_required": true,
   "summary": "Design and implement the Markdown-first model-invoked $build-workflow-product Foundry skill that teaches Codex, Claude Code, or opencode how to turn a selected workflow project into a beautiful, highly interactive, npm-installable local product with an on-demand sidecar UI. This Foundry task creates callable skill instructions, Markdown design and product references, behavior eval scenarios, and only the required runtime metadata; it does not implement shared components, UI code, a component library, an npm package, or a product runtime. Actual application files are created later inside a separately tracked target project when the skill is invoked under that project's approvals and file policy.",
   "acceptance_criteria": [
@@ -57,6 +57,7 @@
     "evals use representative workflow fixtures and define expected behavior before implementation; they include deterministic contract and build checks, fresh-agent evidence, model and human visual review, accessibility checks, security checks, and stable end-to-end critical-path tests with inspectable screenshots, traces, or failure artifacts",
     "the skill requires target-project verification to report build, type-check, lint, unit and integration tests, end-to-end tests, coverage where available, dependency and secret scans, and diff review before declaring the generated product ready",
     "the skill requires target-project code to use schema-validated boundaries, least-privilege local APIs, sanitized rendered content, redacted logs, user-safe errors, explicit loading and failure states, keyboard and focus behavior, responsive layouts, and immutable typed state updates",
+    "every model run, fresh-agent evaluation, and critique for this task uses GPT-5.6 Sol only; unavailability blocks the run and never triggers a fallback",
     "the design explains how existing workflow skills, Markdown and JSON source state, capability provenance, and the read-only tracker remain compatible",
     "a reviewed PRD and independently implementable issues exist before any UI code, skill bundle, template, test, dependency, hosting, or publishing artifact is approved",
     "workflow state validation and the workflow-foundry tracker verification pass after every approved tracker or implementation change"
@@ -73,7 +74,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load the complete workflow-foundry tracker, the active typed-deliverable revamp, existing tracker UI precedents, and Matt/ECC design gates before defining reusable UI delivery for agent workflows.",
+    "summary": "Completed the Markdown-first build-workflow-product capability with Sol-only behavior evidence, final-bundle pass3 traps, pairwise domain divergence, strict release-history validation, independent review, and passing repository verification.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -98,7 +99,7 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "implement",
+    "selected_next_action": "none",
     "approved_artifacts": [
       {
         "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-015-build-workflow-product.md",
@@ -153,6 +154,168 @@
         "approval_note": "Approved by the user's instruction to finish the accepted build-workflow-product design through implementation and push.",
         "approved_at": "2026-07-10",
         "artifact_id": "product-issues"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/SKILL.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "primary",
+        "approval_note": "Approved as the concise canonical workflow-product orchestration surface.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-bundle"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/agents/openai.yaml",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "primary",
+        "approval_note": "Approved as required Codex runtime metadata with matching invocation identity.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-bundle"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/references/workflow-product-contract.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved as the typed product, ownership, package, and handoff contract.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-references"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/references/interface-direction.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved as progressively disclosed domain-specific interface guidance.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-references"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/references/states-and-actions.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved as the interaction, state, and consequential-action contract.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-references"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/references/local-sidecar-runtime.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved as the fixed-stack, loopback runtime, package, and lifecycle contract.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-references"
+      },
+      {
+        "path": ".agents/skills/build-workflow-product/references/evaluation-and-critique.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved as the downstream verification and browser critique contract.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-references"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-scenarios.json",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for shared RED and post-skill scenario definitions.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-scenarios"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for provenance-complete GPT-5.6 Sol behavior evidence.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-evidence"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md",
+        "phase": "code-review",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for final Standards-plus-Spec review and acceptance trace.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-review"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "support",
+        "approval_note": "Approved for deterministic bundle, routing, content, and evidence regressions.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-tests"
+      },
+      {
+        "path": "scripts/workflow-release-evidence-validation.mjs",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved during code review to make the extended behavior-evidence integrity claims executable in the shared JSON readiness gate.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-evidence-validator"
+      },
+      {
+        "path": "scripts/workflow-contract-readiness.mjs",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved during code review for the shared readiness seam to invoke the extended release-evidence validator while preserving historical compatibility.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-readiness-integration"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/tests/workflow-release-gates.test.mjs",
+        "phase": "implement",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved during code review for tamper regressions covering history, pass3, review, pairwise, deterministic, and full-verification evidence.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-evidence-validator-tests"
+      },
+      {
+        "path": "projects/workflow-foundry/tracker/package.json",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "support",
+        "approval_note": "Approved to register the deterministic product-skill suite in canonical verification.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-test-registration"
+      },
+      {
+        "path": ".agents/skills/initiate-task/SKILL.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "support",
+        "approval_note": "Approved to classify create/revamp workflow-product intent without duplicating tasks.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-lifecycle-routing"
+      },
+      {
+        "path": ".agents/skills/continue-task/SKILL.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "support",
+        "approval_note": "Approved to delegate selected product tasks to the canonical product builder.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-lifecycle-routing"
+      },
+      {
+        "path": ".agents/skills/workflow-help/SKILL.md",
+        "phase": "implement",
+        "deliverable_id": "wf015-workflow-product-skill",
+        "artifact_role": "support",
+        "approval_note": "Approved to expose the derived product-builder route without a hand-maintained catalog.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-product-lifecycle-routing"
       }
     ],
     "process_exceptions": []
@@ -188,7 +351,29 @@
           "validation": "canonical-skill-bundle"
         }
       ],
-      "allowed_support_artifacts": [],
+      "allowed_support_artifacts": [
+        {
+          "artifact_id": "workflow-product-tests",
+          "artifact_role": "support",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs",
+          "purpose": "Enforce the bundle, fixed stack, runtime, state, anti-generic, lifecycle, and evidence contracts."
+        },
+        {
+          "artifact_id": "workflow-product-test-registration",
+          "artifact_role": "support",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/tracker/package.json",
+          "purpose": "Register the deterministic product-skill suite in canonical tracker verification."
+        },
+        {
+          "artifact_id": "workflow-product-lifecycle-routing",
+          "artifact_role": "support",
+          "locator_type": "path-prefix",
+          "locator": ".agents/skills/",
+          "purpose": "Route create and revamp product intent through lifecycle and help surfaces without duplicating tasks or skill-authoring authority."
+        }
+      ],
       "required_guidance": [
         {
           "guidance_id": "workflow-product-prd",
@@ -242,6 +427,27 @@
           "locator_type": "path",
           "locator": ".agents/skills/build-workflow-product/references",
           "validation": "directory"
+        },
+        {
+          "artifact_id": "workflow-product-scenarios",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-scenarios.json",
+          "validation": "behavior-evidence"
+        },
+        {
+          "artifact_id": "workflow-product-evidence",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+          "validation": "behavior-evidence"
+        },
+        {
+          "artifact_id": "workflow-product-review",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md",
+          "validation": "file"
         }
       ],
       "allowed_support_artifacts": [
@@ -258,6 +464,27 @@
           "locator_type": "path-prefix",
           "locator": "projects/workflow-foundry/artifacts/issues/",
           "purpose": "Preserve the approved issue-sized implementation and evaluation slices."
+        },
+        {
+          "artifact_id": "workflow-product-evidence-validator",
+          "artifact_role": "support",
+          "locator_type": "path",
+          "locator": "scripts/workflow-release-evidence-validation.mjs",
+          "purpose": "Validate extended release history, pass3, pairwise, review, deterministic, and command-level verification claims."
+        },
+        {
+          "artifact_id": "workflow-product-readiness-integration",
+          "artifact_role": "support",
+          "locator_type": "path",
+          "locator": "scripts/workflow-contract-readiness.mjs",
+          "purpose": "Invoke extended validation for evidence documents that opt into release-history fields."
+        },
+        {
+          "artifact_id": "workflow-product-evidence-validator-tests",
+          "artifact_role": "support",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/tracker/tests/workflow-release-gates.test.mjs",
+          "purpose": "Reject tampered extended behavior evidence through the public readiness seam."
         }
       ],
       "required_guidance": [
@@ -281,6 +508,21 @@
           "reference": "workflow-product-references"
         },
         {
+          "condition_id": "workflow-product-scenarios-valid",
+          "type": "artifact-valid",
+          "reference": "workflow-product-scenarios"
+        },
+        {
+          "condition_id": "workflow-product-evidence-valid",
+          "type": "artifact-valid",
+          "reference": "workflow-product-evidence"
+        },
+        {
+          "condition_id": "workflow-product-review-valid",
+          "type": "artifact-valid",
+          "reference": "workflow-product-review"
+        },
+        {
           "condition_id": "workflow-product-guidance-reviewed",
           "type": "review-passed",
           "reference": "wf015-guidance-review"
@@ -300,8 +542,29 @@
       "deliverable_id": "wf015-product-guidance",
       "artifact_id": "workflow-product-references",
       "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": ".agents/skills/build-workflow-product/references/"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-scenarios",
+      "artifact_role": "primary",
       "locator_type": "path",
-      "locator": ".agents/skills/build-workflow-product/references"
+      "locator": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-scenarios.json"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-evidence",
+      "artifact_role": "primary",
+      "locator_type": "path",
+      "locator": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-review",
+      "artifact_role": "primary",
+      "locator_type": "path",
+      "locator": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md"
     },
     {
       "deliverable_id": "wf015-product-guidance",
@@ -316,9 +579,368 @@
       "artifact_role": "support",
       "locator_type": "path-prefix",
       "locator": "projects/workflow-foundry/artifacts/issues/"
+    },
+    {
+      "deliverable_id": "wf015-workflow-product-skill",
+      "artifact_id": "workflow-product-tests",
+      "artifact_role": "support",
+      "locator_type": "path",
+      "locator": "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs"
+    },
+    {
+      "deliverable_id": "wf015-workflow-product-skill",
+      "artifact_id": "workflow-product-test-registration",
+      "artifact_role": "support",
+      "locator_type": "path",
+      "locator": "projects/workflow-foundry/tracker/package.json"
+    },
+    {
+      "deliverable_id": "wf015-workflow-product-skill",
+      "artifact_id": "workflow-product-lifecycle-routing",
+      "artifact_role": "support",
+      "locator_type": "path-prefix",
+      "locator": ".agents/skills/"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-evidence-validator",
+      "artifact_role": "support",
+      "locator_type": "path",
+      "locator": "scripts/workflow-release-evidence-validation.mjs"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-readiness-integration",
+      "artifact_role": "support",
+      "locator_type": "path",
+      "locator": "scripts/workflow-contract-readiness.mjs"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-evidence-validator-tests",
+      "artifact_role": "support",
+      "locator_type": "path",
+      "locator": "projects/workflow-foundry/tracker/tests/workflow-release-gates.test.mjs"
     }
   ],
-  "behavior_evidence": [],
+  "behavior_evidence": [
+    {
+      "evidence_id": "wf015-fresh-agent-v0-invalidated",
+      "eval_id": "wf015-fresh-agent",
+      "scenario_id": "workflow-foundry-015-product-contract-suite",
+      "raw_prompt": "Run the twelve English, terse, Taglish, create, revamp, action, authority, chat, Foundry-boundary, and package-lifecycle product scenarios in isolated GPT-5.6 Sol sessions.",
+      "repository_context": "The first post-skill release attempt was preserved after output-template omissions and exact multilingual grader gaps prevented any case from passing.",
+      "runner_id": "gpt-5.6-sol",
+      "runner_mode": "fresh-agent",
+      "runner_session_id": "wf015-fresh-agent-aggregate-r1",
+      "started_at": "2026-07-10T09:03:57.630Z",
+      "completed_at": "2026-07-10T09:06:30.325Z",
+      "raw_output": "Invalidated aggregate: 0/12 cases passed. Raw prompts, outputs, sessions, event-log hashes, failure codes, and all later retries remain preserved in workflow-foundry-015-behavior-evidence.json.",
+      "expected_route": "Select build-workflow-product and return distinct UI and callable-skill contracts, bespoke domain theses, fixed stack and sidecar boundaries, complete actions and states, safe package lifecycle, harness authority, and downstream verification without Foundry product code.",
+      "observed_contract_ids": [
+        "wf015-workflow-product-skill",
+        "wf015-product-guidance"
+      ],
+      "observed_artifacts": [
+        ".agents/skills/build-workflow-product",
+        ".agents/skills/build-workflow-product/references",
+        "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json"
+      ],
+      "observed_route": [
+        "canonical-skill",
+        "documentation-handoff"
+      ],
+      "observed_ownership": [
+        "canonical-foundry"
+      ],
+      "observed_visibility": [
+        "canonical-active",
+        "not-applicable"
+      ],
+      "observed_phase_result": "fail: first post-skill aggregate did not satisfy the complete machine-scannable product contract",
+      "observed_diff": [
+        {
+          "path": ".agents/skills/build-workflow-product",
+          "change": "created"
+        },
+        {
+          "path": ".agents/skills/build-workflow-product/references",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "wf015-fresh-agent",
+          "result": "fail",
+          "grader_id": "wf015-contract-rubric-v1",
+          "grader_mode": "deterministic-validator",
+          "grader_session_id": "wf015-contract-grader-aggregate-r1",
+          "independent_of_runner": true,
+          "evidence": "The initial aggregate preserved twelve failures caused by incomplete manifest output and exact-phrase rubric gaps; no failed attempt was relabeled."
+        }
+      ],
+      "first_attempt": true,
+      "retry_of": null,
+      "result": "fail",
+      "timestamp": "2026-07-10T09:06:30.325Z",
+      "builder_contract_version": 1
+    },
+    {
+      "evidence_id": "wf015-fresh-agent-v1",
+      "eval_id": "wf015-fresh-agent",
+      "scenario_id": "workflow-foundry-015-product-contract-suite",
+      "raw_prompt": "Run the twelve English, terse, Taglish, create, revamp, action, authority, chat, Foundry-boundary, and package-lifecycle product scenarios in isolated GPT-5.6 Sol sessions.",
+      "repository_context": "Clean disposable target-project repositories with the final skill bundle hash, expected route withheld, read-only sandbox, exact Sol model flag, and no product writes.",
+      "runner_id": "gpt-5.6-sol",
+      "runner_mode": "fresh-agent",
+      "runner_session_id": "wf015-fresh-agent-aggregate-r18-r20",
+      "started_at": "2026-07-10T10:21:43.096Z",
+      "completed_at": "2026-07-10T10:28:22.500Z",
+      "raw_output": "12/12 final-bundle release cases passed in twelve unique GPT-5.6 Sol sessions with exact invocations, embedded raw event logs, matching current skill-bundle hashes, clean snapshots, replayed independent grading, and verified zero writes. Authority, embedded-chat, Foundry-boundary, and package-lifecycle each passed three consecutive final-bundle runs at r18, r19, and r20.",
+      "expected_route": "Select build-workflow-product and return distinct UI and callable-skill contracts, bespoke domain theses, fixed stack and sidecar boundaries, complete actions and states, safe package lifecycle, harness authority, and downstream verification without Foundry product code.",
+      "observed_contract_ids": [
+        "wf015-workflow-product-skill",
+        "wf015-product-guidance"
+      ],
+      "observed_artifacts": [
+        ".agents/skills/build-workflow-product",
+        ".agents/skills/build-workflow-product/references",
+        "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-scenarios.json",
+        "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json"
+      ],
+      "observed_route": [
+        "canonical-skill",
+        "documentation-handoff"
+      ],
+      "observed_ownership": [
+        "canonical-foundry"
+      ],
+      "observed_visibility": [
+        "canonical-active",
+        "not-applicable"
+      ],
+      "observed_phase_result": "pass: twelve current-bundle Sol cases and four r18-r20 high-risk pass3 series",
+      "observed_diff": [
+        {
+          "path": ".agents/skills/build-workflow-product",
+          "change": "created"
+        },
+        {
+          "path": ".agents/skills/build-workflow-product/references",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-scenarios.json",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "wf015-fresh-agent",
+          "result": "pass",
+          "grader_id": "wf015-contract-rubric-v4",
+          "grader_mode": "deterministic-validator",
+          "grader_session_id": "wf015-contract-grader-aggregate-r18-r20",
+          "independent_of_runner": true,
+          "evidence": "Independent contract and zero-write graders confirmed all required route, product, design, runtime, package, state, authority, domain, revamp, and trap outcomes; the permanent evidence embeds twelve live event streams and fifty-nine prior attempts."
+        }
+      ],
+      "first_attempt": false,
+      "retry_of": "wf015-fresh-agent-v0-invalidated",
+      "result": "pass",
+      "timestamp": "2026-07-10T10:28:22.500Z",
+      "builder_contract_version": 1
+    },
+    {
+      "evidence_id": "wf015-deterministic-v1",
+      "eval_id": "wf015-deterministic",
+      "scenario_id": "workflow-foundry-015-bundle-routing-security-regressions",
+      "raw_prompt": "Run canonical bundle, reference, fixed-stack, lifecycle, security-boundary, scenario, catalog, and routing assertions.",
+      "repository_context": "Node test fixtures against the final repository state and canonical catalog/runtime consumers.",
+      "runner_id": "node-test-runner",
+      "runner_mode": "deterministic-fixture",
+      "runner_session_id": "wf015-node-deterministic-v1",
+      "started_at": "2026-07-10T09:50:20.000Z",
+      "completed_at": "2026-07-10T09:50:27.000Z",
+      "raw_output": "Four product-skill contract tests and nineteen catalog/routing tests passed, including untrusted-content instruction boundaries and archive link/extraction containment.",
+      "expected_route": "Validate the one canonical seven-file bundle, five references, exact metadata, fixed stack and security boundaries, lifecycle delegation, scenarios, catalog discovery, and raw-intent routing.",
+      "observed_contract_ids": [
+        "wf015-workflow-product-skill"
+      ],
+      "observed_artifacts": [
+        ".agents/skills/build-workflow-product",
+        "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs",
+        "projects/workflow-foundry/tracker/package.json"
+      ],
+      "observed_route": [
+        "canonical-skill"
+      ],
+      "observed_ownership": [
+        "canonical-foundry"
+      ],
+      "observed_visibility": [
+        "canonical-active"
+      ],
+      "observed_phase_result": "pass: deterministic bundle, security, catalog, and routing gates",
+      "observed_diff": [
+        {
+          "path": ".agents/skills/build-workflow-product",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/tracker/package.json",
+          "change": "updated"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "wf015-deterministic",
+          "result": "pass",
+          "grader_id": "node-assert-strict",
+          "grader_mode": "deterministic-validator",
+          "grader_session_id": "wf015-node-assertions-v1",
+          "independent_of_runner": true,
+          "evidence": "Strict Node assertions returned 4/4 product contract passes and 19/19 catalog/routing regression passes."
+        }
+      ],
+      "first_attempt": true,
+      "retry_of": null,
+      "result": "pass",
+      "timestamp": "2026-07-10T09:50:27.000Z",
+      "builder_contract_version": 1
+    },
+    {
+      "evidence_id": "wf015-guidance-review-v0",
+      "eval_id": "wf015-guidance-review",
+      "scenario_id": "workflow-foundry-015-standards-spec-guidance-review",
+      "raw_prompt": "Review all fifty PRD stories, five issues, product guidance, security boundaries, evidence, task bindings, and repository verification.",
+      "repository_context": "Initial independent GPT-5.6 Sol Spec and code/security reviews before permanent evidence and review completion.",
+      "runner_id": "gpt-5.6-sol",
+      "runner_mode": "manual-review",
+      "runner_session_id": "019f4b5b-4892-7cd1-9cf6-087a6003b8ad",
+      "started_at": "2026-07-10T09:27:00.000Z",
+      "completed_at": "2026-07-10T09:29:58.408Z",
+      "raw_output": "FAIL: evidence, review, and task bindings were incomplete. Code/security review also found missing untrusted-content instruction boundaries and archive extraction link containment.",
+      "expected_route": "Standards-plus-Spec review passes only after all fifty stories, forty-nine issue checks, evidence integrity, ownership, security, and verification have no unresolved critical or high finding.",
+      "observed_contract_ids": [
+        "wf015-product-guidance"
+      ],
+      "observed_artifacts": [
+        ".agents/skills/build-workflow-product/references",
+        "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md"
+      ],
+      "observed_route": [
+        "documentation-handoff"
+      ],
+      "observed_ownership": [
+        "canonical-foundry"
+      ],
+      "observed_visibility": [
+        "not-applicable"
+      ],
+      "observed_phase_result": "fail: initial independent review found missing evidence bindings and two security guidance gaps",
+      "observed_diff": [
+        {
+          "path": ".agents/skills/build-workflow-product/references",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "wf015-guidance-review",
+          "result": "fail",
+          "grader_id": "wf015-independent-review-aggregation-v0",
+          "grader_mode": "independent-agent",
+          "grader_session_id": "019f4b5b-4891-76d3-a6b6-8ecbf6309866",
+          "independent_of_runner": true,
+          "evidence": "Independent Spec and code/security reviewers agreed that the candidate could not pass until permanent evidence, task bindings, final review, prompt-injection rules, and extraction safety were complete."
+        }
+      ],
+      "first_attempt": true,
+      "retry_of": null,
+      "result": "fail",
+      "timestamp": "2026-07-10T09:29:58.408Z",
+      "builder_contract_version": 1
+    },
+    {
+      "evidence_id": "wf015-guidance-review-v1",
+      "eval_id": "wf015-guidance-review",
+      "scenario_id": "workflow-foundry-015-standards-spec-guidance-review",
+      "raw_prompt": "Review the final-bundle Health and evidence-auditor product contracts for domain specificity, safety, actionability, and unresolved critical or high findings at the Foundry pre-implementation seam.",
+      "repository_context": "Final skill-bundle hash with repaired untrusted-content and archive extraction boundaries, final Sol product-contract outputs, and explicit downstream-scope exclusions.",
+      "runner_id": "gpt-5.6-sol",
+      "runner_mode": "manual-review",
+      "runner_session_id": "019f4b92-8635-7fe2-bda2-eb40fefcdb1d",
+      "started_at": "2026-07-10T10:28:22.501Z",
+      "completed_at": "2026-07-10T10:28:59.295Z",
+      "raw_output": "PASS: GENERIC_DASHBOARD=false and materially_different=true. Health and evidence-auditor contracts have distinct dominant objects, layouts, focusing mechanisms, evidence models, actions, authority boundaries, responsive behavior, and visual semantics; no critical or high finding remains at the approved Foundry seam.",
+      "expected_route": "Standards-plus-Spec review passes only after all fifty stories, forty-nine issue checks, evidence integrity, ownership, security, and verification have no unresolved critical or high finding.",
+      "observed_contract_ids": [
+        "wf015-product-guidance"
+      ],
+      "observed_artifacts": [
+        ".agents/skills/build-workflow-product/references",
+        "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+        "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md"
+      ],
+      "observed_route": [
+        "documentation-handoff"
+      ],
+      "observed_ownership": [
+        "canonical-foundry"
+      ],
+      "observed_visibility": [
+        "not-applicable"
+      ],
+      "observed_phase_result": "pass: scoped final-bundle guidance review with no unresolved critical or high finding",
+      "observed_diff": [
+        {
+          "path": ".agents/skills/build-workflow-product/references",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+          "change": "created"
+        },
+        {
+          "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "wf015-guidance-review",
+          "result": "pass",
+          "grader_id": "wf015-standards-spec-review-artifact-v1",
+          "grader_mode": "human-review",
+          "grader_session_id": "wf015-standards-spec-review-v1",
+          "independent_of_runner": true,
+          "evidence": "The review artifact traces all fifty stories and five issues, records the preserved RED and retry history, verifies repaired security boundaries, and scopes downstream product evidence honestly."
+        }
+      ],
+      "first_attempt": false,
+      "retry_of": "wf015-guidance-review-v0",
+      "result": "pass",
+      "timestamp": "2026-07-10T10:28:59.295Z",
+      "builder_contract_version": 1
+    }
+  ],
   "dependencies": [
     "workflow-foundry-006"
   ],
@@ -336,7 +958,25 @@
     "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-004-local-runtime-and-package-boundaries.md",
     "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-005-evaluation-critique-and-release.md",
     ".agents/skills/build-workflow-product",
-    ".agents/skills/build-workflow-product/references"
+    ".agents/skills/build-workflow-product/SKILL.md",
+    ".agents/skills/build-workflow-product/agents/openai.yaml",
+    ".agents/skills/build-workflow-product/references",
+    ".agents/skills/build-workflow-product/references/workflow-product-contract.md",
+    ".agents/skills/build-workflow-product/references/interface-direction.md",
+    ".agents/skills/build-workflow-product/references/states-and-actions.md",
+    ".agents/skills/build-workflow-product/references/local-sidecar-runtime.md",
+    ".agents/skills/build-workflow-product/references/evaluation-and-critique.md",
+    ".agents/skills/initiate-task/SKILL.md",
+    ".agents/skills/continue-task/SKILL.md",
+    ".agents/skills/workflow-help/SKILL.md",
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-scenarios.json",
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-behavior-evidence.json",
+    "projects/workflow-foundry/artifacts/reviews/workflow-foundry-015-workflow-product-review.md",
+    "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs",
+    "scripts/workflow-release-evidence-validation.mjs",
+    "scripts/workflow-contract-readiness.mjs",
+    "projects/workflow-foundry/tracker/tests/workflow-release-gates.test.mjs",
+    "projects/workflow-foundry/tracker/package.json"
   ],
   "session_log": [
     {
@@ -430,6 +1070,18 @@
     {
       "date": "2026-07-10",
       "event": "Converted the approved PRD into five blocker-ordered tracer slices: fresh-agent RED scenarios, the canonical skill tracer, domain interface and state quality, local runtime and package boundaries, and final evaluation/release. The skill implementation slice remains blocked by workflow-foundry-006's UI-plus-skill routing chain."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "workflow-foundry-006 completed with typed multi-deliverable routing, strict bundle validation, provenance-complete evidence, and passing release gates. Entered implementation for workflow-foundry-015 and approved only the canonical Markdown skill bundle, five Markdown references, scenario/evidence/review JSON or Markdown artifacts, deterministic test registration, and thin lifecycle routing updates; no Foundry UI, components, product runtime, or npm product code is approved."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Completed the implementation seam: the canonical seven-file Markdown skill bundle and lifecycle routes pass deterministic validation; twelve fresh GPT-5.6 Sol scenarios pass from isolated target-project fixtures; authority, embedded-chat, Foundry-boundary, and package-lifecycle traps each achieved three consecutive passes after preserved retries; and scoped pairwise review found Health and evidence-auditor contracts materially different with no unresolved critical or high finding. Entered code review without adding Foundry product code."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Closed code review after all substantive findings were repaired. The final unchanged bundle passed 12/12 GPT-5.6 Sol release cases and r18-r20 pass3 for all four high-risk families; all 135 model-run logs and hashes are embedded; shared readiness rejects tampered history; Health and evidence-auditor remain materially different; final Spec, security, and evidence reviews passed with no unresolved critical or high finding; root validation, 61 data tests, one output test, four enforced coverage lanes, Astro build, audit, syntax, diff, and secret checks passed. Marked workflow-foundry-015 done."
     }
   ],
   "created_at": "2026-07-10",

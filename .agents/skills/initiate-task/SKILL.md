@@ -316,10 +316,19 @@ Process:
    return `command-first`, `helper-only`, or `thin-wrapper` instead of approving
    the substitute. Do not reclassify a request to "call it a skill" as
    documentation merely because the proposed implementation is invalid.
+   For create-UI, revamp-UI, workflow-product, or local-sidecar intent, inspect
+   existing project tasks before creating anything. Continue the existing
+   product task when it already owns the request; never duplicate the
+   underlying workflow or skill task. Otherwise propose a target-project task
+   with separate `ui-application` and callable `packaged-skill` or
+   `workflow-pack` contracts. After implementation approval, route the complete
+   product job to `$build-workflow-product`; that skill delegates only callable
+   skill-bundle authoring to `$build-workflow-skill`.
 5. Show the complete proposed contract and wait for explicit operator approval
    before writing task JSON. Skill authoring is not performed by this lifecycle
    skill; an implementation-ready skill contract later routes to
-   `$build-workflow-skill`.
+   `$build-workflow-skill`, while an implementation-ready workflow-product
+   contract routes to `$build-workflow-product`.
 6. Detect whether the request needs capability dependencies. Treat this as
    true only when the operator explicitly names another known project workflow
    capability, or when natural language strongly implies that a primary project

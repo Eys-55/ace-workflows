@@ -106,7 +106,7 @@ whether the result is genuinely useful and visually intentional.
 45. As a reviewer, I want deterministic, model, visual, accessibility, security, and human review lanes, so that no single grader can declare the product complete.
 46. As a reviewer, I want build, type, lint, test, coverage, dependency, secret, and diff evidence, so that completion claims are inspectable.
 47. As a skill maintainer, I want failing fresh-agent baselines before skill text is written, so that every instruction exists to correct an observed behavior gap.
-48. As a skill maintainer, I want the core skill concise and branch details progressively disclosed, so that GPT-5.6-class models receive only task-relevant guidance.
+48. As a skill maintainer, I want the core skill concise and branch details progressively disclosed, so that GPT-5.6 Sol receives only task-relevant guidance.
 49. As a skill maintainer, I want representative English, terse, and Taglish prompts, so that natural operator language routes reliably.
 50. As a skill maintainer, I want regression scenarios for generic dashboards, embedded chat, unsafe authority, missing states, wrong ownership, and mock-only output, so that known failure modes stay fixed.
 
@@ -201,13 +201,12 @@ whether the result is genuinely useful and visually intentional.
 
 ## Further Notes
 
-The skill is intentionally capability-oriented rather than tied to one model
-slug. Current OpenAI guidance documents stronger frontend layout, hierarchy,
-design judgment, image fidelity, and intent understanding in GPT-5.6-class
-models, while also recommending smaller prompts, task-relevant tools, explicit
-authority boundaries, representative evals, and browser-based verification.
-The bundle architecture should preserve those advantages without making older
-supported harness models unusable.
+The skill is harness-portable but model-fixed for this task: every model run,
+fresh-agent evaluation, and critique must use GPT-5.6 Sol. If that model is
+unavailable, the workflow records a blocker and stops; it never substitutes a
+fallback. Current OpenAI guidance supports concise task-relevant prompts,
+explicit authority boundaries, representative evals, and browser-based visual
+verification, which this bundle preserves across supported harness surfaces.
 
 The primary upstream process references are Matt Pocock's `to-prd`,
 `to-issues`, `implement`, `tdd`, `code-review`, and `writing-great-skills`

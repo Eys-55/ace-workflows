@@ -18,15 +18,15 @@ runtime, or packaging depth before the core ownership and task route passes.
 
 ## Acceptance criteria
 
-- [ ] The canonical bundle has matching lowercase identity, trigger-rich description, required runtime metadata, and `$build-workflow-product` default invocation.
-- [ ] The core sequence requires a selected project, complete tracker preload, and an approved target-project task before writes.
-- [ ] Create and revamp intent route without duplicating an existing target task.
-- [ ] UI and callable workflow-skill deliverables remain distinct.
-- [ ] Skill-bundle construction delegates to the sole `$build-workflow-skill` authority.
-- [ ] Foundry code and target-product code land in their owning boundaries.
-- [ ] Missing ownership, task, real content, or artifact approval stops before writes.
-- [ ] The first post-skill scenario proves correct routing and contract output.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] The canonical bundle has matching lowercase identity, trigger-rich description, required runtime metadata, and `$build-workflow-product` default invocation.
+- [x] The core sequence requires a selected project, complete tracker preload, and an approved target-project task before writes.
+- [x] Create and revamp intent route without duplicating an existing target task.
+- [x] UI and callable workflow-skill deliverables remain distinct.
+- [x] Skill-bundle construction delegates to the sole `$build-workflow-skill` authority.
+- [x] Foundry code and target-product code land in their owning boundaries.
+- [x] Missing ownership, task, real content, or artifact approval stops before writes.
+- [x] The first post-skill scenario proves correct routing and contract output.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 
