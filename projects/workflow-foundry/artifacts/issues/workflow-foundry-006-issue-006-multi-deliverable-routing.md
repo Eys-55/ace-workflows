@@ -21,19 +21,19 @@ slice to the shared scenario contract introduced by Issue 004.
 
 ## Acceptance criteria
 
-- [ ] One task can persist and expose multiple versioned contracts with distinct primary and support roles.
-- [ ] A mixed UI-plus-skill scenario completes only when both the application and callable skill contracts are satisfied.
-- [ ] UI or package code cannot satisfy a skill bundle or skill eval requirement.
-- [ ] A workflow-pack scenario produces multiple individually callable skill contracts while allowing explicitly shared support resources.
-- [ ] Validator-only, documentation-only, and tracker-only requests produce their requested products without fake skill wrappers.
-- [ ] Phase approvals, linked artifacts, dependency evidence, readiness, and completion reconcile per deliverable and role.
-- [ ] Optional resources are justified and linked to the deliverable that consumes them.
-- [ ] Existing-skill language updates one identified bundle without creating a duplicate.
-- [ ] Mixed-product, workflow-pack, helper-only, documentation-only, and tracker-only variants extend the shared scenario contract and drive both live and deterministic seams.
-- [ ] Fresh-agent English, terse, and Taglish scenarios cover every routing family without revealing the intended classification.
-- [ ] Evidence records raw prompts, observed contracts and artifacts, runner identities, timestamps, contract versions, and results.
-- [ ] Query and read-only tracker output show each deliverable's readiness and blockers without mutation.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] One task can persist and expose multiple versioned contracts with distinct primary and support roles.
+- [x] A mixed UI-plus-skill scenario completes only when both the application and callable skill contracts are satisfied.
+- [x] UI or package code cannot satisfy a skill bundle or skill eval requirement.
+- [x] A workflow-pack scenario produces multiple individually callable skill contracts while allowing explicitly shared support resources.
+- [x] Validator-only, documentation-only, and tracker-only requests produce their requested products without fake skill wrappers.
+- [x] Phase approvals, linked artifacts, dependency evidence, readiness, and completion reconcile per deliverable and role.
+- [x] Optional resources are justified and linked to the deliverable that consumes them.
+- [x] Existing-skill language updates one identified bundle without creating a duplicate.
+- [x] Mixed-product, workflow-pack, helper-only, documentation-only, and tracker-only variants extend the shared scenario contract and drive both live and deterministic seams.
+- [x] Fresh-agent English, terse, and Taglish scenarios cover every routing family without revealing the intended classification.
+- [x] Evidence records raw prompts, observed contracts and artifacts, runner identities, timestamps, contract versions, and results.
+- [x] Query and read-only tracker output show each deliverable's readiness and blockers without mutation.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

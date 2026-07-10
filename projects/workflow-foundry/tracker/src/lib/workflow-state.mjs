@@ -1,6 +1,8 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { projectDeliverableReadiness } from "../../../../../scripts/workflow-deliverable-contracts.mjs";
+import { deriveCanonicalSkillCatalog } from "../../../../../scripts/workflow-skill-catalog.mjs";
 
 const trackerRoot = process.cwd();
 const repoRoot = path.resolve(trackerRoot, "..", "..", "..");
@@ -109,7 +111,7 @@ function recentSessionEventsFor(sessionLog) {
   return sessionLog.slice(-5);
 }
 
-function normalizeTask(task, taskPath, projectSlug) {
+function normalizeTask(task, taskPath, projectSlug, skillCatalog) {
   const relativeTaskPath = path.relative(repoRoot, taskPath);
   const phaseGuard = task.phase_guard ?? {};
   const linkedArtifacts = requireArray(
@@ -120,6 +122,11 @@ function normalizeTask(task, taskPath, projectSlug) {
   const artifactGroups = groupArtifacts(linkedArtifacts);
   const lifecyclePhase = lifecyclePhaseFor(task);
   const nextActionLabel = nextActionLabelFor(task, phaseGuard);
+  const deliverableReadiness = projectDeliverableReadiness({
+    task,
+    root: repoRoot,
+    catalog: skillCatalog,
+  });
   const artifactLabels = Object.values(artifactGroups)
     .flatMap((group) => group.items)
     .map((artifact) => artifact.label)
@@ -149,6 +156,18 @@ function normalizeTask(task, taskPath, projectSlug) {
         ? phaseGuard.process_exceptions.length
         : 0,
     },
+    deliverableMigration: deliverableReadiness.migration,
+    deliverableContracts: deliverableReadiness.contracts.map((contract) => ({
+      deliverableId: contract.deliverable_id,
+      kind: contract.kind,
+      operation: contract.operation,
+      role: contract.role,
+      ownershipBoundary: contract.ownership_boundary,
+      targetSurface: contract.target_surface,
+      runtimeVisibility: contract.runtime_visibility,
+      runtimeTargets: contract.runtime_targets,
+    })),
+    deliverableReadiness,
     linkedArtifacts,
     artifactGroups,
     artifactGroupList: artifactGroupOrder.map((group) => artifactGroups[group]),
@@ -163,6 +182,11 @@ function normalizeTask(task, taskPath, projectSlug) {
       lifecyclePhase,
       nextActionLabel,
       artifactLabels,
+      deliverableReadiness.state,
+      deliverableReadiness.blockers.map((blocker) => blocker.code).join(" "),
+      (task.deliverable_contracts ?? [])
+        .map((contract) => `${contract.kind} ${contract.role} ${contract.target_surface}`)
+        .join(" "),
     ]
       .filter(Boolean)
       .join(" ")
@@ -202,7 +226,7 @@ function hotPhaseFor(tasks) {
   return priority.find((phase) => activePhases.has(phase)) ?? "done";
 }
 
-async function loadProject(projectDir) {
+async function loadProject(projectDir, skillCatalog) {
   const projectPath = path.join(projectDir, "project.json");
   const indexPath = path.join(projectDir, "tasks", "index.json");
 
@@ -230,7 +254,7 @@ async function loadProject(projectDir) {
       throw new Error(`${path.relative(repoRoot, taskPath)} is listed but missing`);
     }
 
-    tasks.push(normalizeTask(await readJson(taskPath), taskPath, projectSlug));
+    tasks.push(normalizeTask(await readJson(taskPath), taskPath, projectSlug, skillCatalog));
   }
 
   const stats = statsFor(tasks);
@@ -254,10 +278,11 @@ async function loadProject(projectDir) {
 export async function loadWorkflowState() {
   const entries = await readdir(projectsRoot, { withFileTypes: true });
   const projects = [];
+  const skillCatalog = await deriveCanonicalSkillCatalog({ root: repoRoot });
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const project = await loadProject(path.join(projectsRoot, entry.name));
+    const project = await loadProject(path.join(projectsRoot, entry.name), skillCatalog);
     if (project) projects.push(project);
   }
 
@@ -279,6 +304,7 @@ export async function loadWorkflowState() {
     ],
     projectCount: projects.length,
     taskCount,
+    skillCatalog,
     projects,
   };
 }

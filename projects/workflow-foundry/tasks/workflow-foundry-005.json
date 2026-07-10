@@ -55,7 +55,8 @@
       "projects/workflow-foundry/tasks/workflow-foundry-010.json",
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
-      "projects/workflow-foundry/tasks/workflow-foundry-013.json"
+      "projects/workflow-foundry/tasks/workflow-foundry-013.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-015.json"
     ]
   },
   "phase_guard": {

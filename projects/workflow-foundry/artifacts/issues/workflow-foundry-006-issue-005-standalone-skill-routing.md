@@ -23,19 +23,19 @@ product repository may be mutated without its own approved write plan.
 
 ## Acceptance criteria
 
-- [ ] Raw in-foundry packaged-skill language resolves the owning `projects/<project-slug>/skills/<slug>` surface before task creation.
-- [ ] A complete project-local packaged bundle is created at that surface, records non-active local runtime visibility, and does not enter the canonical catalog.
-- [ ] Raw standalone create-skill language resolves a named product repository and product-owned skill surface before task creation.
-- [ ] Both contracts record ownership, runtime targets, applicable file policy, and non-foundry runtime visibility.
-- [ ] The same `$build-workflow-skill` authority selects the packaged or standalone branch and creates the appropriate complete bundle.
-- [ ] Foundry-local helper restrictions are not imposed blindly when the product fixture has a different approved file policy.
-- [ ] Packaged and standalone product skills remain outside the active foundry catalog unless a separate promotion contract exists.
-- [ ] Ambiguous ownership or target surfaces stop before artifact approval or writes.
-- [ ] Packaged and standalone variants extend the shared scenario contract and drive both live fresh-agent runs and deterministic fixtures.
-- [ ] Fresh-agent English, terse, and Taglish scenarios produce the expected packaged or standalone route without being told the intended classification.
-- [ ] Evidence records the raw prompt, context, observed contract and artifacts, runtime visibility, runner identity, timestamp, builder-contract version, and result.
-- [ ] Disposable-repository tests prove no real external repository is mutated.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] Raw in-foundry packaged-skill language resolves the owning `projects/<project-slug>/skills/<slug>` surface before task creation.
+- [x] A complete project-local packaged bundle is created at that surface, records non-active local runtime visibility, and does not enter the canonical catalog.
+- [x] Raw standalone create-skill language resolves a named product repository and product-owned skill surface before task creation.
+- [x] Both contracts record ownership, runtime targets, applicable file policy, and non-foundry runtime visibility.
+- [x] The same `$build-workflow-skill` authority selects the packaged or standalone branch and creates the appropriate complete bundle.
+- [x] Foundry-local helper restrictions are not imposed blindly when the product fixture has a different approved file policy.
+- [x] Packaged and standalone product skills remain outside the active foundry catalog unless a separate promotion contract exists.
+- [x] Ambiguous ownership or target surfaces stop before artifact approval or writes.
+- [x] Packaged and standalone variants extend the shared scenario contract and drive both live fresh-agent runs and deterministic fixtures.
+- [x] Fresh-agent English, terse, and Taglish scenarios produce the expected packaged or standalone route without being told the intended classification.
+- [x] Evidence records the raw prompt, context, observed contract and artifacts, runtime visibility, runner identity, timestamp, builder-contract version, and result.
+- [x] Disposable-repository tests prove no real external repository is mutated.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

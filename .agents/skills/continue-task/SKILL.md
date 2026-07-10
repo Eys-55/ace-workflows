@@ -35,22 +35,28 @@ Load, load, load, load, load before doing anything with the task:
 3. Read `projects/<project-slug>/AGENTS.md`.
 4. Read `projects/<project-slug>/project.json`.
 5. Read `projects/<project-slug>/tasks/index.json`.
-6. Run `node scripts/query-workflow-state.mjs --project <project-slug> --list-tasks`
-   if the script exists.
-7. Run `node scripts/query-workflow-state.mjs --project <project-slug> --agents-md`
-   if the script exists.
-8. Run `node scripts/query-workflow-state.mjs --project <project-slug> --testing-sessions`
-   if the script exists. Load only index summaries and pointers unless exact
-   testing-session evidence is needed.
+6. Query the derived skill catalog and project task list through the read-only
+   state helper when available.
+7. Query the registered project-instruction state through the same helper.
+8. Query testing-session summaries through the same helper. Load only index
+   summaries and pointers unless exact testing-session evidence is needed.
 9. Read every task JSON listed in the index whose status is not `done`.
 10. Read the selected task JSON if a task id is provided.
 11. Read the selected task's linked artifacts and `context_snapshot.must_load`.
 12. Read and report `phase_guard.selected_next_action`, approved artifacts, and
     process exceptions.
-13. Report conflicts, state gaps, and relevant testing-session summaries before
+13. Query the selected task's readiness projection and report migration status,
+    contracts, per-deliverable readiness, and blocker codes.
+14. Report conflicts, state gaps, and relevant testing-session summaries before
     taking any task action.
 
 If no task id is provided, list selectable tasks and ask the user to choose.
+
+If `deliverable_migration.status` is `pending`, preserve the recorded
+`frozen_phase` and stop for explicit contract classification approval. Do not
+infer ownership or silently advance the phase. Only the immutable legacy task
+registry remains historical-compatible; a new task cannot self-grandfather by
+setting `status: "done"`.
 
 Report the current Matt phase and stop unless the user explicitly requested the
 next phase action.
@@ -58,8 +64,14 @@ next phase action.
 If the selected task is still `intake`, do not create scripts, HTML, skills,
 workflow artifacts, tests, or implementation files. Before creating any such
 artifact, the selected task must include a matching
-`phase_guard.approved_artifacts` entry for the artifact path and phase
-`implement`.
+`phase_guard.approved_artifacts` entry for the artifact path, phase
+`implement`, `deliverable_id`, `artifact_id`, and `artifact_role`.
+
+For a ready skill contract, delegate authoring and behavioral evaluation to
+`$build-workflow-skill`. This lifecycle skill retains tracker and phase
+ownership; the builder must not create tasks or mutate task JSON. Before
+delegation, verify every approved implementation path is bound to the same
+deliverable, artifact id, and artifact role.
 
 ## Capability Dependency Continuation
 
@@ -67,12 +79,14 @@ If a continued task needs a new capability dependency mid-execution:
 
 1. Load the selected primary task and its existing `capability_dependencies`,
    `dependency_steps`, `dependency_artifacts`, and `dependency_provenance`.
-2. Load the referenced dependency project's known usable skill metadata and
-   relationship context. Do not scan arbitrary folders or treat loaded but
-   unselected skills as approved.
+2. Load the derived `--skill-catalog`, then the referenced dependency project's
+   known tracked relationship context. Do not scan arbitrary folders, use a
+   remembered inventory, or treat loaded but unselected skills as approved.
 3. Draft the new `dependency_step` with purpose, dependency project, selected
    skill, expected inputs, expected outputs, allowed writes, protected paths,
-   provenance requirements, and documented helper skills if any.
+   provenance requirements, supported deliverable id, supported artifact id,
+   artifact role, required outcome, completion condition id, and documented
+   helper skills if any.
 4. Draft or reference the required `dependency_write_plan`, including expected
    output paths, allowed write zones, protected paths, promotion rules,
    provenance requirements, stop conditions, and approval timestamp.

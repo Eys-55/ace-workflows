@@ -45,6 +45,8 @@ Always start from the repo root and read:
 10. `scripts/query-workflow-state.mjs`.
 11. `scripts/validate-workflow-state.mjs`.
 
+## Query Helper
+
 Use these helpers as internal evidence support when available:
 
 ```bash

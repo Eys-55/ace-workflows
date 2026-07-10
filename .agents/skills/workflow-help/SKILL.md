@@ -24,50 +24,46 @@ Before answering:
 3. Read `registry/agents-md.json`.
 4. Inspect `.agents/skills/` and `scripts/` so the answer reflects the actual
    repo.
-5. Run `node scripts/query-workflow-state.mjs --list-projects` and
-   `node scripts/query-workflow-state.mjs --list-agents-md` when available.
+5. Load the derived skill catalog, project list, and registered project
+   instructions through the read-only state helper when available.
 
 Do not mutate project or task state from this skill.
 
 ## What To Show
 
-Report the currently available surfaces in this order:
+Report the currently available surfaces in this order. Never reproduce a
+hand-maintained skill inventory; render every row returned by the derived
+catalog query.
 
 ```text
-SKILLS
-- $workflow-help
-- $setup-workflow-project
-- $initiate-task
-- $continue-task
-- $audit-foundry
-- $audit-review
-- $audit-cleanup
-- $testing-session
-- $review-project-state
+ACTIVE SKILL CATALOG
+- $skill-name: trigger description; runtime visibility; runtime targets; bundle path
+```
 
-CODEX-DISCOVERABLE SKILL FILES
-- .agents/skills/workflow-help/SKILL.md
-- .agents/skills/setup-workflow-project/SKILL.md
-- .agents/skills/initiate-task/SKILL.md
-- .agents/skills/continue-task/SKILL.md
-- .agents/skills/audit-foundry/SKILL.md
-- .agents/skills/audit-review/SKILL.md
-- .agents/skills/audit-cleanup/SKILL.md
-- .agents/skills/testing-session/SKILL.md
-- .agents/skills/review-project-state/SKILL.md
+## Query Helper
 
-STATE HELPERS
-- node scripts/validate-workflow-state.mjs
-- node scripts/query-workflow-state.mjs --list-projects
-- node scripts/query-workflow-state.mjs --list-agents-md
-- node scripts/query-workflow-state.mjs --project <slug> --agents-md
-- node scripts/query-workflow-state.mjs --project <slug> --snapshot
-- node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
-- node scripts/query-workflow-state.mjs --project <slug> --list-tasks
-- node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
-- node scripts/testing-session-state.mjs action:start project:<slug> [goal:"..."]
-- node scripts/testing-session-state.mjs action:status session:<session-id>
-- node scripts/testing-session-state.mjs action:stop session:<session-id>
+These commands are deterministic validation and read-only query support. They
+are not the operator-facing workflow invocation surface.
+
+```text
+node scripts/validate-workflow-state.mjs
+node scripts/query-workflow-state.mjs --skill-catalog
+node scripts/query-workflow-state.mjs --list-projects
+node scripts/query-workflow-state.mjs --list-agents-md
+node scripts/query-workflow-state.mjs --project <slug> --agents-md
+node scripts/query-workflow-state.mjs --project <slug> --snapshot
+node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
+node scripts/query-workflow-state.mjs --project <slug> --list-tasks
+node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
+node scripts/query-workflow-state.mjs --project <slug> --task-readiness <task-id>
+node scripts/testing-session-state.mjs action:start project:<slug> [goal:"..."]
+node scripts/testing-session-state.mjs action:status session:<session-id>
+node scripts/testing-session-state.mjs action:stop session:<session-id>
+```
+
+## Report Layout
+
+```text
 
 TASK FLOW
 - setup project
@@ -79,79 +75,26 @@ TASK FLOW
 
 CONNECTED FLOW
 - $workflow-help -> $setup-workflow-project -> $initiate-task -> $continue-task
+- raw create/update-skill intent -> $initiate-task or $continue-task -> approved contract -> $build-workflow-skill
 - $audit-foundry -> Markdown report artifact -> recommended next tracker action
 - $audit-foundry -> $audit-review -> Markdown cleanup plan -> $audit-cleanup
 - $testing-session -> captured project run state -> future preload discovery
 - use $continue-task or $review-project-state when project state already exists
 ```
 
-## Skill Guide
+## Routing Guide
 
-`$setup-workflow-project`
-
-- Create a new `projects/<slug>/` workspace.
-- Create project `AGENTS.md`, `project.json`, `tasks/index.json`, and artifact
-  folders.
-- Register project `AGENTS.md` in `registry/agents-md.json`.
-- Use before the first task in a project.
-
-`$initiate-task`
-
-- Start a new task at `matt_phase: "intake"`.
-- Requires `project:<slug>` and `title:"..."`.
-- Loads all project state before creating task state.
-- Use `target:tracker` when creating a task specifically to edit tracker files.
-
-`$continue-task`
-
-- Resume an existing task from its saved snapshot.
-- Loads all project state and every non-done task before action.
-- If no task id is provided, list/select available tasks.
-
-`$audit-foundry`
-
-- Write a Markdown audit report for the foundry or project tracker state.
-- Defaults to foundry-only; use `scope:foundry-projects`, `scope:projects`, or
-  `project:<slug>` for broader or narrower reports.
-- Stores reports under `projects/workflow-foundry/artifacts/reviews/`.
-- Read-only against source state except for the report artifact.
-- Use when the operator wants the current state explained and saved before
-  deciding the next tracker action.
-
-`$audit-review`
-
-- Review audit reports, validation output, dirty state, and tracker state.
-- Write a Markdown cleanup plan or review artifact without mutating source
-  state by default.
-- Use when the operator wants conflicts classified before cleanup begins.
-
-`$audit-cleanup`
-
-- Execute approved cleanup through a selected tracker task, linked Markdown
-  cleanup plan, JSON phase guards, and validation gates.
-- Support tracker state cleanup, workflow artifact cleanup, validation cleanup,
-  and Git checkpoint cleanup.
-- Stop for final publish or push instruction unless the current operator turn
-  explicitly approves pushing.
-
-`$testing-session`
-
-- Start, inspect, or stop a project-scoped read-only testing run.
-- Writes only to `projects/<project-slug>/artifacts/testing-sessions/`.
-- Stores summaries in `index.json` so future task preflight can discover prior
-  captured runs without loading full event streams by default.
-
-`$review-project-state`
-
-- Load and report complete project state before deciding what to do next.
-- Use when the user asks for the dashboard or wants to understand ongoing work.
-- Use as mandatory preflight when a project already exists or task work is risky.
-
-`$workflow-help`
-
-- Show this skill/script guide.
-- Read-only. Do not change workflow state.
-- Use live registry and project query output when recommending the next skill.
+- Use the catalog trigger descriptions to choose an active skill. Do not infer
+  availability from a remembered name or Markdown list.
+- Use `$setup-workflow-project` only when the project workspace is absent.
+- Use `$initiate-task` for a new typed deliverable contract and `$continue-task`
+  for an existing task.
+- Route a create-skill or update-skill request through lifecycle approval, then
+  delegate only the implementation-ready contract to `$build-workflow-skill`.
+- Use the audit family for evidence-first reporting, review, and approved
+  cleanup. Preserve each skill's mutation boundary.
+- Use `$testing-session` for isolated read-only run capture and
+  `$review-project-state` for complete state inspection.
 
 ## Matt Flow Reminder
 
@@ -201,7 +144,7 @@ When invoked, answer in this shape:
 
 ```text
 AVAILABLE SKILLS
-- skill: when to use it
+- derived skill: trigger, visibility, runtime targets, and path
 
 CONNECTED FLOW
 - current recommended path

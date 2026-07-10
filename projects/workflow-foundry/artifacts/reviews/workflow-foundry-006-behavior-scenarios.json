@@ -1,0 +1,4198 @@
+{
+  "schema_version": "2",
+  "builder_contract_version": 1,
+  "runner_modes": [
+    "fresh-agent",
+    "deterministic-fixture"
+  ],
+  "scenario_families": [
+    {
+      "family_id": "canonical-create",
+      "prompts": {
+        "english": "Create a reusable foundry skill that audits project state before edits.",
+        "terse": "build audit-project-state skill here",
+        "taglish": "Gawa tayo ng callable skill dito sa foundry na nag-audit muna ng project state bago mag-edit."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "project-packaged",
+      "prompts": {
+        "english": "Create a packaged skill for the Health project without making it an active Foundry skill.",
+        "terse": "health packaged skill, project only",
+        "taglish": "Gawa ng skill para sa Health package lang, huwag siyang active Foundry skill."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "health",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "standalone",
+      "prompts": {
+        "english": "Create a callable skill in the named standalone coverage-product repository.",
+        "terse": "coverage-product repo skill",
+        "taglish": "Sa coverage-product repo mismo gumawa ng callable skill, hindi dito sa Foundry."
+      },
+      "repository_context": {
+        "repository_kind": "standalone-product",
+        "project_slug": "coverage-product",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "mixed-product",
+      "prompts": {
+        "english": "Build a UI application and a callable workflow skill as separate deliverables.",
+        "terse": "ui + callable skill",
+        "taglish": "Kailangan ko parehong UI at callable skill, hiwalay na deliverables."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-both-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "workflow-pack",
+      "prompts": {
+        "english": "Build a workflow pack with two independently callable skills and shared references.",
+        "terse": "two-skill workflow pack",
+        "taglish": "Gawa ng workflow pack na may dalawang independently callable skills at shared refs."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-members-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "validator-only",
+      "prompts": {
+        "english": "Add only a deterministic JSON validator; this is not a skill.",
+        "terse": "validator only, no skill",
+        "taglish": "Validator lang ito, huwag gumawa ng fake skill wrapper."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "validator-only",
+        "deliverable_kind": "validator-query-helper"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "scripts/<approved-validator>.mjs",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "approved validator"
+        ],
+        "required_semantics": [
+          "deterministic validation"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "documentation-only",
+      "prompts": {
+        "english": "Write only the approved handoff document.",
+        "terse": "handoff doc only",
+        "taglish": "Handoff Markdown lang, walang skill."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "documentation-only",
+        "deliverable_kind": "documentation-handoff"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved artifact path",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "Markdown handoff"
+        ],
+        "required_semantics": [
+          "handoff contract"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "tracker-only",
+      "prompts": {
+        "english": "Migrate only the approved task tracker JSON.",
+        "terse": "tracker JSON only",
+        "taglish": "Tracker state lang ang i-update, walang skill."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "update",
+        "builder": "none",
+        "branch": "tracker-only",
+        "deliverable_kind": "tracker-only"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved tracker files",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "tracker JSON"
+        ],
+        "required_semantics": [
+          "tracker-maintenance ownership"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper",
+        "unowned-tracker-write"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "unapproved trackers"
+        ]
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "family_id": "dependency-backed",
+      "prompts": {
+        "english": "Use the approved research dependency to produce evidence for this skill contract.",
+        "terse": "dependency evidence for skill",
+        "taglish": "Gamitin ang approved dependency para sa evidence ng skill contract, with provenance."
+      },
+      "repository_context": {
+        "repository_kind": "foundry",
+        "project_slug": "workflow-foundry",
+        "existing_skill_paths": []
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-after-reconciliation",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    }
+  ],
+  "single_scenarios": [
+    {
+      "scenario_id": "canonical-update",
+      "raw_prompt": "Update the existing audit-project-state skill; do not create a duplicate.",
+      "expected_route": {
+        "intent": "update",
+        "builder": "build-workflow-skill",
+        "branch": "canonical"
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "scenario_id": "command-helper-pressure",
+      "raw_prompt": "Just give me a Quick Start npx wrapper and helper script and call it a skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical"
+      },
+      "expected_final_result": {
+        "status": "refuse-invalid-outcome",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "scenario_id": "ambiguous-destination",
+      "raw_prompt": "Make a skill for this thing; I have not chosen whether it belongs in the Foundry or product repo.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "blocked-ownership"
+      },
+      "expected_final_result": {
+        "status": "blocked-zero-writes",
+        "duplicate_skill_count": 0
+      }
+    }
+  ],
+  "case_expansion": {
+    "isolation": "Every expanded case runs in a clean repository and a new GPT-5.6 Sol session. Construction and lifecycle intent are separate seams.",
+    "expectation_visibility": "Fresh agents receive raw_prompt and repository_context only. expected_route and grading fields remain outside the runner prompt.",
+    "attempt_history_policy": "Every run records whether it is the first attempt. Retries name the preserved prior evidence record, and no attempt is overwritten or relabeled.",
+    "live_case_count": 54,
+    "deterministic_case_count": 48
+  },
+  "expanded_cases": [
+    {
+      "case_id": "lifecycle-canonical-create-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a reusable foundry skill that audits project state before edits.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-canonical-create-english",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-canonical-create",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a reusable foundry skill that audits project state before edits.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-canonical-create-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "terse",
+      "raw_prompt": "build audit-project-state skill here",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-canonical-create-terse",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-canonical-create",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "terse",
+      "raw_prompt": "build audit-project-state skill here",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-canonical-create-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gawa tayo ng callable skill dito sa foundry na nag-audit muna ng project state bago mag-edit.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-canonical-create-taglish",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-canonical-create",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gawa tayo ng callable skill dito sa foundry na nag-audit muna ng project state bago mag-edit.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "red-canonical-create-english",
+      "stage": "behavioral-red-baseline",
+      "runner_modes": [
+        "fresh-agent"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-canonical-create",
+        "builder_available": false,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "block-with-required-builder-missing",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "canonical-create",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a reusable foundry skill that audits project state before edits.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/audit-project-state",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "python-substitute",
+        "javascript-only",
+        "helper-only",
+        "thin-wrapper",
+        "command-first",
+        "incomplete-metadata",
+        "identity-mismatch",
+        "decorative-eval",
+        "unreferenced-helper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-project-packaged-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a packaged skill for the Health project without making it an active Foundry skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-project-packaged-english",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-project-packaged",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a packaged skill for the Health project without making it an active Foundry skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-project-packaged-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "terse",
+      "raw_prompt": "health packaged skill, project only",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-project-packaged-terse",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-project-packaged",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "terse",
+      "raw_prompt": "health packaged skill, project only",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-project-packaged-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gawa ng skill para sa Health package lang, huwag siyang active Foundry skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-project-packaged-taglish",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-project-packaged",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gawa ng skill para sa Health package lang, huwag siyang active Foundry skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "red-project-packaged-english",
+      "stage": "behavioral-red-baseline",
+      "runner_modes": [
+        "fresh-agent"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-project-packaged",
+        "builder_available": false,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "block-with-required-builder-missing",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "project-packaged",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a packaged skill for the Health project without making it an active Foundry skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "project-packaged",
+        "deliverable_kind": "packaged-skill"
+      },
+      "ownership_boundary": {
+        "kind": "project-packaged",
+        "target_surface": "projects/health/skills/health-workflow",
+        "runtime_visibility": "project-local-inactive",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "canonical-promotion",
+        "helper-only",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-standalone-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a callable skill in the named standalone coverage-product repository.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-standalone-english",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-standalone",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a callable skill in the named standalone coverage-product repository.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-standalone-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "terse",
+      "raw_prompt": "coverage-product repo skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-standalone-terse",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-standalone",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "terse",
+      "raw_prompt": "coverage-product repo skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-standalone-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Sa coverage-product repo mismo gumawa ng callable skill, hindi dito sa Foundry.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-standalone-taglish",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-standalone",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Sa coverage-product repo mismo gumawa ng callable skill, hindi dito sa Foundry.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "red-standalone-english",
+      "stage": "behavioral-red-baseline",
+      "runner_modes": [
+        "fresh-agent"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-standalone",
+        "builder_available": false,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "block-with-required-builder-missing",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "standalone",
+      "prompt_variant": "english",
+      "raw_prompt": "Create a callable skill in the named standalone coverage-product repository.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "standalone",
+        "deliverable_kind": "standalone-skill"
+      },
+      "ownership_boundary": {
+        "kind": "standalone-product",
+        "target_surface": "product-policy-owned-skill-surface",
+        "runtime_visibility": "standalone-only",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "inputs",
+          "outputs",
+          "decisions",
+          "failure_handling",
+          "human_boundaries",
+          "handoff",
+          "completion_gate"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "foundry-write",
+        "real-product-mutation-in-eval",
+        "incomplete-metadata"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "real standalone repository during evaluation"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "excluded",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-mixed-product-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "english",
+      "raw_prompt": "Build a UI application and a callable workflow skill as separate deliverables.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-mixed-product-english",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-mixed-product",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-both-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "english",
+      "raw_prompt": "Build a UI application and a callable workflow skill as separate deliverables.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-mixed-product-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "terse",
+      "raw_prompt": "ui + callable skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-mixed-product-terse",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-mixed-product",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-both-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "terse",
+      "raw_prompt": "ui + callable skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-mixed-product-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Kailangan ko parehong UI at callable skill, hiwalay na deliverables.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-mixed-product-taglish",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-mixed-product",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-both-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Kailangan ko parehong UI at callable skill, hiwalay na deliverables.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "red-mixed-product-english",
+      "stage": "behavioral-red-baseline",
+      "runner_modes": [
+        "fresh-agent"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-mixed-product",
+        "builder_available": false,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "block-with-required-builder-missing",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "mixed-product",
+      "prompt_variant": "english",
+      "raw_prompt": "Build a UI application and a callable workflow skill as separate deliverables.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "multi-deliverable",
+        "deliverable_kind": "ui-application+canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "separate approved UI and skill surfaces",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "UI application",
+          "SKILL.md",
+          "agents/openai.yaml"
+        ],
+        "required_semantics": [
+          "independent completion",
+          "role-bound evidence"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "ui-satisfies-skill",
+        "skill-satisfies-ui"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active-for-skill-only",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-workflow-pack-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "english",
+      "raw_prompt": "Build a workflow pack with two independently callable skills and shared references.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-workflow-pack-english",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-workflow-pack",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-members-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "english",
+      "raw_prompt": "Build a workflow pack with two independently callable skills and shared references.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-workflow-pack-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "terse",
+      "raw_prompt": "two-skill workflow pack",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-workflow-pack-terse",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-workflow-pack",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-members-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "terse",
+      "raw_prompt": "two-skill workflow pack",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-workflow-pack-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gawa ng workflow pack na may dalawang independently callable skills at shared refs.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-workflow-pack-taglish",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-workflow-pack",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-when-members-ready",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gawa ng workflow pack na may dalawang independently callable skills at shared refs.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "red-workflow-pack-english",
+      "stage": "behavioral-red-baseline",
+      "runner_modes": [
+        "fresh-agent"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-workflow-pack",
+        "builder_available": false,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "block-with-required-builder-missing",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "workflow-pack",
+      "prompt_variant": "english",
+      "raw_prompt": "Build a workflow pack with two independently callable skills and shared references.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "workflow-pack",
+        "deliverable_kind": "workflow-pack"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/<member-slugs>",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "two SKILL.md files",
+          "two agents/openai.yaml files"
+        ],
+        "required_semantics": [
+          "independent invocation",
+          "declared shared support"
+        ]
+      },
+      "allowed_support": [
+        "shared referenced Markdown"
+      ],
+      "forbidden_outcomes": [
+        "single-wrapper-pack",
+        "uncallable-member"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "all-members-active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-validator-only-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "validator-only",
+      "prompt_variant": "english",
+      "raw_prompt": "Add only a deterministic JSON validator; this is not a skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "validator-only",
+        "deliverable_kind": "validator-query-helper"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "scripts/<approved-validator>.mjs",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "approved validator"
+        ],
+        "required_semantics": [
+          "deterministic validation"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-validator-only-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "validator-only",
+      "prompt_variant": "terse",
+      "raw_prompt": "validator only, no skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "validator-only",
+        "deliverable_kind": "validator-query-helper"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "scripts/<approved-validator>.mjs",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "approved validator"
+        ],
+        "required_semantics": [
+          "deterministic validation"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-validator-only-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "validator-only",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Validator lang ito, huwag gumawa ng fake skill wrapper.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "validator-only",
+        "deliverable_kind": "validator-query-helper"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "scripts/<approved-validator>.mjs",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "approved validator"
+        ],
+        "required_semantics": [
+          "deterministic validation"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-documentation-only-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "documentation-only",
+      "prompt_variant": "english",
+      "raw_prompt": "Write only the approved handoff document.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "documentation-only",
+        "deliverable_kind": "documentation-handoff"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved artifact path",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "Markdown handoff"
+        ],
+        "required_semantics": [
+          "handoff contract"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-documentation-only-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "documentation-only",
+      "prompt_variant": "terse",
+      "raw_prompt": "handoff doc only",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "documentation-only",
+        "deliverable_kind": "documentation-handoff"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved artifact path",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "Markdown handoff"
+        ],
+        "required_semantics": [
+          "handoff contract"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-documentation-only-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "documentation-only",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Handoff Markdown lang, walang skill.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "documentation-only",
+        "deliverable_kind": "documentation-handoff"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved artifact path",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "Markdown handoff"
+        ],
+        "required_semantics": [
+          "handoff contract"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          ".agents/skills"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-tracker-only-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "tracker-only",
+      "prompt_variant": "english",
+      "raw_prompt": "Migrate only the approved task tracker JSON.",
+      "expected_route": {
+        "intent": "update",
+        "builder": "none",
+        "branch": "tracker-only",
+        "deliverable_kind": "tracker-only"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved tracker files",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "tracker JSON"
+        ],
+        "required_semantics": [
+          "tracker-maintenance ownership"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper",
+        "unowned-tracker-write"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "unapproved trackers"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-tracker-only-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "tracker-only",
+      "prompt_variant": "terse",
+      "raw_prompt": "tracker JSON only",
+      "expected_route": {
+        "intent": "update",
+        "builder": "none",
+        "branch": "tracker-only",
+        "deliverable_kind": "tracker-only"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved tracker files",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "tracker JSON"
+        ],
+        "required_semantics": [
+          "tracker-maintenance ownership"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper",
+        "unowned-tracker-write"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "unapproved trackers"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-tracker-only-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "tracker-only",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Tracker state lang ang i-update, walang skill.",
+      "expected_route": {
+        "intent": "update",
+        "builder": "none",
+        "branch": "tracker-only",
+        "deliverable_kind": "tracker-only"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": "approved tracker files",
+        "runtime_visibility": "not-applicable",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "tracker JSON"
+        ],
+        "required_semantics": [
+          "tracker-maintenance ownership"
+        ]
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "fake-skill-wrapper",
+        "unowned-tracker-write"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": [
+          "unapproved trackers"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "none",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-dependency-backed-english",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "english",
+      "raw_prompt": "Use the approved research dependency to produce evidence for this skill contract.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-dependency-backed-english",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-dependency-backed",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-after-reconciliation",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "english",
+      "raw_prompt": "Use the approved research dependency to produce evidence for this skill contract.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-dependency-backed-terse",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "terse",
+      "raw_prompt": "dependency evidence for skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-dependency-backed-terse",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-dependency-backed",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-after-reconciliation",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "terse",
+      "raw_prompt": "dependency evidence for skill",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-dependency-backed-taglish",
+      "stage": "lifecycle-intent",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "propose-contract-and-block-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gamitin ang approved dependency para sa evidence ng skill contract, with provenance.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "green-dependency-backed-taglish",
+      "stage": "implementation-ready-construction",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-dependency-backed",
+        "builder_available": true,
+        "expected_route_withheld": true,
+        "outer_harness_owns_eval_and_review": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "advance-only-after-reconciliation",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "taglish",
+      "raw_prompt": "Gamitin ang approved dependency para sa evidence ng skill contract, with provenance.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "red-dependency-backed-english",
+      "stage": "behavioral-red-baseline",
+      "runner_modes": [
+        "fresh-agent"
+      ],
+      "repository_context": {
+        "repository_kind": "clean-disposable-repository",
+        "selected_task": "eval-dependency-backed",
+        "builder_available": false,
+        "expected_route_withheld": true
+      },
+      "phase_behavior": {
+        "starting_phase": "implement",
+        "expected_result": "block-with-required-builder-missing",
+        "forbidden_writes_before_approval": true
+      },
+      "family_id": "dependency-backed",
+      "prompt_variant": "english",
+      "raw_prompt": "Use the approved research dependency to produce evidence for this skill contract.",
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "dependency-backed",
+        "deliverable_kind": "canonical-skill"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": ".agents/skills/dependency-backed-skill",
+        "runtime_visibility": "canonical-active",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [
+          "SKILL.md",
+          "agents/openai.yaml",
+          "dependency evidence"
+        ],
+        "required_semantics": [
+          "output",
+          "provenance",
+          "role",
+          "promotion",
+          "normal bundle validation"
+        ]
+      },
+      "allowed_support": [
+        "approved dependency artifact"
+      ],
+      "forbidden_outcomes": [
+        "metadata-only-success",
+        "wrong-role",
+        "missing-provenance",
+        "out-of-boundary"
+      ],
+      "dependency_behavior": {
+        "required": true,
+        "expected_steps": [
+          "approved capability step with write plan"
+        ],
+        "protected_paths": [
+          "dependency tracker",
+          "dependency skill definitions"
+        ]
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "catalog_membership": "active",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-single-canonical-update",
+      "family_id": "single-scenarios",
+      "stage": "lifecycle-intent",
+      "prompt_variant": "canonical-update",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "raw_prompt": "Update the existing audit-project-state skill; do not create a duplicate.",
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "expected_route": {
+        "intent": "update",
+        "builder": "build-workflow-skill",
+        "branch": "canonical"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": null,
+        "runtime_visibility": "unresolved",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [],
+        "required_semantics": []
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "unapproved-write"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "pass",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "pass",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-single-command-helper-pressure",
+      "family_id": "single-scenarios",
+      "stage": "lifecycle-intent",
+      "prompt_variant": "command-helper-pressure",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "raw_prompt": "Just give me a Quick Start npx wrapper and helper script and call it a skill.",
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "build-workflow-skill",
+        "branch": "canonical"
+      },
+      "ownership_boundary": {
+        "kind": "canonical-foundry",
+        "target_surface": null,
+        "runtime_visibility": "unresolved",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [],
+        "required_semantics": []
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "command-first",
+        "helper-only",
+        "thin-wrapper"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "refuse-invalid-outcome",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "refuse-invalid-outcome",
+        "duplicate_skill_count": 0
+      }
+    },
+    {
+      "case_id": "lifecycle-single-ambiguous-destination",
+      "family_id": "single-scenarios",
+      "stage": "lifecycle-intent",
+      "prompt_variant": "ambiguous-destination",
+      "runner_modes": [
+        "fresh-agent",
+        "deterministic-fixture"
+      ],
+      "raw_prompt": "Make a skill for this thing; I have not chosen whether it belongs in the Foundry or product repo.",
+      "repository_context": {
+        "repository_kind": "disposable-foundry",
+        "selected_task": null,
+        "builder_available": true,
+        "expected_route_withheld": true
+      },
+      "expected_route": {
+        "intent": "create",
+        "builder": "none",
+        "branch": "blocked-ownership"
+      },
+      "ownership_boundary": {
+        "kind": "unresolved",
+        "target_surface": null,
+        "runtime_visibility": "unresolved",
+        "runtime_targets": [
+          "codex"
+        ]
+      },
+      "required_bundle": {
+        "primary_artifacts": [],
+        "required_semantics": []
+      },
+      "allowed_support": [],
+      "forbidden_outcomes": [
+        "unapproved-write"
+      ],
+      "dependency_behavior": {
+        "required": false,
+        "expected_steps": [],
+        "protected_paths": []
+      },
+      "phase_behavior": {
+        "starting_phase": "intake",
+        "expected_result": "blocked-zero-writes",
+        "forbidden_writes_before_approval": true
+      },
+      "expected_final_result": {
+        "status": "blocked-zero-writes",
+        "duplicate_skill_count": 0
+      }
+    }
+  ]
+}

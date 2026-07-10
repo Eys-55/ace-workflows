@@ -1,0 +1,437 @@
+{
+  "task_id": "workflow-foundry-015",
+  "project_slug": "workflow-foundry",
+  "title": "Create Markdown-first build-workflow-product skill",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "issues",
+  "explicit_next_action_required": true,
+  "summary": "Design and implement the Markdown-first model-invoked $build-workflow-product Foundry skill that teaches Codex, Claude Code, or opencode how to turn a selected workflow project into a beautiful, highly interactive, npm-installable local product with an on-demand sidecar UI. This Foundry task creates callable skill instructions, Markdown design and product references, behavior eval scenarios, and only the required runtime metadata; it does not implement shared components, UI code, a component library, an npm package, or a product runtime. Actual application files are created later inside a separately tracked target project when the skill is invoked under that project's approvals and file policy.",
+  "acceptance_criteria": [
+    "the task remains distinct from the existing read-only foundry tracker UI and creates a reusable canonical skill capability for authoring beautiful workflow products",
+    "the primary Foundry deliverable is one actual callable model-invoked orchestration skill bundle under .agents/skills, not a component library, UI implementation, static tracker, npm product, prompt-only document, or collection of public micro-skills",
+    "substantive workflow instructions, prompts, design patterns, output contracts, and evaluation guidance remain in SKILL.md and directly linked Markdown references; agents/openai.yaml is allowed only as the required Codex runtime metadata",
+    "the Foundry does not prebuild React components, CSS, templates, application code, package code, backends, or reusable UI binaries in this task",
+    "pre-made design knowledge is expressed as progressively disclosed Markdown references for interface archetypes, art direction, typography and color reasoning, interaction and motion principles, workflow states, action contracts, accessibility, critique, and domain adaptation rather than finished components",
+    "actual frontend, backend, package, and harness files are created only when a later separately tracked target-project task invokes the capability with explicit phase approvals and the target project's file policy",
+    "every target-project application produced by the skill uses React, Vite, TypeScript, and Tailwind CSS as a fixed stack contract on every invocation; the skill does not infer, preserve, or offer an alternative frontend or styling framework",
+    "Radix primitives and Lucide icons are optional target-project implementation choices rather than mandatory dependencies; the builder selects them only when they materially improve accessibility, interaction semantics, or scanning without imposing a generic component-library appearance",
+    "every target-project application includes an on-demand Node.js TypeScript companion server bound to the loopback interface; it is the only browser bridge to approved project files and workflow actions, validates every request and response contract, and does not expose direct filesystem or harness authority to the React client",
+    "each generated product is filesystem-first: its Markdown, JSON, skill bundles, fixtures, configuration, and project files remain canonical; the Node.js companion server performs validated and reviewable file operations while browser state, indexes, and caches are derived and disposable",
+    "a generated product has no database by default; persistent database infrastructure is introduced only when a separately tracked target-project requirement proves that canonical project files cannot satisfy the domain's data volume, concurrency, querying, or integrity needs",
+    "the default product architecture is a local browser sidecar rather than an Electron or Tauri desktop wrapper; native wrapping requires a separate target-project decision and approval when an actual operating-system integration need is proven",
+    "skill implementation begins with failing fresh-agent baseline scenarios that expose default failures such as generic dashboards, shallow reskinning, missing action states, embedded chat, unsafe browser authority, or component creation inside the Foundry",
+    "the canonical operator surface is one model-invoked orchestration skill with the leading job of turning a selected workflow into a beautiful installable local product; it keeps the universal build sequence in SKILL.md and progressively discloses branch-specific Markdown references, and it is split only if later eval evidence proves that an independently invoked behavior is necessary",
+    "the canonical skill is named build-workflow-product, is invoked as $build-workflow-product, and uses a model-facing trigger description that catches create-UI, revamp-UI, workflow-product, sidecar, and installable local product intent without colliding with the separate workflow-foundry-006 $build-workflow-skill authority",
+    "task initiation and grilling recognize natural-language intent such as create UI for this workflow or revamp this into a proper UI and route it to the UI or application deliverable without duplicating the underlying workflow task",
+    "Codex, Claude Code, or opencode supplies the agent conversation and file editing experience, while the installed project's sidecar UI supplies the visual workflow interface and excludes Foundry builder and tracker controls",
+    "the private shared Foundry builder produces a dedicated self-contained npm-installable local product owned by each workflow project; remote website deployment is not required and there is no universal public Foundry application",
+    "each installed workflow product can include its frontend, runtime or backend integration, complete callable skill bundles or workflow pack, project files, fixtures, and safe configuration while excluding secrets and machine-specific private state",
+    "npm is the distribution and bootstrap mechanism only; after installation the connected Codex, Claude Code, or opencode harness discovers and invokes the product's callable skills instead of npm commands becoming the workflow interface",
+    "installation materializes a normal editable project directory outside node_modules; the user owns and may change the generated UI, skills, tools, configuration, fixtures, and project files",
+    "upgrades detect local modifications and use an explicit reviewable merge or migration path rather than silently overwriting the user's editable project, and removal never deletes user-created work without confirmation",
+    "every workflow project publishes and versions its own npm package; no umbrella package owns the projects' runtime, UI, skills, files, or release lifecycle",
+    "a future optional catalog may discover and install independent workflow product packages but cannot couple their versions, ownership, editable workspaces, or harness runtime",
+    "the published package already contains the complete project skill set plus every required project-local Codex, Claude Code, and opencode runtime entrypoint and metadata file; installation does not generate, translate, register, or copy skills afterward",
+    "opening the installed project directory in a supported harness is the activation boundary: the harness discovers the packaged project-local skills and takes control without modifying global user configuration",
+    "release validation proves every packaged harness surface exposes the same intended workflow capabilities and does not omit, fork, or silently change a skill contract",
+    "the installed product's local UI starts only on explicit demand through an included callable UI-opening skill; package installation and merely opening the project never launch a server or hidden background process",
+    "the UI-opening skill starts or reuses the project-local server, handles port conflicts and startup failure visibly, opens or reports the local URL, and provides an explicit stop path",
+    "Chat is exclusively the existing Codex, Claude Code, or opencode conversation beside the local sidecar UI; the browser does not embed a second chat, model runtime, model API key, or competing agent state",
+    "the sidecar UI is highly interactive and exposes beautiful domain-appropriate controls for safe local project tools and workflow actions in addition to live project state, files, progress, evidence, and results",
+    "every interactive control maps to an explicit project action contract with validated inputs, visible running and completion states, inspectable outputs, retry or recovery behavior, and no hidden side effects",
+    "destructive, sensitive, clinical, financial, publishing, credential, or other consequential actions cannot be independently authorized by the browser and must return to the harness for explicit human approval",
+    "the skill supplies shared quality foundations and reusable Markdown design knowledge while requiring each target project to derive bespoke visual identity, information architecture, terminology, interaction model, and components from its domain rather than reskinning a generic dashboard",
+    "before target-project implementation, the skill produces a concise visual thesis, content plan, and interaction thesis grounded in real workflow content and, when useful, screenshots, moodboards, generated concepts, or other visual references",
+    "the skill keeps its universal instructions and tool surface compact, loads detailed Markdown guidance only when the active branch needs it, and adds prompt constraints or examples only when behavior evals reveal a concrete gap",
+    "the resulting UI can produce polished screenshot- and demo-ready states for public sharing while keeping social-platform presentation separate from the workflow runtime contract",
+    "grilling identifies the primary users, workflow categories, interface jobs, target artifact families, and an observable visual-quality bar before architecture is selected",
+    "the design compares at least two credible delivery approaches and uses a disposable prototype detour when a visual or runtime question cannot be resolved safely on paper",
+    "the workflow-to-UI contract defines the data, state, actions, evidence, permissions, and handoffs an interface may expose",
+    "the design consumes workflow-foundry-006 typed deliverable and UI-plus-skill routing instead of creating a second task or artifact schema",
+    "a UI or application remains a distinct deliverable and cannot replace the callable skill or workflow-pack interface that powers it",
+    "ownership, runtime, file-policy, package contents, local installation, harness connection, versioning, upgrade, removal, and optional deployment boundaries are explicit for each standalone workflow product",
+    "the visual system defines responsive layout, typography, color, interaction, accessibility, and reusable component quality without forcing every workflow into one generic dashboard",
+    "loading, empty, partial, error, refusal, permission, recovery, and offline or unavailable states are designed as first-class user experiences",
+    "workflow inputs and rendered content are validated and sanitized, secrets stay outside generated artifacts, and consequential or external actions remain human-approval gated",
+    "evals use representative workflow fixtures and define expected behavior before implementation; they include deterministic contract and build checks, fresh-agent evidence, model and human visual review, accessibility checks, security checks, and stable end-to-end critical-path tests with inspectable screenshots, traces, or failure artifacts",
+    "the skill requires target-project verification to report build, type-check, lint, unit and integration tests, end-to-end tests, coverage where available, dependency and secret scans, and diff review before declaring the generated product ready",
+    "the skill requires target-project code to use schema-validated boundaries, least-privilege local APIs, sanitized rendered content, redacted logs, user-safe errors, explicit loading and failure states, keyboard and focus behavior, responsive layouts, and immutable typed state updates",
+    "the design explains how existing workflow skills, Markdown and JSON source state, capability provenance, and the read-only tracker remain compatible",
+    "a reviewed PRD and independently implementable issues exist before any UI code, skill bundle, template, test, dependency, hosting, or publishing artifact is approved",
+    "workflow state validation and the workflow-foundry tracker verification pass after every approved tracker or implementation change"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "parallel task context",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load the complete workflow-foundry tracker, the active typed-deliverable revamp, existing tracker UI precedents, and Matt/ECC design gates before defining reusable UI delivery for agent workflows.",
+    "must_load": [
+      "AGENTS.md",
+      "registry/agents-md.json",
+      "projects/workflow-foundry/AGENTS.md",
+      "projects/workflow-foundry/project.json",
+      "projects/workflow-foundry/tasks/index.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-015.json",
+      "references/matt-pocock-skills.md",
+      ".agents/skills/initiate-task/SKILL.md",
+      ".agents/skills/continue-task/SKILL.md",
+      ".agents/skills/workflow-tracker-ui/SKILL.md",
+      "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-009.json",
+      "projects/workflow-foundry/artifacts/prds/workflow-foundry-005-astro-tracker.md",
+      "projects/workflow-foundry/artifacts/prds/workflow-foundry-009-tracker-ui-runner.md",
+      "projects/workflow-foundry/artifacts/prds/workflow-foundry-006-skill-first-foundry-revamp.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-005-standalone-skill-routing.md",
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-006-multi-deliverable-routing.md"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "implement",
+    "approved_artifacts": [
+      {
+        "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-015-build-workflow-product.md",
+        "phase": "prd",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved by the user's instruction to finish workflow-foundry-015 through implementation, review, and push after accepting the complete skill-bundle design.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "product-prd"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-001-fresh-agent-scenario-foundation.md",
+        "phase": "issues",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved by the user's instruction to finish the accepted build-workflow-product design through implementation and push.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "product-issues"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-002-canonical-product-skill-tracer.md",
+        "phase": "issues",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved by the user's instruction to finish the accepted build-workflow-product design through implementation and push.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "product-issues"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-003-domain-interface-and-states.md",
+        "phase": "issues",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved by the user's instruction to finish the accepted build-workflow-product design through implementation and push.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "product-issues"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-004-local-runtime-and-package-boundaries.md",
+        "phase": "issues",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved by the user's instruction to finish the accepted build-workflow-product design through implementation and push.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "product-issues"
+      },
+      {
+        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-005-evaluation-critique-and-release.md",
+        "phase": "issues",
+        "deliverable_id": "wf015-product-guidance",
+        "artifact_role": "support",
+        "approval_note": "Approved by the user's instruction to finish the accepted build-workflow-product design through implementation and push.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "product-issues"
+      }
+    ],
+    "process_exceptions": []
+  },
+  "deliverable_migration": {
+    "status": "approved",
+    "target_contract_version": 1,
+    "frozen_phase": "issues",
+    "approved_at": "2026-07-10",
+    "approval_note": "The user approved the versioned build-workflow-product contract and instructed the task to finish after workflow-foundry-006."
+  },
+  "deliverable_contracts": [
+    {
+      "deliverable_id": "wf015-workflow-product-skill",
+      "contract_version": 1,
+      "kind": "canonical-skill",
+      "operation": "create",
+      "role": "primary",
+      "ownership_boundary": "canonical-foundry",
+      "owner_project": "workflow-foundry",
+      "target_surface": ".agents/skills/build-workflow-product",
+      "runtime_visibility": "canonical-active",
+      "runtime_targets": [
+        "codex"
+      ],
+      "member_deliverable_ids": [],
+      "required_artifacts": [
+        {
+          "artifact_id": "workflow-product-bundle",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": ".agents/skills/build-workflow-product",
+          "validation": "canonical-skill-bundle"
+        }
+      ],
+      "allowed_support_artifacts": [],
+      "required_guidance": [
+        {
+          "guidance_id": "workflow-product-prd",
+          "source": "projects/workflow-foundry/artifacts/prds/workflow-foundry-015-build-workflow-product.md",
+          "evidence": "The skill preserves the fixed React, Vite, TypeScript, Tailwind and loopback companion-server contract without adding product code to the Foundry."
+        }
+      ],
+      "eval_plan": [
+        {
+          "eval_id": "wf015-fresh-agent",
+          "kind": "fresh-agent",
+          "required": true
+        },
+        {
+          "eval_id": "wf015-deterministic",
+          "kind": "deterministic",
+          "required": true
+        }
+      ],
+      "completion_conditions": [
+        {
+          "condition_id": "workflow-product-bundle-valid",
+          "type": "artifact-valid",
+          "reference": "workflow-product-bundle"
+        },
+        {
+          "condition_id": "workflow-product-behavior-passed",
+          "type": "eval-passed",
+          "reference": "wf015-fresh-agent"
+        }
+      ]
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "contract_version": 1,
+      "kind": "documentation-handoff",
+      "operation": "create",
+      "role": "support",
+      "ownership_boundary": "canonical-foundry",
+      "owner_project": "workflow-foundry",
+      "target_surface": ".agents/skills/build-workflow-product/references",
+      "runtime_visibility": "not-applicable",
+      "runtime_targets": [
+        "codex"
+      ],
+      "member_deliverable_ids": [],
+      "required_artifacts": [
+        {
+          "artifact_id": "workflow-product-references",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": ".agents/skills/build-workflow-product/references",
+          "validation": "directory"
+        }
+      ],
+      "allowed_support_artifacts": [
+        {
+          "artifact_id": "product-prd",
+          "artifact_role": "support",
+          "locator_type": "path-prefix",
+          "locator": "projects/workflow-foundry/artifacts/prds/",
+          "purpose": "Preserve the approved workflow-product architecture and acceptance stories."
+        },
+        {
+          "artifact_id": "product-issues",
+          "artifact_role": "support",
+          "locator_type": "path-prefix",
+          "locator": "projects/workflow-foundry/artifacts/issues/",
+          "purpose": "Preserve the approved issue-sized implementation and evaluation slices."
+        }
+      ],
+      "required_guidance": [
+        {
+          "guidance_id": "interface-craft-and-ecc",
+          "source": "interface-craft, frontend-skill, ECC frontend-patterns/e2e/eval guidance, and official OpenAI Codex documentation",
+          "evidence": "The references define domain-specific interface direction, explicit action states, secure local runtime boundaries, and browser critique."
+        }
+      ],
+      "eval_plan": [
+        {
+          "eval_id": "wf015-guidance-review",
+          "kind": "manual-review",
+          "required": true
+        }
+      ],
+      "completion_conditions": [
+        {
+          "condition_id": "workflow-product-references-valid",
+          "type": "artifact-valid",
+          "reference": "workflow-product-references"
+        },
+        {
+          "condition_id": "workflow-product-guidance-reviewed",
+          "type": "review-passed",
+          "reference": "wf015-guidance-review"
+        }
+      ]
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "deliverable_id": "wf015-workflow-product-skill",
+      "artifact_id": "workflow-product-bundle",
+      "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": ".agents/skills/build-workflow-product/"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "workflow-product-references",
+      "artifact_role": "primary",
+      "locator_type": "path",
+      "locator": ".agents/skills/build-workflow-product/references"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "product-prd",
+      "artifact_role": "support",
+      "locator_type": "path-prefix",
+      "locator": "projects/workflow-foundry/artifacts/prds/"
+    },
+    {
+      "deliverable_id": "wf015-product-guidance",
+      "artifact_id": "product-issues",
+      "artifact_role": "support",
+      "locator_type": "path-prefix",
+      "locator": "projects/workflow-foundry/artifacts/issues/"
+    }
+  ],
+  "behavior_evidence": [],
+  "dependencies": [
+    "workflow-foundry-006"
+  ],
+  "related_tasks": [
+    "workflow-foundry-004",
+    "workflow-foundry-005",
+    "workflow-foundry-006",
+    "workflow-foundry-009"
+  ],
+  "linked_artifacts": [
+    "projects/workflow-foundry/artifacts/prds/workflow-foundry-015-build-workflow-product.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-001-fresh-agent-scenario-foundation.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-002-canonical-product-skill-tracer.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-003-domain-interface-and-states.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-004-local-runtime-and-package-boundaries.md",
+    "projects/workflow-foundry/artifacts/issues/workflow-foundry-015-issue-005-evaluation-critique-and-release.md",
+    ".agents/skills/build-workflow-product",
+    ".agents/skills/build-workflow-product/references"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-10",
+      "event": "Created intake task for a reusable foundry capability that delivers beautiful operator- and end-user interfaces for agent workflows, distinct from the existing read-only tracker UI and sequenced behind workflow-foundry-006 before implementation."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Moved to grilling at the user's direction after reloading the full foundry state, existing tracker UI precedents, the workflow-foundry-006 typed-deliverable design, and Matt Pocock grilling guidance. No PRD, UI, skill, test, hosting, or implementation artifact was approved."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User corrected the scope from general UI delivery to an actual lightweight agent-assisted UI builder: a left-side agent follows instructions, the foundry can initiate or continue explicit create-UI or revamp-UI work for a workflow, and the result should be visually presentable for public sharing such as LinkedIn. The open architectural question is whether the agent panel belongs to the authoring workspace, the published workflow runtime, or both as separate surfaces."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User accepted the Lovable-style boundary and clarified the primary layout: the private builder has an editor and agent-assisted authoring surface on the left, a live workflow UI preview on the right, and a clean published output without builder controls. The next unresolved decision is whether the editor exposes raw folders and files or a workflow-semantic representation with optional file access."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User rejected the workflow-semantic-tree framing as too abstract and simplified the builder to two primary views: Chat and UI Preview, with a basic file-editor visual language. User also reframed the goal as building a full UI for every workflow project; the open decision is whether each project owns its own generated UI application or every workflow shares one universal foundry runtime."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User resolved the product ownership boundary: every workflow project becomes its own independently deployed product for external users, while the Foundry remains a private background factory used only by the operator. A universal public Foundry application is explicitly rejected."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User corrected the deployment assumption: each output is an npm-installable local workflow product, not primarily a hosted website. Installation should bring the complete project surface, including skills or workflow pack, frontend, runtime or backend integration, and supporting files, then connect it to Codex, Claude Code, or opencode so the harness can activate and operate it. npm remains distribution and bootstrap rather than the callable workflow interface."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User confirmed that installation must create a normal editable project folder rather than hiding the workflow product inside node_modules. The installed workspace is user-owned, and upgrade or removal behavior must preserve local modifications through explicit review instead of destructive overwrite."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User confirmed one independently versioned npm package per workflow project. Any future umbrella surface is limited to discovery and installation; it cannot own or couple project runtimes, UIs, skill bundles, editable workspaces, or releases."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User rejected post-install skill generation or connector setup. Each package must already contain its complete project skill set and ready-to-use project-local runtime surfaces for Codex, Claude Code, and opencode. The user installs the editable project, opens that directory in a supported harness, and the harness immediately discovers and operates the packaged skills without global configuration writes."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User chose on-demand local UI startup. Installation and opening the project must remain process-free; an included callable skill starts or reuses the local UI only when explicitly requested through the harness, reports failures and its URL, and supports an explicit stop path."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User clarified that the selected harness itself is the agent, chat, and editor. Claude Code, Codex, or opencode runs beside the project's on-demand local sidecar UI; the browser must not contain a second chat or agent runtime. This replaces the earlier Lovable-style embedded-chat interpretation while preserving the visual sidecar experience."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User confirmed that each sidecar must be a highly interactive, beautiful product rather than a read-only view. Users can operate safe project tools and workflow controls from the UI, with Health named as an example requiring intentional, high-quality domain design. Consequential actions remain approval-gated through the harness."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User narrowed the current Foundry deliverable to Markdown-first skills and prompts that teach harnesses how to build beautiful workflow products later. This task must not prebuild components, application code, UI packages, backends, or npm products. Pre-made design knowledge belongs in Markdown references, while only required skill runtime metadata may be non-Markdown. Actual product code remains owned by separately tracked target-project invocations."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User approved one model-invoked orchestration skill with progressively disclosed Markdown references instead of a public pack of micro-skills, and requested an explicit ECC evidence pass before the skill design is finalized."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "ECC review established the target-project quality floor: eval-first behavior definitions, typed and immutable frontend state, responsive and accessible interaction, schema-validated and least-privilege local action boundaries, stable end-to-end critical-flow tests with artifacts, and a final build, type, lint, test, security, and diff verification report. Shared quality foundations remain compatible with bespoke domain art direction and interaction design."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User fixed the target application stack to React, Vite, and TypeScript for every generated workflow product. Framework adaptation and alternative frontend stacks are no longer open design branches."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User approved a Node.js TypeScript companion server for every generated product. It starts on demand, binds only to loopback, and mediates schema-validated project-file and workflow actions without giving the React browser direct filesystem or harness authority. Electron and Tauri are excluded from the default architecture."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "After reviewing current official OpenAI Codex and GPT-5.6 UI guidance, the user approved the recommended design stack and prompting policy: Tailwind CSS joins React, Vite, and TypeScript as a fixed generated-product dependency; Radix and Lucide remain optional; every build starts from real content plus a visual, content, and interaction thesis; and the skill stays compact with eval-driven progressive disclosure and browser-based visual iteration."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User approved filesystem-first persistence for every generated product. Markdown, JSON, skills, fixtures, configuration, and project files remain canonical; the Node.js companion mediates validated file operations; browser state and caches are derived; and a database requires a separately proven target-project need."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User approved build-workflow-product as the canonical model-invoked skill name. The skill owns end-to-end workflow-product design and construction intent while remaining distinct from workflow-foundry-006's build-workflow-skill authority for authoring callable skill bundles."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User approved the complete Markdown bundle design and instructed the task to finish through push. Wrote the PRD from the resolved grilling context, fixed the fresh-harness scenario as the highest behavior seam, and moved the task to PRD with issue breakdown next. Implementation remains explicitly dependent on workflow-foundry-006's typed deliverable and canonical builder chain."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Converted the approved PRD into five blocker-ordered tracer slices: fresh-agent RED scenarios, the canonical skill tracer, domain interface and state quality, local runtime and package boundaries, and final evaluation/release. The skill implementation slice remains blocked by workflow-foundry-006's UI-plus-skill routing chain."
+    }
+  ],
+  "created_at": "2026-07-10",
+  "updated_at": "2026-07-10"
+}

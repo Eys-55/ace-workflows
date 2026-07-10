@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Workflow Skill"
+  short_description: "Create or update callable workflow skills"
+  default_prompt: "Use $build-workflow-skill to create or update the approved skill deliverable for this task."

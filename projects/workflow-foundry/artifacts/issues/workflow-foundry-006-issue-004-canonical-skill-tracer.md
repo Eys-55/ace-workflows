@@ -28,20 +28,20 @@ result so the two seams cannot test different interpretations.
 
 ## Acceptance criteria
 
-- [ ] Raw canonical create-skill language produces an approved primary skill contract before implementation.
-- [ ] Lifecycle and help routing delegate the contract to `$build-workflow-skill` as the single authoring authority.
-- [ ] The builder produces a lowercase hyphenated canonical bundle containing `SKILL.md` and `agents/openai.yaml`.
-- [ ] Folder identity, frontmatter name, trigger description, default invocation, target surface, and runtime visibility agree.
-- [ ] The bundle defines workflow inputs, outputs, decisions, failures, human boundaries, handoffs, and completion criteria before optional support resources are added.
-- [ ] Applicable Matt Pocock and ECC guidance is named and evidenced in the workflow or eval result.
-- [ ] Existing-skill wording updates one identified bundle without creating a duplicate identity.
-- [ ] Completion fails for Python, code-only, helper-only, thin-wrapper, command-first, incomplete-metadata, identity-mismatch, decorative-eval, and unreferenced-helper fixtures.
-- [ ] Quick Start, Getting Started, Example, and unheaded command examples fail by default unless each command is inside an explicitly classified developer verification, package smoke-test, deterministic validation, query, or internal-support section.
-- [ ] One shared scenario contract drives both live fresh-agent runs and deterministic disposable-repository fixtures.
-- [ ] Fresh-agent English, terse, and Taglish scenarios produce the expected contract and callable bundle without being told the intended classification.
-- [ ] Evidence records the raw prompt, repository context, runner identity, expected route, observed contract and artifacts, timestamp, builder-contract version, and result.
-- [ ] The new builder and resulting skill enter every derived catalog consumer without a manual inventory edit.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] Raw canonical create-skill language produces an approved primary skill contract before implementation.
+- [x] Lifecycle and help routing delegate the contract to `$build-workflow-skill` as the single authoring authority.
+- [x] The builder produces a lowercase hyphenated canonical bundle containing `SKILL.md` and `agents/openai.yaml`.
+- [x] Folder identity, frontmatter name, trigger description, default invocation, target surface, and runtime visibility agree.
+- [x] The bundle defines workflow inputs, outputs, decisions, failures, human boundaries, handoffs, and completion criteria before optional support resources are added.
+- [x] Applicable Matt Pocock and ECC guidance is named and evidenced in the workflow or eval result.
+- [x] Existing-skill wording updates one identified bundle without creating a duplicate identity.
+- [x] Completion fails for Python, code-only, helper-only, thin-wrapper, command-first, incomplete-metadata, identity-mismatch, decorative-eval, and unreferenced-helper fixtures.
+- [x] Quick Start, Getting Started, Example, and unheaded command examples fail by default unless each command is inside an explicitly classified developer verification, package smoke-test, deterministic validation, query, or internal-support section.
+- [x] One shared scenario contract drives both live fresh-agent runs and deterministic disposable-repository fixtures.
+- [x] Fresh-agent English, terse, and Taglish scenarios produce the expected contract and callable bundle without being told the intended classification.
+- [x] Evidence records the raw prompt, repository context, runner identity, expected route, observed contract and artifacts, timestamp, builder-contract version, and result.
+- [x] The new builder and resulting skill enter every derived catalog consumer without a manual inventory edit.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

@@ -21,17 +21,17 @@ them.
 
 ## Acceptance criteria
 
-- [ ] A proposed contract shows a stable deliverable identifier, kind, version, primary or support role, ownership boundary, target surface, runtime visibility, runtime targets, required artifacts, allowed support, guidance, eval plan, and completion conditions before task creation.
-- [ ] Every newly initiated task persists at least one approved deliverable contract.
-- [ ] Phase approvals identify the deliverable and artifact role they authorize.
-- [ ] Missing contract data or unresolved ownership blocks task creation or phase transition with a specific reason.
-- [ ] Open legacy tasks record explicit migration state and cannot advance until classified.
-- [ ] Completed historical tasks remain valid without bulk rewrites.
-- [ ] Query and read-only tracker surfaces expose contracts, migration state, readiness, and blocking reasons without mutation.
-- [ ] Audit-foundry reports contract and migration violations while audit-review and audit-cleanup keep their existing ownership.
-- [ ] Tracker schema and migration writes are performed only under `workflow-foundry-004`; behavior and acceptance evidence remain linked to this issue.
-- [ ] Deterministic fixtures cover a valid new task, a frozen open task, a migrated open task, and a compatible completed task.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] A proposed contract shows a stable deliverable identifier, kind, version, primary or support role, ownership boundary, target surface, runtime visibility, runtime targets, required artifacts, allowed support, guidance, eval plan, and completion conditions before task creation.
+- [x] Every newly initiated task persists at least one approved deliverable contract.
+- [x] Phase approvals identify the deliverable and artifact role they authorize.
+- [x] Missing contract data or unresolved ownership blocks task creation or phase transition with a specific reason.
+- [x] Open legacy tasks record explicit migration state and cannot advance until classified.
+- [x] Completed historical tasks remain valid without bulk rewrites.
+- [x] Query and read-only tracker surfaces expose contracts, migration state, readiness, and blocking reasons without mutation.
+- [x] Audit-foundry reports contract and migration violations while audit-review and audit-cleanup keep their existing ownership.
+- [x] Tracker schema and migration writes are performed only under `workflow-foundry-004`; behavior and acceptance evidence remain linked to this issue.
+- [x] Deterministic fixtures cover a valid new task, a frozen open task, a migrated open task, and a compatible completed task.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

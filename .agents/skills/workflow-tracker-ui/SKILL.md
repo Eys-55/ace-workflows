@@ -14,7 +14,7 @@ Follow root `AGENTS.md`: `$workflow-tracker-ui` is the operator surface. The
 Astro/npm commands below are internal support for opening or verifying the
 tracker UI, not the primary way to call this skill.
 
-## Default: Fast Open
+## Internal Support
 
 1. Work from the repo root.
 2. Check whether the tracker is already reachable at `http://127.0.0.1:4321`.

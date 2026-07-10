@@ -4,7 +4,7 @@
   "title": "Maintain workflow tracker state",
   "task_kind": "tracker-maintenance",
   "status": "in-progress",
-  "matt_phase": "intake",
+  "matt_phase": "implement",
   "explicit_next_action_required": true,
   "summary": "Track auditable maintenance of the workflow-foundry JSON tracker itself. This task currently accounts for the approved cleanup that closes stale/completed tasks, registers the LinkedIn Posts scaffold state, and keeps only genuine follow-up work open.",
   "acceptance_criteria": [
@@ -40,6 +40,7 @@
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
       "projects/workflow-foundry/tasks/workflow-foundry-013.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-015.json",
       "projects/real-life-workflows/AGENTS.md",
       "projects/real-life-workflows/project.json",
       "projects/real-life-workflows/tasks/index.json",
@@ -58,10 +59,188 @@
     ]
   },
   "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [],
+    "selected_next_action": "code-review",
+    "approved_artifacts": [
+      {
+        "path": "projects/workflow-foundry/tasks/index.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved by the user's instruction to finish workflow-foundry-006 and migrate its tracker schema under the existing tracker-maintenance authority.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-tracker-files"
+      },
+      {
+        "path": "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for the tracker-maintenance task's own versioned deliverable classification.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-tracker-files"
+      },
+      {
+        "path": "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for workflow-foundry-006 deliverable-contract migration and implementation accounting.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "migrated-task-state"
+      },
+      {
+        "path": "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for explicit frozen legacy migration state without advancing the task.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-tracker-files"
+      },
+      {
+        "path": "projects/workflow-foundry/tasks/workflow-foundry-015.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for workflow-foundry-015 deliverable-contract classification before implementation.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "workflow-tracker-files"
+      },
+      {
+        "path": "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for explicit frozen legacy migration state without changing its saved Matt phase.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "linkedin-tracker-files"
+      },
+      {
+        "path": "projects/health/tasks/health-003.json",
+        "phase": "implement",
+        "deliverable_id": "wf004-tracker-maintenance",
+        "artifact_role": "primary",
+        "approval_note": "Approved for explicit frozen legacy migration state without changing its saved Matt phase.",
+        "approved_at": "2026-07-10",
+        "artifact_id": "health-tracker-files"
+      }
+    ],
     "process_exceptions": []
   },
+  "deliverable_migration": {
+    "status": "approved",
+    "target_contract_version": 1,
+    "frozen_phase": "intake",
+    "approved_at": "2026-07-10",
+    "approval_note": "The user approved tracker-maintenance authority for the versioned deliverable migration while finishing workflow-foundry-006."
+  },
+  "deliverable_contracts": [
+    {
+      "deliverable_id": "wf004-tracker-maintenance",
+      "contract_version": 1,
+      "kind": "tracker-only",
+      "operation": "update",
+      "role": "primary",
+      "ownership_boundary": "canonical-foundry",
+      "owner_project": "workflow-foundry",
+      "target_surface": "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "runtime_visibility": "not-applicable",
+      "runtime_targets": [
+        "codex"
+      ],
+      "member_deliverable_ids": [],
+      "required_artifacts": [
+        {
+          "artifact_id": "migrated-task-state",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+          "validation": "file"
+        }
+      ],
+      "allowed_support_artifacts": [
+        {
+          "artifact_id": "workflow-tracker-files",
+          "artifact_role": "primary",
+          "locator_type": "path-prefix",
+          "locator": "projects/workflow-foundry/tasks/",
+          "purpose": "Migrate approved Workflow Foundry task and index JSON under tracker-maintenance ownership."
+        },
+        {
+          "artifact_id": "linkedin-tracker-files",
+          "artifact_role": "primary",
+          "locator_type": "path-prefix",
+          "locator": "projects/linkedin-posts/tasks/",
+          "purpose": "Record the explicit frozen migration state for the open LinkedIn task."
+        },
+        {
+          "artifact_id": "health-tracker-files",
+          "artifact_role": "primary",
+          "locator_type": "path-prefix",
+          "locator": "projects/health/tasks/",
+          "purpose": "Record the explicit frozen migration state for the open Health task."
+        }
+      ],
+      "required_guidance": [
+        {
+          "guidance_id": "root-tracker-policy",
+          "source": "AGENTS.md",
+          "evidence": "Tracker schema and migrations remain owned by workflow-foundry-004 and preserve phase guards."
+        }
+      ],
+      "eval_plan": [
+        {
+          "eval_id": "wf004-tracker-validation",
+          "kind": "deterministic",
+          "required": true
+        }
+      ],
+      "completion_conditions": [
+        {
+          "condition_id": "migrated-task-valid",
+          "type": "artifact-valid",
+          "reference": "migrated-task-state"
+        },
+        {
+          "condition_id": "tracker-validation-passed",
+          "type": "eval-passed",
+          "reference": "wf004-tracker-validation"
+        }
+      ],
+      "update_identity": "projects/workflow-foundry/tasks/workflow-foundry-006.json"
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "deliverable_id": "wf004-tracker-maintenance",
+      "artifact_id": "migrated-task-state",
+      "artifact_role": "primary",
+      "locator_type": "path",
+      "locator": "projects/workflow-foundry/tasks/workflow-foundry-006.json"
+    },
+    {
+      "deliverable_id": "wf004-tracker-maintenance",
+      "artifact_id": "workflow-tracker-files",
+      "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": "projects/workflow-foundry/tasks/"
+    },
+    {
+      "deliverable_id": "wf004-tracker-maintenance",
+      "artifact_id": "linkedin-tracker-files",
+      "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": "projects/linkedin-posts/tasks/"
+    },
+    {
+      "deliverable_id": "wf004-tracker-maintenance",
+      "artifact_id": "health-tracker-files",
+      "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": "projects/health/tasks/"
+    }
+  ],
+  "behavior_evidence": [],
   "dependencies": [],
   "related_tasks": [
     "workflow-foundry-002"
@@ -88,6 +267,7 @@
     "projects/workflow-foundry/tasks/workflow-foundry-011.json",
     "projects/workflow-foundry/tasks/workflow-foundry-012.json",
     "projects/workflow-foundry/tasks/workflow-foundry-013.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-015.json",
     "projects/real-life-workflows/tasks/real-life-workflows-003.json",
     "projects/linkedin-posts/AGENTS.md",
     "projects/linkedin-posts/project.json",
@@ -166,6 +346,10 @@
     {
       "date": "2026-07-08",
       "event": "Tracked closure of workflow-foundry-013 after the audit-review and audit-cleanup skill implementation was committed and validated."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "User approved finishing workflow-foundry-006. Entered implement phase as the explicit tracker-maintenance authority for versioned deliverable schema and open-task migration writes."
     }
   ],
   "created_at": "2026-07-06",

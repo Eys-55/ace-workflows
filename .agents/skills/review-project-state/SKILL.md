@@ -40,10 +40,9 @@ Load, load, load, load, load.
 1. Read `projects/<project-slug>/project.json`.
 2. Read `projects/<project-slug>/AGENTS.md`.
 3. Read `projects/<project-slug>/tasks/index.json`.
-4. Run `node scripts/query-workflow-state.mjs --project <project-slug> --agents-md`
-   if available.
-5. Run `node scripts/query-workflow-state.mjs --project <project-slug> --list-tasks`
-   if available.
+4. Query the registered project-instruction state through the read-only state
+   helper when available.
+5. Query the project task list through the same helper when available.
 6. Read every task JSON listed in the index whose status is not `done`.
 7. Read recently completed task summaries from the index.
 8. Check missing task files, invalid states, dependency conflicts, stale linked

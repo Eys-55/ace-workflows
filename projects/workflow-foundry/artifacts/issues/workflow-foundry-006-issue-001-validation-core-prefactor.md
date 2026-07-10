@@ -18,13 +18,13 @@ duplicating validation rules between the command and tests.
 
 ## Acceptance criteria
 
-- [ ] Characterization fixtures capture current valid and invalid workflow-state behavior before the refactor.
-- [ ] Workflow-state validation is exposed through one importable core with structured success and failure results.
-- [ ] The existing command entrypoint delegates to the core and preserves its command-line contract.
-- [ ] Disposable-repository fixtures invoke the same core rather than a copied or reduced validator.
-- [ ] Existing repository validation outcomes remain unchanged, including known green-but-wrong discovery behavior reserved for Issue 003.
-- [ ] The core introduces no new operator-facing command, skill, or task phase.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] Characterization fixtures capture current valid and invalid workflow-state behavior before the refactor.
+- [x] Workflow-state validation is exposed through one importable core with structured success and failure results.
+- [x] The existing command entrypoint delegates to the core and preserves its command-line contract.
+- [x] Disposable-repository fixtures invoke the same core rather than a copied or reduced validator.
+- [x] Existing repository validation outcomes remain unchanged, including known green-but-wrong discovery behavior reserved for Issue 003.
+- [x] The core introduces no new operator-facing command, skill, or task phase.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

@@ -1,7 +1,9 @@
-import { readdir, readFile, stat } from "node:fs/promises";
+import { readdir, readFile, realpath, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { discoverTestingSessions } from "./testing-session-state.mjs";
+import { projectDeliverableReadiness } from "./workflow-deliverable-contracts.mjs";
+import { deriveCanonicalSkillCatalog } from "./workflow-skill-catalog.mjs";
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -20,12 +22,14 @@ function usage() {
   console.log(`Usage:
   node scripts/query-workflow-state.mjs --list-projects
   node scripts/query-workflow-state.mjs --list-agents-md
+  node scripts/query-workflow-state.mjs --skill-catalog
   node scripts/query-workflow-state.mjs --project <slug> --agents-md
   node scripts/query-workflow-state.mjs --project <slug> --snapshot
   node scripts/query-workflow-state.mjs --project <slug> --quarantine-imports
   node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
   node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>] [--phase <phase>]
   node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
+  node scripts/query-workflow-state.mjs --project <slug> --task-readiness <task-id>
 `);
 }
 
@@ -40,6 +44,33 @@ async function exists(filePath) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+function isInside(parentPath, candidatePath) {
+  const relativePath = path.relative(parentPath, candidatePath);
+  return relativePath === "" || (!relativePath.startsWith(`..${path.sep}`) && relativePath !== "..");
+}
+
+function assertSafePathSegment(value, label) {
+  if (typeof value !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) {
+    throw new Error(`Invalid ${label} "${value ?? ""}"; expected one lowercase hyphenated path segment`);
+  }
+}
+
+async function resolveTaskFile(projectDir, taskId) {
+  assertSafePathSegment(taskId, "task id");
+  const tasksDir = path.resolve(projectDir, "tasks");
+  const taskFile = path.resolve(tasksDir, `${taskId}.json`);
+  if (!isInside(tasksDir, taskFile) || !(await exists(taskFile))) return taskFile;
+
+  const [canonicalTasksDir, canonicalTaskFile] = await Promise.all([
+    realpath(tasksDir),
+    realpath(taskFile),
+  ]);
+  if (!isInside(canonicalTasksDir, canonicalTaskFile)) {
+    throw new Error(`Task file ${taskId}.json resolves outside its selected project's tasks directory`);
+  }
+  return canonicalTaskFile;
 }
 
 async function countImportedSkillFiles(importDir) {
@@ -130,7 +161,21 @@ async function listProjects() {
 }
 
 async function loadProject(projectSlug) {
-  const projectDir = path.join(root, "projects", projectSlug);
+  assertSafePathSegment(projectSlug, "--project");
+  const projectsDir = path.resolve(root, "projects");
+  const projectDir = path.resolve(projectsDir, projectSlug);
+  if (!isInside(projectsDir, projectDir)) {
+    throw new Error(`Invalid --project "${projectSlug}"; project must remain inside projects`);
+  }
+  if (await exists(projectDir)) {
+    const [canonicalProjectsDir, canonicalProjectDir] = await Promise.all([
+      realpath(projectsDir),
+      realpath(projectDir),
+    ]);
+    if (!isInside(canonicalProjectsDir, canonicalProjectDir)) {
+      throw new Error(`Invalid --project "${projectSlug}"; project resolves outside projects`);
+    }
+  }
   const projectFile = path.join(projectDir, "project.json");
   const indexFile = path.join(projectDir, "tasks", "index.json");
 
@@ -174,7 +219,7 @@ async function listTasks(projectSlug) {
 
 async function printTask(projectSlug, taskId) {
   const { projectDir } = await loadProject(projectSlug);
-  const taskFile = path.join(projectDir, "tasks", `${taskId}.json`);
+  const taskFile = await resolveTaskFile(projectDir, taskId);
 
   if (!(await exists(taskFile))) {
     throw new Error(`Missing ${path.relative(root, taskFile)}`);
@@ -182,6 +227,38 @@ async function printTask(projectSlug, taskId) {
 
   const task = await readJson(taskFile);
   console.log(JSON.stringify(task, null, 2));
+}
+
+async function printSkillCatalog() {
+  const catalog = await deriveCanonicalSkillCatalog({ root });
+  if (catalog.errors.length > 0) {
+    throw new Error(catalog.errors.map((error) => `${error.code}\t${error.path}\t${error.message}`).join("\n"));
+  }
+
+  console.log(`CATALOG\tversion:${catalog.version}\tsource:${catalog.source}`);
+  for (const skill of catalog.skills) {
+    console.log(
+      [
+        skill.name,
+        skill.invocation,
+        skill.runtimeVisibility,
+        skill.runtimeTargets.join(","),
+        skill.skillPath,
+        skill.description,
+      ].join("\t"),
+    );
+  }
+}
+
+async function printTaskReadiness(projectSlug, taskId) {
+  const { projectDir } = await loadProject(projectSlug);
+  const taskFile = await resolveTaskFile(projectDir, taskId);
+  if (!(await exists(taskFile))) {
+    throw new Error(`Missing ${path.relative(root, taskFile)}`);
+  }
+  const task = await readJson(taskFile);
+  const catalog = await deriveCanonicalSkillCatalog({ root });
+  console.log(JSON.stringify(projectDeliverableReadiness({ task, root, catalog }), null, 2));
 }
 
 async function printTestingSessions(projectSlug) {
@@ -283,6 +360,25 @@ async function printProjectSnapshot(projectSlug) {
     );
   }
 
+  console.log("\nDELIVERABLE_READINESS");
+  const catalog = await deriveCanonicalSkillCatalog({ root });
+  for (const taskSummary of tasks) {
+    const taskFile = path.join(
+      root,
+      "projects",
+      projectSlug,
+      "tasks",
+      `${taskSummary.task_id}.json`,
+    );
+    const task = await readJson(taskFile);
+    const readiness = projectDeliverableReadiness({ task, root, catalog });
+    console.log(
+      `${taskSummary.task_id}\t${readiness.state}\t${readiness.next_phase_ready}\t${readiness.blockers
+        .map((blocker) => blocker.code)
+        .join(",") || "-"}`,
+    );
+  }
+
   console.log("\nTESTING_SESSIONS");
   if (testingSessions.length === 0) {
     console.log("No testing sessions found.");
@@ -303,6 +399,8 @@ try {
     await listProjects();
   } else if (hasFlag("--list-agents-md")) {
     await listAgentsMd();
+  } else if (hasFlag("--skill-catalog")) {
+    await printSkillCatalog();
   } else {
     const project = getArg("--project");
     if (!project) throw new Error("Missing --project <slug>");
@@ -319,6 +417,8 @@ try {
       await listTasks(project);
     } else if (getArg("--task")) {
       await printTask(project, getArg("--task"));
+    } else if (getArg("--task-readiness")) {
+      await printTaskReadiness(project, getArg("--task-readiness"));
     } else {
       usage();
       process.exitCode = 1;

@@ -10,6 +10,9 @@ test("generated tracker snapshot contains read-only UI controls and task data", 
   assert.match(html, /Search projects/);
   assert.match(html, /Search selected project tasks/);
   assert.match(html, /Lifecycle rail/);
+  assert.match(html, /Derived skill catalog/);
+  assert.match(html, /Deliverable Readiness/);
+  assert.match(html, /Runtime discovery/);
   assert.match(html, /Intake \/ Preflight/);
   assert.match(html, /workflow-foundry-005/);
   assert.match(html, /Create dark-mode project task tracker UI/);

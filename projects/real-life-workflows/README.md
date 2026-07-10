@@ -53,7 +53,7 @@ turning the product surface into a raw catalog dump.
 These are search doors. They are not repository counts, and they are not a
 claim that every upstream workflow is ready to run.
 
-## Install
+## Package Smoke Test
 
 Install the local package only when you are testing or exporting the skill pack
 outside this repo's active `.agents/skills` surface:

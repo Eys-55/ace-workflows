@@ -66,6 +66,16 @@
     "approved_artifacts": [],
     "process_exceptions": []
   },
+  "deliverable_migration": {
+    "status": "pending",
+    "target_contract_version": 1,
+    "frozen_phase": "issues",
+    "approved_at": null,
+    "approval_note": null
+  },
+  "deliverable_contracts": [],
+  "artifact_bindings": [],
+  "behavior_evidence": [],
   "dependencies": [],
   "related_tasks": [
     "linkedin-posts-001"

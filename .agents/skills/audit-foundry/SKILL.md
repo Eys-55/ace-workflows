@@ -45,6 +45,8 @@ Always start from the repo root and read:
 10. `scripts/query-workflow-state.mjs`.
 11. `scripts/validate-workflow-state.mjs`.
 
+## Query Helper
+
 Use the query helper as internal evidence support when available:
 
 ```bash
@@ -66,6 +68,9 @@ Audit the workflow-foundry control plane:
 - workflow-foundry `project.json`
 - workflow-foundry task index and every non-done task JSON
 - Codex-discoverable skills under `.agents/skills`
+- derived canonical skill catalog completeness and invocation identity
+- open-task deliverable migration, contract, artifact binding, eval, and
+  dependency readiness blockers
 - validation and query helper surfaces
 - generated tracker UI state by reading linked task/artifact pointers
 - testing-session index summaries when present
@@ -76,7 +81,7 @@ Use for `scope:foundry-projects`.
 
 Complete the foundry-only audit, then load each discoverable project:
 
-1. Run `node scripts/query-workflow-state.mjs --list-projects`.
+1. Query the registered project list through the read-only state helper.
 2. For each project, read `AGENTS.md`, `project.json`, `tasks/index.json`, and
    every non-done task JSON.
 3. Run project `--agents-md`, `--list-tasks`, and `--testing-sessions` helper
@@ -162,6 +167,12 @@ Each finding should include:
 - evidence file or command
 - impact
 - recommended next tracker action
+
+Report missing contracts, pending migrations, unbound phase approvals, missing
+primary artifacts, missing eval evidence, incomplete dependency outcomes, and
+catalog bundle errors. Do not repair, classify, or migrate tasks from this
+read-only skill; route those actions through the owning task and tracker
+maintenance authority.
 
 Do not fix findings inside this skill.
 

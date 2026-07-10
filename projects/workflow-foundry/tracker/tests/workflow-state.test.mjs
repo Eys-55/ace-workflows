@@ -99,3 +99,22 @@ test("includes snapshot metadata for generated tracker output", async () => {
     state.projects.reduce((total, project) => total + project.tasks.length, 0),
   );
 });
+
+test("projects deliverable migration, readiness, and the derived skill catalog read-only", async () => {
+  const state = await loadWorkflowState();
+  const workflowFoundry = state.projects.find(
+    (project) => project.slug === "workflow-foundry",
+  );
+  const revamp = workflowFoundry.tasks.find(
+    (task) => task.id === "workflow-foundry-006",
+  );
+
+  assert.equal(revamp.deliverableMigration.status, "approved");
+  assert.ok(revamp.deliverableContracts.length >= 2);
+  assert.equal(typeof revamp.deliverableReadiness.next_phase_ready, "boolean");
+  assert.ok(Array.isArray(revamp.deliverableReadiness.blockers));
+  assert.ok(
+    state.skillCatalog.skills.some((skill) => skill.name === "workflow-tracker-ui"),
+  );
+  assert.deepEqual(state.skillCatalog.errors, []);
+});

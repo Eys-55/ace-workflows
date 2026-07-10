@@ -20,18 +20,18 @@ variants to the shared scenario contract introduced by Issue 004.
 
 ## Acceptance criteria
 
-- [ ] A dependency-backed task contract identifies the capability step, supported deliverable, artifact role, required outcome, and completion condition before execution.
-- [ ] The approved dependency write plan bounds allowed writes and preserves protected paths and external-write approvals.
-- [ ] Successful reconciliation verifies output existence, provenance, role, promotion state, and the owning deliverable's normal validation.
-- [ ] Dependency metadata alone cannot satisfy a deliverable or mark a step complete.
-- [ ] Missing-output, missing-provenance, wrong-role, and out-of-boundary fixtures stop deterministically with specific reasons.
-- [ ] Dependency evidence cannot satisfy a primary skill unless the contract assigns that role and the bundle passes normal skill validation.
-- [ ] Query and read-only tracker projections expose dependency readiness and failure reasons without mutation.
-- [ ] Dependency-backed variants extend the shared scenario contract and drive both live fresh-agent runs and deterministic fixtures.
-- [ ] Fresh-agent English, terse, and Taglish dependency scenarios produce the expected contract and stop or advance correctly without hidden classification hints.
-- [ ] Evidence records the raw prompt, context, observed dependency outcomes and artifacts, provenance, runner identity, timestamp, contract version, and result.
-- [ ] Existing audit-foundry, audit-review, audit-cleanup, and external-write ownership boundaries remain intact.
-- [ ] Root workflow-state validation and tracker verification pass.
+- [x] A dependency-backed task contract identifies the capability step, supported deliverable, artifact role, required outcome, and completion condition before execution.
+- [x] The approved dependency write plan bounds allowed writes and preserves protected paths and external-write approvals.
+- [x] Successful reconciliation verifies output existence, provenance, role, promotion state, and the owning deliverable's normal validation.
+- [x] Dependency metadata alone cannot satisfy a deliverable or mark a step complete.
+- [x] Missing-output, missing-provenance, wrong-role, and out-of-boundary fixtures stop deterministically with specific reasons.
+- [x] Dependency evidence cannot satisfy a primary skill unless the contract assigns that role and the bundle passes normal skill validation.
+- [x] Query and read-only tracker projections expose dependency readiness and failure reasons without mutation.
+- [x] Dependency-backed variants extend the shared scenario contract and drive both live fresh-agent runs and deterministic fixtures.
+- [x] Fresh-agent English, terse, and Taglish dependency scenarios produce the expected contract and stop or advance correctly without hidden classification hints.
+- [x] Evidence records the raw prompt, context, observed dependency outcomes and artifacts, provenance, runner identity, timestamp, contract version, and result.
+- [x] Existing audit-foundry, audit-review, audit-cleanup, and external-write ownership boundaries remain intact.
+- [x] Root workflow-state validation and tracker verification pass.
 
 ## Blocked by
 

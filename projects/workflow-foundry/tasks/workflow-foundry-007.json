@@ -40,6 +40,7 @@
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
       "projects/workflow-foundry/tasks/workflow-foundry-013.json"
+      ,"projects/workflow-foundry/tasks/workflow-foundry-015.json"
     ]
   },
   "phase_guard": {
@@ -47,6 +48,16 @@
     "approved_artifacts": [],
     "process_exceptions": []
   },
+  "deliverable_migration": {
+    "status": "pending",
+    "target_contract_version": 1,
+    "frozen_phase": "intake",
+    "approved_at": null,
+    "approval_note": null
+  },
+  "deliverable_contracts": [],
+  "artifact_bindings": [],
+  "behavior_evidence": [],
   "dependencies": [],
   "related_tasks": [
     "workflow-foundry-004"

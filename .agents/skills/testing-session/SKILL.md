@@ -25,8 +25,8 @@ Before acting:
 3. Read `projects/<project-slug>/AGENTS.md`.
 4. Read `projects/<project-slug>/project.json`.
 5. Read `projects/<project-slug>/tasks/index.json`.
-6. Run `node scripts/query-workflow-state.mjs --project <project-slug> --testing-sessions`
-   when the project slug is known.
+6. Query testing-session summaries through the read-only state helper when the
+   project slug is known.
 
 Do not create or continue normal tasks from this skill.
 
@@ -57,12 +57,7 @@ For `action:start`:
 1. Require `project:<slug>`.
 2. Accept optional `goal:"..."`.
 3. Load the project state read-only.
-4. Use the internal state helper:
-
-```bash
-node scripts/testing-session-state.mjs action:start project:<slug> [goal:"..."]
-```
-
+4. Call the helper's start operation defined under `Internal Support`.
 5. Report only the session id, status, index path, session path, and next action.
 6. Do not recommend tasks, edit tracker JSON, or change normal workflow files.
 
@@ -77,12 +72,8 @@ projects/<project-slug>/artifacts/testing-sessions/<session-id>/notes.md
 
 ## Log
 
-During a testing session, log each meaningful state transition through
-`action:log`:
-
-```bash
-node scripts/testing-session-state.mjs action:log session:<session-id> type:tool_run summary:"..." result:ok rationale:"..."
-```
+During a testing session, log each meaningful state transition through the
+helper's log operation defined under `Internal Support`.
 
 Use `type:decision`, `type:tool_run`, `type:artifact_read`, `type:finding`,
 `type:blocked`, or `type:completed` as the run proceeds. Include `read:` and
@@ -93,25 +84,31 @@ testing-session state.
 
 ## Status
 
-For `action:status`, use the internal state helper:
-
-```bash
-node scripts/testing-session-state.mjs action:status session:<session-id>
-```
+For `action:status`, call the helper's status operation defined under
+`Internal Support`.
 
 Return the lightweight session summary only. Do not load the full event stream
 unless the user asks for exact evidence.
 
 ## Stop
 
-For `action:stop`, use the internal state helper:
-
-```bash
-node scripts/testing-session-state.mjs action:stop session:<session-id>
-```
+For `action:stop`, call the helper's stop operation defined under `Internal
+Support`.
 
 The stop action updates only `session.json`, `events.jsonl`, and the project
 testing-session `index.json`.
+
+## Internal Support
+
+Use these deterministic helper calls only after `$testing-session` has selected
+the corresponding action:
+
+```bash
+node scripts/testing-session-state.mjs action:start project:<slug> [goal:"..."]
+node scripts/testing-session-state.mjs action:log session:<session-id> type:tool_run summary:"..." result:ok rationale:"..."
+node scripts/testing-session-state.mjs action:status session:<session-id>
+node scripts/testing-session-state.mjs action:stop session:<session-id>
+```
 
 ## Output Boundary
 

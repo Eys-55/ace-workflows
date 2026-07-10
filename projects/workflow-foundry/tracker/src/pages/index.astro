@@ -616,12 +616,48 @@ function taskCountLabel(count) {
           <strong>{workflow.taskCount}</strong>
         </div>
         <div class="metric">
+          <span>Active skills</span>
+          <strong>{workflow.skillCatalog.skills.length}</strong>
+        </div>
+        <div class="metric">
           <span>In progress</span>
           <strong>{statusCounts["in-progress"] ?? 0}</strong>
         </div>
         <div class="metric">
           <span>Blocked</span>
           <strong>{statusCounts.blocked ?? 0}</strong>
+        </div>
+      </section>
+
+      <section class="project-header" aria-label="Canonical skill discovery">
+        <div>
+          <span class="eyebrow">Derived skill catalog</span>
+          <h2>Runtime discovery</h2>
+          <p class="muted">Read-only from complete `.agents/skills/*` bundles.</p>
+        </div>
+        <div class="artifact-group">
+          <details>
+            <summary>Active skills · {workflow.skillCatalog.skills.length}</summary>
+            <ul class="path-list">
+              {workflow.skillCatalog.skills.map((skill) => (
+                <li>
+                  <strong>{skill.invocation}</strong>
+                  <div class="artifact-path">{skill.runtimeVisibility} · {skill.runtimeTargets.join(", ")}</div>
+                  <div class="artifact-path">{skill.skillPath}</div>
+                </li>
+              ))}
+            </ul>
+          </details>
+          {workflow.skillCatalog.errors.length > 0 && (
+            <details open>
+              <summary>Discovery blockers · {workflow.skillCatalog.errors.length}</summary>
+              <ul class="session-list">
+                {workflow.skillCatalog.errors.map((error) => (
+                  <li><strong>{error.code}</strong> · {error.path} · {error.message}</li>
+                ))}
+              </ul>
+            </details>
+          )}
         </div>
       </section>
 
@@ -870,6 +906,48 @@ function taskCountLabel(count) {
                               Preflight: project JSON loaded, task JSON loaded, linked
                               artifacts counted, workflow state remains read-only.
                             </p>
+                          </section>
+
+                          <section class="detail-block">
+                            <h4>Deliverable Readiness</h4>
+                            <p class="muted">
+                              Migration: {task.deliverableMigration.status}; state: {task.deliverableReadiness.state}; next phase: {task.deliverableReadiness.next_phase_ready ? "ready" : "blocked"}.
+                            </p>
+                            {task.deliverableContracts.length > 0 ? (
+                              <ul class="path-list">
+                                {task.deliverableContracts.map((contract) => (
+                                  <li>
+                                    <strong>{contract.deliverableId}</strong>
+                                    <div class="artifact-path">
+                                      {contract.kind} · {contract.role} · {contract.runtimeVisibility}
+                                    </div>
+                                    <div class="artifact-path">{contract.targetSurface}</div>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p class="muted">No native contract; historical compatibility or migration is pending.</p>
+                            )}
+                            {task.deliverableReadiness.blockers.length > 0 && (
+                              <ul class="session-list">
+                                {task.deliverableReadiness.blockers.map((blocker) => (
+                                  <li>
+                                    <strong>{blocker.code}</strong> · {blocker.message}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                            {task.deliverableReadiness.deliverables
+                              .filter((deliverable) => deliverable.discovery.required)
+                              .map((deliverable) => (
+                                <p class="muted">
+                                  Discovery {deliverable.deliverable_id}: {deliverable.discovery.ready ? "ready" : "blocked"}
+                                  {deliverable.discovery.catalog_entry
+                                    ? ` · ${deliverable.discovery.catalog_entry.invocation}`
+                                    : ""}
+                                </p>
+                              ))}
+                            <p class="muted">Read-only projection from task JSON and the derived skill catalog.</p>
                           </section>
 
                           <section class="detail-block">

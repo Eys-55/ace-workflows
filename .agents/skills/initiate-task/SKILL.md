@@ -1,6 +1,6 @@
 ---
 name: initiate-task
-description: Canonical task creation skill for this repo. Use when the user invokes initiate-task, asks to start a new project task, create a tracker-maintenance task with target:tracker, query current task state before creation, coordinate project tasks, or create a primary task with capability_dependencies on usable skills from another known project.
+description: Canonical task creation skill for this repo. Use when the user invokes initiate-task, asks to start a new project task, classify and approve versioned deliverable contracts, create a tracker-maintenance task with target:tracker, query current task state before creation, coordinate project tasks, or create a primary task with capability_dependencies on usable skills from another known project.
 ---
 
 # Initiate Task
@@ -45,14 +45,12 @@ For every initiate request:
 3. Read `projects/<project-slug>/AGENTS.md`.
 4. Read `projects/<project-slug>/project.json`.
 5. Read `projects/<project-slug>/tasks/index.json`.
-6. Run `node scripts/query-workflow-state.mjs --project <project-slug> --list-tasks`
-   if the script exists.
-7. Run `node scripts/query-workflow-state.mjs --project <project-slug> --agents-md`
-   if the script exists.
-8. Run `node scripts/query-workflow-state.mjs --project <project-slug> --testing-sessions`
-   if the script exists. Load only the index summaries and pointers by default;
-   do not read full `events.jsonl` streams unless the user asks or the task
-   requires exact testing-session evidence.
+6. Query the derived skill catalog and project task list through the read-only
+   state helper when available.
+7. Query the registered project-instruction state through the same helper.
+8. Query testing-session summaries through the same helper. Load only the index
+   summaries and pointers by default; do not read full `events.jsonl` streams
+   unless the user asks or the task requires exact testing-session evidence.
 9. Read every task JSON listed in the index whose status is not `done`.
 10. Read the selected task JSON if a task id is provided.
 11. Review active, blocked, in-progress, recently completed work, and testing
@@ -123,13 +121,83 @@ Each task lives in `tasks/<task-id>.json`:
     "approved_artifacts": [],
     "process_exceptions": []
   },
+  "deliverable_migration": {
+    "status": "native",
+    "target_contract_version": 1,
+    "frozen_phase": null,
+    "approved_at": "YYYY-MM-DD",
+    "approval_note": "Operator approved the proposed deliverable contract."
+  },
+  "deliverable_contracts": [
+    {
+      "deliverable_id": "health-workflow-skill",
+      "contract_version": 1,
+      "kind": "packaged-skill",
+      "operation": "create",
+      "role": "primary",
+      "ownership_boundary": "project-packaged",
+      "owner_project": "health",
+      "target_surface": "projects/health/skills/health-workflow",
+      "runtime_visibility": "project-local-inactive",
+      "runtime_targets": ["codex"],
+      "member_deliverable_ids": [],
+      "required_artifacts": [
+        {
+          "artifact_id": "health-workflow-bundle",
+          "artifact_role": "primary",
+          "locator_type": "path",
+          "locator": "projects/health/skills/health-workflow",
+          "validation": "packaged-skill-bundle"
+        }
+      ],
+      "allowed_support_artifacts": [],
+      "required_guidance": [
+        {
+          "guidance_id": "health-project-policy",
+          "source": "projects/health/AGENTS.md",
+          "evidence": "The packaged skill follows the owning project's file, domain, and runtime policy."
+        }
+      ],
+      "eval_plan": [
+        {
+          "eval_id": "health-workflow-fresh-agent",
+          "kind": "fresh-agent",
+          "required": true
+        }
+      ],
+      "completion_conditions": [
+        {
+          "condition_id": "health-workflow-bundle-valid",
+          "type": "artifact-valid",
+          "reference": "health-workflow-bundle"
+        },
+        {
+          "condition_id": "health-workflow-behavior-passed",
+          "type": "eval-passed",
+          "reference": "health-workflow-fresh-agent"
+        }
+      ]
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "deliverable_id": "health-workflow-skill",
+      "artifact_id": "health-workflow-bundle",
+      "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": "projects/health/skills/health-workflow/"
+    }
+  ],
+  "behavior_evidence": [],
   "capability_dependencies": [],
   "dependency_steps": [],
   "dependency_artifacts": [],
   "dependency_provenance": [],
   "dependencies": [],
   "related_tasks": [],
-  "linked_artifacts": [],
+  "linked_artifacts": [
+    "projects/health/skills/health-workflow"
+  ],
   "session_log": [],
   "created_at": "YYYY-MM-DD",
   "updated_at": "YYYY-MM-DD"
@@ -138,6 +206,21 @@ Each task lives in `tasks/<task-id>.json`:
 
 The dependency fields are optional and should be omitted for ordinary tasks with
 no external workflow capability use.
+
+The deliverable fields are required for every new task. A task must have one or
+more version-1 contracts and at least one primary deliverable before its JSON is
+written. Each contract declares a stable id, kind, create/update operation,
+role, ownership boundary, owner, target surface, runtime visibility and
+targets, required and allowed-support artifacts, required guidance, eval plan,
+and completion conditions. Show this proposed contract to the operator before
+task creation; unresolved ownership or missing contract fields stop creation.
+
+Bind every required, allowed-support, phase-approved, or dependency-generated
+artifact through `artifact_bindings`. Path bindings must also appear in
+`linked_artifacts`. Phase approvals at implementation identify the owning
+`deliverable_id`, `artifact_id`, and `artifact_role`. Scripts and UI code cannot
+satisfy a skill contract unless the contract separately requires those
+deliverables.
 
 When present, `capability_dependencies` records confirmed external project
 workflow capabilities that the primary task may call. Each dependency must use
@@ -217,55 +300,80 @@ Process:
 
 1. Load the whole project state first.
 2. If the project is missing, hand off to `$setup-workflow-project` and stop.
-3. Detect whether the request needs capability dependencies. Treat this as
+3. Classify the requested outputs into one or more deliverable contracts. Use
+   `canonical-skill`, `packaged-skill`, `standalone-skill`, `workflow-pack`,
+   `ui-application`, `validator-query-helper`, `documentation-handoff`, or
+   `tracker-only`. Distinguish primary deliverables from support deliverables.
+4. Resolve create versus update, ownership, exact target surface, runtime
+   visibility, runtime targets, required artifacts, allowed support, guidance,
+   evals, and completion conditions. Ambiguous ownership stops here.
+   Documentation-only, validator-only, and tracker-only requests still require
+   a lifecycle contract and operator approval; zero writes is not a completed
+   outcome when the requested artifact has not been produced.
+   Report `ownership-unresolved` and no selected builder while destination is
+   ambiguous. For script/helper pressure on a requested skill, preserve the
+   `canonical-skill` intent and eventual `$build-workflow-skill` authority, but
+   return `command-first`, `helper-only`, or `thin-wrapper` instead of approving
+   the substitute. Do not reclassify a request to "call it a skill" as
+   documentation merely because the proposed implementation is invalid.
+5. Show the complete proposed contract and wait for explicit operator approval
+   before writing task JSON. Skill authoring is not performed by this lifecycle
+   skill; an implementation-ready skill contract later routes to
+   `$build-workflow-skill`.
+6. Detect whether the request needs capability dependencies. Treat this as
    true only when the operator explicitly names another known project workflow
    capability, or when natural language strongly implies that a primary project
    task needs usable skills from another known project.
-4. If capability dependency intent is present, query only known registered
-   project trackers and existing project/task/skill/artifact records. Do not
+7. If capability dependency intent is present, query only known registered
+   project trackers, the derived `--skill-catalog`, and existing
+   project/task/artifact records. Do not
    scan arbitrary project folders for possible dependencies, and do not require
    projects to advertise reusable capabilities.
-5. If a dependency is inferred, ask the operator to confirm it before creating
+8. If a dependency is inferred, ask the operator to confirm it before creating
    the task.
-6. For each confirmed dependency project, load all usable known skills or skill
+9. For each confirmed dependency project, load all usable known skills or skill
    metadata plus enough relationship/context notes to understand how selected
    skills can be called. Do not audit or load the entire workflow agent unless a
    separate tracked task asks for that.
-7. Build a final task draft before writing task JSON. Include primary project,
+10. Build a final task draft before writing task JSON. Include primary project,
    title, summary, confirmed `capability_dependencies`, ordered
    `dependency_steps`, selected dependency skill map, allowed writes, protected
    paths, expected artifacts, and acceptance criteria.
-8. The dependency skill map lists only selected dependency skills. Loaded but
+11. The dependency skill map lists only selected dependency skills. Loaded but
    not selected skills are outside the approved call surface.
-9. Wait for explicit operator approval of the final task draft before writing
+12. Wait for explicit operator approval of the final task draft before writing
    task JSON.
-10. Generate the next id as `<project-slug>-NNN`.
-11. Create the task at `status: "todo"` and `matt_phase: "intake"`.
-12. Set `task_kind` to `tracker-maintenance` when `target:tracker` is provided;
+13. Generate the next id as `<project-slug>-NNN`.
+14. Create the task at `status: "todo"` and `matt_phase: "intake"`.
+15. Set `task_kind` to `tracker-maintenance` when `target:tracker` is provided;
    otherwise set it to `workflow-change`.
-13. Set `explicit_next_action_required: true`.
-14. Populate `ecc_concepts_applied` with at least `workflow contract`,
+16. Set `explicit_next_action_required: true`.
+17. Populate `ecc_concepts_applied` with at least `workflow contract`,
    `human boundary`, and `project state preload`.
-15. Populate `phase_guard` with `selected_next_action: "none"`, empty
+18. Populate `phase_guard` with `selected_next_action: "none"`, empty
    `approved_artifacts`, and empty `process_exceptions`.
-16. For `tracker-maintenance`, add tracker files expected to change to
+19. Persist `deliverable_migration.status: "native"`, contract version `1`, the
+   operator approval evidence, `deliverable_contracts`, complete bindings for
+   every declared required or allowed-support artifact, and empty
+   `behavior_evidence`.
+20. For `tracker-maintenance`, add tracker files expected to change to
    `linked_artifacts`, such as `project.json`, `tasks/index.json`, task JSON
    files, or `registry/agents-md.json`.
-17. For capability-dependent tasks, populate `capability_dependencies` and
+21. For capability-dependent tasks, populate `capability_dependencies` and
    `dependency_steps` from the approved final task draft. Do not create a helper
    task in the dependency project by default.
-18. For capability-dependent tasks, keep dependency project trackers read-only
+22. For capability-dependent tasks, keep dependency project trackers read-only
    by default. Store or index dependency-created artifacts under the primary
    task unless a later explicitly approved tracker task allows dependency
    tracker mutation.
-19. Populate `context_snapshot.must_load` with root `AGENTS.md`,
+23. Populate `context_snapshot.must_load` with root `AGENTS.md`,
    `registry/agents-md.json`, project `AGENTS.md`, project JSON, index JSON, and
    all non-done task JSON files known at creation time.
-20. If `projects/<project-slug>/artifacts/testing-sessions/index.json` exists,
+24. If `projects/<project-slug>/artifacts/testing-sessions/index.json` exists,
     add that path to `context_snapshot.must_load` as a lightweight project
     preload pointer. Do not copy full testing-session events into task JSON.
-21. Update `tasks/index.json`.
-22. Report the created task and stop.
+25. Update `tasks/index.json`.
+26. Report the created task and stop.
 
 Do not enter grilling, PRD, issues, implementation, or review in the same turn
 unless the user explicitly asks to continue that task after creation.
@@ -318,6 +426,11 @@ Each `dependency_steps` entry should include:
   "dependency_project": "real-life-workflows",
   "selected_skill": "real-world-workflow-finder",
   "purpose": "Create candidate workflow packet material for the primary task.",
+  "supported_deliverable_id": "workflow-packet",
+  "supported_artifact_id": "candidate-packet-files",
+  "artifact_role": "support",
+  "required_outcome": "Validated candidate workflow packet files exist inside the approved primary-task write zone.",
+  "completion_condition_id": "candidate-packets-ready",
   "expected_inputs": ["primary task topic and constraints"],
   "expected_outputs": ["candidate workflow packet files"],
   "allowed_writes": ["primary task dependency artifact area"],
@@ -418,7 +531,12 @@ Artifact creation is phase-gated.
 - Before creating any script, HTML, skill, workflow artifact, test, or other
   implementation artifact, the selected task must include a matching
   `phase_guard.approved_artifacts` entry with the artifact `path`, phase
-  `implement`, `approval_note`, and `approved_at`.
+  `implement`, `deliverable_id`, `artifact_id`, `artifact_role`,
+  `approval_note`, and `approved_at`. It must match a declared
+  `artifact_bindings` entry.
+- A task with `deliverable_migration.status: "pending"` is frozen at
+  `deliverable_migration.frozen_phase`; do not advance it until the operator
+  approves complete version-1 contracts and the migration becomes `approved`.
 - Tracker bootstrap writes are allowed only for creating the
   `tracker-maintenance` task itself. Further tracker edits must continue that
   tracker-maintenance task.
