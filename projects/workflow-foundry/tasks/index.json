@@ -125,8 +125,8 @@
       "task_id": "workflow-foundry-016",
       "title": "Integrate workflow product builder and repair dependency state",
       "task_kind": "tracker-maintenance",
-      "status": "in-progress",
-      "matt_phase": "code-review",
+      "status": "done",
+      "matt_phase": "done",
       "updated_at": "2026-07-12"
     }
   ]
