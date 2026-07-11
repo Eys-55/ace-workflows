@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "task_id": "workflow-foundry-016",
+  "captured_at": "2026-07-12",
+  "source_root": "<original-ace-workflows-worktree>",
+  "source_git_head": "675efe042de0baed68470590c55fa497ace7817a",
+  "feature_git_head": "795fbaf06114e745bde9cdb3a35d41c88c6c9c6d",
+  "source_path_count": 58,
+  "source_snapshot_sha256": "c31d8b60c576b1ccab1b9b4a19e8321c1444be7ca9c3ea155acc2d7af6107c62",
+  "disposition_counts": {
+    "continued-under-integration-task": 2,
+    "deferred-private-original-worktree": 4,
+    "preserved-candidate": 34,
+    "semantic-merge-feature-and-source": 17,
+    "semantic-migration-phase-correction": 1
+  },
+  "entries": [
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-001-scenario-foundation.md",
+      "sha256": "8769a23fedcd50a12f3eb03b5c7cf0a56eb8c1b03f226e5c3f7743e3532b6162",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-002-coverage-research-packet.md",
+      "sha256": "fdb6ab904d9d8d66e156f1a93f89084cdc922d2af4845d61d74ad087fb8e5495",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-003-refusal-handoff-contracts.md",
+      "sha256": "aeebeda10992fe6d095841f78e7a1e389114466d464d356160fe1cf91735d2c8",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-004-source-authority-freshness.md",
+      "sha256": "743cb889b8eb6e67da739f985367e3f63096fee63b724595ea0bf236d6c87710",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-005-coverage-intake.md",
+      "sha256": "206f8c310dcd9dfa0ea101e0e0403b01a94b3c28134e2d814a1d9137365d11e6",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-006-coverage-navigator.md",
+      "sha256": "08bd976be324c85662dbc64e1de29e8cbd1e39b2a9c1a32e919d3e5356c128fd",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-007-coverage-source-research.md",
+      "sha256": "229652271dbfadeb016c98f6d978b75d929d115354b40be18eaf1b6b7cce8883",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-008-coverage-entity-lookup.md",
+      "sha256": "60e21ca39d0a472cb307643006c7ba2e18217ecef9044c000ac3b6d090ce1273",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-009-coverage-provider-deep-dive.md",
+      "sha256": "725a28fe24809e22678bcb5a096fffc99c29de7ab18e4e9a67b96bc745cafbb1",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-010-coverage-type-compare.md",
+      "sha256": "109c768beb7890a227a0342364619cea88303e51844f59b8be47b7119785461f",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-011-coverage-evidence-audit.md",
+      "sha256": "c7b33c61e97436afa6dee7a808a13247b56132f387d9b8af4cc9a5ddc7fd548b",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/issues/health-007-issue-012-examples-release-gate.md",
+      "sha256": "502ab3249a3b341e1cd3505f0fd18ca4a5e377b287414a44a3df902b8ddca9c5",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/prds/health-007-people-first-multi-skill-rebuild.md",
+      "sha256": "f19698d15496662ba9dd407b497f5d89a99189a99a332f1ee7e26435ab287066",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z/events.jsonl",
+      "sha256": "f2e34ce2d659e3712dfecc7bcf48d79acfa6d047fa50839c73dfec9a383625f6",
+      "disposition": "deferred-private-original-worktree",
+      "candidate_path_present": false
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z/notes.md",
+      "sha256": "2f4fc5f6429deb571fcc3ce782426fa3f8c1be7f79c184cdbe1d43cb783d4a04",
+      "disposition": "deferred-private-original-worktree",
+      "candidate_path_present": false
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z/session.json",
+      "sha256": "4de98bc8dfc2b1f6721e0993a63970d997d56442a30a664db283d9199da8d177",
+      "disposition": "deferred-private-original-worktree",
+      "candidate_path_present": false
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/testing-sessions/index.json",
+      "sha256": "bc6277675c1860eb4d248568a2882521a12ad65da558a3a202658ec677080cb6",
+      "disposition": "deferred-private-original-worktree",
+      "candidate_path_present": false
+    },
+    {
+      "status": "??",
+      "path": "projects/health/artifacts/workflow-packets/health-007-skill-rebuild-patterns.md",
+      "sha256": "0dffd2a32537152562a2006ba68900b1e5cf63ae890fd004a5991378350ca350",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/health-001.json",
+      "sha256": "45a094f760dd7698266ce7675c9beb062f5045911902a9e3848d70f0a9cf2367",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/health-002.json",
+      "sha256": "624c000df3d33b64d554a1a91effc5d7ba0684f69568ee1b445d7cd17f5d5f76",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/health-003.json",
+      "sha256": "16b09f43ec8028153dec70c1135f2f0acb2a5545fa3b8f6bd520a48df6ef0f44",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/health-004.json",
+      "sha256": "9cfc15cc1319b9b418b9f8d0603e33ef538f42a7d04b28bda595739d516c6330",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/health-005.json",
+      "sha256": "8d214e3e9f6f9d38c41a40e15ac229df4ed68237f5485b85c4b718b27e22d800",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/health-006.json",
+      "sha256": "6142ccda67bea071234d1a4db21a31eb51c4588fa7b452a2cd9097230ecffd9b",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/tasks/health-007.json",
+      "sha256": "207fb5c35c244d91b8d8810fab9e704b89944ff984b3ce5b8da6ca5cf537a9e0",
+      "disposition": "semantic-migration-phase-correction",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/health/tasks/health-008.json",
+      "sha256": "6a37c50dc5933c78d765ad9b80d3d5c6ada587fb881f6f5eb0d811bab73c600a",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/health/tasks/index.json",
+      "sha256": "ee90b1e230cc04b49f7fd3a385a31da13162a620095ff96db269b250ce9bdb02",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/linkedin-posts/artifacts/draft-runs/linkedin-posts-002-health-insurance-philippines-draft.md",
+      "sha256": "f6fd9d5da79f2e7a9f0def3c1a3daa55ac915f912ebb8c428abb6bfcdc0a9175",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/linkedin-posts/tasks/index.json",
+      "sha256": "da7723e924cd0e9d4105d4a37a9ea754c0f15d3255a2578fea535cd80ff3971f",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/linkedin-posts/tasks/linkedin-posts-001.json",
+      "sha256": "d67ed1345103570c96b8e2195139d9c0569f082c2fade0f9cf0744174b449f51",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+      "sha256": "d170fe1e8667f0fb5afef1fca8eade0f385c340923e2e6c04f327a84ab44de59",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/linkedin-posts/tasks/linkedin-posts-003.json",
+      "sha256": "c7ccb2a3e502080c33166dff74ec081a7bfc90c4b868c91c4db81edf906e6a16",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/linkedin-posts/tasks/linkedin-posts-004.json",
+      "sha256": "2b4071a27061dda7fa002d8c2c2dbbc23d5b5cccd9d77f628a9f2bb4d0190bec",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/real-life-workflows/tasks/index.json",
+      "sha256": "7ec114dbd4ce0871ebf2e5efff07e99e2f9d788028207c006d938c4f8c7887ca",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/real-life-workflows/tasks/real-life-workflows-001.json",
+      "sha256": "6355913a234f2cc6c289f84028e5c7401bf8ade039768acd570c2a67b206a963",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/real-life-workflows/tasks/real-life-workflows-002.json",
+      "sha256": "bc5c32bb889bc58c44039b8948c3a3db267ac0c5cfe7bf9bd2fe90bdcc7c0045",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/real-life-workflows/tasks/real-life-workflows-003.json",
+      "sha256": "5422c89c3a424c670ae0c778c7956d9760e88e1cadef8322938c03355606effb",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/real-life-workflows/tasks/real-life-workflows-004.json",
+      "sha256": "8ba3e65f6af632e05895fd4ca6993f907b534e0c7b039af4b401a7a383b0a291",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/real-life-workflows/tasks/real-life-workflows-005.json",
+      "sha256": "ed7d89976efc4bb45aa1adabcfaaf7b2705ce9c9706840641b299860ef2b7abd",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/real-life-workflows/tasks/real-life-workflows-006.json",
+      "sha256": "5191b0ffc899ccbba47e92594daf82fde63d4521f54467f6a96784fcde8248cd",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-016-integrate-workflow-product-builder.md",
+      "sha256": "92242b691e88ddac2350b8e83f335c3fe24abf5db58bc802f185478ec0f2e0cb",
+      "disposition": "continued-under-integration-task",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/index.json",
+      "sha256": "59533c65afd2b18807adf3ff216a15e8bad1917714439cc41d6e532c0ce07134",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-001.json",
+      "sha256": "6bd5940ee50435a0c8f7c7a2a6c9c0898b92ab592586a703e1d90d614e4cf867",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-002.json",
+      "sha256": "d6903f48c1a66fd0e34ed22ef683d252660d7e41c2591df84bf44d04f13e8159",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-003.json",
+      "sha256": "57be2bfb63e3dab3ae4a9e82d73375ffdf1844accf24bfaffcb87704b9bab9d1",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-004.json",
+      "sha256": "4f983e11b650dab65239ea2f1e2e9fc2c9233b17ccc78c3f9d40847219c2b65f",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-005.json",
+      "sha256": "3d8a10ebc5b9e6008cd59dd10ff7879ef27efe0ff02768a3a06d36672d34239b",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-006.json",
+      "sha256": "b3bf7cc0b11f25b7314d20dc035b46da0db4f9dc31fe1e6f4f7cfcb2a3cfadc0",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-007.json",
+      "sha256": "f82c0352d6122ee9043e9a34eca5d9292e0f39e5325a8b8672c2bdc73aac3234",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-008.json",
+      "sha256": "4f36ffc921810ae8bd6dfda48d36daf83cb875c74bba6441d9ef0fcde1a9a6ce",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-009.json",
+      "sha256": "2d20487fc707b240ff1c5856bc828cdc5cc38faaa0fec9be993da2494cdda4c5",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-010.json",
+      "sha256": "c1bcf8179e6f2bcf227aff0f1527116d555bf53c66a242f768c7dda73bbd680b",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-011.json",
+      "sha256": "88603d06bce733eb2e80ffb8327f3626fa848fbd02e94c19b61649c860eeb07c",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-012.json",
+      "sha256": "01e2ae6ba62b9665bcb21c30e59432d76bb052098fa0cf0a594487ea41f1e517",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": " M",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-013.json",
+      "sha256": "2a4c8fa5cf26683b09342b64335ef7a484ec3c026b1699ee4d7aa767159f1341",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-014.json",
+      "sha256": "67af40ee2f3466dfe069250a7d9eabdb8edc811a71569ffec33beecd673e385d",
+      "disposition": "preserved-candidate",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-015.json",
+      "sha256": "27e78150d1126e18f98fae35cf8533337e0d03c66f085d7fcb7cc84949b77d2a",
+      "disposition": "semantic-merge-feature-and-source",
+      "candidate_path_present": true
+    },
+    {
+      "status": "??",
+      "path": "projects/workflow-foundry/tasks/workflow-foundry-016.json",
+      "sha256": "f056beb0bbffd3fdd6272f5a9af62301a2d4b50c415cafed051aa7ac19e9189f",
+      "disposition": "continued-under-integration-task",
+      "candidate_path_present": true
+    }
+  ]
+}

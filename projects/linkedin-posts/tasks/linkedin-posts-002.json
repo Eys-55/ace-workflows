@@ -58,7 +58,9 @@
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-grilling.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-003-voice-profile-approval.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-004-candidate-drafting-provenance-scoring.md",
-      "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md"
+      "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md",
+      "projects/linkedin-posts/tasks/linkedin-posts-003.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-004.json"
     ]
   },
   "phase_guard": {
@@ -86,7 +88,8 @@
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-grilling.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-003-voice-profile-approval.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-004-candidate-drafting-provenance-scoring.md",
-    "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md"
+    "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md",
+    "projects/linkedin-posts/artifacts/draft-runs/linkedin-posts-002-health-insurance-philippines-draft.md"
   ],
   "session_log": [
     {
@@ -192,8 +195,12 @@
     {
       "date": "2026-07-08",
       "event": "Created five issue artifacts from the PRD and set next action to implementation."
+    },
+    {
+      "date": "2026-07-09",
+      "event": "Saved the user-approved Philippine health insurance LinkedIn post draft as a draft-run artifact."
     }
   ],
   "created_at": "2026-07-08",
-  "updated_at": "2026-07-08"
+  "updated_at": "2026-07-09"
 }

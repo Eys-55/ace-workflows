@@ -16,6 +16,22 @@
       "status": "in-progress",
       "matt_phase": "issues",
       "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "linkedin-posts-003",
+      "title": "Draft Ace Agent Foundry organization post",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "grilling",
+      "updated_at": "2026-07-09"
+    },
+    {
+      "task_id": "linkedin-posts-004",
+      "title": "Draft workflow catalog install post",
+      "task_kind": "workflow-change",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-09"
     }
   ]
 }

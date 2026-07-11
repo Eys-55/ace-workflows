@@ -55,7 +55,9 @@
       "projects/health/tasks/index.json",
       "projects/health/tasks/health-003.json",
       "projects/health/tasks/health-005.json",
-      "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs"
+      "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
+      "projects/workflow-foundry/tasks/workflow-foundry-014.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
   "phase_guard": {
@@ -179,6 +181,13 @@
           "locator_type": "path-prefix",
           "locator": "projects/health/tasks/",
           "purpose": "Record the explicit frozen migration state for the open Health task."
+        },
+        {
+          "artifact_id": "real-life-tracker-files",
+          "artifact_role": "primary",
+          "locator_type": "path-prefix",
+          "locator": "projects/real-life-workflows/tasks/",
+          "purpose": "Record frozen migration and combined preload state for preserved Real Life Workflows tasks."
         }
       ],
       "required_guidance": [
@@ -238,6 +247,13 @@
       "artifact_role": "primary",
       "locator_type": "path-prefix",
       "locator": "projects/health/tasks/"
+    },
+    {
+      "deliverable_id": "wf004-tracker-maintenance",
+      "artifact_id": "real-life-tracker-files",
+      "artifact_role": "primary",
+      "locator_type": "path-prefix",
+      "locator": "projects/real-life-workflows/tasks/"
     }
   ],
   "behavior_evidence": [],
@@ -276,7 +292,21 @@
     "projects/linkedin-posts/tasks/linkedin-posts-002.json",
     "projects/health/tasks/index.json",
     "projects/health/tasks/health-003.json",
-    "projects/health/tasks/health-005.json"
+    "projects/health/tasks/health-005.json",
+    "projects/health/tasks/health-001.json",
+    "projects/health/tasks/health-002.json",
+    "projects/health/tasks/health-004.json",
+    "projects/health/tasks/health-006.json",
+    "projects/health/tasks/health-007.json",
+    "projects/health/tasks/health-008.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-003.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-004.json",
+    "projects/real-life-workflows/tasks/real-life-workflows-004.json",
+    "projects/real-life-workflows/tasks/real-life-workflows-005.json",
+    "projects/real-life-workflows/tasks/real-life-workflows-006.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-014.json",
+    "projects/workflow-foundry/tasks/workflow-foundry-016.json",
+    "projects/linkedin-posts/artifacts/draft-runs/linkedin-posts-002-health-insurance-philippines-draft.md"
   ],
   "session_log": [
     {
@@ -350,8 +380,12 @@
     {
       "date": "2026-07-10",
       "event": "User approved finishing workflow-foundry-006. Entered implement phase as the explicit tracker-maintenance authority for versioned deliverable schema and open-task migration writes."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Extended the existing tracker-maintenance authority during workflow-foundry-016 integration to preserve newer project tasks, add minimal frozen v1 migration metadata, and account for current testing-session and draft artifacts without advancing downstream phases."
     }
   ],
   "created_at": "2026-07-06",
-  "updated_at": "2026-07-08"
+  "updated_at": "2026-07-12"
 }

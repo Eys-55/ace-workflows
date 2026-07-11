@@ -348,11 +348,18 @@ test("preserves RED baselines, twelve passing Sol runs, pass3 traps, and domain 
   const approvedPaths = task.phase_guard.approved_artifacts.map((entry) => entry.path);
   const forbiddenProductPath = /\.(?:tsx?|jsx?|css|html)$/i;
   assert.ok(approvedPaths.every((entry) => !forbiddenProductPath.test(entry)));
-  const [{ stdout: changed }, { stdout: untracked }] = await Promise.all([
-    execFile("git", ["diff", "--name-only", "HEAD"], { cwd: repoRoot }),
-    execFile("git", ["ls-files", "--others", "--exclude-standard"], { cwd: repoRoot }),
-  ]);
-  const currentTaskFiles = `${changed}\n${untracked}`.split(/\r?\n/).filter(Boolean);
+  const { stdout: introductionCommit } = await execFile(
+    "git",
+    ["log", "--diff-filter=A", "--format=%H", "-1", "--", ".agents/skills/build-workflow-product/SKILL.md"],
+    { cwd: repoRoot },
+  );
+  assert.match(introductionCommit.trim(), /^[0-9a-f]{40}$/);
+  const { stdout: introducedFiles } = await execFile(
+    "git",
+    ["diff-tree", "--no-commit-id", "--name-only", "-r", introductionCommit.trim()],
+    { cwd: repoRoot },
+  );
+  const currentTaskFiles = introducedFiles.split(/\r?\n/).filter(Boolean);
   const controlPlaneFiles = new Set([
     "projects/workflow-foundry/tasks/index.json",
     "projects/workflow-foundry/tasks/workflow-foundry-015.json",

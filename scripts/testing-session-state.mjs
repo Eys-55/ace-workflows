@@ -23,6 +23,14 @@ const allowedEventTypes = new Set([
 const allowedSessionStatuses = new Set(["active", "stopped", "completed", "blocked"]);
 const sessionIdPattern = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 const projectSlugPattern = /^[a-z0-9][a-z0-9-]*$/;
+const privateTextPatterns = [
+  /(?:^|[\s"'(])(?:\/Users\/|\/home\/|[A-Za-z]:\\Users\\)/i,
+  /\b(?:cancer|serious disease|diagnos(?:is|ed)|medical condition|no insurance|uninsured)\b/i,
+  /\b(?:policy number|claim number|member id|date of birth)\b/i,
+  /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
+  /\b(?:api[_-]?key|client[_-]?secret|private[_-]?key|password)\s*[:=]/i,
+  /\b(?:ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{16,})\b/,
+];
 
 async function exists(filePath) {
   try {
@@ -70,6 +78,42 @@ function assertProjectSlug(projectSlug) {
 function assertSessionId(sessionId) {
   if (typeof sessionId !== "string" || !sessionIdPattern.test(sessionId)) {
     throw new Error("sessionId must contain only letters, digits, dots, underscores, or hyphens");
+  }
+}
+
+function publicSafeTextError(value) {
+  if (typeof value !== "string" || value === "") return null;
+  return privateTextPatterns.some((pattern) => pattern.test(value))
+    ? "failed the best-effort sensitive-pattern screen; use only neutral, redacted testing-session text"
+    : null;
+}
+
+function assertPublicSafeText(value, label) {
+  const error = publicSafeTextError(value);
+  if (error) throw new Error(`${label} ${error}`);
+}
+
+function repositoryRelativePathError(value) {
+  if (typeof value !== "string" || value.trim() === "") {
+    return "must be a non-empty repository-relative testing-session path";
+  }
+  const normalized = value.replaceAll("\\", "/");
+  const isAbsolute =
+    path.posix.isAbsolute(value) ||
+    path.win32.isAbsolute(value) ||
+    normalized.startsWith("//") ||
+    normalized.startsWith("~/");
+  if (isAbsolute || normalized.split("/").includes("..")) {
+    return "must be a repository-relative testing-session path without traversal";
+  }
+  return null;
+}
+
+function assertRepositoryRelativePaths(values, label) {
+  if (!Array.isArray(values)) throw new Error(`${label} must be an array`);
+  for (const [index, value] of values.entries()) {
+    const error = repositoryRelativePathError(value);
+    if (error) throw new Error(`${label}[${index}] ${error}`);
   }
 }
 
@@ -161,6 +205,14 @@ function createEvent({
   if (!allowedEventTypes.has(type)) {
     throw new Error(`Invalid testing-session event type: ${type}`);
   }
+  assertPublicSafeText(toolSummary, "toolSummary");
+  assertPublicSafeText(rationale, "rationale");
+  assertPublicSafeText(
+    typeof taskContext === "string" ? taskContext : JSON.stringify(taskContext ?? ""),
+    "taskContext",
+  );
+  assertRepositoryRelativePaths(filesRead, "filesRead");
+  assertRepositoryRelativePaths(filesWritten, "filesWritten");
 
   return {
     timestamp,
@@ -261,6 +313,11 @@ export async function createTestingSession({
 } = {}) {
   const resolvedRoot = normalizeRoot(root);
   const timestamp = toIsoTimestamp(now);
+  assertPublicSafeText(goal, "goal");
+  assertPublicSafeText(
+    typeof taskContext === "string" ? taskContext : JSON.stringify(taskContext ?? ""),
+    "taskContext",
+  );
   const projectFiles = await loadProjectFiles(resolvedRoot, projectSlug);
   const resolvedSessionId = sessionId ?? createSessionId(projectSlug, timestamp);
 
@@ -541,6 +598,19 @@ function requireValidationArray(value, label, errors) {
   }
 }
 
+function validatePublicSafeText(value, label, errors) {
+  const error = publicSafeTextError(value);
+  if (error) errors.push(`${label} ${error}`);
+}
+
+function validateRepositoryRelativePaths(values, label, errors) {
+  if (!Array.isArray(values)) return;
+  for (const [index, value] of values.entries()) {
+    const error = repositoryRelativePathError(value);
+    if (error) errors.push(`${label}[${index}] ${error}`);
+  }
+}
+
 async function validateEventsFile(root, eventsFile, sessionId, projectSlug, expectedCount, errors) {
   if (!(await exists(eventsFile))) {
     errors.push(`${relativePath(root, eventsFile)} is missing`);
@@ -575,6 +645,15 @@ async function validateEventsFile(root, eventsFile, sessionId, projectSlug, expe
     requireValidationString(event.rationale, `${relativePath(root, eventsFile)} line ${lineNumber} rationale`, errors);
     requireValidationArray(event.files_read, `${relativePath(root, eventsFile)} line ${lineNumber} files_read`, errors);
     requireValidationArray(event.files_written, `${relativePath(root, eventsFile)} line ${lineNumber} files_written`, errors);
+    validatePublicSafeText(event.tool_summary, `${relativePath(root, eventsFile)} line ${lineNumber} tool_summary`, errors);
+    validatePublicSafeText(event.rationale, `${relativePath(root, eventsFile)} line ${lineNumber} rationale`, errors);
+    validatePublicSafeText(
+      typeof event.task_context === "string" ? event.task_context : JSON.stringify(event.task_context ?? ""),
+      `${relativePath(root, eventsFile)} line ${lineNumber} task_context`,
+      errors,
+    );
+    validateRepositoryRelativePaths(event.files_read, `${relativePath(root, eventsFile)} line ${lineNumber} files_read`, errors);
+    validateRepositoryRelativePaths(event.files_written, `${relativePath(root, eventsFile)} line ${lineNumber} files_written`, errors);
 
     if (!allowedEventTypes.has(event.type)) {
       errors.push(`${relativePath(root, eventsFile)} line ${lineNumber} has invalid type "${event.type}"`);
@@ -685,6 +764,15 @@ async function validateSessionSummary(root, projectSlug, summary, indexFile, err
   }
   if (session.status !== summary.status) {
     errors.push(`${relativePath(root, sessionFile)} status must equal index summary`);
+  }
+  validatePublicSafeText(session.goal, `${relativePath(root, sessionFile)} goal`, errors);
+
+  if (await exists(notesFile)) {
+    validatePublicSafeText(
+      await readFile(notesFile, "utf8"),
+      `${relativePath(root, notesFile)} contents`,
+      errors,
+    );
   }
 
   await validateEventsFile(

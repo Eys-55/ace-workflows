@@ -72,7 +72,9 @@
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-003-repair-command-first-surfaces.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-004-validation-review-push.md",
       "projects/workflow-foundry/tasks/workflow-foundry-013.json",
-      "projects/workflow-foundry/tasks/workflow-foundry-015.json"
+      "projects/workflow-foundry/tasks/workflow-foundry-015.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-014.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
   "phase_guard": {

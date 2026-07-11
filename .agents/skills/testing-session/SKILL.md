@@ -82,6 +82,20 @@ Use `type:decision`, `type:tool_run`, `type:artifact_read`, `type:finding`,
 Log what happened. Do not include recommendations or next-task proposals in the
 testing-session state.
 
+Treat every testing-session file as publishable repository state. Record only
+workflow behavior, fixture identifiers, repository-relative paths, and redacted
+outcomes. Replace user conversation details with neutral fixture language before
+logging. Keep PHI, medical or insurance circumstances, financial status,
+credentials, contact information, and machine-specific absolute paths out of
+goals, summaries, rationales, notes, and path lists. If a useful finding cannot
+be expressed safely, report `private-session-detail-withheld` and keep the detail
+in chat rather than durable session state.
+
+The helper's sensitive-text patterns are defense in depth, not proof that text
+is safe to publish. Do not rely on a passing pattern screen to sanitize free
+text. The agent must redact first, use neutral fixtures, and withhold any detail
+whose publication safety is uncertain.
+
 ## Status
 
 For `action:status`, call the helper's status operation defined under
@@ -116,3 +130,9 @@ Report captured state, not recommendations. A normal task may later inspect the
 testing-session index during preload, but this skill must not create tasks,
 continue tasks, edit ordinary project artifacts, or change skills/scripts except
 when the selected task explicitly approves implementation work.
+
+Before reporting a session as valid, require the helper to confirm that every
+persisted path is repository-relative and every persisted text field passes its
+best-effort sensitive-pattern screen. This check supplements, but never replaces,
+the redaction and neutral-fixture rule above. Stop with
+`testing-session-privacy-rejected` when that gate fails.

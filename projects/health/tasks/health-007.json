@@ -1,0 +1,411 @@
+{
+  "task_id": "health-007",
+  "project_slug": "health",
+  "title": "Expand standalone health workflow into a people-first multi-skill product",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "implement",
+  "explicit_next_action_required": true,
+  "summary": "Upgrade the standalone `philippines-health-coverage` workflow product from a thin validated skill wrapper set into a people-first multi-skill workflow. Use Real Life Workflows as an explicit capability dependency for source-grounded workflow pattern evidence, while preserving the standalone product boundary and keeping dependency project trackers, skill definitions, and quarantined imports read-only.",
+  "acceptance_criteria": [
+    "The task treats `<standalone-product-root>` as the standalone product boundary, not as a foundry-local runtime.",
+    "The task uses `real-life-workflows` only through the approved active `real-life-workflow-search` skill and does not treat quarantined imports as callable skills.",
+    "The task treats v2 as a rebuild around concrete user scenarios, not a copy-edit pass over the existing six thin skill wrappers.",
+    "Every rebuilt skill, reference, eval, and release gate names the ECC concept it implements and why that concept belongs there.",
+    "Every rebuilt skill, reference, eval, and release gate includes explicit build instructions that say what to build, what to read first, which ECC concept to apply, and what acceptance check proves the concept was applied.",
+    "Each v2 issue may and should carry multiple ECC concepts when the slice crosses workflow contracts, input contracts, output artifacts, eval gates, human boundaries, handoffs, reviewer lanes, or parallel task context.",
+    "The first v2 issue defines the scenario foundation before any skill rewrite: concrete user prompts, expected packet outputs, blocked behavior, and ECC concept mappings.",
+    "The primary user is a person with little or no Philippine health coverage literacy; v2 must guide them from confusion to a safe source-grounded research and human-handoff packet.",
+    "Each v2 skill must be intuitive for beginner users by default and capable of deeper healthcare insurance research when the operator asks for full-blown research.",
+    "Deep research capability should be expressed through conditional search depth, richer output artifacts when needed, eval gates, human boundaries, and reviewer lanes, not through mandatory named modes or by making the basic user path complicated.",
+    "Every v2 skill must know when to answer from loaded artifacts, when to ask a clarifying question, when to search, and when to escalate to a source-heavy skill; source-heavy skills must perform the deeper search themselves.",
+    "The PRD must classify each v2 skill by ECC role: source-heavy, routing/intake, packet-building, comparison, or reviewer-lane, and must define the search responsibility, escalation boundary, output artifact, eval gate, and human boundary for each role.",
+    "The v2 skill surface keeps the six existing skills and adds `coverage-intake` as the default beginner-facing front door; all seven skills must be rebuilt around scenario fixtures and the shared coverage research packet contract.",
+    "Every v2 skill must output or update a shared `coverage-research-packet`; individual skills may add skill-specific sections but must not fork incompatible output shapes.",
+    "The shared `coverage-research-packet` must include query, user context level, route taken, plain-language summary, entities or categories, sources used, source freshness, confidence boundary, evidence gaps, blocked decisions, human review required, recommended human reviewer, handoff packet, user next step, next questions, and skill-specific sections.",
+    "The shared `coverage-research-packet` must explicitly map to ECC concepts: output artifact, workflow contract, input contract, human boundary, handoff, eval gate, and reviewer lane.",
+    "The shared `coverage-research-packet` contract must be defined as a dedicated standalone repo reference file before skill rewrites start, likely `references/coverage-research-packet.md`.",
+    "Refusal-to-handoff behavior must be defined as a dedicated standalone repo reference file before skill rewrites start, likely `references/refusal-handoff-templates.md`.",
+    "Refusal-to-handoff templates must cover PHI, medical advice, eligibility, coverage, claims, provider-network verification, rankings, and purchase recommendations with safe public-source explanation, reviewer role, and next human questions.",
+    "Source authority and freshness must be defined as a dedicated standalone repo reference file before skill rewrites start, likely `references/source-authority-and-freshness.md`.",
+    "Source authority and freshness rules must define what PhilHealth, Insurance Commission, HMO/insurer/provider pages, HR/employer materials, hospital billing sources, broker/marketplace pages, and secondary explainers can and cannot prove.",
+    "The scenario foundation must include normal-user questions about employer HMOs, PhilHealth versus HMOs, entity lookup, category comparison, best-plan/ranking requests, hospital-bill coverage requests, source authorization proof, and stale-source reliance.",
+    "The PRD must require an eval-first build order: define scenario fixtures, the coverage research packet contract, refusal-to-handoff templates, source authority and freshness rules, and packet/scenario validators before rewriting any skill.",
+    "The PRD or grilling output defines the user-visible job for a people-first health coverage workflow.",
+    "The implementation plan defines how `coverage-navigator` becomes the default entry path or explains why a separate `coverage-intake` skill is needed.",
+    "The task defines a canonical coverage research packet contract that all standalone product skills create, enrich, route, compare, or audit.",
+    "The task defines refusal-to-handoff behavior for blocked PHI, medical advice, eligibility, coverage, claims, provider-network, ranking, and purchase-recommendation requests.",
+    "The task defines source freshness and source authority operations without making medical, eligibility, coverage, claim, ranking, or purchase decisions.",
+    "The task defines scenario evals, audit severity, example outputs, and release checks before any product release checkpoint.",
+    "Any dependency-generated packets record primary task id, dependency project, selected skill, query, generated artifact path, phase, and timestamp.",
+    "No dependency step mutates `projects/real-life-workflows/AGENTS.md`, `projects/real-life-workflows/project.json`, `projects/real-life-workflows/tasks/`, `projects/real-life-workflows/skills/`, or `projects/real-life-workflows/quarantine/`.",
+    "The standalone product repo is not mutated until a later Matt phase has explicit approved artifacts and a dependency write plan.",
+    "Repository workflow-state validation passes after tracker creation and before any commit or push."
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "All 12 implementation slices are present on the isolated codex/health-007-people-first-v2 worktree branch and the standalone v0.2.0 release gate passes. Review the diff on separate standards and PRD/spec axes, resolve all material findings, rerun fresh verification, and only then close the task.",
+    "must_load": [
+      "AGENTS.md",
+      "references/matt-pocock-skills.md",
+      "registry/agents-md.json",
+      "projects/health/AGENTS.md",
+      "projects/health/project.json",
+      "projects/health/tasks/index.json",
+      "projects/health/tasks/health-003.json",
+      "projects/health/tasks/health-007.json",
+      "projects/health/tasks/health-008.json",
+      "projects/health/artifacts/prds/health-007-people-first-multi-skill-rebuild.md",
+      "projects/health/artifacts/issues/health-007-issue-001-scenario-foundation.md",
+      "projects/health/artifacts/issues/health-007-issue-002-coverage-research-packet.md",
+      "projects/health/artifacts/issues/health-007-issue-003-refusal-handoff-contracts.md",
+      "projects/health/artifacts/issues/health-007-issue-004-source-authority-freshness.md",
+      "projects/health/artifacts/issues/health-007-issue-005-coverage-intake.md",
+      "projects/health/artifacts/issues/health-007-issue-006-coverage-navigator.md",
+      "projects/health/artifacts/issues/health-007-issue-007-coverage-source-research.md",
+      "projects/health/artifacts/issues/health-007-issue-008-coverage-entity-lookup.md",
+      "projects/health/artifacts/issues/health-007-issue-009-coverage-provider-deep-dive.md",
+      "projects/health/artifacts/issues/health-007-issue-010-coverage-type-compare.md",
+      "projects/health/artifacts/issues/health-007-issue-011-coverage-evidence-audit.md",
+      "projects/health/artifacts/issues/health-007-issue-012-examples-release-gate.md",
+      "projects/health/artifacts/reviews/health-006-standalone-workflow-review.md",
+      "projects/health/artifacts/plans/health-006-improvement-roadmap.md",
+      "projects/real-life-workflows/AGENTS.md",
+      "projects/real-life-workflows/project.json",
+      "projects/real-life-workflows/tasks/index.json",
+      "projects/real-life-workflows/skill-manifest.json",
+      "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md",
+      "<standalone-product-root>/AGENTS.md",
+      "<standalone-product-root>/skill-manifest.json",
+      "<standalone-product-root>/references/workflow-contracts.md"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "implement",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "capability_dependencies": [
+    {
+      "dependency_id": "real-life-workflows-health-skill-upgrade",
+      "dependency_project": "real-life-workflows",
+      "purpose": "Use real-world workflow patterns to strengthen the standalone health workflow skill set, especially people-first intake, evidence packets, refusal-to-handoff behavior, source freshness, scenario evals, audit severity, and examples.",
+      "source": "operator-explicit",
+      "status": "confirmed",
+      "selected_skills": [
+        {
+          "skill": "real-life-workflow-search",
+          "purpose": "Create workflow-understanding packets and adjacent pattern evidence for upgrading the standalone health skill set.",
+          "call_boundary": "Use only for Health 007 approved dependency steps. Do not treat quarantined imported files as callable skills.",
+          "expected_artifacts": [
+            "workflow-understanding packet",
+            "cross-workflow pattern notes",
+            "skill-upgrade recommendations"
+          ],
+          "allowed_writes": [
+            "projects/health/artifacts/workflow-packets/",
+            "projects/health/artifacts/plans/",
+            "projects/health/artifacts/prds/",
+            "projects/health/artifacts/issues/"
+          ],
+          "protected_paths": [
+            "projects/real-life-workflows/AGENTS.md",
+            "projects/real-life-workflows/project.json",
+            "projects/real-life-workflows/tasks/",
+            "projects/real-life-workflows/skills/",
+            "projects/real-life-workflows/quarantine/",
+            "<standalone-product-root>/"
+          ]
+        }
+      ]
+    }
+  ],
+  "dependency_steps": [
+    {
+      "step_id": "dep-step-001",
+      "capability_dependency_id": "real-life-workflows-health-skill-upgrade",
+      "dependency_project": "real-life-workflows",
+      "selected_skill": "real-life-workflow-search",
+      "purpose": "Gather real-world workflow patterns before designing the health skill-set upgrade.",
+      "expected_inputs": [
+        "standalone Philippines health coverage workflow product",
+        "need to turn thin skill wrappers into a people-first multi-skill workflow",
+        "coverage navigator, evidence packet, refusal handoff, source freshness, scenario evals, audit severity, and examples"
+      ],
+      "expected_outputs": [
+        "source-grounded workflow packet",
+        "pattern evidence for PRD and issue slicing",
+        "upgrade recommendations for the standalone repo"
+      ],
+      "allowed_writes": [
+        "primary Health task approved artifact area only"
+      ],
+      "protected_paths": [
+        "projects/real-life-workflows/AGENTS.md",
+        "projects/real-life-workflows/project.json",
+        "projects/real-life-workflows/tasks/",
+        "projects/real-life-workflows/skills/",
+        "projects/real-life-workflows/quarantine/",
+        "<standalone-product-root>/"
+      ],
+      "provenance_requirements": [
+        "primary task id",
+        "dependency project",
+        "selected skill",
+        "query",
+        "generated artifact path",
+        "phase",
+        "timestamp"
+      ],
+      "dependency_write_plan": {
+        "expected_output_paths": [
+          "projects/health/artifacts/workflow-packets/health-007-skill-rebuild-patterns.md"
+        ],
+        "allowed_write_zones": [
+          "projects/health/artifacts/workflow-packets/"
+        ],
+        "protected_paths": [
+          "projects/real-life-workflows/AGENTS.md",
+          "projects/real-life-workflows/project.json",
+          "projects/real-life-workflows/tasks/",
+          "projects/real-life-workflows/skills/",
+          "projects/real-life-workflows/quarantine/",
+          "<standalone-product-root>/"
+        ],
+        "promotion_rules": [
+          "Keep the packet as foundry implementation evidence.",
+          "Promote only self-contained design decisions into the standalone repo.",
+          "Do not copy dependency paths or quarantined skill text into runtime artifacts."
+        ],
+        "provenance_requirements": [
+          "primary task id",
+          "dependency step id",
+          "dependency project",
+          "selected skill",
+          "query",
+          "generated artifact path",
+          "phase",
+          "timestamp",
+          "artifact status"
+        ],
+        "stop_conditions": [
+          "Stop if the dependency attempts to write outside the approved workflow-packets directory.",
+          "Stop if dependency project trackers, skills, AGENTS.md, or quarantine would be mutated.",
+          "Stop if the standalone product repo would be mutated by the dependency call."
+        ],
+        "approved_at": "2026-07-10"
+      }
+    }
+  ],
+  "dependency_artifacts": [
+    {
+      "artifact_id": "health-007-real-life-workflow-patterns",
+      "owner_task_id": "health-007",
+      "dependency_step_id": "dep-step-001",
+      "dependency_project": "real-life-workflows",
+      "source_skill": "real-life-workflow-search",
+      "phase": "implement",
+      "purpose": "Provide source-grounded adjacent workflow patterns for evidence packets, source research, reviewer gates, and skill-pack structure before standalone implementation.",
+      "artifact_status": "execution-evidence",
+      "generated_files": [
+        "projects/health/artifacts/workflow-packets/health-007-skill-rebuild-patterns.md"
+      ],
+      "protected_boundary_metadata": [
+        "Dependency project trackers, skills, AGENTS.md, and quarantine remained read-only.",
+        "The standalone product repo was not written by the dependency call.",
+        "Quarantined imported skills remain source evidence only."
+      ]
+    }
+  ],
+  "dependency_provenance": [
+    {
+      "primary_project": "health",
+      "primary_task_id": "health-007",
+      "dependency_step_id": "dep-step-001",
+      "dependency_project": "real-life-workflows",
+      "selected_skill": "real-life-workflow-search",
+      "dependency_write_plan": "health-007 dependency_steps dep-step-001 dependency_write_plan",
+      "phase": "implement",
+      "timestamp": "2026-07-10T02:37:30+08:00",
+      "artifact_status": "execution-evidence",
+      "helper_skills_used": [],
+      "inputs": [
+        "people-first health insurance research skills",
+        "evidence packets and source authority",
+        "freshness, refusal handoffs, scenario evaluation, and reviewer lanes"
+      ],
+      "generated_artifacts": [
+        "projects/health/artifacts/workflow-packets/health-007-skill-rebuild-patterns.md"
+      ]
+    }
+  ],
+  "dependencies": [
+    "health-005",
+    "health-006"
+  ],
+  "related_tasks": [
+    "health-002",
+    "health-004",
+    "health-005",
+    "health-006"
+  ],
+  "linked_artifacts": [
+    "projects/health/artifacts/prds/health-007-people-first-multi-skill-rebuild.md",
+    "projects/health/artifacts/issues/health-007-issue-001-scenario-foundation.md",
+    "projects/health/artifacts/issues/health-007-issue-002-coverage-research-packet.md",
+    "projects/health/artifacts/issues/health-007-issue-003-refusal-handoff-contracts.md",
+    "projects/health/artifacts/issues/health-007-issue-004-source-authority-freshness.md",
+    "projects/health/artifacts/issues/health-007-issue-005-coverage-intake.md",
+    "projects/health/artifacts/issues/health-007-issue-006-coverage-navigator.md",
+    "projects/health/artifacts/issues/health-007-issue-007-coverage-source-research.md",
+    "projects/health/artifacts/issues/health-007-issue-008-coverage-entity-lookup.md",
+    "projects/health/artifacts/issues/health-007-issue-009-coverage-provider-deep-dive.md",
+    "projects/health/artifacts/issues/health-007-issue-010-coverage-type-compare.md",
+    "projects/health/artifacts/issues/health-007-issue-011-coverage-evidence-audit.md",
+    "projects/health/artifacts/issues/health-007-issue-012-examples-release-gate.md",
+    "projects/health/artifacts/workflow-packets/health-007-skill-rebuild-patterns.md",
+    "skills",
+    "<standalone-product-root>/AGENTS.md",
+    "<standalone-product-root>/README.md",
+    "<standalone-product-root>/package.json",
+    "<standalone-product-root>/skill-manifest.json",
+    "<standalone-product-root>/skills/",
+    "<standalone-product-root>/references/",
+    "<standalone-product-root>/evals/",
+    "<standalone-product-root>/scripts/",
+    "<standalone-product-root>/artifacts/",
+    "<standalone-product-root>/examples/",
+    "projects/health/artifacts/reviews/health-007-implementation-review.md",
+    "<standalone-product-worktree>/skills",
+    "<standalone-product-worktree>/skills/coverage-intake",
+    "<standalone-product-worktree>/skills/coverage-navigator",
+    "<standalone-product-worktree>/skills/coverage-source-research",
+    "<standalone-product-worktree>/skills/coverage-entity-lookup",
+    "<standalone-product-worktree>/skills/coverage-provider-deep-dive",
+    "<standalone-product-worktree>/skills/coverage-type-compare",
+    "<standalone-product-worktree>/skills/coverage-evidence-audit"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-10",
+      "event": "Created after operator approved a Health task with explicit Real Life Workflows capability dependency for upgrading the standalone Philippines health coverage skill set."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Moved into Matt grilling after operator asked to start grilling and required a search-first critique of the standalone product."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: rebuild the standalone product as an ECC-style skill pack from concrete user scenarios, and require each rebuilt surface to map directly to an ECC concept."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: every rebuilt artifact must carry explicit instructions in the form build-this, read-this-first, apply-this-ECC-concept, and prove-it-with-this-acceptance-check."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: v2 issues should map multiple ECC concepts where appropriate instead of forcing each issue to own only one dominant concept."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: the first v2 issue must be a scenario foundation that defines concrete user prompts, expected packet outputs, blocked behavior, and ECC concept mappings before any skill rewrite."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: the primary user is a person with little or no health coverage literacy, and v2 must guide them from confusion to a safe source-grounded research and human-handoff packet."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: v2 skills must be intuitive for beginners by default while still being genuinely good at search when necessary; do not require formal guided/research modes unless a later issue proves they are needed."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision after ECC review: every v2 skill must know when to use loaded artifacts, ask a clarifying question, search, or escalate to a source-heavy skill; only source-heavy skills should perform deep search directly."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: classify v2 skills by ECC role, including source-heavy, routing/intake, packet-building, comparison, and reviewer-lane responsibilities with explicit search, escalation, artifact, eval, and human-boundary rules."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: v2 keeps the existing six skills, adds coverage-intake as the default beginner-facing front door, and rebuilds all seven skills around scenario fixtures and the shared coverage research packet contract."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: the shared coverage-research-packet is the mandatory v2 output artifact for every skill, with skill-specific sections allowed only as extensions of the shared packet shape."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: define the shared coverage-research-packet as a dedicated standalone repo reference before rewriting any skill."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: define refusal-to-handoff templates as a dedicated standalone repo reference before rewriting any skill, covering blocked health coverage decision classes with safe reviewer handoffs."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: define source authority and freshness as a dedicated standalone repo reference before rewriting any skill, centralizing what each source type can and cannot prove."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Grilling decision: use an eval-first build order for v2: scenario fixtures, packet contract, refusal templates, source authority and freshness rules, validators, and only then skill rewrites."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Operator approved Matt to-prd. Advanced the saved phase to prd and approved the Health 007 PRD artifact with an explicit requirement to route all design decisions back to ECC concepts."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Wrote and linked the Health 007 people-first multi-skill rebuild PRD. The PRD defines the seven-skill surface, canonical packet, ECC routing contract, eval-first build order, human boundaries, reviewer lane, and release gates while preserving the standalone repo boundary."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Operator continued to the next Matt phase. Advanced Health 007 to issues and drafted an eval-first tracer-bullet breakdown for operator approval before publishing issue artifacts, as required by upstream to-issues."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Operator approved the 12-slice issue breakdown, dependency graph, and HITL/AFK classification, then instructed execution through completion. Approved the exact 12 issue artifact paths for Matt to-issues publication."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Published and linked all 12 Health 007 issue artifacts in dependency order. Each issue names what to build, what to read first, multiple applicable ECC concepts with rationale, external acceptance evidence, user stories, HITL or AFK type, and blockers."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Advanced Health 007 to implement after operator approved execution through completion. Recorded the Real Life Workflows dependency write plan, exact foundry packet output, protected dependency paths, standalone product write zones, and isolated worktree branch."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Executed dep-step-001 through real-life-workflow-search and wrote the approved Health 007 workflow-understanding packet. Recorded execution-evidence artifact ownership and provenance without mutating the dependency project or standalone product."
+    },
+    {
+      "date": "2026-07-10",
+      "event": "Completed all 12 implementation slices on the isolated standalone product worktree. The v0.2.0 release gate passed with seven skills, 13 scenarios, 16 packet fields, eight refusal classes, seven source roles, 16 audit fixtures, seven examples, and a successful package dry run. Advanced to code-review."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Corrected Health 007 from code-review back to implement during integration review. The standalone v0.2.0 worktree passes its release check but remains uncommitted and lacks a durable review artifact, so code-review completion readiness was not claimed. Frozen pending migration preserves the task without granting new authority."
+    }
+  ],
+  "created_at": "2026-07-10",
+  "updated_at": "2026-07-12",
+  "deliverable_migration": {
+    "status": "pending",
+    "target_contract_version": 1,
+    "frozen_phase": "implement",
+    "approved_at": null,
+    "approval_note": null
+  },
+  "deliverable_contracts": [],
+  "artifact_bindings": [],
+  "behavior_evidence": []
+}

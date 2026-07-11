@@ -1,0 +1,175 @@
+{
+  "task_id": "health-008",
+  "project_slug": "health",
+  "title": "Build a people-first UI for the standalone Philippines health coverage product",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "grilling",
+  "explicit_next_action_required": true,
+  "summary": "Design and build a beginner-facing web UI over the standalone Philippines health coverage product's coverage-intake and coverage-research-packet workflow. Help Filipinos understand coverage categories, inspect source-grounded information, and prepare safe human handoffs without making medical, eligibility, coverage, claims, ranking, or purchase decisions. Preserve `<standalone-health-product-root>` as the product boundary and coordinate implementation with the reviewed Health v2 contract from health-007.",
+  "acceptance_criteria": [
+    "The UI is built within the standalone `<standalone-health-product-root>` product boundary; `ace-workflows` contains only tracker, PRD, issue, review, and handoff evidence.",
+    "Implementation depends on the reviewed Health v2 seven-skill surface and shared coverage-research-packet contract from health-007 rather than stale main-branch behavior.",
+    "The homepage combines an understandable guided intake journey with immediately useful browsable coverage content, so first-time visitors receive help without facing an empty or chat-only screen.",
+    "The homepage includes a Learn the basics path and a browsable capability map that shows the safe jobs the product can perform before the user starts a workflow.",
+    "Every interactive workflow control maps to a named standalone Health skill or CLI harness action; the browser remains a companion surface and does not become an independent agent, model runtime, raw shell, or source of workflow authority.",
+    "The task uses the approved workflow-foundry build-workflow-product capability only after workflow-foundry-015 is reconciled into the active foundry skill surface, and the dependency cannot mutate the foundry tracker or skill definitions.",
+    "The UI clearly displays source provenance, source freshness, evidence gaps, confidence boundaries, blocked decisions, required human review, and the next safe user action.",
+    "The UI does not make medical, eligibility, coverage, claims, provider-network, ranking, or purchase decisions.",
+    "The UI does not collect or persist unnecessary protected health information or other sensitive personal data.",
+    "The exact screens, framework, deployment model, data flow, and visual direction are resolved during grilling and recorded in an approved PRD before implementation.",
+    "The implemented UI is responsive and accessible across the approved critical user journeys.",
+    "Unit, integration, and end-to-end tests cover the approved critical user journeys with at least 80 percent coverage where the selected UI harness supports coverage reporting.",
+    "Standalone product release checks and `node scripts/validate-workflow-state.mjs` pass before any completion checkpoint."
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Health-008 is in Matt grilling. The homepage will combine guided beginner help with useful browsable coverage content, including Learn the basics and a clear map of safe product capabilities. The UI is a companion to the existing CLI and skill surface: every workflow action must route to a named Health skill or harness action, while the browser owns presentation and typed interaction rather than an independent agent, model runtime, or raw shell. The operator approved build-workflow-product as an explicit workflow-foundry capability dependency. Workflow-foundry-015 created the reusable builder instructions; it is not the Health UI and cannot write Health product files until its capability is reconciled into the active foundry surface, health-008 reaches the required phase, and a dependency write plan plus exact artifact approvals exist. The standalone health-007 v2 worktree defines seven skills, coverage-intake as the beginner front door, and the shared coverage-research-packet, but it has no UI surface. Health-007 remains in code review, health-003 remains open for tracker accounting, and the existing Health testing session remains active.",
+    "must_load": [
+      "AGENTS.md",
+      "references/matt-pocock-skills.md",
+      "registry/agents-md.json",
+      "projects/health/AGENTS.md",
+      "projects/health/project.json",
+      "projects/health/tasks/index.json",
+      "projects/health/tasks/health-003.json",
+      "projects/health/tasks/health-007.json",
+      "projects/health/tasks/health-008.json"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "grilling",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "capability_dependencies": [
+    {
+      "dependency_id": "workflow-foundry-build-workflow-product",
+      "dependency_project": "workflow-foundry",
+      "purpose": "Use the canonical foundry workflow-product builder to design and later construct the standalone Health UI as a safe local companion to the existing CLI and skill surface.",
+      "source": "operator-explicit",
+      "status": "confirmed",
+      "selected_skills": [
+        {
+          "skill": "build-workflow-product",
+          "purpose": "Produce the Health workflow-product contract, domain-specific interface direction, action and state model, local sidecar boundary, implementation slices, and verification evidence.",
+          "call_boundary": "Use only for health-008 after workflow-foundry-015 is reconciled into the active foundry skill surface and the Health task has the required phase, dependency write plan, and exact artifact approvals.",
+          "expected_artifacts": [
+            "Health workflow-product contract",
+            "visual, content, and interaction theses",
+            "typed workflow action and state contracts",
+            "local CLI sidecar runtime contract",
+            "approved standalone Health UI implementation",
+            "UI verification and critique evidence"
+          ],
+          "allowed_writes": [
+            "health-008 approved foundry artifact paths",
+            "health-008 approved standalone philippines-health-coverage paths during implement"
+          ],
+          "protected_paths": [
+            "projects/workflow-foundry/AGENTS.md",
+            "projects/workflow-foundry/project.json",
+            "projects/workflow-foundry/tasks/",
+            ".agents/skills/build-workflow-product/",
+            "unapproved ace-workflows paths",
+            "unapproved philippines-health-coverage paths"
+          ]
+        }
+      ]
+    }
+  ],
+  "dependency_steps": [
+    {
+      "step_id": "dep-step-001",
+      "capability_dependency_id": "workflow-foundry-build-workflow-product",
+      "dependency_project": "workflow-foundry",
+      "selected_skill": "build-workflow-product",
+      "purpose": "Apply the canonical workflow-product builder to the approved Health UI contract without turning the foundry into the product runtime.",
+      "expected_inputs": [
+        "health-008 approved PRD and issue slices",
+        "reviewed health-007 seven-skill manifest",
+        "coverage-research-packet contract",
+        "approved homepage and CLI-routing decisions",
+        "representative Health fixtures and examples"
+      ],
+      "expected_outputs": [
+        "Health-owned workflow-product contract and implementation evidence",
+        "standalone browser UI mapped to named Health skill and CLI actions",
+        "loopback companion contract with least-privilege typed boundaries",
+        "responsive, accessibility, security, and critical-flow verification evidence"
+      ],
+      "allowed_writes": [
+        "health-008 exact phase-approved artifact paths only"
+      ],
+      "protected_paths": [
+        "workflow-foundry tracker",
+        "workflow-foundry skill definitions",
+        "unapproved ace-workflows paths",
+        "unapproved philippines-health-coverage paths"
+      ],
+      "provenance_requirements": [
+        "primary task id health-008",
+        "dependency project workflow-foundry",
+        "selected skill build-workflow-product",
+        "source commit or active skill revision",
+        "approved dependency write plan",
+        "generated artifact paths",
+        "phase and timestamp",
+        "verification and review status"
+      ]
+    }
+  ],
+  "dependencies": [
+    "health-007"
+  ],
+  "related_tasks": [
+    "health-005",
+    "health-006",
+    "health-007",
+    "workflow-foundry-015"
+  ],
+  "linked_artifacts": [],
+  "session_log": [
+    {
+      "date": "2026-07-12",
+      "event": "Created after the operator approved a new people-first UI task for the standalone Philippines health coverage product."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Advanced from intake to Matt grilling after the operator explicitly asked to start grilling. Loaded the standalone health-007 v2 worktree and confirmed that the first unresolved decision is the UI's primary user journey."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling decision: the homepage should combine a guided beginner journey with useful browsable content. It must not be an empty chatbot screen, and visitors should be able to navigate coverage information without completing the guided flow first."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling decision: use the hybrid homepage, add Learn the basics and a browsable map of possible safe workflows, and route every interactive action back to the existing CLI and Health skill contracts. The browser remains a companion UI rather than an independent agent or raw shell."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Operator approved workflow-foundry build-workflow-product as an explicit capability dependency. Recorded a gated dependency step: workflow-foundry-015 is the reusable builder task, not the Health UI, and Health cannot call it until the capability is active, a dependency write plan is approved, and exact Health artifact paths are phase-approved."
+    }
+  ],
+  "created_at": "2026-07-12",
+  "updated_at": "2026-07-12",
+  "deliverable_migration": {
+    "status": "pending",
+    "target_contract_version": 1,
+    "frozen_phase": "grilling",
+    "approved_at": null,
+    "approval_note": null
+  },
+  "deliverable_contracts": [],
+  "artifact_bindings": [],
+  "behavior_evidence": []
+}

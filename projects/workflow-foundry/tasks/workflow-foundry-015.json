@@ -95,7 +95,9 @@
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-009-tracker-ui-runner.md",
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-006-skill-first-foundry-revamp.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-005-standalone-skill-routing.md",
-      "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-006-multi-deliverable-routing.md"
+      "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-006-multi-deliverable-routing.md",
+      "projects/workflow-foundry/tasks/workflow-foundry-014.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
   "phase_guard": {

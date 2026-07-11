@@ -112,6 +112,22 @@
       "status": "done",
       "matt_phase": "done",
       "updated_at": "2026-07-10"
+    },
+    {
+      "task_id": "workflow-foundry-014",
+      "title": "Create personal ace-workflows README",
+      "task_kind": "workflow-change",
+      "status": "todo",
+      "matt_phase": "intake",
+      "updated_at": "2026-07-09"
+    },
+    {
+      "task_id": "workflow-foundry-016",
+      "title": "Integrate workflow product builder and repair dependency state",
+      "task_kind": "tracker-maintenance",
+      "status": "in-progress",
+      "matt_phase": "code-review",
+      "updated_at": "2026-07-12"
     }
   ]
 }

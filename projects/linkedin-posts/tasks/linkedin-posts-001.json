@@ -28,7 +28,9 @@
       "projects/linkedin-posts/project.json",
       "projects/linkedin-posts/tasks/index.json",
       "projects/linkedin-posts/tasks/linkedin-posts-001.json",
-      "projects/linkedin-posts/tasks/linkedin-posts-002.json"
+      "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-003.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-004.json"
     ]
   },
   "phase_guard": {
@@ -44,7 +46,9 @@
     "projects/linkedin-posts/project.json",
     "projects/linkedin-posts/tasks/index.json",
     "projects/linkedin-posts/tasks/linkedin-posts-001.json",
-    "projects/linkedin-posts/tasks/linkedin-posts-002.json"
+    "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-003.json",
+    "projects/linkedin-posts/tasks/linkedin-posts-004.json"
   ],
   "session_log": [
     {

@@ -249,3 +249,82 @@ test("rejects malformed testing-session index shape", async () => {
 
   assert.match(failures.join("\n"), /index\.json must include sessions array/);
 });
+
+test("screens known sensitive text and rejects cross-platform absolute paths before writing", async () => {
+  const root = await makeRepoRoot();
+  const created = await createTestingSession({
+    root,
+    projectSlug: "demo",
+    goal: "Exercise a public-safe workflow fixture.",
+    sessionId: "demo-2026-07-07T050000Z",
+    now: "2026-07-07T05:00:00.000Z",
+  });
+  const eventsFile = path.join(root, created.session.events_path);
+  const before = await readJsonl(eventsFile);
+
+  await assert.rejects(
+    recordTestingSessionEvent({
+      root,
+      sessionId: created.session.session_id,
+      type: "finding",
+      rationale: "The user fears cancer and has no insurance.",
+    }),
+    /best-effort sensitive-pattern screen/,
+  );
+  await assert.rejects(
+    recordTestingSessionEvent({
+      root,
+      sessionId: created.session.session_id,
+      type: "artifact_read",
+      filesRead: ["/Users/example/private-health-record.md"],
+    }),
+    /repository-relative testing-session path/,
+  );
+  for (const privatePath of [
+    "C:\\Users\\Example\\private.txt",
+    "\\\\server\\share\\private.txt",
+    "\\\\?\\C:\\Users\\Example\\private.txt",
+    "\\\\.\\PhysicalDrive0",
+  ]) {
+    await assert.rejects(
+      recordTestingSessionEvent({
+        root,
+        sessionId: created.session.session_id,
+        type: "artifact_read",
+        filesRead: [privatePath],
+      }),
+      /repository-relative testing-session path/,
+    );
+  }
+
+  assert.equal((await readJsonl(eventsFile)).length, before.length);
+});
+
+test("rejects private session goals and hand-edited private event state", async () => {
+  const root = await makeRepoRoot();
+  await assert.rejects(
+    createTestingSession({
+      root,
+      projectSlug: "demo",
+      goal: "Review policy number ABC-123 and cancer fears.",
+      sessionId: "demo-2026-07-07T060000Z",
+      now: "2026-07-07T06:00:00.000Z",
+    }),
+    /best-effort sensitive-pattern screen/,
+  );
+
+  const created = await createTestingSession({
+    root,
+    projectSlug: "demo",
+    goal: "Exercise a public-safe workflow fixture.",
+    sessionId: "demo-2026-07-07T061000Z",
+    now: "2026-07-07T06:10:00.000Z",
+  });
+  const eventsFile = path.join(root, created.session.events_path);
+  const events = await readJsonl(eventsFile);
+  events[0].rationale = "The user has no insurance and fears serious disease.";
+  await writeFile(eventsFile, `${events.map((event) => JSON.stringify(event)).join("\n")}\n`);
+
+  const failures = await validateTestingSessionState({ root });
+  assert.match(failures.join("\n"), /best-effort sensitive-pattern screen/);
+});

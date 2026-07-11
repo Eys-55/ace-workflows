@@ -48,6 +48,22 @@
       "status": "done",
       "matt_phase": "done",
       "updated_at": "2026-07-08"
+    },
+    {
+      "task_id": "health-007",
+      "title": "Expand standalone health workflow into a people-first multi-skill product",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "implement",
+      "updated_at": "2026-07-12"
+    },
+    {
+      "task_id": "health-008",
+      "title": "Build a people-first UI for the standalone Philippines health coverage product",
+      "task_kind": "workflow-change",
+      "status": "in-progress",
+      "matt_phase": "grilling",
+      "updated_at": "2026-07-12"
     }
   ]
 }
