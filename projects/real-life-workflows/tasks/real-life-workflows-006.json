@@ -1,0 +1,156 @@
+{
+  "task_id": "real-life-workflows-006",
+  "project_slug": "real-life-workflows",
+  "title": "Build companion UI for agentic workflow search",
+  "task_kind": "workflow-change",
+  "status": "in-progress",
+  "matt_phase": "grilling",
+  "explicit_next_action_required": true,
+  "summary": "Design and build a user-facing UI in the standalone workflow-search-catalog product that complements the existing agentic workflow-search system. The UI should expose the current search, comparison, workflow-understanding, and agent handoff capabilities without replacing the search engine or implying that all 19,180 upstream source files are individually indexed.",
+  "acceptance_criteria": [
+    "the standalone /Users/acecanacan/Documents/workflow-search-catalog repository remains the product implementation boundary while ace-workflows owns task tracking and workflow accounting",
+    "the UI complements the existing agentic search and real-world-workflow-finder behavior instead of creating a separate competing search engine",
+    "chat is the primary working and execution surface for workflow search, comparison, packet creation, refinement, and follow-up",
+    "search-first describes the primary intent encouraged inside chat, not a separate standalone search execution surface",
+    "the UI is a structured reflection or read model of chat and agent activity rather than a second command system",
+    "the UI progressively reflects structured search activity and discoveries produced through the CLI or agentic search surface",
+    "the UI includes automatic Search History for prior queries and their structured results",
+    "the UI includes a visible chronological Activity Log for meaningful work performed through the CLI, agentic search surface, and UI",
+    "the Activity Log shows meaningful product events with optional technical detail rather than hidden reasoning, credentials, or sensitive command data",
+    "Search History, Activity Log events, and UI state persist locally without requiring a cloud account or remote database",
+    "the initial UI state is useful before any search history exists and never opens as a completely blank canvas",
+    "the opening workspace leads with the chat composer plus grounded starter prompts and Things You Can Do actions derived from real-life-workflow-search and real-world-workflow-finder capabilities",
+    "opening capability actions populate or guide the chat rather than executing a separate workflow outside chat",
+    "the opening workspace does not present quarantined imported skills as active or callable",
+    "the first release searches the current 171 curated workflow doors and accurately describes 19,180 as the upstream source-universe estimate",
+    "the UI gives operators a clear path to enter a workflow question, inspect ranked matches, refine the search, and invoke or continue agentic workflow-understanding actions",
+    "results preserve the existing search contract: source URL, confidence, caveat or verification status, and match reason",
+    "agentic actions preserve input, output, provenance, human-review, and approved-write boundaries",
+    "the UI consumes a stable search-result contract rather than depending directly on presentation-oriented CLI output",
+    "responsive, accessible loading, empty, success, and error states are defined and verified",
+    "representative fixtures or end-to-end tests prove search, result inspection, query refinement, agent handoff, and count-claim boundaries",
+    "the implementation passes the standalone product validation gates and the ace-workflows tracker validation gate"
+  ],
+  "ecc_concepts_applied": [
+    "workflow contract",
+    "input contract",
+    "output artifact",
+    "eval gate",
+    "human boundary",
+    "handoff",
+    "reviewer lane",
+    "project state preload"
+  ],
+  "context_snapshot": {
+    "summary": "Load the real-life-workflows tracker, completed finder and package tasks, stopped testing-session summary, count proof, and standalone workflow-search-catalog product state before grilling the companion UI. Preserve chat as the primary working surface, keep workflow discovery as the primary chat intent, and treat the UI as the structured read model of chat and agent activity.",
+    "must_load": [
+      "AGENTS.md",
+      "references/matt-pocock-skills.md",
+      "registry/agents-md.json",
+      "projects/real-life-workflows/AGENTS.md",
+      "projects/real-life-workflows/project.json",
+      "projects/real-life-workflows/tasks/index.json",
+      "projects/real-life-workflows/tasks/real-life-workflows-002.json",
+      "projects/real-life-workflows/tasks/real-life-workflows-004.json",
+      "projects/real-life-workflows/tasks/real-life-workflows-005.json",
+      "projects/real-life-workflows/tasks/real-life-workflows-006.json",
+      "projects/real-life-workflows/artifacts/testing-sessions/index.json",
+      "projects/real-life-workflows/artifacts/finder/workflow-understanding-finder.md",
+      "projects/real-life-workflows/artifacts/finder/workflow-understanding-finder.mjs",
+      "projects/real-life-workflows/artifacts/counts/upstream-source-universe-counts.json",
+      "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md",
+      "/Users/acecanacan/Documents/workflow-search-catalog/AGENTS.md",
+      "/Users/acecanacan/Documents/workflow-search-catalog/README.md",
+      "/Users/acecanacan/Documents/workflow-search-catalog/package.json",
+      "/Users/acecanacan/Documents/workflow-search-catalog/data/workflow-search-index.json"
+    ]
+  },
+  "phase_guard": {
+    "selected_next_action": "grilling",
+    "approved_artifacts": [],
+    "process_exceptions": []
+  },
+  "dependencies": [
+    "real-life-workflows-002",
+    "real-life-workflows-004"
+  ],
+  "related_tasks": [
+    "real-life-workflows-005",
+    "real-life-workflows-002",
+    "real-life-workflows-004"
+  ],
+  "linked_artifacts": [
+    "projects/real-life-workflows/artifacts/finder/workflow-understanding-finder.md",
+    "projects/real-life-workflows/artifacts/finder/workflow-understanding-finder.mjs",
+    "projects/real-life-workflows/artifacts/counts/upstream-source-universe-counts.json",
+    "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md"
+  ],
+  "session_log": [
+    {
+      "date": "2026-07-12",
+      "event": "Initiated after the operator confirmed that the existing system already performs agentic workflow search and the requested UI should complement those agentic features rather than replace them."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Inspected Matt Pocock grill-with-docs, grilling, and domain-modeling guidance at pinned upstream commit 66f92b61f5b1434a1c7422f6fbd8efc5ee0c0214 because the documented local inspection mirror was unavailable."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Moved from intake to grilling after loading the existing agentic search contracts and confirming that the first unresolved design branch is the UI's primary interaction model."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling decision: the primary experience is search-first. As the operator performs more searches through the CLI or agentic search surface, the UI should progressively gain and display more structured search activity and discoveries."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Repo finding for the next grilling branch: current ordinary searches are transient, while --save-search writes a JSON packet, Markdown report, and append-only ledger row; persistence and deduplication behavior remain unresolved."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling direction: automatic search history is important, and the UI should also show a log of what the system is doing. Canonical terms are Search History for past queries and structured results, and Activity Log for the broader chronological work timeline; exact Activity Log depth remains unresolved."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling decision: the Activity Log shows meaningful product events with expandable technical details, while hidden reasoning, credentials, and sensitive command data remain excluded."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling decision: Search History, Activity Log events, and UI state are saved locally with no cloud account or remote database required. SQLite versus JSON/JSONL remains open."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Repo finding for storage selection: the standalone package currently supports Node 18+, has no runtime dependencies, stores durable searches as JSON packets plus an append-only JSONL ledger, and runs locally here on Node 25."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling correction: defer SQLite versus JSON/JSONL and stay focused on the UI. The opening state must not be blank; it leads with search and shows useful capabilities or starter actions before any history exists."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Repo-grounded UI boundary: present Things You Can Do actions derived from the active real-life-workflow-search package skill and standalone real-world-workflow-finder surface; do not label quarantined imported skills as callable."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "UI guidance applied during grilling: frontend-skill favors a restrained app workspace with one primary action, minimal chrome, utility copy, and cards only when the card itself is the interaction; interface-craft will govern later motion and polish."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling correction: chat is the primary working surface. Workflow search, pattern comparison, packet creation, refinement, and follow-up should work in chat as much as possible; search-first now means the primary intent encouraged within chat."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Grilling decision: the UI is a structured reflection or read model of what happens in chat and the agent runtime. It displays activity, history, results, packets, sources, and state without becoming a second independent command system."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Opening-state refinement: show the chat composer with grounded starter prompts and capability actions that populate or guide chat; do not execute those workflows outside chat."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Operator requested stopping here for now after recording the chat-first execution and reflective-UI boundary. Storage and remaining layout decisions stay deferred."
+    }
+  ],
+  "created_at": "2026-07-12",
+  "updated_at": "2026-07-12"
+}

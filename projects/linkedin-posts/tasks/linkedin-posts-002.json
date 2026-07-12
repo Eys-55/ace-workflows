@@ -53,6 +53,8 @@
       "projects/linkedin-posts/tasks/index.json",
       "projects/linkedin-posts/tasks/linkedin-posts-001.json",
       "projects/linkedin-posts/tasks/linkedin-posts-002.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-003.json",
+      "projects/linkedin-posts/tasks/linkedin-posts-004.json",
       "projects/linkedin-posts/artifacts/prds/linkedin-posts-002-linkedin-post-generation-workflow.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-001-draft-run-contract.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-grilling.md",
@@ -63,7 +65,14 @@
   },
   "phase_guard": {
     "selected_next_action": "implement",
-    "approved_artifacts": [],
+    "approved_artifacts": [
+      {
+        "path": "projects/linkedin-posts/artifacts/draft-runs/linkedin-posts-002-health-insurance-philippines-draft.md",
+        "phase": "implement",
+        "approval_note": "User explicitly asked to save the current LinkedIn health insurance draft now.",
+        "approved_at": "2026-07-09T06:00:04Z"
+      }
+    ],
     "process_exceptions": []
   },
   "dependencies": [],
@@ -76,7 +85,8 @@
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-grilling.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-003-voice-profile-approval.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-004-candidate-drafting-provenance-scoring.md",
-    "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md"
+    "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md",
+    "projects/linkedin-posts/artifacts/draft-runs/linkedin-posts-002-health-insurance-philippines-draft.md"
   ],
   "session_log": [
     {
@@ -182,8 +192,12 @@
     {
       "date": "2026-07-08",
       "event": "Created five issue artifacts from the PRD and set next action to implementation."
+    },
+    {
+      "date": "2026-07-09",
+      "event": "Saved the user-approved Philippine health insurance LinkedIn post draft as a draft-run artifact."
     }
   ],
   "created_at": "2026-07-08",
-  "updated_at": "2026-07-08"
+  "updated_at": "2026-07-09"
 }

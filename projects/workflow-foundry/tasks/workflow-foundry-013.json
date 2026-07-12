@@ -47,7 +47,10 @@
       ".agents/skills/initiate-task/SKILL.md",
       ".agents/skills/continue-task/SKILL.md",
       "scripts/query-workflow-state.mjs",
-      "scripts/validate-workflow-state.mjs"
+      "scripts/validate-workflow-state.mjs",
+      "projects/workflow-foundry/tasks/workflow-foundry-014.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-015.json",
+      "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
   "phase_guard": {
