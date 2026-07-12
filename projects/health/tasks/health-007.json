@@ -4,8 +4,6 @@
   "title": "Expand standalone health workflow into a people-first multi-skill product",
   "task_kind": "workflow-change",
   "status": "in-progress",
-  "matt_phase": "implement",
-  "explicit_next_action_required": true,
   "summary": "Upgrade the standalone `philippines-health-coverage` workflow product from a thin validated skill wrapper set into a people-first multi-skill workflow. Use Real Life Workflows as an explicit capability dependency for source-grounded workflow pattern evidence, while preserving the standalone product boundary and keeping dependency project trackers, skill definitions, and quarantined imports read-only.",
   "acceptance_criteria": [
     "The task treats `<standalone-product-root>` as the standalone product boundary, not as a foundry-local runtime.",
@@ -31,7 +29,7 @@
     "Source authority and freshness rules must define what PhilHealth, Insurance Commission, HMO/insurer/provider pages, HR/employer materials, hospital billing sources, broker/marketplace pages, and secondary explainers can and cannot prove.",
     "The scenario foundation must include normal-user questions about employer HMOs, PhilHealth versus HMOs, entity lookup, category comparison, best-plan/ranking requests, hospital-bill coverage requests, source authorization proof, and stale-source reliance.",
     "The PRD must require an eval-first build order: define scenario fixtures, the coverage research packet contract, refusal-to-handoff templates, source authority and freshness rules, and packet/scenario validators before rewriting any skill.",
-    "The PRD or grilling output defines the user-visible job for a people-first health coverage workflow.",
+    "The PRD or planning output defines the user-visible job for a people-first health coverage workflow.",
     "The implementation plan defines how `coverage-navigator` becomes the default entry path or explains why a separate `coverage-intake` skill is needed.",
     "The task defines a canonical coverage research packet contract that all standalone product skills create, enrich, route, compare, or audit.",
     "The task defines refusal-to-handoff behavior for blocked PHI, medical advice, eligibility, coverage, claims, provider-network, ranking, and purchase-recommendation requests.",
@@ -39,7 +37,7 @@
     "The task defines scenario evals, audit severity, example outputs, and release checks before any product release checkpoint.",
     "Any dependency-generated packets record primary task id, dependency project, selected skill, query, generated artifact path, phase, and timestamp.",
     "No dependency step mutates `projects/real-life-workflows/AGENTS.md`, `projects/real-life-workflows/project.json`, `projects/real-life-workflows/tasks/`, `projects/real-life-workflows/skills/`, or `projects/real-life-workflows/quarantine/`.",
-    "The standalone product repo is not mutated until a later Matt phase has explicit approved artifacts and a dependency write plan.",
+    "The standalone product repo is not mutated until a later previous workflow phase has explicit approved artifacts and a dependency write plan.",
     "Repository workflow-state validation passes after tracker creation and before any commit or push."
   ],
   "ecc_concepts_applied": [
@@ -56,7 +54,7 @@
     "summary": "The reviewed seven-skill v0.2.0 implementation is now durable at standalone commit 2230a33 on pushed branch codex/health-007-people-first-v2. Release, Standards, and Spec gates pass after resolving packet strictness, route, source-claim-fit, and evidence-audit gaps. The task remains frozen in implement only because its separate version-1 deliverable migration still requires a complete member-level workflow-pack contract; Health 008 may bind the immutable reviewed commit as its implementation dependency artifact.",
     "must_load": [
       "AGENTS.md",
-      "references/matt-pocock-skills.md",
+      "AGENTS.md",
       "registry/agents-md.json",
       "projects/health/AGENTS.md",
       "projects/health/project.json",
@@ -88,11 +86,6 @@
       "<standalone-product-root>/skill-manifest.json",
       "<standalone-product-root>/references/workflow-contracts.md"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "implement",
-    "approved_artifacts": [],
-    "process_exceptions": []
   },
   "capability_dependencies": [
     {
@@ -213,7 +206,6 @@
       "dependency_step_id": "dep-step-001",
       "dependency_project": "real-life-workflows",
       "source_skill": "real-life-workflow-search",
-      "phase": "implement",
       "purpose": "Provide source-grounded adjacent workflow patterns for evidence packets, source research, reviewer gates, and skill-pack structure before standalone implementation.",
       "artifact_status": "execution-evidence",
       "generated_files": [
@@ -234,7 +226,6 @@
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
       "dependency_write_plan": "health-007 dependency_steps dep-step-001 dependency_write_plan",
-      "phase": "implement",
       "timestamp": "2026-07-10T02:37:30+08:00",
       "artifact_status": "execution-evidence",
       "helper_skills_used": [],
@@ -301,67 +292,67 @@
     },
     {
       "date": "2026-07-10",
-      "event": "Moved into Matt grilling after operator asked to start grilling and required a search-first critique of the standalone product."
+      "event": "Moved into previous workflow planning after operator asked to start planning and required a search-first critique of the standalone product."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: rebuild the standalone product as an ECC-style skill pack from concrete user scenarios, and require each rebuilt surface to map directly to an ECC concept."
+      "event": "planning decision: rebuild the standalone product as an ECC-style skill pack from concrete user scenarios, and require each rebuilt surface to map directly to an ECC concept."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: every rebuilt artifact must carry explicit instructions in the form build-this, read-this-first, apply-this-ECC-concept, and prove-it-with-this-acceptance-check."
+      "event": "planning decision: every rebuilt artifact must carry explicit instructions in the form build-this, read-this-first, apply-this-ECC-concept, and prove-it-with-this-acceptance-check."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: v2 issues should map multiple ECC concepts where appropriate instead of forcing each issue to own only one dominant concept."
+      "event": "planning decision: v2 issues should map multiple ECC concepts where appropriate instead of forcing each issue to own only one dominant concept."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: the first v2 issue must be a scenario foundation that defines concrete user prompts, expected packet outputs, blocked behavior, and ECC concept mappings before any skill rewrite."
+      "event": "planning decision: the first v2 issue must be a scenario foundation that defines concrete user prompts, expected packet outputs, blocked behavior, and ECC concept mappings before any skill rewrite."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: the primary user is a person with little or no health coverage literacy, and v2 must guide them from confusion to a safe source-grounded research and human-handoff packet."
+      "event": "planning decision: the primary user is a person with little or no health coverage literacy, and v2 must guide them from confusion to a safe source-grounded research and human-handoff packet."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: v2 skills must be intuitive for beginners by default while still being genuinely good at search when necessary; do not require formal guided/research modes unless a later issue proves they are needed."
+      "event": "planning decision: v2 skills must be intuitive for beginners by default while still being genuinely good at search when necessary; do not require formal guided/research modes unless a later issue proves they are needed."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision after ECC review: every v2 skill must know when to use loaded artifacts, ask a clarifying question, search, or escalate to a source-heavy skill; only source-heavy skills should perform deep search directly."
+      "event": "planning decision after ECC review: every v2 skill must know when to use loaded artifacts, ask a clarifying question, search, or escalate to a source-heavy skill; only source-heavy skills should perform deep search directly."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: classify v2 skills by ECC role, including source-heavy, routing/intake, packet-building, comparison, and reviewer-lane responsibilities with explicit search, escalation, artifact, eval, and human-boundary rules."
+      "event": "planning decision: classify v2 skills by ECC role, including source-heavy, routing/intake, packet-building, comparison, and reviewer-lane responsibilities with explicit search, escalation, artifact, eval, and human-boundary rules."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: v2 keeps the existing six skills, adds coverage-intake as the default beginner-facing front door, and rebuilds all seven skills around scenario fixtures and the shared coverage research packet contract."
+      "event": "planning decision: v2 keeps the existing six skills, adds coverage-intake as the default beginner-facing front door, and rebuilds all seven skills around scenario fixtures and the shared coverage research packet contract."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: the shared coverage-research-packet is the mandatory v2 output artifact for every skill, with skill-specific sections allowed only as extensions of the shared packet shape."
+      "event": "planning decision: the shared coverage-research-packet is the mandatory v2 output artifact for every skill, with skill-specific sections allowed only as extensions of the shared packet shape."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: define the shared coverage-research-packet as a dedicated standalone repo reference before rewriting any skill."
+      "event": "planning decision: define the shared coverage-research-packet as a dedicated standalone repo reference before rewriting any skill."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: define refusal-to-handoff templates as a dedicated standalone repo reference before rewriting any skill, covering blocked health coverage decision classes with safe reviewer handoffs."
+      "event": "planning decision: define refusal-to-handoff templates as a dedicated standalone repo reference before rewriting any skill, covering blocked health coverage decision classes with safe reviewer handoffs."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: define source authority and freshness as a dedicated standalone repo reference before rewriting any skill, centralizing what each source type can and cannot prove."
+      "event": "planning decision: define source authority and freshness as a dedicated standalone repo reference before rewriting any skill, centralizing what each source type can and cannot prove."
     },
     {
       "date": "2026-07-10",
-      "event": "Grilling decision: use an eval-first build order for v2: scenario fixtures, packet contract, refusal templates, source authority and freshness rules, validators, and only then skill rewrites."
+      "event": "planning decision: use an eval-first build order for v2: scenario fixtures, packet contract, refusal templates, source authority and freshness rules, validators, and only then skill rewrites."
     },
     {
       "date": "2026-07-10",
-      "event": "Operator approved Matt to-prd. Advanced the saved phase to prd and approved the Health 007 PRD artifact with an explicit requirement to route all design decisions back to ECC concepts."
+      "event": "Operator approved previous workflow planning. Advanced the saved workflow state to prd and approved the Health 007 PRD artifact with an explicit requirement to route all design decisions back to ECC concepts."
     },
     {
       "date": "2026-07-10",
@@ -369,11 +360,11 @@
     },
     {
       "date": "2026-07-10",
-      "event": "Operator continued to the next Matt phase. Advanced Health 007 to issues and drafted an eval-first tracer-bullet breakdown for operator approval before publishing issue artifacts, as required by upstream to-issues."
+      "event": "Operator continued to the next previous workflow phase. Advanced Health 007 to issues and drafted an eval-first tracer-bullet breakdown for operator approval before publishing issue artifacts, as required by upstream work-item planning."
     },
     {
       "date": "2026-07-10",
-      "event": "Operator approved the 12-slice issue breakdown, dependency graph, and HITL/AFK classification, then instructed execution through completion. Approved the exact 12 issue artifact paths for Matt to-issues publication."
+      "event": "Operator approved the 12-slice issue breakdown, dependency graph, and HITL/AFK classification, then instructed execution through completion. Approved the exact 12 issue artifact paths for previous workflow work-item planning publication."
     },
     {
       "date": "2026-07-10",
@@ -402,14 +393,7 @@
   ],
   "created_at": "2026-07-10",
   "updated_at": "2026-07-12",
-  "deliverable_migration": {
-    "status": "pending",
-    "target_contract_version": 1,
-    "frozen_phase": "implement",
-    "approved_at": null,
-    "approval_note": null
-  },
-  "deliverable_contracts": [],
   "artifact_bindings": [],
-  "behavior_evidence": []
+  "behavior_evidence": [],
+  "next_action": "Finish implementation and validate the result."
 }

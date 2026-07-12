@@ -197,7 +197,7 @@ gate for the PRD and tracker state.
 
 ## Further Notes
 
-The next Matt phase should split this PRD into implementation issues. A clean
+The next previous workflow phase should split this PRD into implementation issues. A clean
 issue split would be:
 
 1. README positioning, compact catalog breakdown, count artifact, and hero
@@ -206,7 +206,7 @@ issue split would be:
 3. `real-life-workflow-search` skill contract and harness-callable metadata.
 4. README and package validators for count claims, quarantine boundaries, and
    packet-write rules.
-5. Final review against Matt style, ECC workflow-package expectations, and the
+5. Final review against previous workflow style, ECC workflow-package expectations, and the
    active pollution-audit boundary.
 
 The README should sell the product, but the implementation must keep the proof

@@ -25,7 +25,7 @@ interface look complete. Record these inputs before choosing a layout:
 - an observable quality bar, including the critical viewport and the exact
   workflow moment that must look and behave convincingly.
 
-If these inputs are missing, return to grilling. A visual style cannot repair a
+If these inputs are missing, resolve the product requirements first. A visual style cannot repair a
 wrong product model.
 
 ## Write Three Theses

@@ -2,7 +2,6 @@ import { readdir, readFile, realpath, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { discoverTestingSessions } from "./testing-session-state.mjs";
-import { projectDeliverableReadiness } from "./workflow-deliverable-contracts.mjs";
 import { deriveCanonicalSkillCatalog } from "./workflow-skill-catalog.mjs";
 
 const root = process.cwd();
@@ -27,9 +26,8 @@ function usage() {
   node scripts/query-workflow-state.mjs --project <slug> --snapshot
   node scripts/query-workflow-state.mjs --project <slug> --quarantine-imports
   node scripts/query-workflow-state.mjs --project <slug> --testing-sessions
-  node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>] [--phase <phase>]
+  node scripts/query-workflow-state.mjs --project <slug> --list-tasks [--status <status>]
   node scripts/query-workflow-state.mjs --project <slug> --task <task-id>
-  node scripts/query-workflow-state.mjs --project <slug> --task-readiness <task-id>
 `);
 }
 
@@ -183,25 +181,19 @@ async function loadProject(projectSlug) {
     throw new Error(`Missing ${path.relative(root, projectFile)}`);
   }
 
-  if (!(await exists(indexFile))) {
-    throw new Error(`Missing ${path.relative(root, indexFile)}`);
-  }
-
   return {
     projectDir,
     project: await readJson(projectFile),
-    index: await readJson(indexFile),
+    index: (await exists(indexFile)) ? await readJson(indexFile) : { project_slug: projectSlug, tasks: [] },
   };
 }
 
 async function listTasks(projectSlug) {
   const status = getArg("--status");
-  const phase = getArg("--phase");
   const { index } = await loadProject(projectSlug);
   const tasks = Array.isArray(index.tasks) ? index.tasks : [];
   const filtered = tasks.filter((task) => {
     if (status && task.status !== status) return false;
-    if (phase && task.matt_phase !== phase) return false;
     return true;
   });
 
@@ -212,7 +204,7 @@ async function listTasks(projectSlug) {
 
   for (const task of filtered) {
     console.log(
-      `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
+      `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.updated_at}\t${task.title}`,
     );
   }
 }
@@ -248,17 +240,6 @@ async function printSkillCatalog() {
       ].join("\t"),
     );
   }
-}
-
-async function printTaskReadiness(projectSlug, taskId) {
-  const { projectDir } = await loadProject(projectSlug);
-  const taskFile = await resolveTaskFile(projectDir, taskId);
-  if (!(await exists(taskFile))) {
-    throw new Error(`Missing ${path.relative(root, taskFile)}`);
-  }
-  const task = await readJson(taskFile);
-  const catalog = await deriveCanonicalSkillCatalog({ root });
-  console.log(JSON.stringify(projectDeliverableReadiness({ task, root, catalog }), null, 2));
 }
 
 async function printTestingSessions(projectSlug) {
@@ -356,26 +337,7 @@ async function printProjectSnapshot(projectSlug) {
 
   for (const task of tasks) {
     console.log(
-      `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.matt_phase}\t${task.updated_at}\t${task.title}`,
-    );
-  }
-
-  console.log("\nDELIVERABLE_READINESS");
-  const catalog = await deriveCanonicalSkillCatalog({ root });
-  for (const taskSummary of tasks) {
-    const taskFile = path.join(
-      root,
-      "projects",
-      projectSlug,
-      "tasks",
-      `${taskSummary.task_id}.json`,
-    );
-    const task = await readJson(taskFile);
-    const readiness = projectDeliverableReadiness({ task, root, catalog });
-    console.log(
-      `${taskSummary.task_id}\t${readiness.state}\t${readiness.next_phase_ready}\t${readiness.blockers
-        .map((blocker) => blocker.code)
-        .join(",") || "-"}`,
+      `${task.task_id}\t${task.task_kind ?? "workflow-change"}\t${task.status}\t${task.updated_at}\t${task.title}`,
     );
   }
 
@@ -393,6 +355,10 @@ async function printProjectSnapshot(projectSlug) {
 }
 
 try {
+  const removedFilter = ["phase"].join("");
+  if (hasFlag(`--${removedFilter}`)) {
+    throw new Error(`Unsupported argument: --${removedFilter}`);
+  }
   if (hasFlag("--help") || args.length === 0) {
     usage();
   } else if (hasFlag("--list-projects")) {
@@ -417,8 +383,6 @@ try {
       await listTasks(project);
     } else if (getArg("--task")) {
       await printTask(project, getArg("--task"));
-    } else if (getArg("--task-readiness")) {
-      await printTaskReadiness(project, getArg("--task-readiness"));
     } else {
       usage();
       process.exitCode = 1;

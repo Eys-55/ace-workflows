@@ -19,7 +19,7 @@ Each scenario or expanded family variant carries:
 - allowed support;
 - forbidden outcomes;
 - dependency behavior and protected paths;
-- starting phase, approval behavior, and expected phase result;
+- starting repository state, approval behavior, and expected completion result;
 - expected final status, catalog membership, and duplicate count.
 
 ## RED And GREEN
@@ -36,7 +36,7 @@ Each scenario or expanded family variant carries:
 5. Give the runner no expected route, hidden classification, forbidden outcome,
    or rubric.
 6. Grade actual contract state, emitted files, diff, catalog projection,
-   dependency evidence, and phase result.
+   dependency evidence, and completion result.
 7. Preserve first-attempt results, record every retry as a new run linked to its
    prior attempt, and isolate every scenario from prior output.
 
@@ -50,7 +50,7 @@ Record:
 - raw prompt and repository context;
 - exact raw runner output plus expected and observed route;
 - observed ownership, deliverable contracts, artifacts, visibility, catalog
-  membership, phase result, and dependency outcomes;
+  membership, completion result, and dependency outcomes;
 - full created/updated diff, or explicit verified zero-write evidence for a
   blocked/refused case;
 - validation results from an independent deterministic, agent, human, or E2E
@@ -71,7 +71,7 @@ migration-pending
 contract-missing
 contract-invalid
 ownership-unresolved
-phase-approval-unbound
+contract-approval-unbound
 required-artifact-missing
 required-artifact-invalid
 support-artifact-undeclared

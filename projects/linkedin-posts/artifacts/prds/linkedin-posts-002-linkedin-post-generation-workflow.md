@@ -31,7 +31,7 @@ include any mix of projects, tasks, foundry state, whole-system context, and an
 optional rough draft. Scope is not constrained to one default mode. The invariant
 is that every source used by a draft remains traceable in the output.
 
-Each run includes a post-level grilling step before drafting. The grilling step
+Each run includes a post-level planning step before drafting. The planning step
 captures:
 
 - selected source context;
@@ -84,9 +84,9 @@ modify LinkedIn or any other third-party system.
    idea I already started.
 5. As Ace, I want the workflow to generate from context without a rough draft,
    so that I can get candidate posts from raw work state.
-6. As Ace, I want a grilling step before drafting, so that the workflow captures
+6. As Ace, I want a planning step before drafting, so that the workflow captures
    what I actually mean before it writes.
-7. As Ace, I want my wording during grilling to influence the post, so that the
+7. As Ace, I want my wording during planning to influence the post, so that the
    output sounds like me.
 8. As Ace, I want a reusable voice profile, so that the workflow gets better at
    matching my style over time.
@@ -180,14 +180,14 @@ modify LinkedIn or any other third-party system.
 - Preserve provenance for every included project, task, and system source.
 - Keep source project trackers read-only by default during post generation.
 - Support two input modes:
-  1. generate from selected context plus grilling;
-  2. revise an existing rough draft using selected context plus grilling.
-- Use a post-level grilling step for every run.
-- Require target audience during grilling.
-- Require a low, medium, or high personalness level during grilling.
+  1. generate from selected context plus planning;
+  2. revise an existing rough draft using selected context plus planning.
+- Use a post-level planning step for every run.
+- Require target audience during planning.
+- Require a low, medium, or high personalness level during planning.
 - Do not require a desired reader action.
 - Allow the workflow to suggest a reader action when useful.
-- Treat user wording during grilling as voice source material.
+- Treat user wording during planning as voice source material.
 - Create and reuse a durable user voice profile.
 - Require explicit manual approval before updating the reusable voice profile.
 - Allow a run to propose voice-profile updates without applying them.
@@ -214,7 +214,7 @@ modify LinkedIn or any other third-party system.
 - Use completed draft runs as examples, voice-profile review material, and
   regression fixture candidates.
 - The highest testing seam should be the full draft-run behavior: selected
-  context and grilling inputs in, durable draft-run artifact out.
+  context and planning inputs in, durable draft-run artifact out.
 - If deterministic helpers are needed, keep them as validation or query helpers
   rather than moving workflow logic out of the skill surface.
 
@@ -227,7 +227,7 @@ modify LinkedIn or any other third-party system.
 - A valid run must record the selected context sources.
 - A valid run must include target audience and personalness level.
 - A valid run may omit desired reader action.
-- A valid run must preserve user wording captured during grilling.
+- A valid run must preserve user wording captured during planning.
 - A valid run must use the reusable voice profile when available.
 - A valid run must not update the reusable voice profile without explicit
   approval.

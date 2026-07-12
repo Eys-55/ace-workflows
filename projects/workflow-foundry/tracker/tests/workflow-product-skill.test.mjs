@@ -1,17 +1,14 @@
 import assert from "node:assert/strict";
-import { execFile as execFileCallback } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
-import { promisify } from "node:util";
 
 import { deriveCanonicalSkillCatalog } from "../../../../scripts/workflow-skill-catalog.mjs";
 
 const testDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(testDir, "../../../..");
-const execFile = promisify(execFileCallback);
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 const bundle = path.join(repoRoot, ".agents/skills/build-workflow-product");
 const scenariosPath = path.join(
@@ -215,22 +212,19 @@ test("fixes the downstream stack, sidecar, package, harness, state, and security
   }
 });
 
-test("routes create and revamp intent through lifecycle without duplicating skill authority", async () => {
-  const [initiate, continuation, help] = await Promise.all([
-    read(".agents/skills/initiate-task/SKILL.md"),
-    read(".agents/skills/continue-task/SKILL.md"),
+test("exposes create and revamp intent directly without task-routing skills", async () => {
+  const [builder, help, instructions] = await Promise.all([
+    read(".agents/skills/build-workflow-product/SKILL.md"),
     read(".agents/skills/workflow-help/SKILL.md"),
+    read("AGENTS.md"),
   ]);
 
-  for (const contents of [initiate, continuation, help]) {
-    assert.match(contents, /\$build-workflow-product/);
-    assert.match(contents, /ui-application/);
-  }
-  assert.match(initiate, /revamp/i);
-  assert.match(initiate, /existing.*task|duplicate.*task/is);
-  assert.match(continuation, /selected.*task/is);
-  assert.match(help, /create.*UI|revamp.*UI/is);
-  assert.match([initiate, continuation, help].join("\n"), /\$build-workflow-skill/);
+  assert.match(builder, /create|revamp/i);
+  assert.match(builder, /ui-application/);
+  assert.match(builder, /\$build-workflow-skill/);
+  assert.match(help, /--skill-catalog/);
+  assert.match(instructions, /Codex plan/i);
+  assert.match(instructions, /push the current working branch/i);
 });
 
 test("preserves RED baselines, twelve passing Sol runs, pass3 traps, and domain divergence", async () => {
@@ -345,33 +339,11 @@ test("preserves RED baselines, twelve passing Sol runs, pass3 traps, and domain 
     entry.exit_code === 0 && entry.started_at && entry.completed_at && entry.raw_output
   ));
 
-  const approvedPaths = task.phase_guard.approved_artifacts.map((entry) => entry.path);
   const forbiddenProductPath = /\.(?:tsx?|jsx?|css|html)$/i;
-  assert.ok(approvedPaths.every((entry) => !forbiddenProductPath.test(entry)));
-  const { stdout: introductionCommit } = await execFile(
-    "git",
-    ["log", "--diff-filter=A", "--format=%H", "-1", "--", ".agents/skills/build-workflow-product/SKILL.md"],
-    { cwd: repoRoot },
+  assert.ok(task.linked_artifacts.every((entry) => !forbiddenProductPath.test(entry)));
+  assert.ok(
+    task.linked_artifacts.every((entry) =>
+      !/\.agents\/skills\/build-workflow-product\/(?:src|server|components|templates|assets)\//.test(entry)
+    ),
   );
-  assert.match(introductionCommit.trim(), /^[0-9a-f]{40}$/);
-  const { stdout: introducedFiles } = await execFile(
-    "git",
-    ["diff-tree", "--no-commit-id", "--name-only", "-r", introductionCommit.trim()],
-    { cwd: repoRoot },
-  );
-  const currentTaskFiles = introducedFiles.split(/\r?\n/).filter(Boolean);
-  const controlPlaneFiles = new Set([
-    "projects/workflow-foundry/tasks/index.json",
-    "projects/workflow-foundry/tasks/workflow-foundry-015.json",
-  ]);
-  const linkedPaths = task.linked_artifacts;
-  const fileIsBound = (entry) => controlPlaneFiles.has(entry) || linkedPaths.some((linked) =>
-    entry === linked || (!path.extname(linked) && entry.startsWith(`${linked}/`))
-  );
-  assert.ok(currentTaskFiles.every(fileIsBound), `unexpected task file: ${currentTaskFiles.find((entry) => !fileIsBound(entry))}`);
-  assert.ok(currentTaskFiles.every((entry) =>
-    !forbiddenProductPath.test(entry) &&
-    !/\.agents\/skills\/build-workflow-product\/(?:src|server|components|templates|assets)\//.test(entry) &&
-    /\.(?:md|json|yaml|mjs)$/.test(entry)
-  ));
 });

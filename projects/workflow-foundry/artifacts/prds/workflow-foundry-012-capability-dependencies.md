@@ -25,7 +25,7 @@ cannot tell which task caused which packet or artifact to be created.
 
 ## Solution
 
-Extend the task workflow so `$initiate-task` and `$continue-task` can model
+Extend the task workflow so `native Codex planning` and `native Codex planning` can model
 explicit capability dependencies.
 
 A capability-dependent task remains a single primary project task. It may name
@@ -33,26 +33,26 @@ one or more external workflow capabilities as `capability_dependencies`, and it
 may include ordered `dependency_steps` that say when and why those capabilities
 are called.
 
-Dependency projects do not need to advertise themselves. `$initiate-task` may
+Dependency projects do not need to advertise themselves. `native Codex planning` may
 suggest dependencies only from known registered tracker context and existing
 project, task, skill, or artifact records. It must not broadly scan arbitrary
 project folders looking for capabilities.
 
-When a dependency project is selected, `$initiate-task` loads all usable known
+When a dependency project is selected, `native Codex planning` loads all usable known
 skills or skill metadata for that dependency project, plus enough relationship
 context to understand how the selected skills can be called. It does not need
 to audit or load the entire workflow agent.
 
-Before task creation, `$initiate-task` presents a final task draft that includes
+Before task creation, `native Codex planning` presents a final task draft that includes
 the primary project, task title, summary, capability dependencies, ordered
 dependency steps, selected dependency skill map, allowed writes, protected
 paths, expected artifacts, and acceptance criteria. It waits for explicit
 operator approval before writing task JSON.
 
-Dependency calls may happen during intake or grilling when needed to understand
+Dependency calls may happen during intake or planning when needed to understand
 or prepare the task. Those calls may create real artifacts. Any such artifact
-must be labeled as an intake or grilling dependency artifact and indexed under
-the primary task with provenance. If the post-grilling PRD names the artifact,
+must be labeled as an intake or planning dependency artifact and indexed under
+the primary task with provenance. If the post-planning PRD names the artifact,
 it becomes an official task artifact with promotion metadata. If the PRD does
 not name it, it remains linked evidence or context, not a final deliverable.
 
@@ -73,21 +73,21 @@ run continuously once it starts.
 3. As the foundry operator, I want dependency use to be explicit in task JSON, so that I can audit why another project was used.
 4. As the foundry operator, I want `capability_dependencies` to be confirmed before task creation, so that inferred dependencies do not silently become approved.
 5. As the foundry operator, I want ordered `dependency_steps`, so that dependency calls are part of the task plan rather than loose metadata.
-6. As the foundry operator, I want `$initiate-task` to suggest dependencies from known tracker context, so that I can find useful workflows without remembering every skill name.
+6. As the foundry operator, I want `native Codex planning` to suggest dependencies from known tracker context, so that I can find useful workflows without remembering every skill name.
 7. As the foundry operator, I want dependency suggestions limited to known trackers, so that arbitrary project folders are not scanned or connected accidentally.
 8. As the foundry operator, I want projects to remain standalone, so that a project does not need to advertise itself as a reusable capability.
-9. As the foundry operator, I want `$initiate-task` to load all usable known skills for a selected dependency project, so that the chosen dependency is understood in context.
+9. As the foundry operator, I want `native Codex planning` to load all usable known skills for a selected dependency project, so that the chosen dependency is understood in context.
 10. As the foundry operator, I want the task draft to show selected dependency skills, so that approval is specific.
 11. As the foundry operator, I want loaded-but-not-selected skills excluded from the approved call surface, so that broad loading does not imply broad permission.
 12. As the foundry operator, I want selected dependency skills to call documented helper skills, so that normal workflow behavior still works.
 13. As the foundry operator, I want helper usage recorded after the fact, so that provenance remains complete.
 14. As the foundry operator, I want dependency-created artifacts owned by the primary task, so that the task that caused the work owns the result.
 15. As the foundry operator, I want dependency-created artifacts to keep dependency provenance, so that reviewers can trace which project and skill produced them.
-16. As the foundry operator, I want intake and grilling dependency calls to create real artifacts when useful, so that early discovery work does not need to be recreated later.
-17. As the foundry operator, I want PRD-named intake or grilling artifacts promoted into official task artifacts, so that valuable early outputs become durable deliverables.
-18. As the foundry operator, I want unpromoted intake or grilling artifacts retained as evidence, so that context is preserved without bloating final deliverables.
+16. As the foundry operator, I want intake and planning dependency calls to create real artifacts when useful, so that early discovery work does not need to be recreated later.
+17. As the foundry operator, I want PRD-named intake or planning artifacts promoted into official task artifacts, so that valuable early outputs become durable deliverables.
+18. As the foundry operator, I want unpromoted intake or planning artifacts retained as evidence, so that context is preserved without bloating final deliverables.
 19. As the foundry operator, I want dependency artifacts indexed under the primary task by default, so that dependency project trackers are not mutated.
-20. As the foundry operator, I want `$continue-task` to propose new dependency steps when execution discovers a real need, so that large projects can adapt midstream.
+20. As the foundry operator, I want `native Codex planning` to propose new dependency steps when execution discovers a real need, so that large projects can adapt midstream.
 21. As the foundry operator, I want new mid-execution dependencies to require approval, so that hidden cross-project calls do not happen.
 22. As the foundry operator, I want every dependency step to have a write plan before implementation, so that implementation can proceed without repeated boundary interruptions.
 23. As the foundry operator, I want implementation preflight to block missing write plans, so that dependency calls cannot run with unclear artifact boundaries.
@@ -99,7 +99,7 @@ run continuously once it starts.
 
 ## Implementation Decisions
 
-- Keep `$initiate-task` as the operator-facing entrypoint.
+- Keep `native Codex planning` as the operator-facing entrypoint.
 - Do not create a separate primary skill for connecting projects.
 - Treat the current model as capability dependency, not direct project
   integration.
@@ -127,18 +127,18 @@ run continuously once it starts.
 - Selected dependency skills may call documented helper skills when those
   helpers are part of the selected skill's normal workflow.
 - Record helper skill usage in provenance after use.
-- Allow dependency calls during intake and grilling when needed to understand or
+- Allow dependency calls during intake and planning when needed to understand or
   prepare the task.
-- Allow intake and grilling dependency calls to create real artifacts.
+- Allow intake and planning dependency calls to create real artifacts.
 - Label pre-execution dependency artifacts with phase, primary task,
   dependency project, source workflow or skill, purpose, generated files, and
   protected-boundary metadata.
-- Promote intake or grilling dependency artifacts into official task artifacts
-  when the post-grilling PRD names them.
-- Keep unpromoted intake or grilling artifacts as linked evidence or context.
+- Promote intake or planning dependency artifacts into official task artifacts
+  when the post-planning PRD names them.
+- Keep unpromoted intake or planning artifacts as linked evidence or context.
 - Index dependency-created artifacts under the primary task by default.
 - Do not mutate the dependency project tracker with backlinks by default.
-- Allow `$continue-task` to propose a new dependency step later when execution
+- Allow `native Codex planning` to propose a new dependency step later when execution
   discovers a real need.
 - Require workflow context loading and operator approval before using any
   newly discovered dependency step.
@@ -172,8 +172,8 @@ run continuously once it starts.
   files elsewhere.
 - Verify that dependency-created artifacts are indexed under the primary task.
 - Verify that dependency project trackers are not mutated by default.
-- Verify that PRD-named intake or grilling dependency artifacts can be promoted.
-- Verify that non-promoted intake or grilling dependency artifacts remain
+- Verify that PRD-named intake or planning dependency artifacts can be promoted.
+- Verify that non-promoted intake or planning dependency artifacts remain
   evidence or context only.
 - Verify that provenance records include primary project, primary task id,
   dependency step id, dependency project, selected skill, helper skills used,
@@ -190,7 +190,7 @@ run continuously once it starts.
 - Building a full source-project connection registry.
 - Mutating dependency project trackers with backlinks by default.
 - Auditing the entire dependency workflow agent during task initiation.
-- Replacing the normal Matt Pocock task phases.
+- Replacing the normal previous workflow task phases.
 - Creating one helper task per dependency project by default.
 - Implementing a real health workflow or real-life-workflows packet in this
   task.
@@ -199,7 +199,7 @@ run continuously once it starts.
 ## Further Notes
 
 This PRD supersedes the earlier direct connection and wrapper framing from the
-grilling history. In this task, "connection" means an explicit capability
+planning history. In this task, "connection" means an explicit capability
 dependency inside a primary project task. The dependency project stays isolated,
 the primary task owns dependency-created artifacts, and provenance explains how
 those artifacts were produced.

@@ -14,8 +14,8 @@ Reviewed the `workflow-foundry-012` implementation against:
 - `projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-003-dependency-write-plan-gate.md`
 - `projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-004-continue-time-dependency-steps.md`
 - `projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-005-validation-and-regression-coverage.md`
-- `.agents/skills/initiate-task/SKILL.md`
-- `.agents/skills/continue-task/SKILL.md`
+- `.agents/skills/native Codex planning/SKILL.md`
+- `.agents/skills/native Codex planning/SKILL.md`
 - `scripts/validate-workflow-state.mjs`
 
 ## Standards
@@ -41,7 +41,7 @@ The implementation preserves a single primary task model, requires explicit or
 confirmed dependency use, limits suggestions to known tracker context, keeps
 dependency project trackers read-only by default, records dependency steps and
 artifact provenance, requires implementation-time write plans, and lets
-`$continue-task` propose mid-execution dependency steps only after context load
+`native Codex planning` propose mid-execution dependency steps only after context load
 and operator approval.
 
 Direct project wrappers, broad connection registries, and live project-folder

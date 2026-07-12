@@ -4,17 +4,15 @@
   "title": "Create tracker UI runner skill and project workflow view",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Create a foundry skill that starts or opens the workflow tracker UI as a one-skill operation, and improve the tracker UI so operators can choose a project, inspect actual workflow tasks per project, and view linked artifacts without cramped wrapping.",
   "acceptance_criteria": [
     "the skill has a lowercase hyphenated folder under .agents/skills with matching frontmatter name and Codex metadata",
     "the skill defaults to fast open/start behavior: open the existing tracker server when running, otherwise start Astro and open the UI",
     "the skill exposes an optional verification path for tests and builds without making verification mandatory for normal opening",
     "the UI provides a project chooser rather than only an all-project/current-project toggle",
-    "the selected project view foregrounds workflow tasks and their status, Matt phase, next action, and useful workflow context",
+    "the selected project view foregrounds workflow tasks and their status, previous workflow phase, next action, and useful workflow context",
     "linked artifacts are truncated, summarized, or progressively disclosed so long paths do not create cramped table wrapping",
-    "each task exposes a safe continue action that generates the exact $continue-task command for copying",
+    "each task exposes a safe continue action that generates the exact native Codex planning command for copying",
     "the UI remains read-only against project and task JSON",
     "tests or generated-output checks prove the project filter and artifact display behavior",
     "workflow state validation and tracker verification pass"
@@ -29,7 +27,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, all non-done tasks, Matt/ECC references, the existing tracker UI task, and skill creation rules before shaping or implementing the tracker runner skill and project workflow view.",
+    "summary": "Load workflow-foundry state, all non-done tasks, previous workflow/ECC references, the existing tracker UI task, and skill creation rules before shaping or implementing the tracker runner skill and project workflow view.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -45,9 +43,9 @@
       "projects/workflow-foundry/tasks/workflow-foundry-007.json",
       "projects/workflow-foundry/tasks/workflow-foundry-008.json",
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-009-tracker-ui-runner.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-001-derived-state.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-009-issue-002-project-console-ui.md",
@@ -69,54 +67,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": ".agents/skills/workflow-tracker-ui/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for the tracker UI runner skill.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/workflow-tracker-ui/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for the tracker UI runner skill.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/src/pages/index.astro",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for the project workflow view.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for derived tracker state.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation with tracker data tests.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/generated-output.test.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation with generated-output tests.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/package.json",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to proceed from grilling through PRD, issues, and full implementation for tracker verification scripts if needed.",
-        "approved_at": "2026-07-07"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
@@ -143,11 +93,11 @@
   "session_log": [
     {
       "date": "2026-07-07",
-      "event": "Created intake task after user invoked initiate-task for a foundry skill that can run the tracker UI and requested a more intuitive per-project workflow view with non-cramped linked artifacts."
+      "event": "Created intake task after user invoked native Codex planning for a foundry skill that can run the tracker UI and requested a more intuitive per-project workflow view with non-cramped linked artifacts."
     },
     {
       "date": "2026-07-07",
-      "event": "Continued task into grilling after loading workflow-foundry state, existing tracker UI implementation, linked artifacts, and Matt Pocock ask-matt/grilling references."
+      "event": "Continued task into planning after loading workflow-foundry state, existing tracker UI implementation, linked artifacts, and previous workflow ask-previous workflow/planning references."
     },
     {
       "date": "2026-07-07",
@@ -163,15 +113,15 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved Codex handoff boundary: task UI actions should generate a $continue-task command and may offer a best-effort app handoff only when a supported Codex app mechanism exists, rather than silently executing commands from static browser code."
+      "event": "Resolved Codex handoff boundary: task UI actions should generate a native Codex planning command and may offer a best-effort app handoff only when a supported Codex app mechanism exists, rather than silently executing commands from static browser code."
     },
     {
       "date": "2026-07-07",
-      "event": "Wrote PRD for the tracker UI runner skill and project workflow view; moved task to PRD phase with issues as the next action."
+      "event": "Wrote PRD for the tracker UI runner skill and project workflow view; moved task to planning with issues as the next action."
     },
     {
       "date": "2026-07-07",
-      "event": "Moved task back to grilling at user request to further interrogate the tracker UI before issue breakdown or implementation."
+      "event": "Moved task back to planning at user request to further interrogate the tracker UI before issue breakdown or implementation."
     },
     {
       "date": "2026-07-07",
@@ -183,11 +133,11 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved phase display nuance: the UI should distinguish pre-Matt workflow state such as intake, project preload, and phase-guard readiness from the later Matt flow phases like grilling, PRD, issues, implement, and code-review."
+      "event": "Resolved phase display nuance: the UI should distinguish pre-previous workflow workflow state such as intake, project preload, and phase-guard readiness from the later previous workflow flow phases like planning, PRD, issues, implement, and code-review."
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved lifecycle visualization: the right pane should include a lifecycle rail showing Intake/Preflight before Grilling, PRD, Issues, Implement, Code Review, and Done, with the selected task highlighted at its current point."
+      "event": "Resolved lifecycle visualization: the right pane should include a lifecycle rail showing Intake/Preflight before planning, PRD, Issues, Implement, Code Review, and Done, with the selected task highlighted at its current point."
     },
     {
       "date": "2026-07-07",
@@ -211,7 +161,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Removed direct Codex app handoff from current UI scope at user request; continue action should only generate/copy the exact $continue-task command for now."
+      "event": "Removed direct Codex app handoff from current UI scope at user request; continue action should only generate/copy the exact native Codex planning command for now."
     },
     {
       "date": "2026-07-07",
@@ -219,7 +169,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved continue command UI: the detail panel should show the explicit $continue-task command in a monospace command box with a copy button."
+      "event": "Resolved continue command UI: the detail panel should show the explicit native Codex planning command in a monospace command box with a copy button."
     },
     {
       "date": "2026-07-07",
@@ -255,7 +205,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Closed grilling at user direction, refreshed the PRD from all accepted design decisions, created four vertical-slice issue artifacts, and moved the task to implement with explicit approvals for the tracker UI, data tests, and workflow-tracker-ui skill files."
+      "event": "Closed planning at user direction, refreshed the PRD from all accepted design decisions, created four vertical-slice issue artifacts, and moved the task to implement with explicit approvals for the tracker UI, data tests, and workflow-tracker-ui skill files."
     },
     {
       "date": "2026-07-07",

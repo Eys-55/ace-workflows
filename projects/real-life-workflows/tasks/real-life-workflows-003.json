@@ -4,9 +4,7 @@
   "title": "Audit polluted imported skill surface",
   "task_kind": "tracker-maintenance",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
-  "summary": "Audit the quarantined market-research-agent skill import because it is polluting operator understanding of what real-life-workflows actually owns, especially by exposing deprecated, repo-control, and Matt-phase helper skills as if they were active project skills.",
+  "summary": "Audit the quarantined market-research-agent skill import because it is polluting operator understanding of what real-life-workflows actually owns, especially by exposing deprecated, repo-control, and previous workflow-phase helper skills as if they were active project skills.",
   "acceptance_criteria": [
     "the audit distinguishes canonical callable skills from quarantined imported reference skills",
     "the audit classifies each imported skill as promote, rewrite, keep quarantined, merge into an existing workflow, or delete candidate",
@@ -44,70 +42,10 @@
       ".agents/skills",
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md"
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/quarantine.json",
-        "phase": "implement",
-        "approval_note": "Approved after grilling decision to make the quarantined import machine-readable as source evidence only, not active skills.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/MANIFEST.md",
-        "phase": "implement",
-        "approval_note": "Approved to point human readers at the new machine-readable quarantine marker and explicit non-callable boundary.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/AGENTS.md",
-        "phase": "implement",
-        "approval_note": "Approved to make the project-level operator boundary explicit: quarantine imports are source evidence only, not the active skill surface.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "scripts/query-workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Approved to expose quarantine imports through an explicit query path instead of implicit skill discovery.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "scripts/validate-workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Approved to validate machine-readable quarantine markers and prevent imported skills from being treated as active surfaces.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/testing-sessions/index.json",
-        "phase": "implement",
-        "approval_note": "Operator requested leaving testing mode before initiating the pollution audit; this file was updated by the testing-session stop action.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z/session.json",
-        "phase": "implement",
-        "approval_note": "Operator requested leaving testing mode before initiating the pollution audit; this file was updated by the testing-session stop action.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z/events.jsonl",
-        "phase": "implement",
-        "approval_note": "Operator requested leaving testing mode before initiating the pollution audit; this file was updated by the testing-session stop action.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/testing-sessions/real-life-workflows-20260707T110147Z/notes.md",
-        "phase": "implement",
-        "approval_note": "Operator requested leaving testing mode before initiating the pollution audit; this file was updated by the testing-session stop action.",
-        "approved_at": "2026-07-07"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [
     "real-life-workflows-001",
@@ -146,15 +84,15 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Moved task into Matt-style grilling after loading root, project, task, testing-session, quarantine manifest, canonical skill surface, imported skill surface, and Matt grilling references."
+      "event": "Moved task into previous workflow-style planning after loading root, project, task, testing-session, quarantine manifest, canonical skill surface, imported skill surface, and previous workflow planning references."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: none of the 18 imported market-research-agent skills should be promoted as-is. Proper quarantine must keep them as untrusted source evidence until a future active skill is rewritten around the real-life-workflows job."
+      "event": "planning decision: none of the 18 imported market-research-agent skills should be promoted as-is. Proper quarantine must keep them as untrusted source evidence until a future active skill is rewritten around the real-life-workflows job."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: proper quarantine should keep the imported skill files in the repo as source evidence, but make their boundary explicit as not callable, not active, not discoverable as real skills, and not reportable as the real-life-workflows skill surface."
+      "event": "planning decision: proper quarantine should keep the imported skill files in the repo as source evidence, but make their boundary explicit as not callable, not active, not discoverable as real skills, and not reportable as the real-life-workflows skill surface."
     },
     {
       "date": "2026-07-07",

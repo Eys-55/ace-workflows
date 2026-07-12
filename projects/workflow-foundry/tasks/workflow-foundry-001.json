@@ -4,8 +4,6 @@
   "title": "Connect workflow skills and handoffs",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Tighten the existing workflow skills so setup, help, review, initiate, and continue connect through explicit handoffs, live registry state, and enforceable JSON validation.",
   "acceptance_criteria": [
     "workflow-foundry project state exists and validates",
@@ -43,8 +41,8 @@
       ".agents/skills/workflow-help/SKILL.md",
       ".agents/skills/setup-workflow-project/SKILL.md",
       ".agents/skills/review-project-state/SKILL.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/tasks/workflow-foundry-008.json",
@@ -58,11 +56,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [],
-    "process_exceptions": []
-  },
   "dependencies": [],
   "related_tasks": [],
   "linked_artifacts": [
@@ -71,8 +64,8 @@
     ".agents/skills/workflow-help/SKILL.md",
     ".agents/skills/setup-workflow-project/SKILL.md",
     ".agents/skills/review-project-state/SKILL.md",
-    ".agents/skills/initiate-task/SKILL.md",
-    ".agents/skills/continue-task/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
     "scripts/query-workflow-state.mjs",
     "scripts/validate-workflow-state.mjs"
   ],

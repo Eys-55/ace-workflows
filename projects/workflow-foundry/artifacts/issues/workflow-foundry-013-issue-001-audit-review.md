@@ -21,7 +21,7 @@ into an auditable cleanup plan, not to edit tracker state or source artifacts.
       cleanup actions, and exact follow-up task paths.
 - [x] The skill does not mutate tracker state, source artifacts, task phases, or
       Git state by default.
-- [x] The skill recommends `$continue-task`, `$initiate-task`, or
+- [x] The skill recommends `native Codex planning`, `native Codex planning`, or
       `$audit-cleanup` for follow-up work.
 
 ## Blocked By

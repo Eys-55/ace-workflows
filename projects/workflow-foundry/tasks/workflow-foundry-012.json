@@ -1,34 +1,32 @@
 {
   "task_id": "workflow-foundry-012",
   "project_slug": "workflow-foundry",
-  "title": "Add capability dependencies to initiate-task",
+  "title": "Add capability dependencies to native Codex planning",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
-  "summary": "Change initiate-task and continue-task so one primary project task can explicitly depend on usable skills from another known project, with ordered dependency steps, write plans, artifact promotion, and provenance while keeping the dependency project isolated.",
+  "summary": "Change native Codex planning and native Codex planning so one primary project task can explicitly depend on usable skills from another known project, with ordered dependency steps, write plans, artifact promotion, and provenance while keeping the dependency project isolated.",
   "acceptance_criteria": [
     "the PRD defines capability dependencies as a primary-task feature, not as direct project wrapper or connection-registry integration",
-    "initiate-task can create one unified primary project task that explicitly records external project workflow capabilities it is allowed to call",
+    "native Codex planning can create one unified primary project task that explicitly records external project workflow capabilities it is allowed to call",
     "task JSON supports capability_dependencies for external project workflow capabilities that a unified primary task may call during execution",
     "task JSON supports ordered dependency_steps with purpose, dependency project, selected skill, expected inputs, expected outputs, allowed writes, protected paths, and provenance requirements",
     "capability_dependencies can be provided explicitly or inferred from natural language, but inferred dependencies must be confirmed with the operator before task creation",
     "capability dependency suggestions come only from known registered project trackers and existing project, task, skill, or artifact records, not from broad live scans or project self-advertising",
-    "when a dependency project is selected, initiate-task loads all usable known skills or skill metadata for that project plus enough relationship context to understand how selected skills can be called, without auditing the entire workflow agent",
+    "when a dependency project is selected, native Codex planning loads all usable known skills or skill metadata for that project plus enough relationship context to understand how selected skills can be called, without auditing the entire workflow agent",
     "task drafts with capability_dependencies include a compact selected-skill map showing intended purpose, call boundary, expected artifacts, allowed writes, and protected paths",
     "loaded-but-not-selected dependency skills remain outside the approved call surface",
     "selected dependency skills may call documented helper skills as part of their normal workflow, but helper usage is recorded in provenance after use",
-    "dependency calls during intake or grilling may create real artifacts when needed to understand or prepare the task",
-    "intake or grilling dependency artifacts are labeled with phase, primary task provenance, dependency project, source workflow or skill, purpose, generated files, and protected-boundary metadata",
-    "post-grilling PRD inclusion promotes intake or grilling dependency artifacts into official task artifacts while preserving original provenance and adding promotion metadata",
-    "intake or grilling dependency artifacts not named in the PRD remain linked evidence or context, not final deliverables",
+    "dependency calls during intake or planning may create real artifacts when needed to understand or prepare the task",
+    "intake or planning dependency artifacts are labeled with phase, primary task provenance, dependency project, source workflow or skill, purpose, generated files, and protected-boundary metadata",
+    "post-planning PRD inclusion promotes intake or planning dependency artifacts into official task artifacts while preserving original provenance and adding promotion metadata",
+    "intake or planning dependency artifacts not named in the PRD remain linked evidence or context, not final deliverables",
     "dependency-created artifacts are indexed under the primary project task by default and do not mutate the dependency project tracker with backlinks",
-    "continue-task may propose a new dependency_step mid-execution only after loading the referenced workflow context, updating provenance and write boundaries, and receiving operator approval",
+    "native Codex planning may propose a new dependency_step mid-execution only after loading the referenced workflow context, updating provenance and write boundaries, and receiving operator approval",
     "before implementation starts, PRD or issue artifacts include a dependency_write_plan for every dependency_step naming expected output paths or patterns, allowed write zones, protected paths, artifact promotion rules, provenance requirements, and stop conditions",
     "implementation preflight verifies every dependency_step has an approved dependency_write_plan and blocks dependency execution when any required plan is missing or incomplete",
     "if a selected dependency skill or helper tries to write outside the approved artifact boundary, execution stops and asks for operator approval",
     "after a dependency_step runs, the task records provenance with primary project, primary task id, dependency step id, dependency project, selected skill, helper skills used, inputs, generated artifacts, dependency_write_plan used, phase, timestamp, and artifact status",
-    "the derived task flow preserves initiate-task preload, continue-task resume behavior, phase guard, Matt Pocock phase handling, and ECC concepts",
+    "the derived task flow preserves native Codex planning preload, native Codex planning resume behavior, phase guard, previous workflow phase handling, and ECC concepts",
     "validation or fixtures prove only approved dependency skills are callable, source-project control-plane files remain unchanged, dependency_write_plan preflight blocks incomplete steps, and provenance is recorded for dependency-created artifacts"
   ],
   "ecc_concepts_applied": [
@@ -41,7 +39,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, every non-done workflow-foundry task, Matt/ECC references, and initiate-task before shaping the one-way project skill connection workflow.",
+    "summary": "Load workflow-foundry state, every non-done workflow-foundry task, previous workflow/ECC references, and native Codex planning before shaping the one-way project skill connection workflow.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -65,9 +63,9 @@
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-004-continue-time-dependency-steps.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-005-validation-and-regression-coverage.md",
       "projects/workflow-foundry/artifacts/reviews/workflow-foundry-012-code-review.md",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/tasks/workflow-foundry-013.json",
@@ -75,30 +73,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": ".agents/skills/initiate-task/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to build all workflow-foundry-012 issue slices for capability dependency task initiation.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": ".agents/skills/continue-task/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to build all workflow-foundry-012 issue slices for continue-time dependency additions.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "scripts/validate-workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to add capability dependency validation and regression coverage.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
@@ -114,18 +88,18 @@
     "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-004-continue-time-dependency-steps.md",
     "projects/workflow-foundry/artifacts/issues/workflow-foundry-012-issue-005-validation-and-regression-coverage.md",
     "projects/workflow-foundry/artifacts/reviews/workflow-foundry-012-code-review.md",
-    ".agents/skills/initiate-task/SKILL.md",
-    ".agents/skills/continue-task/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
     "scripts/validate-workflow-state.mjs"
   ],
   "session_log": [
     {
       "date": "2026-07-07",
-      "event": "Created intake task after user invoked initiate-task for a one-way project skill connection workflow where the foundry can use approved project skills while the source project remains isolated."
+      "event": "Created intake task after user invoked native Codex planning for a one-way project skill connection workflow where the foundry can use approved project skills while the source project remains isolated."
     },
     {
       "date": "2026-07-07",
-      "event": "Moved to grilling after user asked to grill the one-way project skill connection workflow."
+      "event": "Moved to planning after user asked to grill the one-way project skill connection workflow."
     },
     {
       "date": "2026-07-07",
@@ -157,15 +131,15 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved operator entrypoint: keep initiate-task as the primary user-facing command, and activate connection-specific behavior only when the operator explicitly says the initiated task is for connecting a project or connection integration."
+      "event": "Resolved operator entrypoint: keep native Codex planning as the primary user-facing command, and activate connection-specific behavior only when the operator explicitly says the initiated task is for connecting a project or connection integration."
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved invocation shape: support a structured initiate-task form such as target:connection source_project:<slug-or-path>, while also accepting clear natural-language requests that explicitly say the task is for connecting or integrating a project's skills into the foundry."
+      "event": "Resolved invocation shape: support a structured native Codex planning form such as target:connection source_project:<slug-or-path>, while also accepting clear natural-language requests that explicitly say the task is for connecting or integrating a project's skills into the foundry."
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved natural-language completion behavior: when the operator asks naturally to connect a project, initiate-task should keep asking one missing-field question at a time until the complete structured command can be formed."
+      "event": "Resolved natural-language completion behavior: when the operator asks naturally to connect a project, native Codex planning should keep asking one missing-field question at a time until the complete structured command can be formed."
     },
     {
       "date": "2026-07-07",
@@ -197,7 +171,7 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Major model pivot during grilling: the operator clarified that the foundry should not primarily directly integrate or run another project's skills as imported skills. Instead, initiate-task should be able to recognize that a requested task needs a known project workflow capability, such as real-life-workflows, and route/use that workflow through normal task initiation while keeping the source project isolated."
+      "event": "Major model pivot during planning: the operator clarified that the foundry should not primarily directly integrate or run another project's skills as imported skills. Instead, native Codex planning should be able to recognize that a requested task needs a known project workflow capability, such as real-life-workflows, and route/use that workflow through normal task initiation while keeping the source project isolated."
     },
     {
       "date": "2026-07-08",
@@ -205,7 +179,7 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Refined core scope: this task is about editing how initiate-task creates tasks so it can create tandem linked tasks across projects, for example a health-domain task that requires a workflow capability from real-life-workflows."
+      "event": "Refined core scope: this task is about editing how native Codex planning creates tasks so it can create tandem linked tasks across projects, for example a health-domain task that requires a workflow capability from real-life-workflows."
     },
     {
       "date": "2026-07-08",
@@ -217,23 +191,23 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved dependency finalization gate: initiate-task may infer capability_dependencies from natural language, but must ask the operator to confirm them before task creation. Once a dependency is named or inferred, it must fully read the referenced source workflow or skill context before proceeding so the task starts from shared understanding."
+      "event": "Resolved dependency finalization gate: native Codex planning may infer capability_dependencies from natural language, but must ask the operator to confirm them before task creation. Once a dependency is named or inferred, it must fully read the referenced source workflow or skill context before proceeding so the task starts from shared understanding."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved task draft gate: after confirmed capability dependencies are loaded, initiate-task should show a final task draft with primary project, title, summary, capability dependencies, loaded source workflow context, allowed writes, protected paths, and acceptance criteria, then wait for explicit create approval before writing task JSON."
+      "event": "Resolved task draft gate: after confirmed capability dependencies are loaded, native Codex planning should show a final task draft with primary project, title, summary, capability dependencies, loaded source workflow context, allowed writes, protected paths, and acceptance criteria, then wait for explicit create approval before writing task JSON."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved created phase and discovery behavior: capability-dependent tasks are still created at intake, not grilling. During intake drafting, initiate-task can query known workflows and suggest capability_dependencies when the operator is unsure which workflow capability should be used."
+      "event": "Resolved created phase and discovery behavior: capability-dependent tasks are still created at intake, not planning. During intake drafting, native Codex planning can query known workflows and suggest capability_dependencies when the operator is unsure which workflow capability should be used."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved capability suggestion source: initiate-task should suggest dependencies only from known registered project trackers and their recorded workflow capabilities, not from broad live scans of arbitrary project folders."
+      "event": "Resolved capability suggestion source: native Codex planning should suggest dependencies only from known registered project trackers and their recorded workflow capabilities, not from broad live scans of arbitrary project folders."
     },
     {
       "date": "2026-07-08",
-      "event": "Refined capability discovery and artifact provenance: projects should not have to advertise themselves as reusable capabilities. initiate-task should infer possible capability dependencies from known tracker context, and the durable requirement is that files created through dependency use are stored and indexed with clear provenance linking the primary task, dependency project, source workflow or skill, and generated artifacts."
+      "event": "Refined capability discovery and artifact provenance: projects should not have to advertise themselves as reusable capabilities. native Codex planning should infer possible capability dependencies from known tracker context, and the durable requirement is that files created through dependency use are stored and indexed with clear provenance linking the primary task, dependency project, source workflow or skill, and generated artifacts."
     },
     {
       "date": "2026-07-08",
@@ -245,23 +219,23 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved dependency timing: initiate-task should front-load dependency discovery during intake drafting and grilling by reading or calling relevant known skills/workflows enough to understand available data and step shape. If a new dependency is discovered mid-execution, continue-task may propose and add an explicit dependency_step only after loading its workflow context, updating provenance and write boundaries, and receiving operator approval."
+      "event": "Resolved dependency timing: native Codex planning should front-load dependency discovery during intake drafting and planning by reading or calling relevant known skills/workflows enough to understand available data and step shape. If a new dependency is discovered mid-execution, native Codex planning may propose and add an explicit dependency_step only after loading its workflow context, updating provenance and write boundaries, and receiving operator approval."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved pre-execution dependency artifacts: dependency calls during intake or grilling may create real artifacts when needed, but those artifacts must be labeled with intake/grilling phase provenance, primary task ownership, dependency project, source workflow or skill, purpose, generated files, and protected boundary metadata so they are not mistaken for normal execution outputs."
+      "event": "Resolved pre-execution dependency artifacts: dependency calls during intake or planning may create real artifacts when needed, but those artifacts must be labeled with intake/planning phase provenance, primary task ownership, dependency project, source workflow or skill, purpose, generated files, and protected boundary metadata so they are not mistaken for normal execution outputs."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved artifact promotion: intake or grilling dependency artifacts may be promoted into final task artifacts when the primary task explicitly accepts them, preserving original dependency provenance and adding promotion metadata instead of recreating redundant outputs."
+      "event": "Resolved artifact promotion: intake or planning dependency artifacts may be promoted into final task artifacts when the primary task explicitly accepts them, preserving original dependency provenance and adding promotion metadata instead of recreating redundant outputs."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved promotion trigger: when a post-grilling PRD names an intake or grilling dependency artifact as part of the task, that artifact becomes an official task artifact with original dependency provenance carried forward and promotion metadata added."
+      "event": "Resolved promotion trigger: when a post-planning PRD names an intake or planning dependency artifact as part of the task, that artifact becomes an official task artifact with original dependency provenance carried forward and promotion metadata added."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved non-promoted artifact handling: intake or grilling dependency artifacts not named in the post-grilling PRD remain linked evidence or context for the task, but are not treated as final deliverables."
+      "event": "Resolved non-promoted artifact handling: intake or planning dependency artifacts not named in the post-planning PRD remain linked evidence or context for the task, but are not treated as final deliverables."
     },
     {
       "date": "2026-07-08",
@@ -269,11 +243,11 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved dependency preload scope: when a dependency project is selected, initiate-task should load as much known dependency context as possible, including all known skills or skill metadata, active tracker context, relevant artifacts, and inter-skill relationships, instead of loading only the single skill that initially seems relevant."
+      "event": "Resolved dependency preload scope: when a dependency project is selected, native Codex planning should load as much known dependency context as possible, including all known skills or skill metadata, active tracker context, relevant artifacts, and inter-skill relationships, instead of loading only the single skill that initially seems relevant."
     },
     {
       "date": "2026-07-08",
-      "event": "Narrowed dependency preload scope: for a selected dependency project, initiate-task should load all usable known skills or skill metadata and enough relationship/context notes to understand how they can be called, but it does not need to audit or load the entire workflow agent."
+      "event": "Narrowed dependency preload scope: for a selected dependency project, native Codex planning should load all usable known skills or skill metadata and enough relationship/context notes to understand how they can be called, but it does not need to audit or load the entire workflow agent."
     },
     {
       "date": "2026-07-08",
@@ -305,19 +279,19 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Wrote the PRD for initiate-task capability dependencies, moved the task to PRD phase, set issues as the next action, and treated direct connection registry or wrapper behavior as out of scope unless needed for dependency provenance."
+      "event": "Wrote the PRD for native Codex planning capability dependencies, moved the task to planning, set issues as the next action, and treated direct connection registry or wrapper behavior as out of scope unless needed for dependency provenance."
     },
     {
       "date": "2026-07-08",
-      "event": "Published five local issue artifacts for capability task drafts, dependency artifact provenance, dependency write-plan gates, continue-time dependency additions, and validation/regression coverage. Moved the task to issues phase with implement as the next action but without approving implementation artifacts yet."
+      "event": "Published five local issue artifacts for capability task drafts, dependency artifact provenance, dependency write-plan gates, continue-time dependency additions, and validation/regression coverage. Moved the task to work-item planning with implement as the next action but without approving implementation artifacts yet."
     },
     {
       "date": "2026-07-08",
-      "event": "Moved to implement after user approved building all issue slices, and approved initiate-task, continue-task, and validate-workflow-state artifacts for implementation."
+      "event": "Moved to implement after user approved building all issue slices, and approved native Codex planning, native Codex planning, and validate-workflow-state artifacts for implementation."
     },
     {
       "date": "2026-07-08",
-      "event": "Implemented capability dependency workflow instructions in initiate-task and continue-task, added workflow-state validation for optional capability dependency, dependency step, write plan, dependency artifact, and provenance fields, completed all five issue checklists, and moved to code-review."
+      "event": "Implemented capability dependency workflow instructions in native Codex planning and native Codex planning, added workflow-state validation for optional capability dependency, dependency step, write plan, dependency artifact, and provenance fields, completed all five issue checklists, and moved to code-review."
     },
     {
       "date": "2026-07-08",

@@ -4,8 +4,6 @@
   "title": "Create real-life workflows README",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "owner": "codex",
   "summary": "Create a product-like README and npm-style installable skill package for real-life-workflows, including a generated hero, count proof, the first callable real-life-workflow-search skill, package validation, and quarantine-safe workflow packet behavior.",
   "acceptance_criteria": [
@@ -23,7 +21,7 @@
     "README includes a polished visual hero asset generated with the GPT image generation model in Codex",
     "README distinguishes active repo skills from quarantined imported source evidence",
     "README points to the workflow-understanding finder and relevant project artifacts without duplicating tracker mechanics",
-    "README follows Matt Pocock style and ECC documentation placement rules",
+    "README follows previous workflow style and ECC documentation placement rules",
     "workflow state validation passes after the README task is implemented"
   ],
   "ecc_concepts_applied": [
@@ -39,7 +37,7 @@
     "package surface"
   ],
   "context_snapshot": {
-    "summary": "Load real-life-workflows state, the quarantine boundary, the finder artifacts, testing-session summary, and the active pollution-audit tracker task before grilling or implementing the project README.",
+    "summary": "Load real-life-workflows state, the quarantine boundary, the finder artifacts, testing-session summary, and the active pollution-audit tracker task before planning or implementing the project README.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -71,112 +69,10 @@
       "projects/real-life-workflows/artifacts/counts/upstream-source-universe-counts.json",
       "projects/real-life-workflows/artifacts/package/validate-readme-package-surface.mjs",
       "projects/real-life-workflows/artifacts/reviews/real-life-workflows-004-implementation-review.md",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md"
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/real-life-workflows/artifacts/prds/real-life-workflows-004-readme-package-surface-prd.md",
-        "phase": "prd",
-        "approval_note": "Approved by user request to go to PRD after completing README and installable skill-pack grilling.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/issues/real-life-workflows-004-issue-001-readme-counts-hero.md",
-        "phase": "issues",
-        "approval_note": "Approved by user request to build the PRD through completion and split it into local issue artifacts.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/issues/real-life-workflows-004-issue-002-npm-package-surface.md",
-        "phase": "issues",
-        "approval_note": "Approved by user request to build the PRD through completion and split it into local issue artifacts.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/issues/real-life-workflows-004-issue-003-real-life-workflow-search-skill.md",
-        "phase": "issues",
-        "approval_note": "Approved by user request to build the PRD through completion and split it into local issue artifacts.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/issues/real-life-workflows-004-issue-004-readme-package-validator.md",
-        "phase": "issues",
-        "approval_note": "Approved by user request to build the PRD through completion and split it into local issue artifacts.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/issues/real-life-workflows-004-issue-005-review-closeout.md",
-        "phase": "issues",
-        "approval_note": "Approved by user request to build the PRD through completion and split it into local issue artifacts.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/README.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to build the product README through completion.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/package.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to create a local npm-installable package surface.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/skill-manifest.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to expose callable skill metadata for agent harnesses.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to create the first clean packaged callable skill.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/skills/real-life-workflow-search/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user request to expose harness-facing skill metadata.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/skills/real-life-workflow-search/scripts/write-workflow-packet.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user request to make the packaged skill write workflow-understanding packets to caller-owned artifact paths.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/assets/hero.png",
-        "phase": "implement",
-        "approval_note": "Approved by user request to include a GPT image generation hero asset in the README.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/counts/upstream-source-universe-counts.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to add project-local count proof for the 19,000+ source-universe claim.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/package/validate-readme-package-surface.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user request to add deterministic README and package validation.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/reviews/real-life-workflows-004-implementation-review.md",
-        "phase": "code-review",
-        "approval_note": "Approved by user request to build through review and closeout readiness.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [
     "real-life-workflows-003"
@@ -217,79 +113,79 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Moved task from intake to Matt-style grilling after loading root, registry, project state, non-done tasks, testing-session summary, quarantine manifest, finder docs, and Matt grilling references."
+      "event": "Moved task from intake to previous workflow-style planning after loading root, registry, project state, non-done tasks, testing-session summary, quarantine manifest, finder docs, and previous workflow planning references."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: README audience is operators, especially developers who may use the project; tone should be polished and promotional while explaining what the workflow finder can do."
+      "event": "planning decision: README audience is operators, especially developers who may use the project; tone should be polished and promotional while explaining what the workflow finder can do."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: README should emphasize the larger catalog promise: 171 curated workflow doors across 17 source repos, backed by a 19,000+ upstream-flow source universe. Do not say 171 repos, and do not imply all 19,000+ upstream flows are fully audited local rows."
+      "event": "planning decision: README should emphasize the larger catalog promise: 171 curated workflow doors across 17 source repos, backed by a 19,000+ upstream-flow source universe. Do not say 171 repos, and do not imply all 19,000+ upstream flows are fully audited local rows."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: the 19,000+ upstream-flow claim is valid for README positioning, but implementation should add or copy a project-local methodology/count artifact so operators can inspect the proof inside real-life-workflows."
+      "event": "planning decision: the 19,000+ upstream-flow claim is valid for README positioning, but implementation should add or copy a project-local methodology/count artifact so operators can inspect the proof inside real-life-workflows."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: README should include a table showing all 171 curated workflow doors to make the catalog feel substantial, and should include a polished hero asset generated with the GPT image generation model in Codex."
+      "event": "planning decision: README should include a table showing all 171 curated workflow doors to make the catalog feel substantial, and should include a polished hero asset generated with the GPT image generation model in Codex."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling correction: do not list all 171 doors in the README. Show a compact breakdown that communicates catalog scale, and add feature-focused sections for packet creation, deeper research, source/caveat handling, saved outputs, and future skill extraction."
+      "event": "planning correction: do not list all 171 doors in the README. Show a compact breakdown that communicates catalog scale, and add feature-focused sections for packet creation, deeper research, source/caveat handling, saved outputs, and future skill extraction."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: README primary feature story is searching a large workflow universe. Workflow-understanding packets should be presented as the practical output of that search, not the headline promise."
+      "event": "planning decision: README primary feature story is searching a large workflow universe. Workflow-understanding packets should be presented as the practical output of that search, not the headline promise."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: README should feel product-like, positioning real-life-workflows as a polished workflow catalog for operators while staying grounded in the current local project surface."
+      "event": "planning decision: README should feel product-like, positioning real-life-workflows as a polished workflow catalog for operators while staying grounded in the current local project surface."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: README should not frame this as a one-off script. It should present real-life-workflows as a reusable skill surface that developers can install, import, or invoke as skills; any npm/package wording must be backed by an actual install/import surface or clearly marked as intended packaging."
+      "event": "planning decision: README should not frame this as a one-off script. It should present real-life-workflows as a reusable skill surface that developers can install, import, or invoke as skills; any npm/package wording must be backed by an actual install/import surface or clearly marked as intended packaging."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: the preferred install and usage surface is npm-style. README should prioritize npm-style installation/import/invocation language, with claims limited to the package surface actually implemented or explicitly marked as planned."
+      "event": "planning decision: the preferred install and usage surface is npm-style. README should prioritize npm-style installation/import/invocation language, with claims limited to the package surface actually implemented or explicitly marked as planned."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: implementation should create the minimal npm-style package surface needed to make README install, import, and invocation examples truthful instead of only documenting a future package idea."
+      "event": "planning decision: implementation should create the minimal npm-style package surface needed to make README install, import, and invocation examples truthful instead of only documenting a future package idea."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling correction: npm-style means the package should be installable first. Do not overbuild a public import/API surface unless it is needed to verify installability or the operator later asks for it."
+      "event": "planning correction: npm-style means the package should be installable first. Do not overbuild a public import/API surface unless it is needed to verify installability or the operator later asks for it."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: npm install should be framed as a truthful local install path first, such as installing from projects/real-life-workflows, with publish-ready package metadata allowed but no claim that the package is already published."
+      "event": "planning decision: npm install should be framed as a truthful local install path first, such as installing from projects/real-life-workflows, with publish-ready package metadata allowed but no claim that the package is already published."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: npm-installed output should be callable by agent harnesses such as Claude Code, Codex, and opencode. The package must expose skill content or metadata that a harness can import/invoke, not just static README/docs files."
+      "event": "planning decision: npm-installed output should be callable by agent harnesses such as Claude Code, Codex, and opencode. The package must expose skill content or metadata that a harness can import/invoke, not just static README/docs files."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: product direction can include multiple callable skills, but this README/package task should prove one clean callable skill first and describe quarantined imported skill families as candidate future skills only after audit and rewrite."
+      "event": "planning decision: product direction can include multiple callable skills, but this README/package task should prove one clean callable skill first and describe quarantined imported skill families as candidate future skills only after audit and rewrite."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: the first clean callable packaged skill should be named real-life-workflow-search."
+      "event": "planning decision: the first clean callable packaged skill should be named real-life-workflow-search."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: real-life-workflow-search should return a full workflow-understanding packet by default, not just a short ranked list."
+      "event": "planning decision: real-life-workflow-search should return a full workflow-understanding packet by default, not just a short ranked list."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: real-life-workflow-search should write a workflow-understanding packet to disk on every run and report the artifact path back to the operator."
+      "event": "planning decision: real-life-workflow-search should write a workflow-understanding packet to disk on every run and report the artifact path back to the operator."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling correction after loading active and quarantined skills plus workflow-foundry-012: packet writes are already governed by capability-dependency artifact rules. The installed/called skill should write packets to the caller or primary project's approved artifact area with provenance, not into node_modules, dependency trackers, dependency AGENTS.md, or dependency skill definitions."
+      "event": "planning correction after loading active and quarantined skills plus workflow-foundry-012: packet writes are already governed by capability-dependency artifact rules. The installed/called skill should write packets to the caller or primary project's approved artifact area with provenance, not into node_modules, dependency trackers, dependency AGENTS.md, or dependency skill definitions."
     },
     {
       "date": "2026-07-08",

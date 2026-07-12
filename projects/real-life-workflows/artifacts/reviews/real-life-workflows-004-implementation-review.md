@@ -6,7 +6,7 @@ Reviewed the implementation for `real-life-workflows-004` against:
 
 - `projects/real-life-workflows/artifacts/prds/real-life-workflows-004-readme-package-surface-prd.md`
 - the five `real-life-workflows-004` issue artifacts
-- Matt issue, implement, TDD, code-review, and writing-great-skills guidance
+- previous workflow issue, implement, TDD, code-review, and writing-great-skills guidance
 - the active real-life-workflows quarantine boundary
 
 ## Findings

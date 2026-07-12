@@ -7,7 +7,7 @@
 ## What to build
 
 Review the completed README, package, skill, count artifact, and validator
-against the PRD, Matt style, ECC workflow-package expectations, and the active
+against the PRD, previous workflow style, ECC workflow-package expectations, and the active
 quarantine boundary. Close the task only when validation passes and the review
 finds no blocking gaps.
 

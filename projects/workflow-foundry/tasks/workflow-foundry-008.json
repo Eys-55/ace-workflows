@@ -4,8 +4,6 @@
   "title": "Add project testing mode sessions",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Design and implement a foundry workflow mode where an operator specifies a project and starts an isolated testing session whose files, logs, and resume context are saved predictably so later task initiation or continuation can inspect those logs before deciding next work.",
   "acceptance_criteria": [
     "the workflow defines an explicit input contract for selecting the project to test",
@@ -22,13 +20,13 @@
     "testing activity logs what ran, what changed inside the isolated testing-session state, what was observed, and what remains unresolved",
     "testing sessions log a structured event stream covering started, preload_complete, decision, tool_run, artifact_read, finding, blocked, and completed events",
     "each testing-session event records timestamp, actor or session id, project slug, task context when present, files read or written, command or tool summary, result status, and rationale",
-    "future initiate-task or continue-task flows can load the testing logs and use them to assess what needs to be done next",
+    "future native Codex planning or native Codex planning flows can load the testing logs and use them to assess what needs to be done next",
     "testing sessions do not produce recommendations, create tasks, continue tasks, or edit normal workflow state by default; they only store the run state",
     "projects/<project-slug>/artifacts/testing-sessions/index.json is the canonical machine-readable testing session index",
-    "initiate-task, continue-task, and query-workflow-state can discover the testing session index during project preload",
+    "native Codex planning, native Codex planning, and query-workflow-state can discover the testing session index during project preload",
     "project.json and task context snapshots reference testing-session discovery without duplicating full session logs",
     "validation or fixtures prove testing-mode state is discoverable and does not corrupt normal project trackers",
-    "Matt Pocock style and ECC workflow architecture are preserved throughout the workflow design"
+    "previous workflow style and ECC workflow architecture are preserved throughout the workflow design"
   ],
   "ecc_concepts_applied": [
     "workflow contract",
@@ -40,7 +38,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, every non-done task, Matt/ECC references, and task workflow surfaces before shaping project testing mode sessions.",
+    "summary": "Load workflow-foundry state, every non-done task, previous workflow/ECC references, and task workflow surfaces before shaping project testing mode sessions.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -56,9 +54,9 @@
       "projects/workflow-foundry/tasks/workflow-foundry-007.json",
       "projects/workflow-foundry/tasks/workflow-foundry-008.json",
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-008-testing-sessions.md",
@@ -82,72 +80,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": ".agents/skills/testing-session/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Create the canonical testing-session skill slug for isolated project testing sessions.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/testing-session/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Expose testing-session in the Codex skill interface with deterministic metadata.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/initiate-task/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Teach task initiation preflight to discover lightweight testing-session indexes.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/continue-task/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Teach task continuation preflight to discover lightweight testing-session indexes.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/workflow-help/SKILL.md",
-        "phase": "implement",
-        "approval_note": "List the new testing-session skill and discovery helper in the workflow help surface.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "scripts/testing-session-state.mjs",
-        "phase": "implement",
-        "approval_note": "Add deterministic JSON/JSONL helpers for testing-session lifecycle state.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "scripts/query-workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Expose project testing-session index summaries through the query helper.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "scripts/validate-workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Validate testing-session indexes and session folders when present.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/package.json",
-        "phase": "implement",
-        "approval_note": "Add the testing-session state test to the existing tracker test command.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/testing-session-state.test.mjs",
-        "phase": "implement",
-        "approval_note": "Add TDD coverage for testing-session lifecycle, discovery, and validation behavior.",
-        "approved_at": "2026-07-07"
-      }
-    ],
-    "process_exceptions": []
-  },
   "dependencies": [],
   "related_tasks": [
     "workflow-foundry-001",
@@ -163,8 +95,8 @@
     "projects/workflow-foundry/artifacts/issues/workflow-foundry-008-issue-005-readonly-live-use-docs.md",
     ".agents/skills/testing-session/SKILL.md",
     ".agents/skills/testing-session/agents/openai.yaml",
-    ".agents/skills/initiate-task/SKILL.md",
-    ".agents/skills/continue-task/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
     ".agents/skills/workflow-help/SKILL.md",
     "scripts/testing-session-state.mjs",
     "scripts/query-workflow-state.mjs",
@@ -175,15 +107,15 @@
   "session_log": [
     {
       "date": "2026-07-07",
-      "event": "Created intake task after user invoked initiate-task for foundry testing mode sessions with isolated project selection, durable file saving, and logs that future task flows can preload."
+      "event": "Created intake task after user invoked native Codex planning for foundry testing mode sessions with isolated project selection, durable file saving, and logs that future task flows can preload."
     },
     {
       "date": "2026-07-07",
-      "event": "Loaded Matt Pocock ask-matt and handoff references from /tmp/mattpocock-skills-inspect to preserve the idea-to-workflow and cross-session logging shape before implementation work begins."
+      "event": "Loaded previous workflow ask-previous workflow and handoff references from /tmp/previous workflowpocock-skills-inspect to preserve the idea-to-workflow and cross-session logging shape before implementation work begins."
     },
     {
       "date": "2026-07-07",
-      "event": "Moved to grilling after user asked to continue the testing mode task into grilling."
+      "event": "Moved to planning after user asked to continue the testing mode task into planning."
     },
     {
       "date": "2026-07-07",
@@ -191,7 +123,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved canonical discovery surface: each project should maintain projects/<project-slug>/artifacts/testing-sessions/index.json, and initiate-task, continue-task, and query-workflow-state should discover it during project preload while project.json and task snapshots remain lightweight pointers."
+      "event": "Resolved canonical discovery surface: each project should maintain projects/<project-slug>/artifacts/testing-sessions/index.json, and native Codex planning, native Codex planning, and query-workflow-state should discover it during project preload while project.json and task snapshots remain lightweight pointers."
     },
     {
       "date": "2026-07-07",
@@ -231,15 +163,15 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Wrote PRD for project testing sessions and moved task to PRD phase with issues as the next action."
+      "event": "Wrote PRD for project testing sessions and moved task to planning with issues as the next action."
     },
     {
       "date": "2026-07-07",
-      "event": "Published five local issue artifacts for testing-session start, status/stop lifecycle, preload discovery, validation fixtures, and read-only live-use documentation; moved task to issues phase with implement as the next action."
+      "event": "Published five local issue artifacts for testing-session start, status/stop lifecycle, preload discovery, validation fixtures, and read-only live-use documentation; moved task to work-item planning with implement as the next action."
     },
     {
       "date": "2026-07-07",
-      "event": "Approved implementation artifacts for the testing-session skill, state helper, query/validation integration, preflight skill updates, and lifecycle tests; moved task to implement phase."
+      "event": "Approved implementation artifacts for the testing-session skill, state helper, query/validation integration, preflight skill updates, and lifecycle tests; moved task to implementation."
     },
     {
       "date": "2026-07-07",

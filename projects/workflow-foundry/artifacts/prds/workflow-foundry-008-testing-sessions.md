@@ -147,7 +147,7 @@ captured state without reading a full transcript first.
 - Recommendations, summaries of what to do next, or prioritization decisions.
 - Editing project source, task JSON, skills, scripts, or ordinary workflow
   artifacts during testing mode.
-- Replacing normal initiate-task or continue-task behavior.
+- Replacing normal native Codex planning or native Codex planning behavior.
 - Replacing the project task tracker.
 - Building tracker UI changes for browsing testing sessions.
 - Remote execution, background process supervision, or cross-machine session
@@ -161,6 +161,6 @@ not a planner, reviewer, or task generator. The useful artifact is the session
 state itself: what the agent loaded, decided, read, ran, observed, blocked on,
 and how the run ended.
 
-The implementation should preserve the repository's Matt Pocock and ECC
+The implementation should preserve the repository's previous workflow and ECC
 process: PRD first, issue breakdown next, then implementation with validation
 and review.

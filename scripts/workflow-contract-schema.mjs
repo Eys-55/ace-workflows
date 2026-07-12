@@ -2,7 +2,6 @@ import path from "node:path";
 
 export const DELIVERABLE_CONTRACT_VERSION = 1;
 
-const migrationStatuses = new Set(["native", "pending", "approved"]);
 const contractKinds = new Set([
   "canonical-skill",
   "packaged-skill",
@@ -21,32 +20,9 @@ const locatorTypes = new Set(["path", "path-prefix", "task-evidence"]);
 export const artifactValidations = new Set(["file", "directory", "canonical-skill-bundle", "packaged-skill-bundle", "behavior-evidence", "external-action-evidence"]);
 const evalKinds = new Set(["deterministic", "fresh-agent", "manual-review", "e2e"]);
 const conditionTypes = new Set(["artifact-valid", "eval-passed", "dependency-step-complete", "review-passed"]);
-const approvalPhases = new Set(["prd", "issues", "implement", "code-review"]);
 const skillKinds = new Set(["canonical-skill", "packaged-skill", "standalone-skill"]);
 const skillBundleValidations = new Set(["canonical-skill-bundle", "packaged-skill-bundle"]);
 export const semanticSkillSections = ["Overview", "Required Context", "Input Contract", "Workflow", "Decision Points", "Failure Handling", "Human Boundaries", "Output Contract", "Completion Gate"];
-const grandfatheredLegacyTaskKeys = new Set([
-  "health/health-001",
-  "health/health-002",
-  "health/health-004",
-  "health/health-005",
-  "health/health-006",
-  "linkedin-posts/linkedin-posts-001",
-  "real-life-workflows/real-life-workflows-001",
-  "real-life-workflows/real-life-workflows-002",
-  "real-life-workflows/real-life-workflows-003",
-  "real-life-workflows/real-life-workflows-004",
-  "workflow-foundry/workflow-foundry-001",
-  "workflow-foundry/workflow-foundry-002",
-  "workflow-foundry/workflow-foundry-003",
-  "workflow-foundry/workflow-foundry-005",
-  "workflow-foundry/workflow-foundry-008",
-  "workflow-foundry/workflow-foundry-009",
-  "workflow-foundry/workflow-foundry-010",
-  "workflow-foundry/workflow-foundry-011",
-  "workflow-foundry/workflow-foundry-012",
-  "workflow-foundry/workflow-foundry-013",
-]);
 
 export function issue(code, message, context = "task") {
   return { code, context, message };
@@ -80,19 +56,6 @@ export function isWithinPath(parent, candidate) {
 export function resolveAgainst(base, declaredPath) {
   if (!nonEmptyString(declaredPath) || hasTraversal(declaredPath)) return null;
   return path.isAbsolute(declaredPath) ? path.resolve(declaredPath) : path.resolve(base, declaredPath);
-}
-
-export function isHistoricalCompatibleTask(task) {
-  return (
-    isRecord(task) &&
-    task.status === "done" &&
-    task.matt_phase === "done" &&
-    task.deliverable_migration === undefined &&
-    grandfatheredLegacyTaskKeys.has(`${task.project_slug}/${task.task_id}`) &&
-    nonEmptyString(task.task_id) &&
-    nonEmptyString(task.project_slug) &&
-    Array.isArray(task.linked_artifacts)
-  );
 }
 
 function requireStrings(values, code, context, errors, { allowEmpty = false } = {}) {
@@ -380,39 +343,6 @@ function validateBindings(task, contracts, errors) {
   );
   const presentBindingKeys = new Set();
   const linkedArtifacts = arrayOrEmpty(task?.linked_artifacts);
-  const approvals = arrayOrEmpty(task?.phase_guard?.approved_artifacts);
-
-  function pathPrefixContains(prefix, candidate) {
-    if (!nonEmptyString(prefix) || !nonEmptyString(candidate)) return false;
-    const normalizedPrefix = prefix.replace(/[\\/]+$/, "");
-    return candidate === normalizedPrefix || candidate.startsWith(`${normalizedPrefix}/`) || candidate.startsWith(`${normalizedPrefix}\\`);
-  }
-
-  function approvalMatchesBinding(approval, binding, { allowLegacyArtifactId = false } = {}) {
-    if (binding.deliverable_id !== approval.deliverable_id || binding.artifact_role !== approval.artifact_role) {
-      return false;
-    }
-    if (nonEmptyString(approval.artifact_id) && binding.artifact_id !== approval.artifact_id) {
-      return false;
-    }
-    if (!nonEmptyString(approval.artifact_id) && !allowLegacyArtifactId) return false;
-    if (binding.locator_type === "path") return binding.locator === approval.path;
-    if (binding.locator_type === "path-prefix") {
-      return pathPrefixContains(binding.locator, approval.path);
-    }
-    return binding.locator_type === "task-evidence" && binding.locator === approval.evidence_id;
-  }
-
-  function mostSpecificLegacyCandidates(candidates, approval) {
-    if (nonEmptyString(approval.artifact_id) || candidates.length <= 1) return candidates;
-    const exact = candidates.filter(
-      (binding) => (binding.locator_type === "path" && binding.locator === approval.path) || (binding.locator_type === "task-evidence" && binding.locator === approval.evidence_id),
-    );
-    if (exact.length > 0) return exact;
-    const prefixes = candidates.filter((binding) => binding.locator_type === "path-prefix");
-    const longest = Math.max(...prefixes.map((binding) => binding.locator.length), -1);
-    return prefixes.filter((binding) => binding.locator.length === longest);
-  }
 
   if (!Array.isArray(task?.artifact_bindings)) {
     errors.push(issue("contract-invalid", "artifact_bindings must be an array.", "artifact_bindings"));
@@ -421,7 +351,7 @@ function validateBindings(task, contracts, errors) {
     const context = `artifact_bindings[${index}]`;
     const contract = contractById.get(binding?.deliverable_id);
     if (!contract) {
-      errors.push(issue("phase-approval-unbound", `${context} references an unknown deliverable.`, context));
+      errors.push(issue("artifact-binding-unbound", `${context} references an unknown deliverable.`, context));
       continue;
     }
     if (!nonEmptyString(binding?.artifact_id) || !roles.has(binding?.artifact_role) || !locatorTypes.has(binding?.locator_type) || !nonEmptyString(binding?.locator)) {
@@ -451,46 +381,13 @@ function validateBindings(task, contracts, errors) {
     bindingKeys.add(bindingKey);
     presentBindingKeys.add(`${binding.deliverable_id}:${binding.artifact_id}`);
     if (binding.locator_type === "path" && !linkedArtifacts.includes(binding.locator)) {
-      errors.push(issue("phase-approval-unbound", `${context}.locator must appear in linked_artifacts.`, context));
+      errors.push(issue("artifact-binding-unbound", `${context}.locator must appear in linked_artifacts.`, context));
     }
   }
 
   for (const requiredKey of requiredBindingKeys) {
     if (!presentBindingKeys.has(requiredKey)) {
-      errors.push(issue("phase-approval-unbound", `Declared artifact ${requiredKey} has no artifact_bindings entry.`, "artifact_bindings"));
-    }
-  }
-
-  if (!Array.isArray(task?.phase_guard?.approved_artifacts)) {
-    errors.push(issue("contract-invalid", "phase_guard.approved_artifacts must be an array.", "phase_guard.approved_artifacts"));
-  }
-  for (const [index, approval] of approvals.entries()) {
-    const context = `phase_guard.approved_artifacts[${index}]`;
-    if (
-      !isRecord(approval) ||
-      !nonEmptyString(approval.deliverable_id) ||
-      !roles.has(approval.artifact_role) ||
-      !approvalPhases.has(approval.phase) ||
-      !nonEmptyString(approval.approval_note) ||
-      !nonEmptyString(approval.approved_at)
-    ) {
-      errors.push(issue("phase-approval-unbound", `${context} must identify an exact phase, deliverable, artifact, role, and approval.`, context));
-      continue;
-    }
-
-    const legacyArtifactIdAllowed = task?.deliverable_migration?.status === "approved" && !nonEmptyString(approval.artifact_id);
-    const candidates = mostSpecificLegacyCandidates(
-      bindings.filter((binding) =>
-        approvalMatchesBinding(approval, binding, {
-          allowLegacyArtifactId: legacyArtifactIdAllowed,
-        }),
-      ),
-      approval,
-    );
-    const pathApproval = candidates.some((binding) => ["path", "path-prefix"].includes(binding.locator_type));
-    const exactCandidate = candidates.length === 1 && (nonEmptyString(approval.artifact_id) || legacyArtifactIdAllowed);
-    if (!contractById.has(approval.deliverable_id) || !exactCandidate || (pathApproval && (!nonEmptyString(approval.path) || !linkedArtifacts.includes(approval.path)))) {
-      errors.push(issue("phase-approval-unbound", `${context} does not match exactly one task contract artifact and phase.`, context));
+      errors.push(issue("artifact-binding-unbound", `Declared artifact ${requiredKey} has no artifact_bindings entry.`, "artifact_bindings"));
     }
   }
 }
@@ -544,7 +441,6 @@ function validateBehaviorEvidence(task, contracts, errors) {
       "completed_at",
       "raw_output",
       "expected_route",
-      "observed_phase_result",
       "result",
       "timestamp",
     ]) {
@@ -590,9 +486,7 @@ function validateBehaviorEvidence(task, contracts, errors) {
       isRecord(evidence?.no_write_evidence) &&
       ["blocked", "refused"].includes(evidence.no_write_evidence.outcome) &&
       nonEmptyString(evidence.no_write_evidence.reason) &&
-      evidence.no_write_evidence.verified_zero_writes === true &&
-      nonEmptyString(evidence.observed_phase_result) &&
-      evidence.observed_phase_result.toLowerCase().includes(evidence.no_write_evidence.outcome);
+      evidence.no_write_evidence.verified_zero_writes === true;
     const priorAttempt = evidenceById.get(evidence?.retry_of);
     const attemptValid = evidence?.first_attempt === true
       ? evidence?.retry_of == null
@@ -681,9 +575,9 @@ function validateDependencyBindings(task, contracts, errors) {
     if (!contractIds.has(step?.supported_deliverable_id) || !roles.has(step?.artifact_role) || !supportedArtifact || supportedArtifact.artifact_role !== step?.artifact_role) {
       errors.push(issue("dependency-role-mismatch", `${context} does not map to a valid deliverable role.`, context));
     }
-    if (["implement", "code-review", "done"].includes(task.matt_phase) && !step?.dependency_write_plan) {
+    if (!step?.dependency_write_plan) {
       errors.push(issue("dependency-write-plan-missing", `${context} requires dependency_write_plan.`, context));
-    } else if (["implement", "code-review", "done"].includes(task.matt_phase)) {
+    } else {
       const writePlan = step.dependency_write_plan;
       if (
         !isRecord(writePlan) ||
@@ -718,42 +612,14 @@ function validateDependencyBindings(task, contracts, errors) {
 }
 
 export function validateTaskDeliverableState(task) {
-  if (isHistoricalCompatibleTask(task)) return [];
-
   const errors = [];
-  const migration = task?.deliverable_migration;
-  if (!migration || typeof migration !== "object" || Array.isArray(migration)) {
-    return [issue("contract-missing", "Open tasks must record deliverable_migration.")];
-  }
-  if (!migrationStatuses.has(migration.status) || migration.target_contract_version !== 1) {
-    errors.push(issue("contract-invalid", "deliverable_migration status/version is invalid.", "deliverable_migration"));
-  }
-
-  const contracts = Array.isArray(task?.deliverable_contracts) ? task.deliverable_contracts : [];
-  if (migration.status === "pending") {
-    if (migration.frozen_phase !== task.matt_phase) {
-      errors.push(issue("migration-pending", "Pending legacy task advanced beyond frozen_phase."));
-    }
-    if (contracts.length > 0 || migration.approved_at !== null || migration.approval_note !== null) {
-      errors.push(issue("contract-invalid", "Pending migration cannot contain approved contracts."));
-    }
-    if (!Array.isArray(task.artifact_bindings) || task.artifact_bindings.length > 0 || !Array.isArray(task.behavior_evidence) || task.behavior_evidence.length > 0) {
-      errors.push(issue("contract-invalid", "Pending migration must record empty binding/evidence arrays."));
-    }
-    return errors;
-  }
-
-  if (!nonEmptyString(migration.approved_at) || !nonEmptyString(migration.approval_note)) {
-    errors.push(issue("contract-invalid", "Native and approved migrations require approval evidence."));
-  }
-  if (migration.status === "native" && migration.frozen_phase !== null) {
-    errors.push(issue("contract-invalid", "Native tasks must use frozen_phase null."));
-  }
-  if (migration.status === "approved" && !nonEmptyString(migration.frozen_phase)) {
-    errors.push(issue("contract-invalid", "Migrated tasks must preserve their approved frozen_phase."));
+  if (task?.deliverable_contracts === undefined) return errors;
+  const contracts = Array.isArray(task.deliverable_contracts) ? task.deliverable_contracts : [];
+  if (!Array.isArray(task.deliverable_contracts)) {
+    return [issue("contract-invalid", "deliverable_contracts must be an array.", "deliverable_contracts")];
   }
   if (contracts.length === 0) {
-    errors.push(issue("contract-missing", "Native and approved tasks require a deliverable contract."));
+    errors.push(issue("contract-missing", "Declared deliverable contracts must include at least one contract."));
     return errors;
   }
 

@@ -58,7 +58,7 @@ test("keeps validation modules below the repository file-size ceiling", async ()
   assert.match(facade, /workflow-state-project-validation\.mjs/);
 });
 
-test("exercises changed-file linkage in a disposable git repository", async (t) => {
+test("does not gate work on changed-file task linkage", async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), "workflow-state-changes-"));
   t.after(() => rm(root, { recursive: true, force: true }));
   await execFileAsync("git", ["init", "--quiet"], { cwd: root });
@@ -69,13 +69,29 @@ test("exercises changed-file linkage in a disposable git repository", async (t) 
   const result = await validateWorkflowState({ root, includeChangedFiles: true });
   assert.equal(result.ok, false);
   assert.ok(
-    result.errors.includes(
-      "projects/fixture/tasks/fixture-001.json changed but is not linked to a non-done tracker-maintenance task",
-    ),
+    !result.errors.some((error) => error.includes("changed but is not linked")),
   );
 });
 
-test("keeps mismatched done status and phase invalid, completion-gated, and open for linkage", async (t) => {
+test("legacy scan covers untracked Astro and JSONL files", async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "workflow-state-legacy-files-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  await execFileAsync("git", ["init", "--quiet"], { cwd: root });
+  const retiredName = String.fromCharCode(109, 97, 116, 116);
+  await writeFile(path.join(root, "new-view.astro"), `<p>${retiredName}</p>\n`);
+  await writeFile(
+    path.join(root, "events.jsonl"),
+    `${JSON.stringify({ field: ["phase", "guard"].join("_") })}\n`,
+  );
+
+  const result = await validateWorkflowState({ root, includeChangedFiles: false });
+  assert.ok(result.errors.includes("new-view.astro contains a removed workflow name"));
+  assert.ok(
+    result.errors.some((error) => error.startsWith("events.jsonl contains removed workflow token")),
+  );
+});
+
+test("rejects removed lifecycle fields in task details and indexes", async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), "workflow-state-terminal-invariant-"));
   t.after(() => rm(root, { recursive: true, force: true }));
   await cp(repoRoot, root, {
@@ -114,78 +130,73 @@ test("keeps mismatched done status and phase invalid, completion-gated, and open
     root,
     "projects/workflow-foundry/tasks/workflow-foundry-007.json",
   );
+  const contractedTaskPath = path.join(
+    root,
+    "projects/workflow-foundry/tasks/workflow-foundry-015.json",
+  );
   const indexPath = path.join(root, "projects/workflow-foundry/tasks/index.json");
-  const artifact = "projects/workflow-foundry/artifacts/reviews/terminal-mismatch.md";
   const task = JSON.parse(await readFile(taskPath, "utf8"));
+  const contractedTask = JSON.parse(await readFile(contractedTaskPath, "utf8"));
   const index = JSON.parse(await readFile(indexPath, "utf8"));
-  const legacySourcePath = path.join(
-    root,
-    "projects/workflow-foundry/tasks/workflow-foundry-001.json",
-  );
-  const spoofedPath = path.join(
-    root,
-    "projects/workflow-foundry/tasks/spoofed-legacy.json",
-  );
-  const legacyTask = JSON.parse(await readFile(legacySourcePath, "utf8"));
-  const mismatchedTask = {
+  const retiredPrefix = String.fromCharCode(109, 97, 116, 116);
+  const removedLifecycleField = [retiredPrefix, "phase"].join("_");
+  const removedWriteGate = ["phase", "guard"].join("_");
+  const taskWithRemovedFields = {
     ...task,
-    status: "done",
-    matt_phase: "intake",
-    linked_artifacts: [...task.linked_artifacts, artifact],
+    [removedLifecycleField]: "intake",
+    [removedWriteGate]: {
+      selected_next_action: "none",
+      approved_artifacts: [],
+      process_exceptions: [],
+    },
   };
-  const mismatchedIndex = {
+  const indexWithRemovedField = {
     ...index,
-    tasks: [
-      ...index.tasks.map((item) =>
-        item.task_id === task.task_id
-          ? { ...item, status: "done", matt_phase: "intake" }
-          : item,
-      ),
-      {
-        task_id: "spoofed-legacy",
-        title: legacyTask.title,
-        task_kind: legacyTask.task_kind,
-        status: "done",
-        matt_phase: "done",
-        updated_at: legacyTask.updated_at,
-      },
-    ],
+    tasks: index.tasks.map((item) =>
+      item.task_id === task.task_id
+        ? { ...item, [removedLifecycleField]: "intake", updated_at: "1900-01-01" }
+        : item,
+    ),
   };
-  await writeFile(taskPath, `${JSON.stringify(mismatchedTask, null, 2)}\n`);
-  await writeFile(indexPath, `${JSON.stringify(mismatchedIndex, null, 2)}\n`);
-  await writeFile(spoofedPath, `${JSON.stringify(legacyTask, null, 2)}\n`);
-  await mkdir(path.join(root, path.dirname(artifact)), { recursive: true });
-  await writeFile(path.join(root, artifact), "# Terminal mismatch fixture\n");
+  await writeFile(taskPath, `${JSON.stringify(taskWithRemovedFields, null, 2)}\n`);
+  await writeFile(indexPath, `${JSON.stringify(indexWithRemovedField, null, 2)}\n`);
+  contractedTask.deliverable_contracts[0].required_artifacts[0].locator = "../../escape.md";
+  await writeFile(contractedTaskPath, `${JSON.stringify(contractedTask, null, 2)}\n`);
 
-  const result = await validateWorkflowState({ root, includeChangedFiles: true });
+  const result = await validateWorkflowState({ root, includeChangedFiles: false });
   assert.equal(result.ok, false);
-  assert.ok(
-    result.errors.includes(
-      "projects/workflow-foundry/tasks/index.json status and matt_phase for workflow-foundry-007 must both be done or both be non-done",
-    ),
-  );
-  assert.ok(
-    result.errors.includes(
-      "projects/workflow-foundry/tasks/workflow-foundry-007.json status and matt_phase must both be done or both be non-done",
-    ),
-  );
+  assert.ok(result.errors.some((error) => error.includes(`removed field ${removedLifecycleField}`)));
+  assert.ok(result.errors.some((error) => error.includes(`removed field ${removedWriteGate}`)));
+  assert.ok(result.errors.some((error) => error.includes("updated_at mismatch")));
   assert.ok(
     result.errors.some(
-      (error) =>
-        error.includes("projects/workflow-foundry/tasks/workflow-foundry-007.json") &&
-        error.includes("migration-pending"),
+      (error) => error.includes("workflow-foundry-015.json contract-routing-invalid"),
     ),
-    "status done must still run completion readiness even when matt_phase is not done",
   );
-  assert.ok(
-    result.errors.includes(
-      'projects/workflow-foundry/tasks/spoofed-legacy.json task_id must equal "spoofed-legacy"',
-    ),
-    "a grandfathered internal task id cannot bypass the indexed filename identity",
+});
+
+test("query CLI treats a missing task index as an empty optional ledger", async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "workflow-query-optional-ledger-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  await mkdir(path.join(root, "projects", "demo"), { recursive: true });
+  await writeFile(path.join(root, "projects", "demo", "project.json"), '{"project_slug":"demo"}\n');
+
+  const result = await execFileAsync(
+    process.execPath,
+    [queryCliPath, "--project", "demo", "--list-tasks"],
+    { cwd: root },
   );
-  assert.ok(
-    !result.errors.includes(`${artifact} changed but is not linked to a non-done task`),
-    "a terminal mismatch must remain in the open-task linkage projection",
+  assert.equal(result.stdout, "No matching tasks found.\n");
+});
+
+test("query CLI rejects the removed phase filter", async () => {
+  await assert.rejects(
+    execFileAsync(process.execPath, [queryCliPath, "--project", "workflow-foundry", "--list-tasks", "--phase", "done"], { cwd: repoRoot }),
+    (error) => {
+      assert.equal(error.code, 1);
+      assert.match(error.stderr, /Unsupported argument: --phase/);
+      return true;
+    },
   );
 });
 
@@ -207,7 +218,7 @@ test("preserves the thin CLI success and failure contracts", async (t) => {
   );
 });
 
-test("query CLI rejects project, task-id, and symlink escapes in both task modes", async (t) => {
+test("query CLI rejects project, task-id, and symlink escapes", async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), "workflow-query-boundary-"));
   t.after(() => rm(root, { recursive: true, force: true }));
   const demoTasks = path.join(root, "projects", "demo", "tasks");
@@ -223,24 +234,22 @@ test("query CLI rejects project, task-id, and symlink escapes in both task modes
   await writeFile(path.join(root, "outside-task.json"), '{"secret":"symlink traversal"}\n');
   await symlink(path.join(root, "outside-task.json"), path.join(demoTasks, "demo-001.json"));
 
-  for (const mode of ["--task", "--task-readiness"]) {
-    for (const invocation of [
-      ["--project", "demo", mode, "../../escaped"],
-      ["--project", "../outside-project", mode, "outside-001"],
-      ["--project", "demo", mode, "demo-001"],
-    ]) {
-      await assert.rejects(
-        execFileAsync(process.execPath, [queryCliPath, ...invocation], { cwd: root }),
-        (error) => {
-          assert.equal(error.code, 1);
-          assert.match(
-            error.stderr,
-            /Invalid --project|Invalid task id|outside its selected project's tasks directory/,
-          );
-          assert.equal(error.stdout, "");
-          return true;
-        },
-      );
-    }
+  for (const invocation of [
+    ["--project", "demo", "--task", "../../escaped"],
+    ["--project", "../outside-project", "--task", "outside-001"],
+    ["--project", "demo", "--task", "demo-001"],
+  ]) {
+    await assert.rejects(
+      execFileAsync(process.execPath, [queryCliPath, ...invocation], { cwd: root }),
+      (error) => {
+        assert.equal(error.code, 1);
+        assert.match(
+          error.stderr,
+          /Invalid --project|Invalid task id|outside its selected project's tasks directory/,
+        );
+        assert.equal(error.stdout, "");
+        return true;
+      },
+    );
   }
 });

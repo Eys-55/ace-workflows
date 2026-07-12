@@ -4,7 +4,7 @@
   "import_id": "2026-07-07-market-research-agent",
   "status": "quarantined",
   "created_at": "2026-07-07",
-  "updated_at": "2026-07-07",
+  "updated_at": "2026-07-13",
   "source": {
     "repo": "/Users/acecanacan/Documents/market-research-agent",
     "paths": [
@@ -45,7 +45,7 @@
       "rule": "Expose this import only through explicit quarantine inspection, not active skill discovery."
     }
   ],
-  "imported_skill_count": 18,
+  "imported_skill_count": 9,
   "imported_skills": [
     {
       "name": "address-disaster-risk-assessor",
@@ -100,60 +100,6 @@
       "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/untitled-project/SKILL.md",
       "initial_disposition": "rewrite-candidate",
       "reason": "Workflow-foundry concept may be useful, but this imported lane is source-repo specific."
-    },
-    {
-      "name": "workflow-closeout",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-closeout/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; Matt phases live in tracked task state here."
-    },
-    {
-      "name": "workflow-code-review",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-code-review/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; Matt phases live in tracked task state here."
-    },
-    {
-      "name": "workflow-grilling",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-grilling/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; Matt phases live in tracked task state here."
-    },
-    {
-      "name": "workflow-help",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-help/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy helper duplicates the canonical repo help surface."
-    },
-    {
-      "name": "workflow-implement",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-implement/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; Matt phases live in tracked task state here."
-    },
-    {
-      "name": "workflow-intake",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-intake/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; task initiation is handled by the canonical repo task skill."
-    },
-    {
-      "name": "workflow-router",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-router/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; routing is handled through tracked task state and canonical repo skills."
-    },
-    {
-      "name": "workflow-to-issues",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-to-issues/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; Matt phases live in tracked task state here."
-    },
-    {
-      "name": "workflow-to-prd",
-      "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/skills/workflow-to-prd/SKILL.md",
-      "initial_disposition": "keep-quarantined",
-      "reason": "Legacy phase helper; Matt phases live in tracked task state here."
     }
   ]
 }

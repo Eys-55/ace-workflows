@@ -4,11 +4,9 @@
   "title": "Design skill-first Workflow Foundry revamp",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
-  "summary": "Design a complete skill-first revamp of the Workflow Foundry so requests to create skills become explicit callable skill-package contracts, use approved workflow capabilities when needed, and cannot be satisfied by Python, JavaScript, or helper-script substitutes. Trace the current routing and validation failure, define the target architecture and migration plan, and preserve Matt Pocock and ECC phase gates before implementation begins.",
+  "summary": "Design a complete skill-first revamp of the Workflow Foundry so requests to create skills become explicit callable skill-package contracts, use approved workflow capabilities when needed, and cannot be satisfied by Python, JavaScript, or helper-script substitutes. Trace the current routing and validation failure, define the target architecture and migration plan, and preserve previous workflow and ECC phase gates before implementation begins.",
   "acceptance_criteria": [
-    "grilling maps the complete request path from user intent through project selection, task draft, capability dependency selection, Matt phase work, approved artifacts, validation, review, and handoff",
+    "planning maps the complete request path from user intent through project selection, task draft, capability dependency selection, previous workflow phase work, approved artifacts, validation, review, and handoff",
     "the revamp defines precise foundry terms for a canonical repo skill, a project-local packaged skill, a workflow artifact, and a deterministic helper so scripts cannot be mistaken for skills",
     "task creation and continuation classify the requested deliverable before implementation instead of representing every request as an untyped workflow-change",
     "a task classified as a canonical skill requires a lowercase hyphenated .agents/skills/<slug>/ folder with SKILL.md and agents/openai.yaml; optional scripts, references, and assets remain supporting resources rather than the product",
@@ -19,7 +17,7 @@
     "validation fails missing SKILL.md, missing or invalid agents/openai.yaml, folder/frontmatter mismatch, script-only skill substitutes, unreferenced helpers, command-first wrappers, and workflow-help discovery drift",
     "eval fixtures cover natural-language create-skill requests and prove the foundry chooses the correct skill surface before any code or helper artifact is approved",
     "the migration preserves the existing task tracker, phase guards, audit separation, read-only tracker UI, source-project isolation, and approval boundary for external writes",
-    "the workflow preserves Matt Pocock presentation style and ECC workflow architecture",
+    "the workflow preserves previous workflow presentation style and ECC workflow architecture",
     "the workflow produces a reviewable target architecture and migration roadmap before any implementation artifacts are approved"
   ],
   "ecc_concepts_applied": [
@@ -34,7 +32,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, all non-done tasks, the prior skill-first repair, current routing and validator surfaces, and Matt/ECC skill guidance before shaping the skill-first foundry revamp.",
+    "summary": "Load workflow-foundry state, all non-done tasks, the prior skill-first repair, current routing and validator surfaces, and previous workflow/ECC skill guidance before shaping the skill-first foundry revamp.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -48,9 +46,9 @@
       "projects/workflow-foundry/tasks/workflow-foundry-005.json",
       "projects/workflow-foundry/tasks/workflow-foundry-006.json",
       "projects/workflow-foundry/tasks/workflow-foundry-007.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       ".agents/skills/workflow-help/SKILL.md",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-003-skill-first-runtime-surface.md",
@@ -64,406 +62,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-006-skill-first-foundry-revamp.md",
-        "phase": "prd",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user instruction to continue workflow-foundry-006 through PRD after accepting the recommended skill target routing law.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-prd"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-001-validation-core-prefactor.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-002-deliverable-contract-migration.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-003-derived-skill-catalog.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-004-canonical-skill-tracer.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-005-standalone-skill-routing.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-006-multi-deliverable-routing.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-006-issue-007-capability-outcome-reconciliation.md",
-        "phase": "issues",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to continue workflow-foundry-006 through issue breakdown and push the checkpoint.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-issues"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-state-validation-core.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to finish workflow-foundry-006 using the issue-001 test-first validation-core slice.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-test-surface"
-      },
-      {
-        "path": "scripts/workflow-state-validation-core.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to finish workflow-foundry-006 using the issue-001 importable validation core.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-script-surface"
-      },
-      {
-        "path": "scripts/validate-workflow-state.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to finish workflow-foundry-006 while preserving the validator command contract.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-script-surface"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/package.json",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved by the user's instruction to finish workflow-foundry-006 and register its deterministic data tests.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-package-registration"
-      },
-      {
-        "path": "scripts/workflow-deliverable-contracts.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "primary",
-        "approval_note": "Approved for the shared versioned deliverable validation and read-only readiness projection.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "deliverable-contract-module"
-      },
-      {
-        "path": "scripts/workflow-skill-catalog.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "primary",
-        "approval_note": "Approved for derived canonical skill discovery shared by validator, query, help, dependency inspection, and tracker.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "skill-catalog-module"
-      },
-      {
-        "path": "scripts/query-workflow-state.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for read-only skill catalog and deliverable readiness queries.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-script-surface"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-deliverable-contracts.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for deterministic versioned-contract, migration, role, and dependency outcome fixtures.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-test-surface"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-skill-catalog.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for derived catalog and complete-bundle regression fixtures.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "runtime-test-surface"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-readiness-projection",
-        "artifact_role": "support",
-        "approval_note": "Approved for read-only tracker contract, migration, and discovery projection assertions.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "tracker-readiness-test"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-readiness-projection",
-        "artifact_role": "support",
-        "approval_note": "Approved for read-only normalized deliverable and discovery readiness state.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "tracker-readiness-source"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/src/pages/index.astro",
-        "phase": "implement",
-        "deliverable_id": "wf006-readiness-projection",
-        "artifact_role": "primary",
-        "approval_note": "Approved for rendering read-only deliverable and discovery readiness without mutation controls.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "tracker-readiness-view"
-      },
-      {
-        "path": ".agents/skills/initiate-task/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for proposed-contract review and required typed contracts on new tasks.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "lifecycle-skill-surface"
-      },
-      {
-        "path": ".agents/skills/continue-task/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for migration freeze, readiness, and role-aware phase continuation rules.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "lifecycle-skill-surface"
-      },
-      {
-        "path": ".agents/skills/workflow-help/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for derived skill catalog usage and explicit skill-construction routing.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "lifecycle-skill-surface"
-      },
-      {
-        "path": ".agents/skills/audit-foundry/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for read-only reporting of contract and migration violations without repair.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "audit-foundry-update"
-      },
-      {
-        "path": ".agents/skills/build-workflow-skill/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-skill-builder",
-        "artifact_role": "primary",
-        "approval_note": "Approved for the sole model-invoked skill authoring authority defined by Issues 004 through 007.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "builder-bundle"
-      },
-      {
-        "path": ".agents/skills/build-workflow-skill/agents/openai.yaml",
-        "phase": "implement",
-        "deliverable_id": "wf006-skill-builder",
-        "artifact_role": "primary",
-        "approval_note": "Approved for complete Codex runtime metadata with matching $build-workflow-skill identity.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "builder-bundle"
-      },
-      {
-        "path": ".agents/skills/build-workflow-skill/references/skill-bundle-contract.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-skill-builder",
-        "artifact_role": "support",
-        "approval_note": "Approved as directly consumed guidance for complete canonical, packaged, standalone, and workflow-pack bundles.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "bundle-contract-reference"
-      },
-      {
-        "path": ".agents/skills/build-workflow-skill/references/behavior-evaluation-contract.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-skill-builder",
-        "artifact_role": "support",
-        "approval_note": "Approved as directly consumed guidance for shared RED/GREEN fresh-agent and deterministic behavior evidence.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "behavior-contract-reference"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-006-behavior-scenarios.json",
-        "phase": "implement",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "primary",
-        "approval_note": "Approved for the single shared scenario contract consumed by deterministic and fresh-agent seams.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "behavior-scenarios"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-006-behavior-evidence.json",
-        "phase": "implement",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "primary",
-        "approval_note": "Approved for raw prompts, observed routes, artifacts, provenance, runner identity, timestamps, versions, and results.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "behavior-run-evidence"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-006-skill-first-foundry-review.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-behavior-evidence",
-        "artifact_role": "primary",
-        "approval_note": "Approved for the final Standards-plus-Spec code review and acceptance trace.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "revamp-reviews"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-skill-routing.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_role": "primary",
-        "approval_note": "Approved for deterministic canonical, packaged, standalone, mixed, helper-only, and dependency-backed routing fixtures.",
-        "approved_at": "2026-07-10",
-        "artifact_id": "routing-regression-tests"
-      },
-      {
-        "path": "scripts/workflow-contract-schema.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "runtime-script-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to keep each deterministic contract runtime module below the repository 800-line ceiling.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": "scripts/workflow-contract-readiness.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "runtime-script-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to keep each deterministic contract runtime module below the repository 800-line ceiling.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": ".agents/skills/audit-review/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "lifecycle-skill-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to classify deterministic helper commands under explicit support headings after command-first enforcement became default-deny.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": ".agents/skills/review-project-state/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "lifecycle-skill-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to classify deterministic helper commands under explicit support headings after command-first enforcement became default-deny.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": ".agents/skills/testing-session/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "lifecycle-skill-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to classify deterministic helper commands under explicit support headings after command-first enforcement became default-deny.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": ".agents/skills/workflow-tracker-ui/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "lifecycle-skill-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to classify deterministic helper commands under explicit support headings after command-first enforcement became default-deny.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": "projects/real-life-workflows/README.md",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "packaged-readme-command-classification",
-        "artifact_role": "support",
-        "approval_note": "Approved to classify the package install example as a package smoke test, not an operator skill invocation.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": "scripts/workflow-state-validation-rules.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "runtime-script-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to keep each deterministic contract runtime module below the repository 800-line ceiling.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": "scripts/workflow-state-project-validation.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "runtime-script-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to keep each deterministic contract runtime module below the repository 800-line ceiling.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-deliverable-boundaries.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "runtime-test-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to split deterministic contract boundary tests below the repository 800-line ceiling.",
-        "approved_at": "2026-07-10"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-release-gates.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf006-contract-runtime",
-        "artifact_id": "runtime-test-surface",
-        "artifact_role": "support",
-        "approval_note": "Approved to enforce scenario-evidence and lifecycle-template release regressions through the canonical verification command.",
-        "approved_at": "2026-07-10"
-      }
-    ],
-    "process_exceptions": []
-  },
-  "deliverable_migration": {
-    "status": "approved",
-    "target_contract_version": 1,
-    "frozen_phase": "implement",
-    "approved_at": "2026-07-10",
-    "approval_note": "The user approved finishing workflow-foundry-006 and its versioned multi-deliverable implementation."
   },
   "deliverable_contracts": [
     {
@@ -507,8 +105,8 @@
       ],
       "required_guidance": [
         {
-          "guidance_id": "matt-writing-great-skills",
-          "source": "mattpocock/skills writing-great-skills",
+          "guidance_id": "previous workflow-writing-great-skills",
+          "source": "previous workflowpocock/skills writing-great-skills",
           "evidence": "The bundle keeps trigger metadata concise, workflow instructions imperative, and optional resources directly linked."
         },
         {
@@ -782,8 +380,8 @@
       ],
       "required_guidance": [
         {
-          "guidance_id": "matt-code-review",
-          "source": "mattpocock/skills code-review",
+          "guidance_id": "previous workflow-code-review",
+          "source": "previous workflowpocock/skills code-review",
           "evidence": "The final review separates Standards findings from Spec findings and records validation."
         }
       ],
@@ -988,7 +586,6 @@
         "canonical-active",
         "not-applicable"
       ],
-      "observed_phase_result": "fail: independent review invalidated the 36-case release attempt",
       "observed_diff": [
         {
           "path": ".agents/skills/build-workflow-skill",
@@ -1014,7 +611,8 @@
       "retry_of": null,
       "result": "fail",
       "timestamp": "2026-07-10T07:54:40.728Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "fail: independent review invalidated the 36-case release attempt"
     },
     {
       "evidence_id": "wf006-fresh-agent-routes-v3",
@@ -1049,7 +647,6 @@
         "canonical-active",
         "not-applicable"
       ],
-      "observed_phase_result": "pass: 54/54 isolated provenance-complete live cases",
       "observed_diff": [
         {
           "path": ".agents/skills/build-workflow-skill",
@@ -1079,7 +676,8 @@
       "retry_of": "wf006-fresh-agent-routes-v2-invalidated",
       "result": "pass",
       "timestamp": "2026-07-10T08:29:54.111Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: 54/54 isolated provenance-complete live cases"
     },
     {
       "evidence_id": "wf006-skill-regressions-v2-invalidated",
@@ -1109,7 +707,6 @@
       "observed_visibility": [
         "canonical-active"
       ],
-      "observed_phase_result": "fail: deterministic route and coverage gate invalidated",
       "observed_diff": [
         {
           "path": ".agents/skills/build-workflow-skill",
@@ -1131,7 +728,8 @@
       "retry_of": null,
       "result": "fail",
       "timestamp": "2026-07-10T07:25:01.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "fail: deterministic route and coverage gate invalidated"
     },
     {
       "evidence_id": "wf006-skill-regressions-v3",
@@ -1161,7 +759,6 @@
       "observed_visibility": [
         "canonical-active"
       ],
-      "observed_phase_result": "pass: deterministic scenario gate",
       "observed_diff": [
         {
           "path": ".agents/skills/build-workflow-skill",
@@ -1183,7 +780,8 @@
       "retry_of": "wf006-skill-regressions-v2-invalidated",
       "result": "pass",
       "timestamp": "2026-07-10T07:25:01.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: deterministic scenario gate"
     },
     {
       "evidence_id": "wf006-contract-runtime-tests-v2",
@@ -1213,7 +811,6 @@
       "observed_visibility": [
         "not-applicable"
       ],
-      "observed_phase_result": "pass: contract runtime and boundary gates",
       "observed_diff": [
         {
           "path": "scripts/workflow-deliverable-contracts.mjs",
@@ -1234,7 +831,8 @@
       "first_attempt": true,
       "result": "pass",
       "timestamp": "2026-07-10T07:25:03.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: contract runtime and boundary gates"
     },
     {
       "evidence_id": "wf006-tracker-verification-v2",
@@ -1264,7 +862,6 @@
       "observed_visibility": [
         "not-applicable"
       ],
-      "observed_phase_result": "pass: read-only tracker projection",
       "observed_diff": [
         {
           "path": "projects/workflow-foundry/tracker/src/pages/index.astro",
@@ -1285,7 +882,8 @@
       "first_attempt": true,
       "result": "pass",
       "timestamp": "2026-07-10T07:25:05.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: read-only tracker projection"
     },
     {
       "evidence_id": "wf006-final-review-r1",
@@ -1315,7 +913,6 @@
       "observed_visibility": [
         "not-applicable"
       ],
-      "observed_phase_result": "fail: high findings required regression fixes",
       "observed_diff": [
         {
           "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-006-skill-first-foundry-review.md",
@@ -1337,7 +934,8 @@
       "retry_of": null,
       "result": "fail",
       "timestamp": "2026-07-10T08:05:00.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "fail: high findings required regression fixes"
     },
     {
       "evidence_id": "wf006-final-review-r2",
@@ -1367,7 +965,6 @@
       "observed_visibility": [
         "not-applicable"
       ],
-      "observed_phase_result": "pass: Standards and Spec review",
       "observed_diff": [
         {
           "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-006-skill-first-foundry-review.md",
@@ -1389,7 +986,8 @@
       "retry_of": "wf006-final-review-r1",
       "result": "pass",
       "timestamp": "2026-07-10T08:45:17.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: Standards and Spec review"
     }
   ],
   "dependencies": [],
@@ -1423,8 +1021,8 @@
     "projects/workflow-foundry/tracker/tests/workflow-state.test.mjs",
     "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
     "projects/workflow-foundry/tracker/src/pages/index.astro",
-    ".agents/skills/initiate-task/SKILL.md",
-    ".agents/skills/continue-task/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
+    ".agents/skills/native Codex planning/SKILL.md",
     ".agents/skills/workflow-help/SKILL.md",
     ".agents/skills/audit-foundry/SKILL.md",
     ".agents/skills/build-workflow-skill/SKILL.md",
@@ -1455,7 +1053,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Moved to grilling after user asked to grill the foundry expansion discovery workflow."
+      "event": "Moved to planning after user asked to grill the foundry expansion discovery workflow."
     },
     {
       "date": "2026-07-07",
@@ -1467,11 +1065,11 @@
     },
     {
       "date": "2026-07-10",
-      "event": "Completed an evidence-first architecture trace. Root policy is skill-first, but workflow-help has no skill-construction route; initiate-task and continue-task model skill intent as a generic workflow-change; the validator checks existing SKILL.md files but does not require a complete skill bundle, agents/openai.yaml, deliverable-to-output consistency, dependency outcome evidence, or discovery reconciliation."
+      "event": "Completed an evidence-first architecture trace. Root policy is skill-first, but workflow-help has no skill-construction route; native Codex planning and native Codex planning model skill intent as a generic workflow-change; the validator checks existing SKILL.md files but does not require a complete skill bundle, agents/openai.yaml, deliverable-to-output consistency, dependency outcome evidence, or discovery reconciliation."
     },
     {
       "date": "2026-07-10",
-      "event": "Reframed workflow-foundry-006 from general expansion discovery into the skill-first foundry revamp owner. Kept the task in grilling with no approved implementation artifacts while the target-surface routing rule remains unresolved."
+      "event": "Reframed workflow-foundry-006 from general expansion discovery into the skill-first foundry revamp owner. Kept the task in planning with no approved implementation artifacts while the target-surface routing rule remains unresolved."
     },
     {
       "date": "2026-07-10",
@@ -1479,11 +1077,11 @@
     },
     {
       "date": "2026-07-10",
-      "event": "Closed grilling with a versioned multi-deliverable contract model, three-way skill ownership routing, one dedicated model-invoked skill builder, thin lifecycle delegation, positive bundle and completion enforcement, capability outcome reconciliation, derived skill discovery, and hybrid routing plus disposable-repository regression seams."
+      "event": "Closed planning with a versioned multi-deliverable contract model, three-way skill ownership routing, one dedicated model-invoked skill builder, thin lifecycle delegation, positive bundle and completion enforcement, capability outcome reconciliation, derived skill discovery, and hybrid routing plus disposable-repository regression seams."
     },
     {
       "date": "2026-07-10",
-      "event": "Wrote the skill-first Workflow Foundry revamp PRD, moved the task to PRD phase, and set issue breakdown as the next action. No implementation artifacts, dependency calls, commits, or pushes were approved."
+      "event": "Wrote the skill-first Workflow Foundry revamp PRD, moved the task to planning, and set issue breakdown as the next action. No implementation artifacts, dependency calls, commits, or pushes were approved."
     },
     {
       "date": "2026-07-10",
@@ -1511,7 +1109,7 @@
     },
     {
       "date": "2026-07-10",
-      "event": "User approved completing workflow-foundry-006 before workflow-foundry-015. Entered implement phase and approved the exact issue-001 characterization test, importable validation core, command wrapper, and test registration paths."
+      "event": "User approved completing workflow-foundry-006 before workflow-foundry-015. Entered implementation and approved the exact issue-001 characterization test, importable validation core, command wrapper, and test registration paths."
     },
     {
       "date": "2026-07-10",

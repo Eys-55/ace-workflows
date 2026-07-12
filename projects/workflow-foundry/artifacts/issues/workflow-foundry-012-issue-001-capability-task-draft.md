@@ -2,14 +2,14 @@
 
 ## Parent
 
-`workflow-foundry-012` - Add capability dependencies to initiate-task
+`workflow-foundry-012` - Add capability dependencies to native Codex planning
 
 ## What to build
 
 Extend the task initiation workflow so a new primary project task can explicitly
 include capability dependencies on usable skills from another known project. The
 operator should be able to state the dependency directly or in natural language,
-have `$initiate-task` infer and confirm the dependency, load the selected
+have `native Codex planning` infer and confirm the dependency, load the selected
 dependency project's usable known skills, and review a final task draft before
 any task JSON is written.
 
@@ -18,14 +18,14 @@ tasks with no dependencies.
 
 ## Acceptance criteria
 
-- [x] `$initiate-task` can model `capability_dependencies` for a primary project task without creating a helper task in the dependency project.
+- [x] `native Codex planning` can model `capability_dependencies` for a primary project task without creating a helper task in the dependency project.
 - [x] Natural-language dependency mentions are inferred but require explicit operator confirmation before task creation.
 - [x] Dependency suggestions come only from known registered tracker context and existing project, task, skill, or artifact records.
 - [x] Dependency projects do not need to advertise reusable capabilities.
 - [x] When a dependency project is selected, initiation loads all usable known skills or skill metadata for that project plus enough relationship context to understand selected skill calls.
 - [x] The final task draft includes primary project, title, summary, selected capability dependencies, ordered dependency steps, selected dependency skill map, allowed writes, protected paths, expected artifacts, and acceptance criteria.
 - [x] The dependency skill map lists only selected dependency skills; loaded-but-not-selected skills are not approved for use.
-- [x] The created task remains a single primary project task at `matt_phase:intake`.
+- [x] The created task remains a single primary project task at `removed_lifecycle_field:intake`.
 - [x] Existing task creation with no capability dependencies still follows the current initiation contract.
 
 ## Blocked by

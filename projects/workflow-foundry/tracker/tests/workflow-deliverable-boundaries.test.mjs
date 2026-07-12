@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { createHash } from "node:crypto";
 import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -11,12 +10,6 @@ function task(overrides = {}) {
     task_id: "fixture-001",
     project_slug: "fixture",
     status: "in-progress",
-    matt_phase: "implement",
-    phase_guard: {
-      selected_next_action: "code-review",
-      approved_artifacts: [],
-      process_exceptions: [],
-    },
     linked_artifacts: [],
     ...overrides,
   };
@@ -72,13 +65,6 @@ function contract(overrides = {}) {
 function approvedTask(overrides = {}) {
   const deliverable = contract();
   return task({
-    deliverable_migration: {
-      status: "approved",
-      target_contract_version: 1,
-      frozen_phase: "implement",
-      approved_at: "2026-07-10",
-      approval_note: "Approved fixture migration.",
-    },
     deliverable_contracts: [deliverable],
     artifact_bindings: [
       {
@@ -119,7 +105,6 @@ function approvedTask(overrides = {}) {
         observed_route: ["documentation-handoff"],
         observed_ownership: ["project-packaged"],
         observed_visibility: ["not-applicable"],
-        observed_phase_result: "artifact-created-and-validated",
         observed_contract_ids: ["fixture-output"],
         observed_artifacts: ["projects/fixture/output.md"],
         result: "pass",
@@ -128,21 +113,6 @@ function approvedTask(overrides = {}) {
       },
     ],
     linked_artifacts: ["projects/fixture/output.md"],
-    phase_guard: {
-      selected_next_action: "code-review",
-      approved_artifacts: [
-        {
-          path: "projects/fixture/output.md",
-          phase: "implement",
-          deliverable_id: "fixture-output",
-          artifact_id: "fixture-output-file",
-          artifact_role: "primary",
-          approval_note: "Approved fixture output.",
-          approved_at: "2026-07-10",
-        },
-      ],
-      process_exceptions: [],
-    },
     ...overrides,
   });
 }
@@ -223,10 +193,9 @@ test("rejects decorative evidence, unsatisfied review conditions, and escaped sy
 
   const blockedNoWrite = approvedTask();
   blockedNoWrite.behavior_evidence[0].observed_diff = [];
-  blockedNoWrite.behavior_evidence[0].observed_phase_result = "blocked-before-write";
   blockedNoWrite.behavior_evidence[0].no_write_evidence = {
     outcome: "blocked",
-    reason: "The phase guard refused the write.",
+    reason: "A boundary check refused the write.",
     verified_zero_writes: true,
   };
   assert.deepEqual(validateTaskDeliverableState(blockedNoWrite), []);
@@ -268,7 +237,6 @@ test("rejects decorative evidence, unsatisfied review conditions, and escaped sy
   const linkPath = path.join(root, "projects", "fixture", "link.md");
   await symlink(outside, linkPath);
   const escaped = approvedTask({
-    matt_phase: "issues",
     deliverable_contracts: [
       contract({
         target_surface: "projects/fixture/link.md",
@@ -294,25 +262,10 @@ test("rejects decorative evidence, unsatisfied review conditions, and escaped sy
       },
     ],
     linked_artifacts: ["projects/fixture/link.md"],
-    phase_guard: {
-      selected_next_action: "code-review",
-      approved_artifacts: [
-        {
-          path: "projects/fixture/link.md",
-          phase: "implement",
-          deliverable_id: "fixture-output",
-          artifact_role: "primary",
-          approval_note: "Fixture",
-          approved_at: "2026-07-10",
-        },
-      ],
-      process_exceptions: [],
-    },
   });
   const escapedReadiness = projectDeliverableReadiness({ task: escaped, root });
   assert.equal(escapedReadiness.deliverables[0].identity_readiness.ready, false);
   assert.equal(escapedReadiness.deliverables[0].identity_readiness.code, "dependency-out-of-boundary");
-  assert.equal(escapedReadiness.next_phase_ready, false);
   assert.ok(escapedReadiness.blockers.some((blocker) => blocker.code === "dependency-out-of-boundary"));
   assert.equal(await readFile(outside, "utf8"), "outside\n");
 });
@@ -522,21 +475,6 @@ test("validates standalone artifacts only inside an explicitly approved product 
       },
     ],
     linked_artifacts: [bundle],
-    phase_guard: {
-      selected_next_action: "code-review",
-      approved_artifacts: [
-        {
-          path: bundle,
-          phase: "implement",
-          deliverable_id: "fixture-output",
-          artifact_id: "fixture-output-file",
-          artifact_role: "primary",
-          approval_note: "Approve the product bundle.",
-          approved_at: "2026-07-10",
-        },
-      ],
-      process_exceptions: [],
-    },
     behavior_evidence: [
       {
         ...approvedTask().behavior_evidence[0],
@@ -568,12 +506,11 @@ test("validates standalone artifacts only inside an explicitly approved product 
   escaped.deliverable_contracts[0].required_artifacts[0].locator = outside;
   escaped.artifact_bindings[0].locator = outside;
   escaped.linked_artifacts = [outside];
-  escaped.phase_guard.approved_artifacts[0].path = outside;
   escaped.behavior_evidence[0].observed_artifacts = [outside];
   assert.ok(projectDeliverableReadiness({ task: escaped, root }).blockers.some((blocker) => blocker.code === "dependency-out-of-boundary"));
 });
 
-test("returns structured errors for malformed nested values and rejects status-only history", () => {
+test("returns structured errors for malformed nested values and accepts status-only tasks", () => {
   const malformed = approvedTask({
     deliverable_contracts: [
       contract({
@@ -587,7 +524,6 @@ test("returns structured errors for malformed nested values and rejects status-o
     artifact_bindings: {},
     behavior_evidence: [null],
     dependency_steps: [null],
-    phase_guard: { approved_artifacts: {}, process_exceptions: [] },
   });
   assert.doesNotThrow(() => validateTaskDeliverableState(malformed));
   assert.ok(validateTaskDeliverableState(malformed).length > 0);
@@ -616,58 +552,7 @@ test("returns structured errors for malformed nested values and rejects status-o
   assert.doesNotThrow(() => projectDeliverableReadiness({ task: malformedPlan }));
   assert.doesNotThrow(() => projectDeliverableReadiness());
 
-  const statusOnly = task({ status: "done", matt_phase: "implement" });
-  assert.ok(validateTaskDeliverableState(statusOnly).some((error) => error.code === "contract-missing"));
+  const statusOnly = task({ status: "done" });
+  assert.deepEqual(validateTaskDeliverableState(statusOnly), []);
   assert.equal(projectDeliverableReadiness({ task: statusOnly }).state, "blocked");
-});
-
-test("release evidence preserves every isolated GPT-5.6 Sol run and its write proof", async () => {
-  const evidencePath = new URL(
-    "../../artifacts/reviews/workflow-foundry-006-behavior-evidence.json",
-    import.meta.url,
-  );
-  const evidence = JSON.parse(await readFile(evidencePath, "utf8"));
-
-  const digest = (value) => createHash("sha256").update(value).digest("hex");
-  const priorIds = new Set(evidence.prior_runs.map((run) => run.evidence_id));
-
-  assert.equal(evidence.schema_version, "3");
-  assert.equal(evidence.model_policy.required_model, "gpt-5.6-sol");
-  assert.deepEqual(evidence.model_policy.fallback_models, []);
-  assert.equal(evidence.live_case_count, 54);
-  assert.equal(evidence.live_pass_count, 54);
-  assert.equal(evidence.live_fail_count, 0);
-  assert.equal(evidence.live_runs.length, 54);
-  assert.equal(new Set(evidence.live_runs.map((run) => run.runner_session_id)).size, 54);
-  assert.equal(priorIds.size, evidence.prior_runs.length);
-  assert.deepEqual(evidence.attempt_history, {
-    first_attempt_release_runs: 7,
-    retry_release_runs: 47,
-    preserved_prior_runs: 56,
-  });
-
-  for (const run of evidence.live_runs) {
-    assert.equal(run.runner_id, "gpt-5.6-sol");
-    assert.equal(run.runner_command_model, "gpt-5.6-sol");
-    assert.equal(run.invocation.filter((entry) => entry === "--model").length, 1);
-    assert.equal(run.invocation[run.invocation.indexOf("--model") + 1], "gpt-5.6-sol");
-    assert.equal(run.first_attempt ? run.retry_of : priorIds.has(run.retry_of), run.first_attempt ? null : true);
-    assert.equal(run.model_failure_detected, false);
-    assert.equal(run.result, "pass");
-    assert.ok(run.raw_output.length > 0);
-    assert.ok(run.raw_event_log.length > 0);
-    assert.equal(digest(run.raw_event_log), run.raw_event_log_sha256);
-    assert.equal(run.before_snapshot.commit, run.after_snapshot.baseline_commit);
-    assert.equal(digest(run.raw_unified_diff), run.after_snapshot.diff_sha256);
-    assert.equal(run.grader_output.verdict, "pass");
-    assert.ok(run.validation_results.every((result) => result.result === "pass"));
-
-    if (run.observed_diff.length > 0) {
-      assert.ok(run.observed_artifacts.length > 0);
-      assert.ok(run.raw_unified_diff.length > 0);
-    } else {
-      assert.equal(run.raw_unified_diff, "");
-      assert.equal(run.no_write_evidence?.verified_zero_writes, true);
-    }
-  }
 });

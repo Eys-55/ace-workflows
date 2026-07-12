@@ -6,7 +6,6 @@
       "title": "Set up health workflow project tracker",
       "task_kind": "tracker-maintenance",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -14,7 +13,6 @@
       "title": "Discover health workflow candidates from real-life workflows",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -22,15 +20,13 @@
       "title": "Record health workflow completion checkpoint",
       "task_kind": "tracker-maintenance",
       "status": "in-progress",
-      "matt_phase": "intake",
-      "updated_at": "2026-07-08"
+      "updated_at": "2026-07-12"
     },
     {
       "task_id": "health-004",
       "title": "Implement remaining Health 002 plan slices",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -38,7 +34,6 @@
       "title": "Build standalone Philippines health coverage workflow repo",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -46,7 +41,6 @@
       "title": "Review standalone health workflow against real-life workflow patterns",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -54,7 +48,6 @@
       "title": "Expand standalone health workflow into a people-first multi-skill product",
       "task_kind": "workflow-change",
       "status": "in-progress",
-      "matt_phase": "implement",
       "updated_at": "2026-07-12"
     },
     {
@@ -62,7 +55,6 @@
       "title": "Build a people-first UI for the standalone Philippines health coverage product",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-12"
     }
   ]

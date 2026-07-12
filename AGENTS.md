@@ -1,389 +1,179 @@
 # AGENTS.md
 
-This repository exists to create, refine, and validate agent workflows. Treat it
-as a workflow foundry, not a generic notes folder.
+This repository creates, refines, and validates agent workflows. Treat it as a
+workflow foundry, not a generic notes folder.
 
-## Non-Negotiable Operating Rule
+## Operating Model
 
-For every change in this repository, including the smallest edit, follow the
-Matt Pocock process and reference files used by this repo. Before changing a
-workflow, skill, markdown file, prompt chain, command, or supporting script:
+Use the native Codex workflow for repository changes:
 
-1. Locate the relevant Matt Pocock source material. The canonical source is
-   `mattpocock/skills`: https://github.com/mattpocock/skills
-2. Read it before editing.
-3. Mirror its structure, naming, examples, and quality bar unless the user asks
-   for a deliberate deviation.
-4. If no local Matt Pocock mirror or reference file exists yet, inspect the
-   upstream repository before editing and record the source used.
+```text
+plan -> implement -> validate -> commit -> push
+```
 
-Do not invent a workflow style from memory when Matt Pocock source material is
-available.
+- Inspect the relevant repository and project context before planning.
+- Use Codex Plan Mode for complex work; a separate repo-specific planning
+  lifecycle is not required.
+- Implement with ECC guidance, test-first or eval-first slices, and focused
+  review.
+- Validate in proportion to risk, inspect the diff, and scan for secrets before
+  committing or pushing.
+- A user request to perform repository work authorizes pushing the completed
+  working branch after validation. It does not authorize merging into `main`,
+  opening a pull request, publishing a release, or changing third-party state
+  unless the user requests that action.
 
-If the user says "call Matt", "use Matt", "Matt process", "Mat process", or
-"Matt Pocock process", first read [references/matt-pocock-skills.md](references/matt-pocock-skills.md),
-then inspect the relevant upstream skill files from `mattpocock/skills`.
+## ECC Is the Build System for Workflows
 
-## ECC Is The Build System For Workflows
+Use Everything Claude Code (ECC) as the source of truth for workflow
+decomposition, skill design, prompt chains, test-first construction, eval
+gates, agent handoffs, reusable resources, security, and validation.
 
-Everything about building agent workflows here is based on Everything Claude
-Code (ECC). Assume you are not naturally good at designing workflow packs,
-skills, markdown instructions, prompt chains, or agent handoffs. Before building
-or editing those artifacts, re-read the relevant ECC guidance and use it as the
-source of truth.
+For new features and bug fixes:
 
-Use ECC principles for:
-
-- workflow decomposition
-- skill design
-- prompt chaining
-- eval gates
-- test-first workflow construction
-- agent handoffs
-- reusable references, scripts, and assets
-- security and validation requirements
-- documentation placement
-
-If Matt Pocock style and ECC workflow guidance seem to conflict, preserve the
-Matt Pocock presentation/style while preserving the ECC workflow architecture.
-Raise the conflict if it affects behavior or validation.
+1. Define observable acceptance checks.
+2. Add a failing test or eval when feasible.
+3. Implement the smallest passing slice.
+4. Refactor without weakening the checks.
+5. Review correctness, security, and maintainability.
 
 ## Canonical Workflow Surface
 
-`.agents/skills/` is the only canonical skill surface. Codex discovers repo
-skills from this path, and skills are invoked explicitly with `$skill-name`.
+`.agents/skills/` is the only canonical active skill surface. Codex discovers
+repository skills there and invokes them as `$skill-name`.
 
-Do not create active workflow command shims or custom prompt files in this repo.
-Custom prompt files are deprecated for this workflow system and must not be used
-as the source of truth.
-
-Expected skill shape:
+Do not create active workflow command shims or custom prompt files. Keep
+`SKILL.md` concise and move detailed conditional material into directly linked
+references. A skill bundle has this shape:
 
 ```text
-.agents/
-  skills/
-    skill-name/
-      SKILL.md
-      agents/openai.yaml
-      references/
-      scripts/
-      assets/
+.agents/skills/skill-name/
+  SKILL.md
+  agents/openai.yaml
+  references/       # optional
+  scripts/          # optional deterministic support
+  assets/           # optional
 ```
 
-Only create optional folders when they are genuinely needed. Keep `SKILL.md`
-focused and concise; move detailed, conditional, or domain-heavy material into
-directly linked reference files.
+The folder name must match the lowercase, hyphenated `name` in frontmatter.
+Put trigger guidance in the frontmatter `description` and write procedures in
+imperative form.
 
-`SKILL.md` must include `name` and `description` metadata. The folder name must
-match the frontmatter `name`.
+Operator-facing documentation must lead with skill invocation and agent-runtime
+usage. `npx`, `npm`, or raw helper scripts may support deterministic validation,
+queries, or package smoke tests, but they are not substitutes for callable
+skills.
 
-## Skill-First Runtime Surface
+## File Policy
 
-This foundry builds skills and workflow packs for agent runtimes first: Codex,
-Claude Code, opencode, and Antigravity-style environments. Operator-facing
-workflow docs must lead with skill invocation and agent-runtime usage, not
-manual package or script commands.
+- Python is not allowed.
+- Workflow artifacts should be Markdown and JSON.
+- `.mjs` is allowed only for deterministic validation or query helpers; it must
+  not replace skill logic or workflow instructions.
+- Prefer small, focused files and project-local homes over new top-level files.
+- Never hardcode secrets, credentials, tokens, or private keys.
+- Validate external input at system boundaries and fail with clear errors.
 
-For normal Ace/Codex work, `.agents/skills/` is the active local skill surface.
-Project-local packaged skills may exist as exportable artifacts for other agent
-runtimes, but they are not automatically active local Codex skills. Their docs
-must still be skill-first and agent-runtime-first.
+## Repository and Project Boundaries
 
-Do not present `npx`, `npm`, Python, or raw helper scripts as the primary way to
-call a workflow skill. Command-like helpers are allowed only when they are
-clearly framed as deterministic validation, query helpers, package metadata,
-developer/package smoke tests, or internal support that a skill calls. Audit and
-classify command-like surfaces before deleting them; deletion is not the default
-first move.
+Projects live under `projects/<project-slug>/`. The `workflow-foundry` project
+owns the repository control plane: root skills, JSON helpers, registry entries,
+and validation behavior.
 
-## Allowed File Types
+Root `AGENTS.md` owns repository-wide workflow architecture, validation, file
+policy, and Git safety. Project `AGENTS.md` files contain only project/domain
+behavior, vocabulary, source rules, and output expectations. Every live
+`AGENTS.md` must be registered in `registry/agents-md.json`.
 
-Python is not allowed in this repository.
-
-Workflow artifacts should be Markdown and JSON. `.mjs` files are allowed only
-for JSON validation or query helpers. Do not use `.mjs` to replace skill logic,
-prompt chains, or workflow instructions.
-
-## Repository Model
-
-Use a GitHub-style project workflow.
-
-This repository is organized around projects. Each project is a workflow product
-line, such as health, education, finance, research, or another domain the user
-names.
-
-The `workflow-foundry` project is the meta project for maintaining this repo's
-root workflow system: skills, JSON helpers, registry entries, and validation
-behavior. Use it when an edit changes how this repo builds or connects
-workflows.
-
-## AGENTS.md Boundaries
-
-There are two kinds of `AGENTS.md` in this repository.
-
-Root `AGENTS.md` is the workflow-foundry control plane. It owns task mechanics,
-JSON state, Matt Pocock flow, ECC workflow rules, validation, file policy, git
-checkpoint policy, and repo-wide safety.
-
-Project `AGENTS.md` files live at `projects/<project-slug>/AGENTS.md`. They are
-live instructions for that project subtree only. They must contain
-project/domain behavior, vocabulary, source rules, and agent workflow guidance
-for that project. They must not redefine task tracker mechanics, registry
-policy, root validation policy, GitHub checkpoint policy, or the Matt/ECC
-control-plane flow.
-
-Every live `AGENTS.md` must be registered in `registry/agents-md.json`. Treat
-unregistered `AGENTS.md` files as validation failures.
-
-Expected shape:
+Typical project layout:
 
 ```text
-projects/
-  project-slug/
-    AGENTS.md
-    project.json
-    tasks/
-      index.json
-      task-id.json
-    artifacts/
-      prds/
-      issues/
-      reviews/
-      handoffs/
+projects/project-slug/
+  AGENTS.md
+  project.json
+  tasks/
+    index.json
+    task-id.json
+  artifacts/
+    prds/
+    issues/
+    reviews/
+    handoffs/
 ```
 
-`project.json` stores the project objective, target users, workflow scope,
-source materials, project lifecycle state, ECC concepts applied, and acceptance
-bar. It also records the project `AGENTS.md` path.
+Artifact directories are organizational categories, not mandatory delivery
+stages.
 
-`tasks/index.json` is the project task index. Each task also has its own
-`tasks/<task-id>.json` file. Task JSON must show, at minimum:
+## Optional Status Ledger
 
-- task id
-- task title
-- task kind: `workflow-change` or `tracker-maintenance`
-- status: `todo`, `in-progress`, `blocked`, `done`
-- Matt phase: `intake`, `grilling`, `prd`, `issues`, `implement`,
-  `code-review`, `done`
-- explicit next action required
-- ECC concepts applied
-- context snapshot for resume
-- phase guard for approved artifact writes
-- owner or session
-- linked files/artifacts
-- acceptance checks
-- last updated date
+Project and task JSON is a passive status ledger. It may preserve project
+context, dependencies, provenance, linked artifacts, acceptance criteria, and
+session history, but it never gates implementation or requires a dedicated
+task-creation or task-resume workflow.
 
-Do not create top-level project files when a project-local home is more
-appropriate.
+When ledger state is relevant, inspect it before changing overlapping work.
+Creating or updating a ledger entry is optional unless the user specifically
+asks for status tracking. Never create a ledger entry solely to authorize an
+edit.
 
-## Project Preflight
+Task details may record:
 
-When the user asks for an edit, do not jump straight to the named file.
+- task id, title, and kind
+- status: `todo`, `in-progress`, `blocked`, or `done`
+- a plain `next_action` for non-done work
+- acceptance criteria and context
+- dependencies and provenance
+- linked artifacts and session history
+- owner and last-updated metadata
 
-First:
+Task indexes should retain only task identity, status, and update metadata.
 
-1. Identify the project. If ambiguous, ask which project.
-2. Read `registry/agents-md.json`.
-3. Read the project's `AGENTS.md`.
-4. Read the project's `project.json`.
-5. Read the full project `tasks/index.json`.
-6. Query the project state with `scripts/query-workflow-state.mjs` when present.
-7. Read every non-done task JSON file before acting.
-8. Review all open, blocked, in-progress, and recently completed tasks.
-9. Check whether the requested edit conflicts with unfinished work.
-10. Identify the exact task being edited, or create a new tracked task if needed.
-11. Only then edit the workflow artifact.
+## Working Procedure
 
-Load, load, load, load, load before doing task work. For task workflows, loading
-the whole project state is not optional.
+Before editing:
 
-If the user asks for a new session for a project, preserve the same project
-tracker and handoff state. A new session does not mean a new project brain.
+1. Identify the owning project and affected surfaces.
+2. Read the root and applicable project instructions.
+3. Inspect relevant source, tests, configuration, and optional ledger state.
+4. Inspect the worktree for overlapping user or agent changes.
+5. Define the smallest implementation and its acceptance checks.
 
-## Matt Pocock Flow
+During implementation:
 
-Use Matt Pocock's `ask-matt` flow as the process router.
+- Preserve unrelated and concurrent changes.
+- Use immutable data transformations where practical.
+- Keep functions small, errors explicit, and boundaries validated.
+- Add fixtures or validators when manual inspection would be unreliable.
+- Use project documentation for durable decisions without duplicating the same
+  knowledge in multiple places.
 
-Main build path:
+Before completion:
 
-```text
-grill-with-docs -> to-prd -> to-issues -> implement -> code-review
-```
+1. Run the narrowest relevant tests, then broader verification when warranted.
+2. Run repository validation for control-plane or ledger changes.
+3. Inspect the complete diff and verify it has no whitespace errors.
+4. Scan the pending commit for secrets and sensitive data.
+5. Commit a coherent unit using Conventional Commits.
+6. Push the current working branch and verify its remote commit.
 
-For multi-session project work:
+## Validation Expectations
 
-```text
-grill-with-docs -> to-prd -> to-issues -> fresh session per issue -> implement
-```
+For code, include unit and integration coverage and critical end-to-end flows
+where the repository has those harnesses. Maintain at least 80% coverage when a
+coverage gate exists.
 
-`implement` must drive `tdd` internally: one red test, just enough code or
-workflow text to pass, then the next slice. It closes with `code-review`.
+For workflow artifacts, use example inputs, expected outputs, repeatable
+fixtures, and deterministic validators where appropriate. Validation should
+cover JSON/schema correctness, index/detail consistency, registered project
+instructions, dependency integrity, testing-session safety, skill structure,
+and path/security boundaries.
 
-For this repo, project-local JSON task trackers act as the issue tracker until a
-GitHub remote and issue workflow are configured.
+## Git Safety
 
-Task operation has only two user-facing modes:
+Use Conventional Commits: `<type>: <description>`.
 
-- `initiate-task`: create a new task at `matt_phase: "intake"`.
-- `continue-task`: load all project/task state and resume a selected task from
-  its saved snapshot.
-
-Tasks may be normal `workflow-change` tasks or `tracker-maintenance` tasks.
-Use `target:tracker` with `$initiate-task` when the task exists to edit tracker
-state such as `project.json`, `tasks/index.json`, task JSON files, or
-`registry/agents-md.json`. Creating the tracker-maintenance task itself is the
-only allowed bootstrap tracker write; further tracker edits must continue that
-task.
-
-Do not create separate repo-local skills for Matt's PRD, issue, implement, or
-review phases. Those remain Matt Pocock phase behavior inside the selected task.
-
-## Grilling Mode
-
-When requirements are vague, apply a strict preflight instead of politely
-guessing. Ask the smallest number of hard questions needed to prevent building
-the wrong workflow.
-
-Default grilling questions:
-
-- Which project does this belong to?
-- What task id or tracker item is this changing?
-- What should be true when this workflow is done?
-- Which Matt Pocock upstream skill should govern the structure?
-- Which ECC workflow pattern or skill is the source of truth?
-- What fixture or eval proves this works?
-
-Do not ask all questions every time. Ask the first blocking question, inspect
-the repo, then continue.
-
-## Required Workflow Before Building
-
-Before implementing a workflow artifact:
-
-1. Define the concrete target artifact.
-2. Identify the user-visible job the workflow must perform.
-3. Identify the project and read its tracker.
-4. Find the closest Matt Pocock upstream skill or local reference.
-5. Read the relevant ECC guidance for workflow, skill, or prompt-chain design.
-6. Define the acceptance checks before writing the implementation.
-7. Confirm the selected task's `phase_guard.approved_artifacts` allows the
-   artifact path for the current Matt phase.
-8. Build the smallest verifiable version.
-9. Validate with tests, fixtures, linting, scripts, or a manual eval as
-   appropriate.
-10. Update the project tracker.
-11. Review the output against ECC and the Matt Pocock reference before
-    finalizing.
-
-Do not skip the reference-reading step because the change seems small.
-
-If a task is still at `matt_phase: "intake"`, do not create implementation
-artifacts such as scripts, HTML files, skills, tests, or workflow outputs.
-Tracker bootstrap writes are allowed only to create the tracker-maintenance task
-itself. After that, artifact writes require an explicit phase guard approval.
-
-## Skill Creation Rules
-
-When creating or editing skills:
-
-- Use lowercase, hyphenated skill folder names.
-- Put trigger guidance in the `description` frontmatter, not only in the body.
-- Write instructions in imperative form.
-- Prefer concise procedural guidance over long explanations.
-- Use scripts for deterministic repeated operations.
-- Use references for detailed material that should be loaded only when needed.
-- Use assets for templates or files that support generated outputs.
-- Avoid extra README, changelog, quick-reference, or installation files unless
-  the user specifically asks for them.
-- Validate skills after creation or material edits.
-
-## Prompt Chain Rules
-
-Prompt chains are workflow logic, not loose prose.
-
-For each chain, capture:
-
-- input contract
-- intermediate artifacts
-- decision points
-- validation checks
-- failure handling
-- handoff/output contract
-
-Keep each step independently inspectable. If a chain cannot be evaluated, it is
-not finished.
-
-## Testing And Validation
-
-Default to test-first or eval-first work.
-
-For code:
-
-- Write or update tests before implementation when feasible.
-- Keep coverage at or above 80% when the repo has a coverage harness.
-- Run the narrowest useful verification first, then broader checks when risk
-  warrants it.
-
-For workflow artifacts:
-
-- Use example inputs and expected outputs.
-- Add fixtures when the behavior is repeatable.
-- Add validators or scripts when manual inspection would be unreliable.
-- Record acceptance criteria in the artifact or the nearest existing project doc.
-
-## Security And Safety
-
-Never hardcode secrets, credentials, tokens, or private keys. Validate all
-external inputs at boundaries. Treat networked tools as read-only unless the
-user explicitly approves a write action such as publishing, pushing, sending, or
-modifying third-party state.
-
-Before commits or external writes, inspect the diff and check for exposed
-secrets or sensitive data.
-
-## Documentation Placement
-
-Put durable project knowledge in the existing project documentation structure.
-If no obvious location exists, ask before creating a new top-level document.
-
-Do not duplicate the same knowledge in memory, docs, and comments. If the task
-already produces the relevant durable artifact, use that artifact as the source
-of truth.
-
-## Git And Commit Style
-
-Use Conventional Commits:
-
-```text
-<type>: <description>
-```
-
-Common types: `feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `perf`, `ci`.
-
-Keep the first line concise and imperative.
-
-## GitHub Checkpoints
-
-Keep changes GitHub-ready at all times, but only push at explicit checkpoints.
-
-Checkpoint rules:
-
-- Use local commits for coherent completed units.
-- Do not push to GitHub without explicit user approval for that checkpoint.
-- Before a checkpoint, inspect the diff, run the relevant validation, and check
-  for secrets.
-- The checkpoint summary must name the project, tasks changed, files changed,
-  validation run, and remaining risks.
-- If a GitHub remote is missing, say so and ask before creating or connecting
-  one.
-
-## Default Reminder
-
-When building here, remind yourself:
-
-> I am not allowed to improvise agent workflows from confidence. I must look at
-> the Matt Pocock reference files for local style and ECC for workflow
-> construction. I must read `project.json`, `tasks/index.json`, and every
-> non-done task JSON before editing because every project has unfinished context
-> that can change the correct edit. Load, load, load, load, load.
+Never discard user changes, force-push, merge into `main`, or rewrite public
+history unless the user explicitly requests it. Before every push, inspect the
+full diff, run relevant validation, and check for exposed secrets. If validation
+or the secret scan fails, do not push; preserve the local work and report the
+blocker.

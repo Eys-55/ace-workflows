@@ -4,8 +4,6 @@
   "title": "Draft workflow catalog install post",
   "task_kind": "workflow-change",
   "status": "todo",
-  "matt_phase": "intake",
-  "explicit_next_action_required": true,
   "summary": "Create a LinkedIn post draft about the research-first principle for building agent workflows: before inventing a workflow, use the workflow catalog package to inspect existing agent workflows and save useful patterns for the agent to use.",
   "acceptance_criteria": [
     "the post draft uses the user's rough spoken framing as primary voice source material",
@@ -26,7 +24,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load the LinkedIn Posts project state, the active post-generation workflow task, the adjacent Agent Foundry post task, and this intake task before grilling or drafting the workflow catalog install post.",
+    "summary": "Load the LinkedIn Posts project state, the active post-generation workflow task, the adjacent Agent Foundry post task, and this intake task before planning or drafting the workflow catalog install post.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -38,17 +36,6 @@
       "projects/linkedin-posts/tasks/linkedin-posts-004.json"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [],
-    "process_exceptions": [
-      {
-        "path": "projects/linkedin-posts/tasks/linkedin-posts-004.json",
-        "reason": "User explicitly approved creating this workflow-change intake task through initiate-task.",
-        "approved_at": "2026-07-09T06:06:11Z"
-      }
-    ]
-  },
   "dependencies": [],
   "related_tasks": [
     "linkedin-posts-002",
@@ -58,19 +45,12 @@
   "session_log": [
     {
       "date": "2026-07-09",
-      "event": "Created intake task after the user invoked initiate-task for a post about using the workflow catalog package to research existing agent workflows before creating new ones."
+      "event": "Created intake task after the user invoked native Codex planning for a post about using the workflow catalog package to research existing agent workflows before creating new ones."
     }
   ],
   "created_at": "2026-07-09",
   "updated_at": "2026-07-09",
-  "deliverable_migration": {
-    "status": "pending",
-    "target_contract_version": 1,
-    "frozen_phase": "intake",
-    "approved_at": null,
-    "approval_note": null
-  },
-  "deliverable_contracts": [],
   "artifact_bindings": [],
-  "behavior_evidence": []
+  "behavior_evidence": [],
+  "next_action": "Create or confirm the native Codex plan, then implement it."
 }

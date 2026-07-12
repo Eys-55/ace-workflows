@@ -3,8 +3,9 @@
 This file contains live project/domain instructions for the `workflow-foundry`
 project only.
 
-Root `AGENTS.md` owns task tracking, JSON state, Matt Pocock flow, ECC workflow
-rules, validation, and repo-wide safety. Do not redefine those mechanics here.
+Root `AGENTS.md` owns repository workflow architecture, optional status-ledger
+conventions, ECC guidance, validation, and repo-wide safety. Do not redefine
+those mechanics here.
 
 Use this project for maintenance of the repo workflow system itself:
 
@@ -13,6 +14,6 @@ Use this project for maintenance of the repo workflow system itself:
 - registry and validation surface ownership notes
 - repo-control project handoff expectations
 
-When a task changes root workflow behavior, treat the affected root files as
-linked artifacts for the selected task while keeping the project-specific
-context here focused on the workflow-system maintenance domain.
+When work changes root workflow behavior, keep project-specific context here
+focused on the workflow-system maintenance domain. Record linked artifacts in
+the optional status ledger only when that history is useful.

@@ -4,8 +4,6 @@
   "title": "Create personal ace-workflows README",
   "task_kind": "workflow-change",
   "status": "todo",
-  "matt_phase": "intake",
-  "explicit_next_action_required": true,
   "summary": "Create a personal-sounding README for ace-workflows that introduces Ace's workflow repo, explains that it will publish as much build/process material as possible, and frames the work as an ongoing agent harness engineering learning lab.",
   "acceptance_criteria": [
     "the README target path and audience are confirmed before implementation",
@@ -24,7 +22,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, every non-done task, Matt/ECC process references, and the existing foundry explainer before shaping the personal README.",
+    "summary": "Load workflow-foundry state, every non-done task, previous workflow/ECC process references, and the existing foundry explainer before shaping the personal README.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -37,17 +35,12 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-015.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "projects/workflow-foundry/tasks/workflow-foundry-010.json",
       "projects/workflow-foundry/artifacts/handoffs/workflow-foundry-010-hermes-foundry-prompt.md"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [],
-    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
@@ -60,19 +53,12 @@
   "session_log": [
     {
       "date": "2026-07-09",
-      "event": "Created intake task after user invoked initiate-task for a personal ace-workflows README about publishing build work and learning agent harness engineering."
+      "event": "Created intake task after user invoked native Codex planning for a personal ace-workflows README about publishing build work and learning agent harness engineering."
     }
   ],
   "created_at": "2026-07-09",
   "updated_at": "2026-07-09",
-  "deliverable_migration": {
-    "status": "pending",
-    "target_contract_version": 1,
-    "frozen_phase": "intake",
-    "approved_at": null,
-    "approval_note": null
-  },
-  "deliverable_contracts": [],
   "artifact_bindings": [],
-  "behavior_evidence": []
+  "behavior_evidence": [],
+  "next_action": "Create or confirm the native Codex plan, then implement it."
 }

@@ -1,4 +1,4 @@
 interface:
   display_name: "Audit Cleanup"
   short_description: "Execute approved audit cleanup"
-  default_prompt: "Use $audit-cleanup to execute an approved Markdown cleanup plan through tracker tasks and phase guards."
+  default_prompt: "Use $audit-cleanup to execute approved cleanup, validate it, commit it, and push the working branch."

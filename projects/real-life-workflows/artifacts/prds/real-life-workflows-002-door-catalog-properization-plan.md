@@ -63,9 +63,9 @@ Imported skill surface:
   `name` matches its folder name.
 - Only a subset have `agents/openai.yaml` metadata.
 - Two imported skills include `commands.md` internal adapter references.
-- Several imported skills are phase shims such as `workflow-to-prd`,
-  `workflow-to-issues`, `workflow-implement`, and `workflow-code-review`.
-  This repo explicitly says not to create separate repo-local skills for Matt
+- Several imported skills are phase shims such as `workflow-native Codex planning`,
+  `workflow-work-item planning`, `workflow-implement`, and `workflow-code-review`.
+  This repo explicitly says not to create separate repo-local skills for previous workflow
   PRD, issue, implement, or review phases.
 - Many imported skills assume the old `skills/` surface, while this repo's
   canonical surface is `.agents/skills/`.
@@ -81,7 +81,7 @@ Treat the import as a two-layer quarantine:
    families and source surfaces.
 2. Legacy skill candidates: untrusted workflow text that may contain useful
    patterns, but cannot be copied into `.agents/skills/` until rewritten
-   against this repo's ECC and Matt rules.
+   against this repo's ECC and previous workflow rules.
 
 The properized system should produce a promotion pipeline:
 
@@ -109,7 +109,7 @@ done.
    migrate, rewrite, merge, archive, or delete, so that stale material does not
    leak into the canonical surface.
 8. As the workflow operator, I want phase-shim skills removed from the
-   migration path, so that Matt Pocock phases remain task state instead of
+   migration path, so that previous workflow phases remain task state instead of
    duplicated local skills.
 9. As the workflow operator, I want a first promoted pilot workflow, so that
    the promotion pipeline is proven on one narrow vertical slice before scaling.
@@ -132,7 +132,7 @@ done.
 - Do not preserve imported slash-command surfaces as active operator
   interfaces. If adapter vocabulary is useful, keep it as reference text behind
   a skill pointer.
-- Collapse imported phase shims into this repo's existing Matt task flow rather
+- Collapse imported phase shims into this repo's existing previous workflow task flow rather
   than promoting them.
 
 ## Testing Decisions

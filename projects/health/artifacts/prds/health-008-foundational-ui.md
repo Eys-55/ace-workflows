@@ -363,7 +363,7 @@ visual product in the first slice.
   exercises beginner language, one clarifying question, intake-to-navigation
   routing, evidence gaps, current-plan uncertainty, and a concrete HR or HMO
   handoff without requiring fresh public research.
-- The next Matt phase is issue decomposition. No issue artifact or
+- The next previous workflow phase is issue decomposition. No issue artifact or
   implementation path is approved by this PRD alone.
 - `health-007` must supply a durable, reviewed seven-skill and packet baseline
   before the foundational UI implementation may claim dependency readiness.

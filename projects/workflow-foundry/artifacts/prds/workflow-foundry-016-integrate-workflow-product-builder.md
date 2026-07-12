@@ -13,7 +13,7 @@ of the typed workflow-construction foundation and the Markdown-first
 feature branch `codex/build-workflow-product`, which is two commits ahead of
 `main`. The current `main` worktree still contains an older, dirty tracker
 snapshot that reports workflow-foundry-006 as being in issues and
-workflow-foundry-015 as being in grilling. That stale state makes the capability
+workflow-foundry-015 as being in planning. That stale state makes the capability
 look unfinished and prevents confirmed consumers such as Health task 008 from
 treating it as active.
 
@@ -175,7 +175,7 @@ risk.
 
 1. As the operator, I want workflow-foundry-006 and workflow-foundry-015 to show
    their real completed state, so that the tracker does not send me back into
-   obsolete issues or grilling work.
+   obsolete issues or planning work.
 2. As the operator, I want the complete two-commit dependency chain integrated,
    so that the product builder does not exist without its typed construction
    foundation.
@@ -392,6 +392,6 @@ The PRD is satisfied only when:
   chain, including shared foundry task files and two downstream task files.
 - Health task 008 is the only confirmed selected consumer of
   `build-workflow-product` in the loaded state.
-- This PRD follows Matt Pocock’s `to-prd` structure and uses the existing root
+- This PRD follows previous workflow’s `native Codex planning` structure and uses the existing root
   validator plus complete tracker verification as the highest practical test
   seam.

@@ -18,8 +18,6 @@ const artifactGroupLabels = {
   other: "Other",
 };
 
-const lifecycleOrder = ["intake", "grilling", "prd", "issues", "implement", "code-review", "done"];
-
 async function exists(filePath) {
   try {
     await stat(filePath);
@@ -91,37 +89,21 @@ function groupArtifacts(artifactPaths) {
   return groups;
 }
 
-function lifecyclePhaseFor(task) {
-  if (task.status === "done") return "done";
-  if (lifecycleOrder.includes(task.matt_phase)) return task.matt_phase;
-  return "intake";
-}
-
-function nextActionLabelFor(task, phaseGuard) {
-  if (typeof phaseGuard.selected_next_action === "string" && phaseGuard.selected_next_action !== "none") {
-    return phaseGuard.selected_next_action;
-  }
-  if (task.explicit_next_action_required === true) {
-    return "explicit next action required";
-  }
-  return "no explicit next action";
-}
-
 function recentSessionEventsFor(sessionLog) {
   return sessionLog.slice(-5);
 }
 
-function normalizeTask(task, taskPath, projectSlug, skillCatalog) {
+function normalizeTask(task, taskPath, skillCatalog) {
   const relativeTaskPath = path.relative(repoRoot, taskPath);
-  const phaseGuard = task.phase_guard ?? {};
   const linkedArtifacts = requireArray(
     task.linked_artifacts ?? [],
     `${relativeTaskPath} linked_artifacts`,
   );
   const sessionLog = requireArray(task.session_log ?? [], `${relativeTaskPath} session_log`);
   const artifactGroups = groupArtifacts(linkedArtifacts);
-  const lifecyclePhase = lifecyclePhaseFor(task);
-  const nextActionLabel = nextActionLabelFor(task, phaseGuard);
+  const nextAction = task.status === "done"
+    ? "none"
+    : requireString(task.next_action, `${relativeTaskPath} next_action`);
   const deliverableReadiness = projectDeliverableReadiness({
     task,
     root: repoRoot,
@@ -137,26 +119,9 @@ function normalizeTask(task, taskPath, projectSlug, skillCatalog) {
     title: requireString(task.title, `${relativeTaskPath} title`),
     kind: requireString(task.task_kind ?? "workflow-change", `${relativeTaskPath} task_kind`),
     status: requireString(task.status, `${relativeTaskPath} status`),
-    mattPhase: requireString(task.matt_phase, `${relativeTaskPath} matt_phase`),
-    lifecyclePhase,
     updatedAt: requireString(task.updated_at, `${relativeTaskPath} updated_at`),
-    explicitNextActionRequired: task.explicit_next_action_required === true,
     summary: typeof task.summary === "string" ? task.summary : "",
-    nextActionLabel,
-    continueCommand: `$continue-task project:${projectSlug} task:${task.task_id}`,
-    phaseGuard: {
-      selectedNextAction:
-        typeof phaseGuard.selected_next_action === "string"
-          ? phaseGuard.selected_next_action
-          : "none",
-      approvedArtifactCount: Array.isArray(phaseGuard.approved_artifacts)
-        ? phaseGuard.approved_artifacts.length
-        : 0,
-      processExceptionCount: Array.isArray(phaseGuard.process_exceptions)
-        ? phaseGuard.process_exceptions.length
-        : 0,
-    },
-    deliverableMigration: deliverableReadiness.migration,
+    nextAction,
     deliverableContracts: deliverableReadiness.contracts.map((contract) => ({
       deliverableId: contract.deliverable_id,
       kind: contract.kind,
@@ -178,9 +143,7 @@ function normalizeTask(task, taskPath, projectSlug, skillCatalog) {
       task.title,
       task.task_kind,
       task.status,
-      task.matt_phase,
-      lifecyclePhase,
-      nextActionLabel,
+      nextAction,
       artifactLabels,
       deliverableReadiness.state,
       deliverableReadiness.blockers.map((blocker) => blocker.code).join(" "),
@@ -198,8 +161,9 @@ function normalizeTask(task, taskPath, projectSlug, skillCatalog) {
 function statsFor(tasks) {
   const stats = {
     open: 0,
+    todo: 0,
+    inProgress: 0,
     blocked: 0,
-    inReview: 0,
     done: 0,
   };
 
@@ -211,31 +175,28 @@ function statsFor(tasks) {
     }
 
     if (task.status === "blocked") stats.blocked += 1;
-    if (task.mattPhase === "code-review") stats.inReview += 1;
+    if (task.status === "todo") stats.todo += 1;
+    if (task.status === "in-progress") stats.inProgress += 1;
   }
 
   return stats;
 }
 
-function hotPhaseFor(tasks) {
-  const activeTasks = tasks.filter((task) => task.status !== "done");
-  if (activeTasks.some((task) => task.status === "blocked")) return "blocked";
-
-  const activePhases = new Set(activeTasks.map((task) => task.lifecyclePhase));
-  const priority = ["implement", "code-review", "issues", "prd", "grilling", "intake"];
-  return priority.find((phase) => activePhases.has(phase)) ?? "done";
+function attentionStatusFor(tasks) {
+  return ["blocked", "in-progress", "todo"].find((status) =>
+    tasks.some((task) => task.status === status),
+  ) ?? "done";
 }
 
-async function loadProject(projectDir, skillCatalog) {
+export async function loadProject(projectDir, skillCatalog) {
   const projectPath = path.join(projectDir, "project.json");
   const indexPath = path.join(projectDir, "tasks", "index.json");
 
-  if (!(await exists(projectPath)) || !(await exists(indexPath))) {
-    return null;
-  }
+  if (!(await exists(projectPath))) return null;
 
   const project = await readJson(projectPath);
-  const index = await readJson(indexPath);
+  const indexExists = await exists(indexPath);
+  const index = indexExists ? await readJson(indexPath) : { tasks: [] };
   const projectSlug = requireString(
     project.project_slug,
     `${path.relative(repoRoot, projectPath)} project_slug`,
@@ -254,7 +215,7 @@ async function loadProject(projectDir, skillCatalog) {
       throw new Error(`${path.relative(repoRoot, taskPath)} is listed but missing`);
     }
 
-    tasks.push(normalizeTask(await readJson(taskPath), taskPath, projectSlug, skillCatalog));
+    tasks.push(normalizeTask(await readJson(taskPath), taskPath, skillCatalog));
   }
 
   const stats = statsFor(tasks);
@@ -267,11 +228,11 @@ async function loadProject(projectDir, skillCatalog) {
     goal: typeof project.goal === "string" ? project.goal : "",
     updatedAt: requireString(project.updated_at, `${path.relative(repoRoot, projectPath)} updated_at`),
     projectPath: path.relative(repoRoot, projectPath),
-    taskIndexPath: path.relative(repoRoot, indexPath),
+    taskIndexPath: indexExists ? path.relative(repoRoot, indexPath) : null,
     tasks,
     stats,
     activeTaskCount: stats.open,
-    hotPhase: hotPhaseFor(tasks),
+    attentionStatus: attentionStatusFor(tasks),
   };
 }
 
@@ -293,13 +254,10 @@ export async function loadWorkflowState() {
   return {
     generatedAt: new Date().toISOString(),
     currentProjectSlug: "workflow-foundry",
-    lifecycleStages: [
-      { id: "intake", label: "Intake / Preflight" },
-      { id: "grilling", label: "Grilling" },
-      { id: "prd", label: "PRD" },
-      { id: "issues", label: "Issues" },
-      { id: "implement", label: "Implement" },
-      { id: "code-review", label: "Code Review" },
+    statusStages: [
+      { id: "todo", label: "Todo" },
+      { id: "in-progress", label: "In progress" },
+      { id: "blocked", label: "Blocked" },
       { id: "done", label: "Done" },
     ],
     projectCount: projects.length,

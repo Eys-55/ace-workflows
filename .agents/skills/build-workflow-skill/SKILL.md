@@ -9,17 +9,17 @@ description: Use when an implementation-ready workflow task requires creating or
 
 Build the approved callable skill deliverable. A skill is a substantive
 `SKILL.md` plus matching `agents/openai.yaml`; code, commands, helpers, apps, or
-references cannot substitute for it. Leave tracker writes, phase transitions,
-and publishing with the invoking lifecycle task.
+references cannot substitute for it. Leave optional ledger writes and
+publishing with the invoking workflow.
 
 Use GPT-5.6 Sol for every model-run evaluation. If it is unavailable, stop with
 `eval-runner-unavailable`; never select a fallback model.
 
 ## Required Context
 
-Read root and project policy, project state, every non-done task, the selected
-task, Matt Pocock skill guidance, and the exact product repository policy when
-the target is standalone. Then read:
+Read root and project policy, project state, relevant optional ledger records,
+the deliverable contract, and the exact product repository policy when the
+target is standalone. Then read:
 
 - [the complete bundle contract](references/skill-bundle-contract.md) for
   identity, semantics, ownership variants, optional resources, and completion;
@@ -28,11 +28,11 @@ the target is standalone. Then read:
 
 ## Input Contract
 
-Require one selected task at `matt_phase: "implement"` with approved version-1
-deliverable migration, an exact create/update operation, ownership, target
+Require an approved version-1 deliverable contract with an exact create/update
+operation, ownership, target
 surface, visibility, runtime targets, required artifacts, guidance, evals,
 completion conditions, artifact bindings, and deliverable/role/artifact-bound
-phase approvals. Require a complete dependency write plan for every dependency
+allowed paths. Require a complete dependency write plan for every dependency
 step.
 
 For `update`, resolve exactly one existing skill identity. Stop on zero or
@@ -40,8 +40,8 @@ multiple matches. Never invent a new slug as an update shortcut.
 
 ## Workflow
 
-1. Ask `$continue-task` for the selected task and projected blockers. Do not
-   repair tracker state here.
+1. Load the target project, deliverable contract, relevant optional ledger
+   context, and projected blockers. Do not repair ledger state here.
 2. Match the contract to exactly one ownership branch: canonical Foundry,
    project-packaged, standalone product, or workflow-pack member.
    In a mixed task, select only contracts whose kind is a skill. A UI, package,
@@ -56,7 +56,7 @@ multiple matches. Never invent a new slug as an update shortcut.
    clean disposable repository. Give the runner only the raw prompt and
    implementation-ready repository context—not the expected route or rubric.
 7. Grade emitted contracts, file tree, contents, diff, ownership, visibility,
-   catalog state, phase result, and dependency outcome. A narrative claim is
+   catalog state, completion result, and dependency outcome. A narrative claim is
    not evidence.
 8. Run deterministic bundle, routing, boundary, catalog, dependency, and
    command/helper regressions. Re-run the affected family after each fix.
@@ -99,7 +99,7 @@ contract or rewrite a failed first attempt into a pass.
 
 ## Human Boundaries
 
-The operator approves contracts, product ownership, phase paths, external
+The operator approves contracts, product ownership, artifact paths, external
 writes, promotion, publishing, and consequential dependency actions. This
 skill may write only exact task-approved paths inside the declared boundary.
 

@@ -78,7 +78,7 @@ Create one dedicated, model-invoked `$build-workflow-skill` as the single
 authoring contract for both canonical and standalone skill branches. The task
 lifecycle skills will remain thin: they classify intent, persist the deliverable
 contract, enforce phase boundaries, and delegate skill construction to the
-builder. The builder will apply the repository's Matt Pocock and ECC guidance,
+builder. The builder will apply the repository's previous workflow and ECC guidance,
 construct the required skill bundle, justify optional resources, run behavioral
 evaluation, and return evidence to the selected task.
 
@@ -202,7 +202,7 @@ boundaries.
 - Require the skill builder to define the workflow, inputs, outputs, decision
   points, failure handling, human boundaries, handoffs, and completion criteria
   before optional support resources are added.
-- Require the task or issue to record which Matt Pocock and ECC guidance applies
+- Require the task or issue to record which previous workflow and ECC guidance applies
   and how each selected ECC concept is evidenced by the deliverable or eval.
   A free-form list of concept names is not sufficient evidence.
 - Keep Python forbidden in the repository. Do not use generic Python skill
@@ -350,7 +350,7 @@ boundaries.
   environment in the first implementation.
 - Patching system-level skill-creator instructions, personal skills, or Codex
   home configuration.
-- Replacing Matt Pocock phases, JSON task tracking, phase guards, audit
+- Replacing previous workflow phases, JSON task tracking, phase guards, audit
   separation, or source-project isolation.
 - Reopening completed predecessor tasks. Their artifacts remain design evidence
   for this revamp.
@@ -382,4 +382,4 @@ Real Life Workflows pattern search or another project capability, it must be
 added as an approved dependency step with a write plan and provenance before
 use.
 
-The next Matt phase is issue breakdown. Implementation remains unapproved.
+The next previous workflow phase is issue breakdown. Implementation remains unapproved.

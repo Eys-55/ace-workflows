@@ -19,7 +19,7 @@ normal tracker tasks for any fixes.
 - [x] The skill supports `$audit-foundry`, `scope:foundry-projects`, `scope:projects`, and `project:<slug>` invocations.
 - [x] The skill states that every run writes a Markdown report before final chat summary.
 - [x] The skill states that source state is read-only and fixes require later tracked task work.
-- [x] The skill follows Matt Pocock skill-writing guidance for predictable steps and concise trigger text.
+- [x] The skill follows previous workflow skill-writing guidance for predictable steps and concise trigger text.
 
 ## Blocked by
 

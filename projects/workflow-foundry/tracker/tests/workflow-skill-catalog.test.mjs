@@ -379,15 +379,13 @@ test("returns structured errors for malformed catalog inputs instead of throwing
   ]);
 });
 
-test("uses the same catalog module across validator, query, lifecycle, dependency, and tracker consumers", async () => {
+test("uses the same catalog module across validator, query, help, and tracker consumers", async () => {
   const files = await Promise.all(
     [
       "scripts/workflow-state-validation-core.mjs",
       "scripts/query-workflow-state.mjs",
       "projects/workflow-foundry/tracker/src/lib/workflow-state.mjs",
       ".agents/skills/workflow-help/SKILL.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
     ].map(async (relativePath) => ({
       relativePath,
       contents: await readFile(path.join(repoRoot, relativePath), "utf8"),

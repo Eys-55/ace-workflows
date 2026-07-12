@@ -9,14 +9,14 @@
 Make task selection open a detail surface instead of switching execution
 context. On desktop, the detail surface should be a right-side drawer inside the
 task pane. On mobile, it should expand under the selected task. The detail view
-should show full next action, pre-Matt/phase-guard context, recent session log,
+should show full next action, pre-previous workflow/phase-guard context, recent session log,
 expandable full session log, grouped artifacts, and an exact copyable continue
 command.
 
 ## Acceptance criteria
 
 - [ ] Selecting a task opens details without mutating project/task JSON.
-- [ ] The continue command is shown as `$continue-task project:<slug> task:<task-id>`.
+- [ ] The continue command is shown as `native Codex planning project:<slug> task:<task-id>`.
 - [ ] The copy button copies the command when clipboard access is available.
 - [ ] The detail panel shows latest session events by default and can disclose the full log.
 - [ ] Full artifact paths are available only in progressive disclosure areas.

@@ -25,8 +25,7 @@ export async function validateWorkflowState(options = {}) {
     typeof options !== "object" ||
     options === null ||
     Array.isArray(options) ||
-    (options.root !== undefined && (typeof options.root !== "string" || options.root.trim() === "")) ||
-    (options.includeChangedFiles !== undefined && typeof options.includeChangedFiles !== "boolean")
+    (options.root !== undefined && (typeof options.root !== "string" || options.root.trim() === ""))
   ) {
     return {
       ok: false,
@@ -35,7 +34,6 @@ export async function validateWorkflowState(options = {}) {
   }
 
   const requestedRoot = options.root ?? process.cwd();
-  const includeChangedFiles = options.includeChangedFiles ?? true;
   const root = path.resolve(requestedRoot);
   const errors = [];
 
@@ -84,7 +82,7 @@ export async function validateWorkflowState(options = {}) {
 
   const validationRules = createValidationRules({ errors, relative });
   const { requireArray, requireString } = validationRules;
-  const { validateChangedArtifact, validateProject } = createProjectValidation({
+  const { validateProject } = createProjectValidation({
     root,
     errors,
     exists,
@@ -93,26 +91,53 @@ export async function validateWorkflowState(options = {}) {
     rules: validationRules,
   });
 
-  async function getChangedFiles() {
+  async function listRepositoryFiles() {
     try {
       const { stdout } = await execFileAsync(
         "git",
-        ["status", "--porcelain", "--untracked-files=all"],
+        ["ls-files", "-z", "--cached", "--others", "--exclude-standard"],
         { cwd: root },
       );
       return stdout
-        .split("\n")
-        .map((line) => line.trimEnd())
+        .split("\0")
         .filter(Boolean)
-        .map((line) => {
-          const status = line.slice(0, 2);
-          const rawPath = line.slice(3);
-          const filePath = rawPath.includes(" -> ") ? rawPath.split(" -> ").at(-1) : rawPath;
-          return { status, path: filePath };
-        });
+        .map((file) => path.join(root, file));
     } catch (error) {
-      errors.push(`git status failed: ${error.message}`);
+      errors.push(`git file inventory failed: ${error.message}`);
       return [];
+    }
+  }
+
+  async function validateNoLegacyWorkflowTokens() {
+    const retiredPrefix = String.fromCharCode(109, 97, 116, 116);
+    const retiredSurname = String.fromCharCode(112, 111, 99, 111, 99, 107);
+    const retiredNamePattern = new RegExp(`\\b(?:${retiredPrefix}|${retiredSurname})\\b`, "i");
+    const legacyTokens = [
+      [retiredPrefix, retiredSurname].join(" "),
+      [retiredPrefix, "phase"].join("_"),
+      ["phase", "guard"].join("_"),
+      ["explicit", "next", "action", "required"].join("_"),
+      ["initiate", "task"].join("-"),
+      ["continue", "task"].join("-"),
+      ["ask", retiredPrefix].join("-"),
+      ["grill", "with", "docs"].join("-"),
+      ["to", "prd"].join("-"),
+      ["to", "issues"].join("-"),
+      ["grill", "ing"].join(""),
+    ];
+    for (const filePath of await listRepositoryFiles()) {
+      if (!(await exists(filePath))) continue;
+      const contents = await readText(filePath);
+      if (contents.includes("\0")) continue;
+      const normalized = contents.toLowerCase();
+      if (retiredNamePattern.test(contents)) {
+        errors.push(`${relative(filePath)} contains a removed workflow name`);
+      }
+      for (const token of legacyTokens) {
+        if (normalized.includes(token)) {
+          errors.push(`${relative(filePath)} contains removed workflow token "${token}"`);
+        }
+      }
     }
   }
 
@@ -417,42 +442,19 @@ export async function validateWorkflowState(options = {}) {
   const skillCatalog = await validateSkillSurface(files);
   await validateSkillFirstRuntimeSurfaces(files);
   await validateQuarantineImports(files);
+  await validateNoLegacyWorkflowTokens();
   const agentsEntries = await validateAgentsRegistry(files);
 
-  const openTasks = [];
   const projectsDir = path.join(root, "projects");
   if (await exists(projectsDir)) {
     const entries = await readdir(projectsDir, { withFileTypes: true });
     for (const entry of entries) {
       if (entry.isDirectory()) {
-        openTasks.push(
-          ...(await validateProject(path.join(projectsDir, entry.name), agentsEntries, skillCatalog)),
-        );
+        await validateProject(path.join(projectsDir, entry.name), agentsEntries, skillCatalog);
       }
     }
   }
   errors.push(...(await validateTestingSessionState({ root })));
 
-  const openTasksByArtifact = new Map();
-  for (const task of openTasks) {
-    const artifactPaths = new Set([
-      ...(Array.isArray(task.linked_artifacts) ? task.linked_artifacts : []),
-      ...(Array.isArray(task.phase_guard?.approved_artifacts)
-        ? task.phase_guard.approved_artifacts.map((artifact) => artifact.path)
-        : []),
-      ...(Array.isArray(task.phase_guard?.process_exceptions)
-        ? task.phase_guard.process_exceptions.map((exception) => exception.path)
-        : []),
-    ]);
-    for (const artifactPath of artifactPaths) {
-      if (!openTasksByArtifact.has(artifactPath)) openTasksByArtifact.set(artifactPath, []);
-      openTasksByArtifact.get(artifactPath).push(task);
-    }
-  }
-  if (includeChangedFiles) {
-    for (const change of await getChangedFiles()) {
-      validateChangedArtifact(change, openTasksByArtifact);
-    }
-  }
   return { ok: errors.length === 0, errors: [...errors] };
 }

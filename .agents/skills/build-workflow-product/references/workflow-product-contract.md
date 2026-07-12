@@ -13,11 +13,11 @@ every run. If GPT-5.6 Sol is unavailable, return
 
 ## Selected Target And Ownership
 
-Require one selected target project and one tracked implementation task before
-writing product artifacts. The task must declare create or update intent,
+Require one selected target project and one approved product contract before
+writing product artifacts. The contract must declare create or update intent,
 product owner, exact target surfaces, runtime visibility, supported harnesses,
-artifact bindings, completion conditions, and artifact-specific phase
-approvals. An update resolves exactly one existing product identity.
+artifact bindings, completion conditions, and allowed artifact paths. An
+update resolves exactly one existing product identity.
 
 The target project owns the generated product, package, skills, configuration,
 fixtures, user data, versioning, and release lifecycle. The Workflow Foundry
@@ -43,7 +43,7 @@ skill through `$build-workflow-skill`, preserving matching identity, substantive
 
 Runtime, package, fixtures, docs, and verification artifacts are separate
 required or declared support artifacts. Bind every file to its deliverable and
-phase approval. Product code may be emitted only into the selected target
+allowed path. Product code may be emitted only into the selected target
 project.
 
 ## Fixed Product Foundation

@@ -173,6 +173,6 @@ contract. The shared output contract includes `query`, `sources_used`,
 ## Further Notes
 
 The implementation plan for this PRD exists as the companion planning artifact
-for `health-005`. The next Matt phase should split this PRD into issue slices
+for `health-005`. The next previous workflow phase should split this PRD into issue slices
 for repo skeleton, artifact migration, contract foundation, six skill surfaces,
 eval/safety release gates, and package smoke/handoff.

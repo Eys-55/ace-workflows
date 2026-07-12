@@ -2,7 +2,7 @@
 
 ## Parent
 
-`workflow-foundry-012` - Add capability dependencies to initiate-task
+`workflow-foundry-012` - Add capability dependencies to native Codex planning
 
 ## What to build
 

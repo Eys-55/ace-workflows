@@ -4,8 +4,6 @@
   "title": "Build standalone Philippines health coverage workflow repo",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Built and pushed the standalone `philippines-health-coverage` workflow repo. The foundry remained only the factory: the shipped repo contains its own skills, references, artifacts, package metadata, validators, eval fixtures, and rollout instructions for public-source PhilHealth, HMO, and insurance research without depending on this foundry at runtime.",
   "acceptance_criteria": [
     "The plan is grounded in current Health artifacts, not generic healthcare ideas.",
@@ -36,10 +34,10 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Start from the pushed Health artifact foundation and plan the standalone `philippines-health-coverage` workflow repo with skills inside it. Load ECC skill-creation and agentic workflow references before writing any implementation-plan artifact. Keep the task in grilling until Matt grilling settles exact package scope and artifact path approvals.",
+    "summary": "Start from the pushed Health artifact foundation and plan the standalone `philippines-health-coverage` workflow repo with skills inside it. Load ECC skill-creation and agentic workflow references before writing any implementation-plan artifact. Keep the task in planning until previous workflow planning settles exact package scope and artifact path approvals.",
     "must_load": [
       "AGENTS.md",
-      "references/matt-pocock-skills.md",
+      "AGENTS.md",
       "registry/agents-md.json",
       "projects/health/AGENTS.md",
       "projects/health/project.json",
@@ -72,60 +70,6 @@
       "/Users/acecanacan/.agents/skills/verification-loop/SKILL.md",
       "/Users/acecanacan/.codex/skills/healthcare-phi-compliance/SKILL.md"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md",
-        "phase": "prd",
-        "approval_note": "Approved by operator through continue-task to synthesize the PRD for the standalone philippines-health-coverage workflow repo.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-005-issue-001-repo-skeleton-product-boundary.md",
-        "phase": "issues",
-        "approval_note": "Approved issue slice for standalone repo skeleton and product boundary.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-005-issue-002-artifact-migration.md",
-        "phase": "issues",
-        "approval_note": "Approved issue slice for artifact migration into the standalone shipped repo.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-005-issue-003-contract-foundation.md",
-        "phase": "issues",
-        "approval_note": "Approved issue slice for shared skill input and output contracts.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-005-issue-004-six-skill-surfaces.md",
-        "phase": "issues",
-        "approval_note": "Approved issue slice for the six v1 skill surfaces.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-005-issue-005-evals-safety-release-gate.md",
-        "phase": "issues",
-        "approval_note": "Approved issue slice for evals and safety release gate.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-005-issue-006-package-smoke-handoff.md",
-        "phase": "issues",
-        "approval_note": "Approved issue slice for package smoke checks and handoff.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md",
-        "phase": "implement",
-        "approval_note": "Approved by operator after Matt grilling to write the implementation plan for the standalone philippines-health-coverage workflow repo.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
   },
   "capability_dependencies": [
     {
@@ -257,7 +201,6 @@
       "dependency_step_id": "dep-step-001",
       "dependency_project": "real-life-workflows",
       "source_skill": "real-life-workflow-search",
-      "phase": "implement",
       "purpose": "Use Health 002/004 artifact foundations and real-life-workflows research patterns to manufacture the standalone philippines-health-coverage workflow repo as an installable multi-skill package.",
       "artifact_status": "execution-evidence",
       "generated_files": [
@@ -301,7 +244,6 @@
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
       "dependency_write_plan": "dependency_steps[0].dependency_write_plan",
-      "phase": "implement",
       "timestamp": "2026-07-08T08:39:06Z",
       "artifact_status": "execution-evidence",
       "helper_skills_used": [
@@ -398,35 +340,35 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Started task from intake and advanced to Matt grilling. Artifact approvals remain empty until package scope, dependency write plan, and implementation-plan path are approved."
+      "event": "Started task from intake and advanced to previous workflow planning. Artifact approvals remain empty until package scope, dependency write plan, and implementation-plan path are approved."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: v1 scope is public-source insurance/HMO research only. No PHI handling, user-patient documents, patient-context workflows, medical advice, eligibility decisions, claims decisions, or coverage determinations belong in the v1 package."
+      "event": "planning decision recorded: v1 scope is public-source insurance/HMO research only. No PHI handling, user-patient documents, patient-context workflows, medical advice, eligibility decisions, claims decisions, or coverage determinations belong in the v1 package."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: v1 package is Philippines-first, grounded primarily in existing PhilHealth, HMO, insurance, source-atlas, navigator, comparison, and eval artifacts. Package schemas and skill wording may remain extensible for later countries, but v1 should not become a country-agnostic framework."
+      "event": "planning decision recorded: v1 package is Philippines-first, grounded primarily in existing PhilHealth, HMO, insurance, source-atlas, navigator, comparison, and eval artifacts. Package schemas and skill wording may remain extensible for later countries, but v1 should not become a country-agnostic framework."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: v1 should expose one main user-facing healthcare research skill. Narrower flows such as source discovery, entity lookup, comparison readiness, provider deep dive, and navigator routing should live behind that entrypoint as references, eval fixtures, or internal routing logic."
+      "event": "planning decision recorded: v1 should expose one main user-facing healthcare research skill. Narrower flows such as source discovery, entity lookup, comparison readiness, provider deep dive, and navigator routing should live behind that entrypoint as references, eval fixtures, or internal routing logic."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision superseded: operator wants the standalone philippines-health-coverage repo to be a full multi-skill v1 workflow product, not a one-skill MVP. Plan should define multiple skills with clear jobs, shared product artifacts, eval gates, and package validation."
+      "event": "planning decision superseded: operator wants the standalone philippines-health-coverage repo to be a full multi-skill v1 workflow product, not a one-skill MVP. Plan should define multiple skills with clear jobs, shared product artifacts, eval gates, and package validation."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: approved v1 skill set is coverage-source-research, coverage-entity-lookup, coverage-provider-deep-dive, coverage-type-compare, coverage-navigator, and coverage-evidence-audit."
+      "event": "planning decision recorded: approved v1 skill set is coverage-source-research, coverage-entity-lookup, coverage-provider-deep-dive, coverage-type-compare, coverage-navigator, and coverage-evidence-audit."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: every v1 skill should share an ECC-style output contract with query, sources_used, confidence_boundary, human_review_required, blocked_decisions, and next_questions."
+      "event": "planning decision recorded: every v1 skill should share an ECC-style output contract with query, sources_used, confidence_boundary, human_review_required, blocked_decisions, and next_questions."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: every v1 skill SKILL.md should define an explicit input contract with required inputs, optional inputs, artifact dependencies, and stop conditions."
+      "event": "planning decision recorded: every v1 skill SKILL.md should define an explicit input contract with required inputs, optional inputs, artifact dependencies, and stop conditions."
     },
     {
       "date": "2026-07-08",
@@ -438,31 +380,31 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: the standalone repo and package identity is philippines-health-coverage."
+      "event": "planning decision recorded: the standalone repo and package identity is philippines-health-coverage."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: the shipped philippines-health-coverage repo should have its own top-level AGENTS.md, README.md, package.json, skill-manifest.json, skills/, references/, artifacts/, evals/, and scripts/."
+      "event": "planning decision recorded: the shipped philippines-health-coverage repo should have its own top-level AGENTS.md, README.md, package.json, skill-manifest.json, skills/, references/, artifacts/, evals/, and scripts/."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: seeded registry, source atlas, comparison readiness, navigator flow, and related validated JSON should ship under artifacts/ as product data, not only as examples under references/."
+      "event": "planning decision recorded: seeded registry, source atlas, comparison readiness, navigator flow, and related validated JSON should ship under artifacts/ as product data, not only as examples under references/."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision recorded: evals/ should contain fixtures and expected behaviors, while scripts/ should contain deterministic validators and package smoke checks."
+      "event": "planning decision recorded: evals/ should contain fixtures and expected behaviors, while scripts/ should contain deterministic validators and package smoke checks."
     },
     {
       "date": "2026-07-08",
-      "event": "Operator approved moving from grilling to PRD/planning artifact creation and approved projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md as the implementation-plan artifact."
+      "event": "Operator approved moving from planning to PRD/planning artifact creation and approved projects/health/artifacts/plans/philippines-health-coverage-standalone-repo-implementation-plan.md as the implementation-plan artifact."
     },
     {
       "date": "2026-07-08",
-      "event": "Continued task through Matt to-prd, approved and wrote projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md, then advanced saved phase to issues."
+      "event": "Continued task through previous workflow planning, approved and wrote projects/health/artifacts/prds/health-005-philippines-health-coverage-standalone-repo.md, then advanced saved workflow state to issues."
     },
     {
       "date": "2026-07-08",
-      "event": "Split the PRD into six issue artifacts, approved them as issue slices, added the implementation write plan, and advanced saved phase to implement."
+      "event": "Split the PRD into six issue artifacts, approved them as issue slices, added the implementation write plan, and advanced saved workflow state to implement."
     },
     {
       "date": "2026-07-08",
@@ -470,7 +412,7 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Advanced saved Matt phase to code-review so the pushed standalone package can be reviewed and closed from an explicit tracker state."
+      "event": "Advanced saved previous workflow phase to code-review so the pushed standalone package can be reviewed and closed from an explicit tracker state."
     },
     {
       "date": "2026-07-08",

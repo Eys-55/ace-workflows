@@ -71,11 +71,11 @@ Open workflow-foundry tasks at audit time:
 - `workflow-foundry-003` todo / intake - Expose workflow skills in Codex app
 - `workflow-foundry-004` todo / intake - Maintain workflow tracker state
 - `workflow-foundry-005` in-progress / code-review - Create dark-mode project task tracker UI
-- `workflow-foundry-006` in-progress / grilling - Create foundry expansion discovery workflow
+- `workflow-foundry-006` in-progress / planning - Create foundry expansion discovery workflow
 - `workflow-foundry-007` todo / intake - Checkpoint foundry repository to GitHub
 - `workflow-foundry-009` in-progress / code-review - Create tracker UI runner skill and project workflow view
 - `workflow-foundry-011` in-progress / implement - Create audit-foundry skill
-- `workflow-foundry-012` in-progress / grilling - Create one-way project skill connection workflow
+- `workflow-foundry-012` in-progress / planning - Create one-way project skill connection workflow
 
 Recently completed foundry tasks:
 
@@ -100,8 +100,8 @@ runs using `scope:foundry-projects`, `scope:projects`, or `project:<slug>`.
 Codex-discoverable skill files present at audit time:
 
 - `.agents/skills/audit-foundry/SKILL.md`
-- `.agents/skills/continue-task/SKILL.md`
-- `.agents/skills/initiate-task/SKILL.md`
+- `.agents/skills/native Codex planning/SKILL.md`
+- `.agents/skills/native Codex planning/SKILL.md`
 - `.agents/skills/review-project-state/SKILL.md`
 - `.agents/skills/setup-workflow-project/SKILL.md`
 - `.agents/skills/testing-session/SKILL.md`
@@ -165,7 +165,7 @@ file list, then handle unrelated dirty work through its own existing tasks.
 
 Evidence: `workflow-foundry-011` and `workflow-foundry-012` task JSON.
 
-Impact: This is the desired direction after grilling. The remaining risk is
+Impact: This is the desired direction after planning. The remaining risk is
 operator confusion if future answers collapse the two tasks again.
 
 Recommended next tracker action: keep `audit-foundry` documentation focused on
@@ -199,5 +199,5 @@ Deferred work:
 - Project-inclusive audit behavior should be exercised with
   `scope:foundry-projects`, `scope:projects`, or `project:<slug>` in later audit
   runs.
-- Fixes for audit findings must go through `$initiate-task` or
-  `$continue-task`.
+- Fixes for audit findings must go through `native Codex planning` or
+  `native Codex planning`.

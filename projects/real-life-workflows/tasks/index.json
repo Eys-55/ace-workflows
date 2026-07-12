@@ -6,7 +6,6 @@
       "title": "Quarantine market-research-agent workflow catalog",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-07"
     },
     {
@@ -14,7 +13,6 @@
       "title": "Audit and properize workflow door catalog",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-07"
     },
     {
@@ -22,7 +20,6 @@
       "title": "Audit polluted imported skill surface",
       "task_kind": "tracker-maintenance",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -30,7 +27,6 @@
       "title": "Create real-life workflows README",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -38,7 +34,6 @@
       "title": "Maintain tracker for companion UI task",
       "task_kind": "tracker-maintenance",
       "status": "in-progress",
-      "matt_phase": "implement",
       "updated_at": "2026-07-12"
     },
     {
@@ -46,7 +41,6 @@
       "title": "Build companion UI for agentic workflow search",
       "task_kind": "workflow-change",
       "status": "in-progress",
-      "matt_phase": "grilling",
       "updated_at": "2026-07-12"
     }
   ]

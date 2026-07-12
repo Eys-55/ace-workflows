@@ -34,6 +34,6 @@ None - can start immediately.
 - 3. Read-only tracker
 - 4. See each task status
 - 5. See each task kind
-- 6. See each Matt phase
+- 6. See each previous workflow phase
 - 11. Compact visual summary
 - 15. Preserve JSON as source of truth

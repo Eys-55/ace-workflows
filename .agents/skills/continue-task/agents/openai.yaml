@@ -1,4 +1,0 @@
-interface:
-  display_name: "Continue Task"
-  short_description: "Resume JSON workflow tasks"
-  default_prompt: "Use $continue-task to load and continue an existing JSON-tracked workflow task."

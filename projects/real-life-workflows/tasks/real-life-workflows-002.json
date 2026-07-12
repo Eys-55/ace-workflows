@@ -4,23 +4,21 @@
   "title": "Audit and properize workflow door catalog",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Define a universal workflow-understanding finder from the quarantined door catalog, with a corrected PRD ready for issue splitting.",
   "acceptance_criteria": [
     "the 171 imported rows are treated as workflow doors, not finished workflows",
-    "grilling treats workflow understanding as the primary user intent before PRD or issues work continues",
-    "grilling keeps the workflow finder general-purpose for any domain, work area, and reader",
-    "grilling asks what type of work or workflow the user wants to understand before asking what they want to build",
-    "grilling treats the default understanding packet as deep enough to reason across expanded workflow candidates behind matched doors, not a shallow skim of 171 rows",
-    "grilling allows broad packets with up to about 50 visible workflow recommendations when many similar matches are found",
-    "grilling requires each visible workflow recommendation to include a short why it matters explanation for reader scanning",
-    "grilling preserves the distinction between 171 access doors and the larger underlying leaf-workflow universe that the audit must later quantify",
+    "planning treats workflow understanding as the primary user intent before PRD or issues work continues",
+    "planning keeps the workflow finder general-purpose for any domain, work area, and reader",
+    "planning asks what type of work or workflow the user wants to understand before asking what they want to build",
+    "planning treats the default understanding packet as deep enough to reason across expanded workflow candidates behind matched doors, not a shallow skim of 171 rows",
+    "planning allows broad packets with up to about 50 visible workflow recommendations when many similar matches are found",
+    "planning requires each visible workflow recommendation to include a short why it matters explanation for reader scanning",
+    "planning preserves the distinction between 171 access doors and the larger underlying leaf-workflow universe that the audit must later quantify",
     "issue artifacts split the corrected PRD into independently implementable vertical slices",
     "issue 001 implementation defines and validates the workflow-understanding packet contract and fixtures",
-    "grilling decides whether the door catalog is primarily a search surface, a skill factory, or an audit queue",
-    "grilling defines what a properized door must prove before promotion",
-    "grilling identifies the first pilot domain or door family",
+    "planning decides whether the door catalog is primarily a search surface, a skill factory, or an audit queue",
+    "planning defines what a properized door must prove before promotion",
+    "planning identifies the first pilot domain or door family",
     "workflow state validation passes after tracker and plan updates"
   ],
   "ecc_concepts_applied": [
@@ -34,7 +32,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load real-life-workflows state, quarantine import, Matt references, and the draft inspection plan before grilling the workflow door catalog audit.",
+    "summary": "Load real-life-workflows state, quarantine import, previous workflow references, and the draft inspection plan before planning the workflow door catalog audit.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -71,113 +69,11 @@
       "projects/real-life-workflows/artifacts/finder/door-vs-leaf-count-audit.json",
       "projects/real-life-workflows/artifacts/finder/door-vs-leaf-count-audit.md",
       "projects/real-life-workflows/artifacts/reviews/real-life-workflows-002-implementation-review.md",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "projects/real-life-workflows/artifacts/testing-sessions/index.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/workflow-understanding-packet-contract.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 packet contract documentation.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/packet-fixture.schema.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 packet fixture schema.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/validate-packet-fixtures.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 deterministic fixture validator.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/fixtures/narrow-referral-operations.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 narrow-query fixture.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/fixtures/broad-healthcare-pediatrics.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 broad-query fixture.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/fixtures/supporting-building-blocks.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 supporting-building-block fixture.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/packet-contract/fixtures/high-stakes-compliance.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to begin implementation with Issue 001 high-stakes boundary fixture.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/workflow-understanding-finder.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issues 002-005 with project-local workflow finder instructions.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/workflow-understanding-finder.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issues 002-005 with a project-local JSON query helper.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/validate-finder-artifacts.mjs",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issues 002-005 with deterministic artifact validation.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/packets/healthcare-pediatrics.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issues 002-005 with saved packet examples.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/packets/document-evidence.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issues 002-005 with saved packet examples.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/packets/high-stakes-compliance.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issues 002-005 with saved packet examples.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/door-vs-leaf-count-audit.json",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issue 005 with a door-vs-leaf audit.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/finder/door-vs-leaf-count-audit.md",
-        "phase": "implement",
-        "approval_note": "Approved by user request to continue implementation through Issue 005 with a human-readable count audit.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/reviews/real-life-workflows-002-implementation-review.md",
-        "phase": "code-review",
-        "approval_note": "Approved by user request to continue the task through implementation review and closeout readiness.",
-        "approved_at": "2026-07-07"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [
     "real-life-workflows-001"
@@ -226,51 +122,51 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Returned task to grilling after user rejected moving straight to plan/issues and asked to grill first."
+      "event": "Returned task to planning after user rejected moving straight to plan/issues and asked to grill first."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: every reader-first workflow packet should always include four visible relevance categories: Direct Matches, Strong Adjacent Matches, Supporting Building Blocks, and Maybe Useful; empty categories should remain visible."
+      "event": "planning decision: every reader-first workflow packet should always include four visible relevance categories: Direct Matches, Strong Adjacent Matches, Supporting Building Blocks, and Maybe Useful; empty categories should remain visible."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: the catalog search is a workflow-learning and workflow-understanding surface, not only a build planner; narrowing questions should ask what type of work the user wants to understand, such as healthcare pediatrics, before asking implementation-oriented questions."
+      "event": "planning decision: the catalog search is a workflow-learning and workflow-understanding surface, not only a build planner; narrowing questions should ask what type of work the user wants to understand, such as healthcare pediatrics, before asking implementation-oriented questions."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: user confirmed the primary intent is understanding workflows; build, extraction, or skill creation should be treated as later optional outcomes after the understanding packet is produced."
+      "event": "planning decision: user confirmed the primary intent is understanding workflows; build, extraction, or skill creation should be treated as later optional outcomes after the understanding packet is produced."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: user confirmed the workflow should be general-purpose for anything and everyone, not a healthcare-specific or domain-specific finder; any later pilot domain is only an eval fixture, not the product boundary."
+      "event": "planning decision: user confirmed the workflow should be general-purpose for anything and everyone, not a healthcare-specific or domain-specific finder; any later pilot domain is only an eval fixture, not the product boundary."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: user confirmed the universal first intake question should be, What type of work or workflow are you trying to understand?"
+      "event": "planning decision: user confirmed the universal first intake question should be, What type of work or workflow are you trying to understand?"
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: user confirmed the default packet should be deeper because the 171 doors are access points to a much larger workflow universe, described by the user as almost ten thousand workflows; the audit must preserve door-vs-leaf distinction and quantify the expanded count later."
+      "event": "planning decision: user confirmed the default packet should be deeper because the 171 doors are access points to a much larger workflow universe, described by the user as almost ten thousand workflows; the audit must preserve door-vs-leaf distinction and quantify the expanded count later."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: user confirmed the packet can be broader when the search finds many similar workflows; cap the visible recommendation level at about 50, with results packeted for reading rather than constrained to 5-12."
+      "event": "planning decision: user confirmed the packet can be broader when the search finds many similar workflows; cap the visible recommendation level at about 50, with results packeted for reading rather than constrained to 5-12."
     },
     {
       "date": "2026-07-07",
-      "event": "Grilling decision: user confirmed every visible workflow recommendation should include a why it matters field so broad packets remain scannable."
+      "event": "planning decision: user confirmed every visible workflow recommendation should include a why it previous workflowers field so broad packets remain scannable."
     },
     {
       "date": "2026-07-07",
-      "event": "Moved task to issues phase after writing the corrected workflow-understanding finder PRD; the earlier properization plan remains inspection history rather than the issue-splitting source."
+      "event": "Moved task to work-item planning after writing the corrected workflow-understanding finder PRD; the earlier properization plan remains inspection history rather than the issue-splitting source."
     },
     {
       "date": "2026-07-07",
-      "event": "Published five local issue artifacts for packet contract fixtures, 171-door sweep MVP, expansion and deep-read, saved Markdown packet, and safety/count audit; moved task to implement phase with implement as the next action."
+      "event": "Published five local issue artifacts for packet contract fixtures, 171-door sweep MVP, expansion and deep-read, saved Markdown packet, and safety/count audit; moved task to implementation with implement as the next action."
     },
     {
       "date": "2026-07-07",
-      "event": "Started Issue 001 implementation and approved project-local packet contract, fixture, and validator artifacts for implement phase."
+      "event": "Started Issue 001 implementation and approved project-local packet contract, fixture, and validator artifacts for implementation."
     },
     {
       "date": "2026-07-07",
@@ -290,7 +186,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Completed code-review phase for real-life-workflows-002. No remaining Matt phase action is required; task remains in-progress only because changed artifacts must stay linked to a non-done task until checkpoint handling."
+      "event": "Completed validation for real-life-workflows-002. No remaining previous workflow phase action is required; task remains in-progress only because changed artifacts must stay linked to a non-done task until checkpoint handling."
     },
     {
       "date": "2026-07-07",

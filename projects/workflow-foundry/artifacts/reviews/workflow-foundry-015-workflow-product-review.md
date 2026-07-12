@@ -26,8 +26,8 @@ later approved target-project task.
 - Domain-first interface direction, complete action/state vocabulary,
   accessibility, harness approval, security, editable-install, on-demand
   runtime, upgrade, removal, critique, and verification guidance.
-- Create/revamp routing in `initiate-task`, selected-task routing in
-  `continue-task`, and operator discovery in `workflow-help`.
+- Create/revamp routing in `native Codex planning`, selected-task routing in
+  `native Codex planning`, and operator discovery in `workflow-help`.
 - No Foundry React, server, CSS, HTML, component, template, npm product, or
   other downstream application artifact.
 

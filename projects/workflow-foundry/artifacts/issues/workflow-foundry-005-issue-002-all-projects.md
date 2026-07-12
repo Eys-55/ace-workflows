@@ -19,7 +19,7 @@ projects later.
 - [ ] The generated tracker shows all discovered projects by default.
 - [ ] Each project includes project name, slug, project state, and domain or
       goal context when available.
-- [ ] Each task includes task id, title, task kind, status, Matt phase, updated
+- [ ] Each task includes task id, title, task kind, status, previous workflow phase, updated
       date, explicit next action, phase guard summary, and linked artifacts.
 - [ ] Missing optional fields degrade gracefully while missing required fields
       fail validation or build checks.
@@ -35,7 +35,7 @@ projects later.
 - 1. See all projects in one tracker
 - 4. See each task status
 - 5. See each task kind
-- 6. See each Matt phase
+- 6. See each previous workflow phase
 - 7. See next-action and phase-guard state
 - 8. See linked artifacts
 - 13. Handle one project today and many projects later

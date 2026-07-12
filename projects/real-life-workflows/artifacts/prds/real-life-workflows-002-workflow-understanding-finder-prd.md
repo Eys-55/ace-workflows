@@ -163,7 +163,7 @@ Every packet must include all four categories, even when a category is empty.
 - Proving all underlying leaf workflows in one pass.
 - Creating medical, legal, financial, compliance, safety, or engineering
   conclusions from catalog text.
-- Replacing the Matt Pocock task flow with imported phase-shim skills.
+- Replacing the previous workflow task flow with imported phase-shim skills.
 - Treating 171 doors as the final workflow count.
 
 ## Further Notes

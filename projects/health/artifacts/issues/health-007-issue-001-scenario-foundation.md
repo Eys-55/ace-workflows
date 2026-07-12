@@ -24,7 +24,7 @@ Capture the current v1 baseline failures before rewriting any skill.
 - The Health 006 standalone workflow review and improvement roadmap.
 - The current standalone behavior fixtures and workflow contracts.
 - ECC agentic-engineering and eval-harness guidance.
-- Matt's upstream `to-issues` and `tdd` guidance.
+- previous workflow upstream `work-item planning` and `tdd` guidance.
 
 ## ECC Concepts To Apply
 

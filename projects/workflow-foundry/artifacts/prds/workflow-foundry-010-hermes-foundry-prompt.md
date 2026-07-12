@@ -92,7 +92,7 @@ Hermes to execute.
 
 ## Testing Decisions
 
-- Review the prompt as a text artifact against the accepted grilling decisions.
+- Review the prompt as a text artifact against the accepted planning decisions.
 - Verify the prompt includes the Ace-only boundary.
 - Verify the prompt includes the inspect-first rule.
 - Verify the prompt includes the approval-before-writing rule.

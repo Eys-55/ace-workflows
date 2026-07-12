@@ -9,8 +9,8 @@
       "live": true,
       "allowed_content": [
         "workflow foundry control plane",
-        "task and project state mechanics",
-        "Matt Pocock and ECC process rules",
+        "optional project status ledger conventions",
+        "native Codex and ECC workflow rules",
         "repo validation and file-type rules"
       ]
     },

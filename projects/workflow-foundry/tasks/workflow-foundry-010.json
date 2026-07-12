@@ -4,28 +4,26 @@
   "title": "Create foundry explainer Markdown",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
-  "summary": "Create a Markdown explainer that teaches a Hermes-style agent/operator what the ace-workflows foundry is, how its workflow project model accounts for everything in progress, and how to use the task, skill, validation, and handoff surfaces without bypassing Matt Pocock and ECC rules.",
+  "summary": "Create a Markdown explainer that teaches a Hermes-style agent/operator what the ace-workflows foundry is, how its workflow project model accounts for everything in progress, and how to use the task, skill, validation, and handoff surfaces without bypassing previous workflow and ECC rules.",
   "acceptance_criteria": [
-    "grilling identifies the exact audience and job for the foundry explainer: a Hermes-style agent/operator needs the project foundry to account for everything currently being worked on",
-    "grilling resolves that Hermes/Herbie should answer from tracked workflow files as much as possible, using organized Markdown and JSON state rather than loose memory",
-    "grilling resolves that shared-agent work needs operator isolation so Ace-owned work can be recognized, loaded, and run through allowed Hermes tasks without colliding with other users",
-    "grilling resolves that operator isolation should use shared project and task JSON with explicit owner/operator fields as much as possible, plus scoped session logs when needed",
-    "grilling resolves that every user request to edit or add workflow material must be accounted for in tracked foundry state before or during the work",
-    "grilling resolves that accounting records should be readable Markdown files and reflected into a Google Sheet view for complete visibility",
-    "grilling resolves that Markdown plus JSON are the legitimate source of truth, while Google Sheets is a generated/easy-viewing surface",
-    "grilling resolves that Markdown records should be human-readable where practical, but optimized first for Hermes agent loading and operation",
-    "grilling incorporates official Hermes documentation: project context files should stay concise, skills should hold reusable procedures, profiles/sessions isolate agent state, and detailed workflow accounting should live in repo files rather than bounded Hermes memory",
-    "grilling resolves the Hermes-optimized file model: concise AGENTS.md routing, one Markdown record per workflow request, task JSON for machine state, project indexes for discovery, and Google Sheets as a generated view",
-    "grilling resolves the immediate artifact: one Markdown prompt/explainer that tells Hermes how to build this foundry accounting system into its own operation when Ace is using it",
-    "grilling resolves that the immediate artifact should be written as a direct prompt to Hermes, not primarily as a durable instruction document",
-    "grilling resolves that the prompt must be Ace-only and must not alter or infect shared Hermes behavior for other users",
-    "grilling resolves that Hermes profiles already exist, so the prompt must not instruct Hermes to create or configure profiles",
-    "grilling resolves that Hermes must inspect the current workflow repo and propose the foundry files before writing anything",
-    "grilling resolves that Hermes must wait for explicit Ace approval after proposing exact files and changes before writing anything",
-    "grilling resolves where the Markdown file should live in the existing project documentation structure: the workflow-foundry handoffs artifact area",
-    "the explainer defines foundry purpose, project/task tracker model, skill surface, Matt Pocock flow, ECC architecture, validation gates, and GitHub checkpoint boundaries",
+    "planning identifies the exact audience and job for the foundry explainer: a Hermes-style agent/operator needs the project foundry to account for everything currently being worked on",
+    "planning resolves that Hermes/Herbie should answer from tracked workflow files as much as possible, using organized Markdown and JSON state rather than loose memory",
+    "planning resolves that shared-agent work needs operator isolation so Ace-owned work can be recognized, loaded, and run through allowed Hermes tasks without colliding with other users",
+    "planning resolves that operator isolation should use shared project and task JSON with explicit owner/operator fields as much as possible, plus scoped session logs when needed",
+    "planning resolves that every user request to edit or add workflow material must be accounted for in tracked foundry state before or during the work",
+    "planning resolves that accounting records should be readable Markdown files and reflected into a Google Sheet view for complete visibility",
+    "planning resolves that Markdown plus JSON are the legitimate source of truth, while Google Sheets is a generated/easy-viewing surface",
+    "planning resolves that Markdown records should be human-readable where practical, but optimized first for Hermes agent loading and operation",
+    "planning incorporates official Hermes documentation: project context files should stay concise, skills should hold reusable procedures, profiles/sessions isolate agent state, and detailed workflow accounting should live in repo files rather than bounded Hermes memory",
+    "planning resolves the Hermes-optimized file model: concise AGENTS.md routing, one Markdown record per workflow request, task JSON for machine state, project indexes for discovery, and Google Sheets as a generated view",
+    "planning resolves the immediate artifact: one Markdown prompt/explainer that tells Hermes how to build this foundry accounting system into its own operation when Ace is using it",
+    "planning resolves that the immediate artifact should be written as a direct prompt to Hermes, not primarily as a durable instruction document",
+    "planning resolves that the prompt must be Ace-only and must not alter or infect shared Hermes behavior for other users",
+    "planning resolves that Hermes profiles already exist, so the prompt must not instruct Hermes to create or configure profiles",
+    "planning resolves that Hermes must inspect the current workflow repo and propose the foundry files before writing anything",
+    "planning resolves that Hermes must wait for explicit Ace approval after proposing exact files and changes before writing anything",
+    "planning resolves where the Markdown file should live in the existing project documentation structure: the workflow-foundry handoffs artifact area",
+    "the explainer defines foundry purpose, project/task tracker model, skill surface, previous workflow flow, ECC architecture, validation gates, and GitHub checkpoint boundaries",
     "the explainer distinguishes canonical workflow state from notes, commands, prompts, and generated artifacts",
     "the explainer is concise enough to serve as an operator orientation document",
     "the final Markdown artifact is created only after an implement-phase approval exists for its path",
@@ -41,7 +39,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, all non-done tasks, Matt/ECC process references, and local foundry control-plane instructions before grilling or writing the foundry explainer Markdown.",
+    "summary": "Load workflow-foundry state, all non-done tasks, previous workflow/ECC process references, and local foundry control-plane instructions before planning or writing the foundry explainer Markdown.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -57,15 +55,15 @@
       "projects/workflow-foundry/tasks/workflow-foundry-007.json",
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
       "projects/workflow-foundry/tasks/workflow-foundry-010.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "projects/workflow-foundry/artifacts/prds/workflow-foundry-010-hermes-foundry-prompt.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-010-issue-001-direct-hermes-prompt.md",
       "projects/workflow-foundry/artifacts/handoffs/workflow-foundry-010-hermes-foundry-prompt.md",
-      "/tmp/mattpocock-skills-inspect/skills/engineering/ask-matt/SKILL.md",
-      "/tmp/mattpocock-skills-inspect/skills/engineering/grill-with-docs/SKILL.md",
-      "/tmp/mattpocock-skills-inspect/skills/productivity/grilling/SKILL.md",
+      "/tmp/mattpocock-skills-inspect/skills/engineering/ask-previous workflow/SKILL.md",
+      "/tmp/mattpocock-skills-inspect/skills/engineering/native Codex planning/SKILL.md",
+      "/tmp/mattpocock-skills-inspect/skills/productivity/planning/SKILL.md",
       "projects/workflow-foundry/tasks/workflow-foundry-011.json",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
       "projects/workflow-foundry/tasks/workflow-foundry-013.json",
@@ -73,18 +71,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/workflow-foundry/artifacts/handoffs/workflow-foundry-010-hermes-foundry-prompt.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to go after resolving that the artifact is a direct Ace-only prompt to Hermes in the workflow-foundry handoffs area.",
-        "approved_at": "2026-07-07"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
@@ -101,11 +87,11 @@
   "session_log": [
     {
       "date": "2026-07-07",
-      "event": "Created task after user invoked initiate-task for a Markdown file that explains the foundry."
+      "event": "Created task after user invoked native Codex planning for a Markdown file that explains the foundry."
     },
     {
       "date": "2026-07-07",
-      "event": "Moved task to grilling after user explicitly asked to continue until ready for grilling; no Markdown artifact has been created or approved yet."
+      "event": "Moved task to planning after user explicitly asked to continue until ready for planning; no Markdown artifact has been created or approved yet."
     },
     {
       "date": "2026-07-07",
@@ -137,7 +123,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved readability priority: Markdown records should stay human-readable where practical, but the primary reader is the Hermes agent, so structured agent-loadable sections matter most."
+      "event": "Resolved readability priority: Markdown records should stay human-readable where practical, but the primary reader is the Hermes agent, so structured agent-loadable sections previous workflower most."
     },
     {
       "date": "2026-07-07",
@@ -177,11 +163,11 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Wrote the PRD for the direct Hermes Ace foundry prompt and moved the task to PRD phase with issues as the next action."
+      "event": "Wrote the PRD for the direct Hermes Ace foundry prompt and moved the task to planning with issues as the next action."
     },
     {
       "date": "2026-07-07",
-      "event": "Published one local issue for the direct Hermes prompt artifact and moved the task to issues phase with implement as the next action."
+      "event": "Published one local issue for the direct Hermes prompt artifact and moved the task to work-item planning with implement as the next action."
     },
     {
       "date": "2026-07-07",

@@ -40,8 +40,8 @@ operator rebuilds the tracker to refresh the static output.
    todo, in-progress, blocked, and done work quickly.
 5. As the repo operator, I want to see each task kind, so that I can separate
    workflow-change work from tracker-maintenance work.
-6. As the repo operator, I want to see each Matt phase, so that I know whether
-   a task is in intake, grilling, PRD, issues, implementation, review, or done.
+6. As the repo operator, I want to see each previous workflow phase, so that I know whether
+   a task is in intake, planning, PRD, issues, implementation, review, or done.
 7. As the repo operator, I want to see next-action and phase-guard state, so
    that I know what kind of work is currently allowed.
 8. As the repo operator, I want to see linked artifacts, so that I can jump
@@ -77,7 +77,7 @@ operator rebuilds the tracker to refresh the static output.
 - Show all projects by default.
 - Provide a workflow-foundry-only filter for the current project view.
 - Render at minimum: project name, project state, task id, title, task kind,
-  status, Matt phase, explicit next action, phase guard, updated date, and
+  status, previous workflow phase, explicit next action, phase guard, updated date, and
   linked artifacts.
 - Show enough snapshot metadata for the operator to understand when the tracker
   was generated.

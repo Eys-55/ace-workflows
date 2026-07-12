@@ -22,13 +22,13 @@ explicit approval.
 - [ ] The run can propose voice-profile updates based on completed draft evidence.
 - [ ] Proposed voice-profile updates are stored as proposals, not applied changes.
 - [ ] Reusable voice-profile updates require explicit manual approval.
-- [ ] Casual grilling wording cannot silently mutate the reusable voice profile.
+- [ ] Casual planning wording cannot silently mutate the reusable voice profile.
 - [ ] Voice-profile evidence can point back to completed draft-run artifacts.
 
 ## Blocked by
 
 - `linkedin-posts-002-issue-001-draft-run-contract`
-- `linkedin-posts-002-issue-002-intake-context-and-grilling`
+- `linkedin-posts-002-issue-002-intake-context-and-planning`
 
 ## User stories covered
 

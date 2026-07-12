@@ -43,7 +43,7 @@ The skill is read-only against source state. It may write the audit report
 artifact, but it must not fix, rewrite, reclassify, or mutate tasks, skills,
 project files, registry entries, validation scripts, generated UI, or other
 workflow state. Any follow-up changes must happen through a later
-`$initiate-task` or `$continue-task` flow.
+`native Codex planning` or `native Codex planning` flow.
 
 ## User Stories
 
@@ -118,7 +118,7 @@ workflow state. Any follow-up changes must happen through a later
 
 - Project integration.
 - Foundry-owned project connection registration.
-- Changing `$initiate-task` to support integration tasks.
+- Changing `native Codex planning` to support integration tasks.
 - Fixing findings discovered by the audit.
 - Editing task status, project metadata, registry entries, skills, validation
   scripts, generated UI, or project artifacts as part of an audit.

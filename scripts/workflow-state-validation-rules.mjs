@@ -1,20 +1,10 @@
 export const allowedProjectStates = new Set(["active", "paused", "archived"]);
 export const allowedStatuses = new Set(["todo", "in-progress", "blocked", "done"]);
 export const allowedTaskKinds = new Set(["workflow-change", "tracker-maintenance"]);
-export const allowedPhases = new Set([
-  "intake",
-  "grilling",
-  "prd",
-  "issues",
-  "implement",
-  "code-review",
-  "done",
-]);
 export const allowedAgentRoles = new Set(["root-workflow-foundry", "project-domain"]);
 export const allowedQuarantineStatuses = new Set(["quarantined"]);
 export const projectAgentsForbiddenPatterns = [
   "## Project Preflight",
-  "## Matt Pocock Flow",
   "## GitHub Checkpoints",
   "## Canonical Workflow Surface",
   "tasks/index.json",
@@ -24,15 +14,6 @@ export const projectAgentsForbiddenPatterns = [
   "workflow-foundry control plane",
 ];
 
-const allowedNextActions = new Set([
-  "none",
-  "grilling",
-  "prd",
-  "issues",
-  "implement",
-  "code-review",
-]);
-const implementationOrLaterPhases = new Set(["implement", "code-review", "done"]);
 const allowedCapabilityDependencySources = new Set([
   "operator-explicit",
   "confirmed-natural-language",
@@ -45,8 +26,7 @@ const allowedCapabilityDependencyStatuses = new Set([
   "blocked",
 ]);
 const allowedDependencyArtifactStatuses = new Set([
-  "intake-evidence",
-  "grilling-evidence",
+  "planning-evidence",
   "execution-evidence",
   "context",
   "official",
@@ -298,14 +278,6 @@ export function findCommandFirstViolations(contents) {
   return violations;
 }
 
-export function isConsistentlyDone(record) {
-  return record?.status === "done" && record?.matt_phase === "done";
-}
-
-export function hasDonePhaseMismatch(record) {
-  return (record?.status === "done") !== (record?.matt_phase === "done");
-}
-
 export function createValidationRules({ errors, relative }) {
   function requireString(object, key, filePath) {
     if (typeof object?.[key] !== "string" || object[key].trim() === "") {
@@ -364,49 +336,6 @@ export function createValidationRules({ errors, relative }) {
     if (!task.context_snapshot) return;
     requireString(task.context_snapshot, "summary", filePath);
     requireArray(task.context_snapshot, "must_load", filePath);
-  }
-
-  function validatePhaseGuard(task, filePath) {
-    requireObject(task, "phase_guard", filePath);
-    if (!task.phase_guard) return;
-    requireString(task.phase_guard, "selected_next_action", filePath);
-    requireArray(task.phase_guard, "approved_artifacts", filePath);
-    requireArray(task.phase_guard, "process_exceptions", filePath);
-    if (
-      typeof task.phase_guard.selected_next_action === "string" &&
-      !allowedNextActions.has(task.phase_guard.selected_next_action)
-    ) {
-      errors.push(
-        `${relative(filePath)} has invalid phase_guard.selected_next_action "${task.phase_guard.selected_next_action}"`,
-      );
-    }
-    if (Array.isArray(task.phase_guard.approved_artifacts)) {
-      for (const [index, artifact] of task.phase_guard.approved_artifacts.entries()) {
-        for (const key of ["path", "phase", "approval_note", "approved_at"]) {
-          if (typeof artifact?.[key] !== "string" || artifact[key].trim() === "") {
-            errors.push(
-              `${relative(filePath)} phase_guard.approved_artifacts[${index}] must include string field "${key}"`,
-            );
-          }
-        }
-        if (typeof artifact?.phase === "string" && !allowedNextActions.has(artifact.phase)) {
-          errors.push(
-            `${relative(filePath)} phase_guard.approved_artifacts[${index}] has invalid phase "${artifact.phase}"`,
-          );
-        }
-      }
-    }
-    if (Array.isArray(task.phase_guard.process_exceptions)) {
-      for (const [index, exception] of task.phase_guard.process_exceptions.entries()) {
-        for (const key of ["path", "reason", "approved_at"]) {
-          if (typeof exception?.[key] !== "string" || exception[key].trim() === "") {
-            errors.push(
-              `${relative(filePath)} phase_guard.process_exceptions[${index}] must include string field "${key}"`,
-            );
-          }
-        }
-      }
-    }
   }
 
   function validateSelectedDependencySkill(skill, filePath, context) {
@@ -577,9 +506,7 @@ export function createValidationRules({ errors, relative }) {
           );
         }
       }
-      if (implementationOrLaterPhases.has(task.matt_phase)) {
-        validateDependencyWritePlan(step?.dependency_write_plan, filePath, `${context}.dependency_write_plan`);
-      } else if (step?.dependency_write_plan !== undefined) {
+      if (step?.dependency_write_plan !== undefined) {
         validateDependencyWritePlan(step.dependency_write_plan, filePath, `${context}.dependency_write_plan`);
       }
     }
@@ -623,7 +550,6 @@ export function createValidationRules({ errors, relative }) {
         "dependency_step_id",
         "dependency_project",
         "source_skill",
-        "phase",
         "purpose",
         "artifact_status",
       ]) {
@@ -638,8 +564,8 @@ export function createValidationRules({ errors, relative }) {
       ) {
         errors.push(`${relative(filePath)} ${context}.dependency_step_id must reference dependency_steps.step_id`);
       }
-      if (typeof artifact?.phase === "string" && !allowedPhases.has(artifact.phase)) {
-        errors.push(`${relative(filePath)} ${context}.phase must be a valid Matt phase`);
+      if (Object.hasOwn(artifact, "phase")) {
+        errors.push(`${relative(filePath)} ${context} contains removed field phase`);
       }
       if (
         typeof artifact?.artifact_status === "string" &&
@@ -689,7 +615,6 @@ export function createValidationRules({ errors, relative }) {
         "dependency_project",
         "selected_skill",
         "dependency_write_plan",
-        "phase",
         "timestamp",
         "artifact_status",
       ]) {
@@ -707,8 +632,8 @@ export function createValidationRules({ errors, relative }) {
       ) {
         errors.push(`${relative(filePath)} ${context}.dependency_step_id must reference dependency_steps.step_id`);
       }
-      if (typeof provenance?.phase === "string" && !allowedPhases.has(provenance.phase)) {
-        errors.push(`${relative(filePath)} ${context}.phase must be a valid Matt phase`);
+      if (Object.hasOwn(provenance, "phase")) {
+        errors.push(`${relative(filePath)} ${context} contains removed field phase`);
       }
       if (
         typeof provenance?.artifact_status === "string" &&
@@ -732,6 +657,5 @@ export function createValidationRules({ errors, relative }) {
     requireString,
     validateCapabilityDependencies,
     validateContextSnapshot,
-    validatePhaseGuard,
   };
 }

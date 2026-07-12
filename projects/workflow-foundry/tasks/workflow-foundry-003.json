@@ -4,12 +4,10 @@
   "title": "Expose workflow skills in Codex app",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Make .agents/skills the only active workflow surface so Codex discovers and invokes workflow operations as skills, and audit the workflow-building system so operator-facing docs and package surfaces stop presenting npx, Python, npm, or raw helper commands as the primary way Ace uses skills in Codex, Claude Code, opencode, or Antigravity-style agent runtimes.",
   "acceptance_criteria": [
     "Full canonical skill instructions live under .agents/skills",
-    "continue-task exists as a discoverable skill alias",
+    "native Codex planning exists as a discoverable skill alias",
     "active prompt and command shim directories are removed",
     "workflow help documents the skills-only surface",
     "operator-facing skill docs lead with $skill-name invocation and Codex-native behavior, not npx, Python, npm, or raw helper commands",
@@ -23,7 +21,7 @@
     "the audit classifies existing package.json, bin, CLI, npm, npx, Python, and raw helper surfaces before any deletion or quarantine decision",
     "deletion is not the default first move; prevention and explicit skill-first rules are the default, with delete/quarantine reserved for surfaces that clearly violate the workflow contract",
     "root AGENTS.md becomes the primary source of truth for the skill-first/agent-runtime-first rule",
-    "active workflow skills repeat the skill-first rule where it affects behavior, especially workflow-help, setup-workflow-project, initiate-task, continue-task, audit-foundry, testing-session, review-project-state, and workflow-tracker-ui",
+    "active workflow skills repeat the skill-first rule where it affects behavior, especially workflow-help, setup-workflow-project, native Codex planning, native Codex planning, audit-foundry, testing-session, review-project-state, and workflow-tracker-ui",
     "the repeated guidance stays concise and points back to root AGENTS.md instead of creating conflicting local policies",
     "implementation sequences the root AGENTS.md rule and validator before repairing individual skills, READMEs, package docs, or project-local skill surfaces",
     "all audited surfaces that violate the approved rule are repaired in this task when phase guard approvals cover the paths",
@@ -58,8 +56,8 @@
       ".agents/skills/workflow-help/SKILL.md",
       ".agents/skills/setup-workflow-project/SKILL.md",
       ".agents/skills/review-project-state/SKILL.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/tasks/workflow-foundry-008.json",
       "projects/workflow-foundry/tasks/workflow-foundry-009.json",
@@ -77,150 +75,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-003-skill-first-runtime-surface.md",
-        "phase": "prd",
-        "approval_note": "Approved by user instruction to move workflow-foundry-003 from grilling to PRD for the skill-first runtime surface rule.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-001-root-skill-first-rule.md",
-        "phase": "issues",
-        "approval_note": "Approved by user instruction to continue workflow-foundry-003 through issues toward push.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-002-validator-command-first-guard.md",
-        "phase": "issues",
-        "approval_note": "Approved by user instruction to continue workflow-foundry-003 through issues toward push.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-003-repair-command-first-surfaces.md",
-        "phase": "issues",
-        "approval_note": "Approved by user instruction to continue workflow-foundry-003 through issues toward push.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-003-issue-004-validation-review-push.md",
-        "phase": "issues",
-        "approval_note": "Approved by user instruction to continue workflow-foundry-003 through issues toward push.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "AGENTS.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to implement the root skill-first runtime surface rule before push.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": ".agents/skills/workflow-help/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/workflow-help/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/setup-workflow-project/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/setup-workflow-project/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/review-project-state/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/review-project-state/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/initiate-task/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to migrate canonical workflow instructions into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/initiate-task/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to move skill display metadata into .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/continue-task/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to add continue-task as a discoverable skill alias.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/continue-task/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user plan to add continue-task display metadata under .agents/skills.",
-        "approved_at": "2026-07-06"
-      },
-      {
-        "path": ".agents/skills/audit-foundry/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to repeat concise skill-first runtime guidance in active workflow skills.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": ".agents/skills/testing-session/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to repeat concise skill-first runtime guidance in active workflow skills.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": ".agents/skills/workflow-tracker-ui/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to repeat concise skill-first runtime guidance in active workflow skills.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/README.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to repair project-local package docs that present command-first skill usage.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to repair project-local packaged skill docs to be skill-first and agent-runtime-first.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/real-life-workflows/artifacts/package/validate-readme-package-surface.mjs",
-        "phase": "implement",
-        "approval_note": "Approved to keep the Real Life Workflows README/package validator aligned with repaired skill-first package docs.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-003-skill-first-runtime-surface-review.md",
-        "phase": "code-review",
-        "approval_note": "Approved to close workflow-foundry-003 with a focused spec and standards review artifact.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
-  },
   "dependencies": [],
   "related_tasks": [
     "workflow-foundry-001",
@@ -234,10 +88,10 @@
     ".agents/skills/setup-workflow-project/agents/openai.yaml",
     ".agents/skills/review-project-state/SKILL.md",
     ".agents/skills/review-project-state/agents/openai.yaml",
-    ".agents/skills/initiate-task/SKILL.md",
-    ".agents/skills/initiate-task/agents/openai.yaml",
-    ".agents/skills/continue-task/SKILL.md",
-    ".agents/skills/continue-task/agents/openai.yaml",
+    ".agents/skills/native Codex planning/SKILL.md",
+    ".agents/skills/native Codex planning/agents/openai.yaml",
+    ".agents/skills/native Codex planning/SKILL.md",
+    ".agents/skills/native Codex planning/agents/openai.yaml",
     ".agents/skills/audit-foundry/SKILL.md",
     ".agents/skills/testing-session/SKILL.md",
     ".agents/skills/workflow-tracker-ui/SKILL.md",
@@ -284,35 +138,35 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Continued task into grilling after user identified a foundry-level setup problem: workflow surfaces keep implying Ace should run npx, Python, npm, or raw helper commands, while the intended operator model is Codex-native use through AGENTS.md and .agents/skills with $skill-name invocation."
+      "event": "Continued task into planning after user identified a foundry-level setup problem: workflow surfaces keep implying Ace should run npx, Python, npm, or raw helper commands, while the intended operator model is Codex-native use through AGENTS.md and .agents/skills with $skill-name invocation."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: calling skills in this repo means invoking Codex-discoverable skills through the skill surface. npx, npm, Python, or raw helper commands may exist for installation, package checks, deterministic validation, or developer smoke tests, but they must not be presented as the normal operator-facing way to call a skill."
+      "event": "planning decision: calling skills in this repo means invoking Codex-discoverable skills through the skill surface. npx, npm, Python, or raw helper commands may exist for installation, package checks, deterministic validation, or developer smoke tests, but they must not be presented as the normal operator-facing way to call a skill."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: the scope is complete workflow-building posture, not a narrow README wording fix. This repo builds and packages skills/workflows for agent runtimes such as Codex, Claude Code, opencode, and Antigravity-style environments; the task must audit active skills, project-local packaged skills, READMEs, workflow-help text, validation, and recent foundry artifacts for command-first skill-calling assumptions."
+      "event": "planning decision: the scope is complete workflow-building posture, not a narrow README wording fix. This repo builds and packages skills/workflows for agent runtimes such as Codex, Claude Code, opencode, and Antigravity-style environments; the task must audit active skills, project-local packaged skills, READMEs, workflow-help text, validation, and recent foundry artifacts for command-first skill-calling assumptions."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: make command-first skill usage a hard validator failure as much as possible. The foundry builds skills, Markdown, and JSON workflow state; .mjs may exist for deterministic validators, query helpers, or internal support that skills call, but workflow products should target agent runtimes such as Codex, Claude Code, opencode, and Antigravity-style environments before any CLI or package-runner surface."
+      "event": "planning decision: make command-first skill usage a hard validator failure as much as possible. The foundry builds skills, Markdown, and JSON workflow state; .mjs may exist for deterministic validators, query helpers, or internal support that skills call, but workflow products should target agent runtimes such as Codex, Claude Code, opencode, and Antigravity-style environments before any CLI or package-runner surface."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: do not default to deleting package.json bin or CLI-like surfaces blindly. First audit and classify package.json, bin, CLI, npm, npx, Python, and raw helper surfaces. The main fix is prevention and explicit skill-first rules: the repo builds skills/workflows for agent runtimes such as opencode, Claude Code, Codex, and Antigravity-style environments, so command surfaces must be justified as validation, packaging metadata, or internal support rather than treated as the product."
+      "event": "planning decision: do not default to deleting package.json bin or CLI-like surfaces blindly. First audit and classify package.json, bin, CLI, npm, npx, Python, and raw helper surfaces. The main fix is prevention and explicit skill-first rules: the repo builds skills/workflows for agent runtimes such as opencode, Claude Code, Codex, and Antigravity-style environments, so command surfaces must be justified as validation, packaging metadata, or internal support rather than treated as the product."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: put the skill-first/agent-runtime-first rule in top-level AGENTS.md as the source of truth, and repeat concise reminders in active workflow skills where the rule affects behavior. The reminders should say the foundry primarily builds skills/workflows to install into and run through agent runtimes such as opencode, Claude Code, Codex, and Antigravity-style environments, not command-first npx/Python workflows."
+      "event": "planning decision: put the skill-first/agent-runtime-first rule in top-level AGENTS.md as the source of truth, and repeat concise reminders in active workflow skills where the rule affects behavior. The reminders should say the foundry primarily builds skills/workflows to install into and run through agent runtimes such as opencode, Claude Code, Codex, and Antigravity-style environments, not command-first npx/Python workflows."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: sequence implementation as root AGENTS.md source-of-truth rule plus validator first, then repair each skill, README, package doc, or project-local skill surface found by the audit list in the same task when approvals cover the paths."
+      "event": "planning decision: sequence implementation as root AGENTS.md source-of-truth rule plus validator first, then repair each skill, README, package doc, or project-local skill surface found by the audit list in the same task when approvals cover the paths."
     },
     {
       "date": "2026-07-08",
-      "event": "Grilling decision: use a two-layer skill model. .agents/skills is the active local Codex surface for normal Ace/Codex use. Project-local packaged skills can remain exportable skill-package artifacts for other agent runtimes, but their docs must still be skill-first and agent-runtime-first rather than command-first."
+      "event": "planning decision: use a two-layer skill model. .agents/skills is the active local Codex surface for normal Ace/Codex use. Project-local packaged skills can remain exportable skill-package artifacts for other agent runtimes, but their docs must still be skill-first and agent-runtime-first rather than command-first."
     },
     {
       "date": "2026-07-08",

@@ -118,8 +118,7 @@ function taskCountLabel(count) {
 
       .control,
       .iconless-button,
-      .phase-chip,
-      .copy-button {
+      .status-chip {
         min-height: 38px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -129,8 +128,8 @@ function taskCountLabel(count) {
       }
 
       .control[aria-pressed="true"],
-      .phase-chip[aria-pressed="true"],
-      .phase-chip.current-phase {
+      .status-chip[aria-pressed="true"],
+      .status-chip.current-status {
         border-color: var(--accent);
         background: var(--panel-strong);
       }
@@ -328,13 +327,13 @@ function taskCountLabel(count) {
         margin-bottom: 8px;
       }
 
-      .phase-list {
+      .status-list {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
       }
 
-      .phase-chip {
+      .status-chip {
         min-height: 32px;
         font-size: 12px;
       }
@@ -432,7 +431,7 @@ function taskCountLabel(count) {
       }
 
       .status-in-progress,
-      .phase-implement {
+      .status-in-progress {
         color: var(--blue);
       }
 
@@ -448,9 +447,7 @@ function taskCountLabel(count) {
         color: var(--yellow);
       }
 
-      .phase-grilling,
-      .phase-prd,
-      .phase-issues {
+      .status-todo {
         color: var(--violet);
       }
 
@@ -687,7 +684,9 @@ function taskCountLabel(count) {
                   <span class="project-button-meta">
                     <span class="mini-pill">{taskCountLabel(project.activeTaskCount)} active</span>
                     <span class="mini-pill">{project.stats.blocked} blocked</span>
-                    <span class={`mini-pill phase-${project.hotPhase}`}>{project.hotPhase}</span>
+                    <span class={`mini-pill status-${project.attentionStatus}`}>
+                      {project.attentionStatus}
+                    </span>
                   </span>
                 </button>
               ))
@@ -701,7 +700,7 @@ function taskCountLabel(count) {
               const activeTasks = project.tasks.filter((task) => task.status !== "done");
               const doneTasks = project.tasks.filter((task) => task.status === "done");
               const defaultTask =
-                [...activeTasks].reverse().find((task) => task.lifecyclePhase === project.hotPhase) ??
+                activeTasks.find((task) => task.status === project.attentionStatus) ??
                 activeTasks.find((task) => task.status === "in-progress") ??
                 activeTasks[0] ??
                 project.tasks[0];
@@ -735,8 +734,8 @@ function taskCountLabel(count) {
                       <strong>{project.stats.blocked}</strong>
                     </div>
                     <div class="stat-box">
-                      <span>In Review</span>
-                      <strong>{project.stats.inReview}</strong>
+                      <span>In progress</span>
+                      <strong>{project.stats.inProgress}</strong>
                     </div>
                     <div class="stat-box">
                       <span>Done</span>
@@ -744,22 +743,22 @@ function taskCountLabel(count) {
                     </div>
                   </section>
 
-                  <section class="rail" aria-label="Lifecycle rail">
-                    <div class="eyebrow rail-label">Lifecycle rail</div>
-                    <div class="phase-list">
+                  <section class="rail" aria-label="Status overview">
+                    <div class="eyebrow rail-label">Status overview</div>
+                    <div class="status-list">
                       <button
-                        class="phase-chip"
+                        class="status-chip"
                         type="button"
-                        data-phase-filter="all"
+                        data-status-filter="all"
                         aria-pressed="true"
                       >
                         All
                       </button>
-                      {workflow.lifecycleStages.map((stage) => (
+                      {workflow.statusStages.map((stage) => (
                         <button
-                          class={`phase-chip phase-${stage.id}`}
+                          class={`status-chip status-${stage.id}`}
                           type="button"
-                          data-phase-filter={stage.id}
+                          data-status-filter={stage.id}
                           aria-pressed="false"
                         >
                           {stage.label}
@@ -791,7 +790,7 @@ function taskCountLabel(count) {
                             class="task-row"
                             data-task-row
                             data-task-id={task.id}
-                            data-phase={task.lifecyclePhase}
+                            data-status={task.status}
                             data-search={task.searchText}
                             aria-selected={String(task.id === defaultTask?.id)}
                           >
@@ -807,14 +806,9 @@ function taskCountLabel(count) {
                               </span>
                               <span class="task-meta">
                                 <span class="mini-pill">{task.kind}</span>
-                                <span class={`mini-pill phase-${task.lifecyclePhase}`}>
-                                  {task.lifecyclePhase}
-                                </span>
-                                <span class="mini-pill">
-                                  {task.phaseGuard.approvedArtifactCount} approvals
-                                </span>
+                                <span class={`mini-pill status-${task.status}`}>{task.status}</span>
                               </span>
-                              <span class="next-action">Next: {task.nextActionLabel}</span>
+                              <span class="next-action">Next: {task.nextAction}</span>
                               <span class="artifact-summary">
                                 {task.artifactGroupList
                                   .filter((group) => group.count > 0)
@@ -838,7 +832,7 @@ function taskCountLabel(count) {
                                 class="task-row"
                                 data-task-row
                                 data-task-id={task.id}
-                                data-phase={task.lifecyclePhase}
+                                data-status={task.status}
                                 data-search={task.searchText}
                                 aria-selected={String(task.id === defaultTask?.id)}
                               >
@@ -852,7 +846,7 @@ function taskCountLabel(count) {
                                       {task.status}
                                     </span>
                                   </span>
-                                  <span class="next-action">Next: {task.nextActionLabel}</span>
+                                  <span class="next-action">Next: {task.nextAction}</span>
                                 </button>
                               </article>
                             ))}
@@ -874,44 +868,22 @@ function taskCountLabel(count) {
                           <div class="project-context">{task.id}</div>
                           <div class="task-meta">
                             <span class={`mini-pill status-${task.status}`}>{task.status}</span>
-                            <span class={`mini-pill phase-${task.lifecyclePhase}`}>
-                              {task.lifecyclePhase}
-                            </span>
                             <span class="mini-pill">{task.kind}</span>
                           </div>
 
                           <section class="detail-block">
-                            <h4>Continue</h4>
-                            <div class="command-box">
-                              <code>{task.continueCommand}</code>
-                              <button
-                                class="copy-button"
-                                type="button"
-                                data-copy-command={task.continueCommand}
-                              >
-                                Copy
-                              </button>
-                            </div>
-                          </section>
-
-                          <section class="detail-block">
                             <h4>Next Action</h4>
-                            <p class="muted">Next: {task.nextActionLabel}</p>
+                            <p class="muted">Next: {task.nextAction}</p>
                             <p class="muted">
-                              Phase guard: {task.phaseGuard.selectedNextAction};{" "}
-                              {task.phaseGuard.approvedArtifactCount} approvals;{" "}
-                              {task.phaseGuard.processExceptionCount} exceptions.
-                            </p>
-                            <p class="muted">
-                              Preflight: project JSON loaded, task JSON loaded, linked
-                              artifacts counted, workflow state remains read-only.
+                              Project JSON loaded, task JSON loaded, linked artifacts counted,
+                              and the ledger remains read-only.
                             </p>
                           </section>
 
                           <section class="detail-block">
                             <h4>Deliverable Readiness</h4>
                             <p class="muted">
-                              Migration: {task.deliverableMigration.status}; state: {task.deliverableReadiness.state}; next phase: {task.deliverableReadiness.next_phase_ready ? "ready" : "blocked"}.
+                              State: {task.deliverableReadiness.state}; completion: {task.deliverableReadiness.completion_ready ? "ready" : "blocked"}.
                             </p>
                             {task.deliverableContracts.length > 0 ? (
                               <ul class="path-list">
@@ -1088,10 +1060,10 @@ function taskCountLabel(count) {
         });
 
         const selectedRow = panel.querySelector(`[data-task-row][data-task-id="${taskId}"]`);
-        const selectedPhase = selectedRow instanceof HTMLElement ? selectedRow.dataset.phase : "";
+        const selectedStatus = selectedRow instanceof HTMLElement ? selectedRow.dataset.status : "";
 
-        panel.querySelectorAll("[data-phase-filter]").forEach((button) => {
-          button.classList.toggle("current-phase", button.dataset.phaseFilter === selectedPhase);
+        panel.querySelectorAll("[data-status-filter]").forEach((button) => {
+          button.classList.toggle("current-status", button.dataset.statusFilter === selectedStatus);
         });
 
         writeStored(`${storage.task}:${panel.dataset.project}`, taskId);
@@ -1099,14 +1071,14 @@ function taskCountLabel(count) {
 
       function applyTaskFilters(panel) {
         const query = panel.querySelector("[data-task-search]")?.value.trim().toLowerCase() ?? "";
-        const activePhase =
-          panel.querySelector('[data-phase-filter][aria-pressed="true"]')?.dataset.phaseFilter ??
+        const activeStatus =
+          panel.querySelector('[data-status-filter][aria-pressed="true"]')?.dataset.statusFilter ??
           "all";
 
         panel.querySelectorAll("[data-task-row]").forEach((row) => {
           const matchesQuery = row.dataset.search?.includes(query) ?? true;
-          const matchesPhase = activePhase === "all" || row.dataset.phase === activePhase;
-          row.hidden = !matchesQuery || !matchesPhase;
+          const matchesStatus = activeStatus === "all" || row.dataset.status === activeStatus;
+          row.hidden = !matchesQuery || !matchesStatus;
         });
 
         panel.querySelectorAll("[data-task-section]").forEach((section) => {
@@ -1142,10 +1114,10 @@ function taskCountLabel(count) {
           applyTaskFilters(panel);
         });
 
-        panel.querySelectorAll("[data-phase-filter]").forEach((button) => {
+        panel.querySelectorAll("[data-status-filter]").forEach((button) => {
           button.addEventListener("click", () => {
-            panel.querySelectorAll("[data-phase-filter]").forEach((phaseButton) => {
-              phaseButton.setAttribute("aria-pressed", String(phaseButton === button));
+            panel.querySelectorAll("[data-status-filter]").forEach((statusButton) => {
+              statusButton.setAttribute("aria-pressed", String(statusButton === button));
             });
             applyTaskFilters(panel);
           });
@@ -1158,18 +1130,6 @@ function taskCountLabel(count) {
           });
         });
 
-        panel.querySelectorAll("[data-copy-command]").forEach((button) => {
-          button.addEventListener("click", async () => {
-            const command = button.dataset.copyCommand ?? "";
-            if (navigator.clipboard) {
-              await navigator.clipboard.writeText(command);
-              button.textContent = "Copied";
-              window.setTimeout(() => {
-                button.textContent = "Copy";
-              }, 1200);
-            }
-          });
-        });
       });
 
       const initialProject =

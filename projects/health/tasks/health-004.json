@@ -4,8 +4,6 @@
   "title": "Implement remaining Health 002 plan slices",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Implement the remaining slices from the completed health-002 Philippines insurance and HMO navigator plan: standalone implementation plan, source atlas, single-HMO deep dive, comparison-readiness matrix, navigator flow, and eval fixtures.",
   "acceptance_criteria": [
     "The implementation starts from health-002 outputs rather than generic healthcare assumptions.",
@@ -29,7 +27,7 @@
     "summary": "Start from health-002 as completed source material. Do not duplicate the completed registry or product-catalog implementation. Implement the remaining plan slices using existing official/source-grounded evidence; quarantined imported skills remain source evidence only.",
     "must_load": [
       "AGENTS.md",
-      "references/matt-pocock-skills.md",
+      "AGENTS.md",
       "registry/agents-md.json",
       "projects/health/AGENTS.md",
       "projects/health/project.json",
@@ -54,84 +52,6 @@
       "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "implement",
-    "approved_artifacts": [
-      {
-        "path": "projects/health/artifacts/plans/health-002-full-implementation-plan.md",
-        "phase": "implement",
-        "approval_note": "Approved by operator to package the existing health-002 implementation plan as a standalone implementation artifact.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-004-issue-003-source-atlas-and-refresh-rules.md",
-        "phase": "implement",
-        "approval_note": "Approved issue slice for canonical source atlas and refresh rules.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-004-issue-004-single-hmo-deep-dive.md",
-        "phase": "implement",
-        "approval_note": "Approved issue slice for a single-HMO deep-dive packet.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-004-issue-005-comparison-readiness-matrix.md",
-        "phase": "implement",
-        "approval_note": "Approved issue slice for comparison-readiness without recommendations.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-004-issue-006-navigator-drilling-flow.md",
-        "phase": "implement",
-        "approval_note": "Approved issue slice for the educational navigator drilling flow.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-004-issue-007-eval-fixtures-and-release-gate.md",
-        "phase": "implement",
-        "approval_note": "Approved issue slice for eval fixtures and release gates.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/source-atlas/philippines-health-coverage-source-atlas.json",
-        "phase": "implement",
-        "approval_note": "Approved source atlas artifact for canonical source roles and refresh rules.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/deep-dives/maxicare-hmo-deep-dive-packet.json",
-        "phase": "implement",
-        "approval_note": "Approved single-HMO deep-dive packet using Maxicare as the first representative HMO.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/comparison/philippines-health-coverage-comparison-readiness.json",
-        "phase": "implement",
-        "approval_note": "Approved comparison-readiness matrix artifact that blocks rankings and recommendations.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/navigator/philippines-health-coverage-navigator-flow.json",
-        "phase": "implement",
-        "approval_note": "Approved educational navigator flow artifact.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/evals/philippines-health-coverage-eval-fixtures.json",
-        "phase": "implement",
-        "approval_note": "Approved eval fixtures for category separation, boundary refusal, and source grounding.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/evals/validate-philippines-health-coverage-slices.mjs",
-        "phase": "implement",
-        "approval_note": "Approved deterministic validator for remaining Health 002 plan slices.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
-  },
   "capability_dependencies": [
     {
       "dependency_id": "real-life-workflows-health-packets",
@@ -143,7 +63,7 @@
         {
           "skill": "real-life-workflow-search",
           "purpose": "Search the Real Life Workflows source universe or reference existing Health packet evidence when the implementation plan needs source-grounded workflow context.",
-          "call_boundary": "Use only for this health task's approved dependency step and write only to the primary health task's approved artifact area after phase approval.",
+          "call_boundary": "Use only for this health task's approved dependency step and write only to the primary health task's approved artifact area after approval.",
           "expected_artifacts": [
             "workflow-understanding packet evidence",
             "source-backed workflow recommendations for implementation planning"
@@ -174,7 +94,7 @@
         "health-002 completed PRD and issue artifacts",
         "health-002 registry and product-catalog outputs",
         "Philippines insurance and HMO workflow packet evidence",
-        "next Health workflow build milestone to be selected during Matt grilling"
+        "next Health workflow build milestone to be selected during previous workflow planning"
       ],
       "expected_outputs": [
         "implementation plan artifact under projects/health/artifacts/plans/ after phase approval",
@@ -260,7 +180,6 @@
       "dependency_step_id": "dep-step-001",
       "dependency_project": "real-life-workflows",
       "source_skill": "real-life-workflow-search",
-      "phase": "implement",
       "purpose": "Use existing health-002 workflow-understanding packets as source-grounded context while implementing the remaining Health 002 plan slices.",
       "artifact_status": "execution-evidence",
       "generated_files": [
@@ -294,7 +213,6 @@
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
       "dependency_write_plan": "dependency_steps[0].dependency_write_plan",
-      "phase": "implement",
       "timestamp": "2026-07-08T07:14:09Z",
       "artifact_status": "execution-evidence",
       "helper_skills_used": [],
@@ -358,7 +276,7 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Entered Matt grilling to select the next build milestone before writing an implementation-plan artifact."
+      "event": "Entered previous workflow planning to select the next build milestone before writing an implementation-plan artifact."
     },
     {
       "date": "2026-07-08",

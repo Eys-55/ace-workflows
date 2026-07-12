@@ -11,7 +11,7 @@ routing, the sole model-invoked `$build-workflow-skill` authority, a callable
 canonical bundle, discovery, role-aware completion, and durable behavioral
 evidence. The bundle must contain skill instructions and Codex runtime metadata
 with consistent folder, frontmatter, trigger, and invocation identity. Selected
-Matt Pocock and ECC guidance must be evidenced, and optional resources must be
+previous workflow and ECC guidance must be evidenced, and optional resources must be
 justified and linked.
 
 Python, JavaScript-only, `.mjs`-only, helper-only, thin-wrapper,
@@ -33,7 +33,7 @@ result so the two seams cannot test different interpretations.
 - [x] The builder produces a lowercase hyphenated canonical bundle containing `SKILL.md` and `agents/openai.yaml`.
 - [x] Folder identity, frontmatter name, trigger description, default invocation, target surface, and runtime visibility agree.
 - [x] The bundle defines workflow inputs, outputs, decisions, failures, human boundaries, handoffs, and completion criteria before optional support resources are added.
-- [x] Applicable Matt Pocock and ECC guidance is named and evidenced in the workflow or eval result.
+- [x] Applicable previous workflow and ECC guidance is named and evidenced in the workflow or eval result.
 - [x] Existing-skill wording updates one identified bundle without creating a duplicate identity.
 - [x] Completion fails for Python, code-only, helper-only, thin-wrapper, command-first, incomplete-metadata, identity-mismatch, decorative-eval, and unreferenced-helper fixtures.
 - [x] Quick Start, Getting Started, Example, and unheaded command examples fail by default unless each command is inside an explicitly classified developer verification, package smoke-test, deterministic validation, query, or internal-support section.

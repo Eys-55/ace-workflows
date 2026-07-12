@@ -36,7 +36,7 @@ evidence artifact. The path-level manifest is
 | --- | ---: | --- |
 | Health | 27 | Preserved v2 PRD, 12 issues, workflow packet, task index, and tasks 001-008. Four private testing-session files remain only in the original worktree and are classified as deferred-private. |
 | LinkedIn Posts | 6 | Preserved draft run, index, and tasks 001-004 while retaining the feature branch's frozen migration for task 002. |
-| Real Life Workflows | 7 | Preserved index and tasks 001-006; kept task 006 paused in grilling without claiming product-builder readiness. |
+| Real Life Workflows | 7 | Preserved index and tasks 001-006; kept task 006 paused in planning without claiming product-builder readiness. |
 | Workflow Foundry | 18 | Kept feature-authoritative 006/015 contracts, evidence, validators, and done state; preserved task 014; continued task 016; regenerated combined preload state. |
 
 Eighteen source paths overlapped feature-branch changes. Whole-file overwrite was
@@ -92,10 +92,10 @@ diagnostic evidence, not completion evidence:
 - The derived catalog exposes `build-workflow-product` as a complete canonical
   skill.
 - Health 008 retains the confirmed `build-workflow-product` dependency and stays
-  in grilling with an empty approved-artifact list. The canonical capability and
+  in planning with an empty approved-artifact list. The canonical capability and
   completed 015 dependency resolve; overall Health 008 readiness remains blocked
   by its own pending migration. Integration does not grant Health product writes.
-- Real Life Workflows 006 remains in grilling with no capability dependency and
+- Real Life Workflows 006 remains in planning with no capability dependency and
   is not falsely reported as unblocked.
 
 ## Test-Driven Integration Evidence

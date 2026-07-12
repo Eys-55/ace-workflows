@@ -4,12 +4,9 @@ import {
   validateTaskDeliverableState,
 } from "./workflow-deliverable-contracts.mjs";
 import {
-  allowedPhases,
   allowedProjectStates,
   allowedStatuses,
   allowedTaskKinds,
-  hasDonePhaseMismatch,
-  isConsistentlyDone,
 } from "./workflow-state-validation-rules.mjs";
 
 const trackerArtifactPatterns = [
@@ -18,43 +15,17 @@ const trackerArtifactPatterns = [
   /^projects\/[^/]+\/tasks\/index\.json$/,
   /^projects\/[^/]+\/tasks\/[^/]+\.json$/,
 ];
-const implementationArtifactPatterns = [
-  /^\.agents\/skills\/.+/,
-  /^projects\/[^/]+\/artifacts\/.+/,
-  /^scripts\/.+\.mjs$/,
+const retiredPrefix = String.fromCharCode(109, 97, 116, 116);
+const removedTaskFields = [
+  [retiredPrefix, "phase"].join("_"),
+  ["phase", "guard"].join("_"),
+  ["explicit", "next", "action", "required"].join("_"),
+  ["removed", "lifecycle", "field"].join("_"),
+  ["removed", "write", "gate"].join("_"),
 ];
-const planningArtifactPatterns = [
-  /^projects\/[^/]+\/artifacts\/prds\/.+/,
-  /^projects\/[^/]+\/artifacts\/issues\/.+/,
-  /^projects\/[^/]+\/artifacts\/reviews\/.+/,
-  /^projects\/[^/]+\/artifacts\/handoffs\/.+/,
-];
-const coreScriptArtifacts = new Set([
-  "scripts/query-workflow-state.mjs",
-  "scripts/validate-workflow-state.mjs",
-]);
 
 function isTrackerArtifact(filePath) {
   return trackerArtifactPatterns.some((pattern) => pattern.test(filePath));
-}
-
-function isPlanningArtifact(filePath) {
-  return planningArtifactPatterns.some((pattern) => pattern.test(filePath));
-}
-
-function isImplementationArtifact(filePath) {
-  return !coreScriptArtifacts.has(filePath) &&
-    implementationArtifactPatterns.some((pattern) => pattern.test(filePath));
-}
-
-function hasApprovedArtifact(task, filePath, phase) {
-  return task.phase_guard?.approved_artifacts?.some(
-    (artifact) => artifact.path === filePath && artifact.phase === phase,
-  );
-}
-
-function hasProcessException(task, filePath) {
-  return task.phase_guard?.process_exceptions?.some((exception) => exception.path === filePath);
 }
 
 export function createProjectValidation({
@@ -70,22 +41,29 @@ export function createProjectValidation({
     requireString,
     validateCapabilityDependencies,
     validateContextSnapshot,
-    validatePhaseGuard,
   } = rules;
 
-  function validateTask(task, filePath, projectSlug, requiredMustLoadPaths, skillCatalog) {
+  function rejectRemovedFields(record, filePath, context = "") {
+    for (const field of removedTaskFields) {
+      if (Object.hasOwn(record, field)) {
+        errors.push(`${relative(filePath)}${context} contains removed field ${field}`);
+      }
+    }
+  }
+
+  function validateTask(task, filePath, projectSlug, skillCatalog) {
     for (const key of [
       "task_id",
       "project_slug",
       "title",
       "status",
-      "matt_phase",
       "summary",
       "created_at",
       "updated_at",
     ]) {
       requireString(task, key, filePath);
     }
+    if (task.status !== "done") requireString(task, "next_action", filePath);
     for (const key of [
       "acceptance_criteria",
       "ecc_concepts_applied",
@@ -98,15 +76,21 @@ export function createProjectValidation({
     }
 
     validateContextSnapshot(task, filePath);
-    validatePhaseGuard(task, filePath);
     validateCapabilityDependencies(task, filePath);
+    rejectRemovedFields(task, filePath);
     for (const issue of validateTaskDeliverableState(task)) {
       errors.push(`${relative(filePath)} ${issue.code}: ${issue.message}`);
     }
-    if (task.status === "done" || ["code-review", "done"].includes(task.matt_phase)) {
+    if (Array.isArray(task.deliverable_contracts) && task.deliverable_contracts.length > 0) {
       const readiness = projectDeliverableReadiness({ task, root, catalog: skillCatalog });
-      if (!readiness.completion_ready) {
-        for (const blocker of readiness.blockers) {
+      const activeSecurityBlockers = new Set([
+        "dependency-out-of-boundary",
+        "dependency-protected-path",
+        "external-write-approval-missing",
+        "required-artifact-invalid",
+      ]);
+      for (const blocker of readiness.blockers) {
+        if (task.status === "done" || activeSecurityBlockers.has(blocker.code)) {
           errors.push(`${relative(filePath)} ${blocker.code}: ${blocker.message}`);
         }
       }
@@ -122,64 +106,11 @@ export function createProjectValidation({
     ) {
       errors.push(`${relative(filePath)} tracker-maintenance task must link a tracker artifact`);
     }
-    if (Array.isArray(task.context_snapshot?.must_load)) {
-      for (const requiredPath of requiredMustLoadPaths) {
-        if (!task.context_snapshot.must_load.includes(requiredPath)) {
-          errors.push(`${relative(filePath)} context_snapshot.must_load must include "${requiredPath}"`);
-        }
-      }
-    }
     if (task.project_slug !== projectSlug) {
       errors.push(`${relative(filePath)} project_slug must equal "${projectSlug}"`);
     }
     if (!allowedStatuses.has(task.status)) {
       errors.push(`${relative(filePath)} has invalid status "${task.status}"`);
-    }
-    if (!allowedPhases.has(task.matt_phase)) {
-      errors.push(`${relative(filePath)} has invalid matt_phase "${task.matt_phase}"`);
-    }
-    if (hasDonePhaseMismatch(task)) {
-      errors.push(`${relative(filePath)} status and matt_phase must both be done or both be non-done`);
-    }
-    if (task.explicit_next_action_required !== true) {
-      errors.push(`${relative(filePath)} explicit_next_action_required must be true`);
-    }
-  }
-
-  function validateChangedArtifact(change, openTasksByArtifact) {
-    const filePath = change.path;
-    if (change.status.includes("D") || coreScriptArtifacts.has(filePath)) return;
-    const linkedTasks = openTasksByArtifact.get(filePath) ?? [];
-
-    if (isTrackerArtifact(filePath)) {
-      if (
-        linkedTasks.some(
-          (task) => task.task_kind === "tracker-maintenance" || hasProcessException(task, filePath),
-        )
-      ) {
-        return;
-      }
-      errors.push(`${filePath} changed but is not linked to a non-done tracker-maintenance task`);
-      return;
-    }
-    if (isPlanningArtifact(filePath)) {
-      if (linkedTasks.length > 0) return;
-      errors.push(`${filePath} changed but is not linked to a non-done task`);
-      return;
-    }
-    if (isImplementationArtifact(filePath)) {
-      if (linkedTasks.length === 0) {
-        errors.push(`${filePath} changed but is not linked to a non-done task`);
-        return;
-      }
-      if (
-        linkedTasks.some(
-          (task) => task.matt_phase === "implement" || hasApprovedArtifact(task, filePath, "implement"),
-        )
-      ) {
-        return;
-      }
-      errors.push(`${filePath} changed before implement phase without approved implement artifact`);
     }
   }
 
@@ -193,7 +124,8 @@ export function createProjectValidation({
       return [];
     }
     if (!(await exists(indexFile))) {
-      errors.push(`${relative(indexFile)} is missing`);
+      // Task tracking is optional. When an index exists, its summaries and detail files
+      // are still validated for consistency below.
       return [];
     }
 
@@ -240,16 +172,6 @@ export function createProjectValidation({
       return [];
     }
 
-    const requiredMustLoadPaths = [
-      "AGENTS.md",
-      "registry/agents-md.json",
-      projectAgentsPath,
-      `projects/${projectSlug}/project.json`,
-      `projects/${projectSlug}/tasks/index.json`,
-      ...index.tasks
-        .filter((item) => !isConsistentlyDone(item) && typeof item.task_id === "string")
-        .map((item) => `projects/${projectSlug}/tasks/${item.task_id}.json`),
-    ];
     const taskIds = new Set();
     const openTasks = [];
     for (const item of index.tasks) {
@@ -261,9 +183,10 @@ export function createProjectValidation({
         errors.push(`${relative(indexFile)} repeats task_id "${item.task_id}"`);
       }
       taskIds.add(item.task_id);
-      for (const key of ["title", "status", "matt_phase", "updated_at"]) {
+      for (const key of ["title", "status", "updated_at"]) {
         requireString(item, key, indexFile);
       }
+      rejectRemovedFields(item, indexFile, ` task ${item.task_id}`);
       const itemTaskKind = item.task_kind ?? "workflow-change";
       if (!allowedTaskKinds.has(itemTaskKind)) {
         errors.push(`${relative(indexFile)} has invalid task_kind for ${item.task_id}`);
@@ -271,15 +194,6 @@ export function createProjectValidation({
       if (!allowedStatuses.has(item.status)) {
         errors.push(`${relative(indexFile)} has invalid status for ${item.task_id}`);
       }
-      if (!allowedPhases.has(item.matt_phase)) {
-        errors.push(`${relative(indexFile)} has invalid matt_phase for ${item.task_id}`);
-      }
-      if (hasDonePhaseMismatch(item)) {
-        errors.push(
-          `${relative(indexFile)} status and matt_phase for ${item.task_id} must both be done or both be non-done`,
-        );
-      }
-
       const taskFile = path.join(projectDir, "tasks", `${item.task_id}.json`);
       if (!(await exists(taskFile))) {
         errors.push(`${relative(taskFile)} is missing`);
@@ -290,16 +204,16 @@ export function createProjectValidation({
       if (task.task_id !== item.task_id) {
         errors.push(`${relative(taskFile)} task_id must equal "${item.task_id}"`);
       }
-      validateTask(task, taskFile, projectSlug, requiredMustLoadPaths, skillCatalog);
-      if (!isConsistentlyDone(task)) openTasks.push(task);
+      validateTask(task, taskFile, projectSlug, skillCatalog);
+      if (task.status !== "done") openTasks.push(task);
       if (task.title !== item.title) {
         errors.push(`${relative(indexFile)} title mismatch for ${item.task_id}`);
       }
       if (task.status !== item.status) {
         errors.push(`${relative(indexFile)} status mismatch for ${item.task_id}`);
       }
-      if (task.matt_phase !== item.matt_phase) {
-        errors.push(`${relative(indexFile)} matt_phase mismatch for ${item.task_id}`);
+      if (task.updated_at !== item.updated_at) {
+        errors.push(`${relative(indexFile)} updated_at mismatch for ${item.task_id}`);
       }
       if ((task.task_kind ?? "workflow-change") !== itemTaskKind) {
         errors.push(`${relative(indexFile)} task_kind mismatch for ${item.task_id}`);
@@ -308,5 +222,5 @@ export function createProjectValidation({
     return openTasks;
   }
 
-  return { validateChangedArtifact, validateProject };
+  return { validateProject };
 }

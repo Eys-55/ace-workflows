@@ -4,8 +4,6 @@
   "title": "Quarantine market-research-agent workflow catalog",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Copy the suspected broken workflow catalog and skill candidates from market-research-agent into a quarantined project-local area so a later ECC audit can inspect them without treating them as canonical skills.",
   "acceptance_criteria": [
     "quarantine import is project-local under real-life-workflows",
@@ -38,29 +36,11 @@
       "projects/real-life-workflows/tasks/real-life-workflows-006.json",
       "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/MANIFEST.md",
       "projects/real-life-workflows/artifacts/reviews/real-life-workflows-001-quarantine-review.md",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "projects/real-life-workflows/artifacts/testing-sessions/index.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent",
-        "phase": "implement",
-        "approval_note": "Approved by user request to copy the broken workflow catalog here but quarantine it before a later ECC audit.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/real-life-workflows/quarantine/imports/2026-07-07-market-research-agent/MANIFEST.md",
-        "phase": "implement",
-        "approval_note": "Approved as the quarantine boundary record for the imported broken workflow catalog and skill candidates.",
-        "approved_at": "2026-07-07"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [],

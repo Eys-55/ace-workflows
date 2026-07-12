@@ -3,7 +3,6 @@ import { validateWorkflowState } from "./workflow-state-validation-core.mjs";
 
 const result = await validateWorkflowState({
   root: process.cwd(),
-  includeChangedFiles: true,
 });
 
 if (!result.ok) {

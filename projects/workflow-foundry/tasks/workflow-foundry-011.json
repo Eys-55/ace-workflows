@@ -4,8 +4,6 @@
   "title": "Create audit-foundry skill",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Create a foundry-owned, skill-first ECC audit workflow that writes Markdown reports for foundry-only, foundry-plus-projects, projects-only, and specific-project audit scopes. It audits organization, tracker consistency, active skill surfaces, validation behavior, generated UI state, open workflow tasks, and project state as required by the selected report type. Project integration and connection registration are deferred to a later task.",
   "acceptance_criteria": [
     "the task defines the operator job for auditing whether the foundry is organized before any implementation artifacts are created",
@@ -27,14 +25,14 @@
     "the audit-foundry skill writes a Markdown audit report artifact that captures the state of the foundry, explains findings, and names recommended next tracker actions",
     "audit-foundry stores reports neatly under projects/workflow-foundry/artifacts/reviews/ with date-stamped audit-foundry Markdown filenames",
     "audit-foundry always writes the Markdown audit report, then summarizes the report in chat",
-    "audit report writes are output artifacts, not state fixes; any follow-up changes must happen through a later initiate-task or continue-task flow",
+    "audit report writes are output artifacts, not state fixes; any follow-up changes must happen through a later native Codex planning or native Codex planning flow",
     "slash-style operator access is provided through the Codex skill surface, not through legacy commands or prompt shims",
-    "skill structure follows Matt Pocock skill-writing guidance: predictable steps, concise trigger description, progressive disclosure for references, and no duplicated no-op prose",
+    "skill structure follows previous workflow skill-writing guidance: predictable steps, concise trigger description, progressive disclosure for references, and no duplicated no-op prose",
     "the future skill distinguishes canonical active skills from project artifacts, tracker files, generated UI, testing sessions, and quarantined imports",
     "the future skill audits the foundry, including root instructions, registry, workflow-foundry tracker state, skill surfaces, validation scripts, and generated UI state when the selected report type includes foundry scope",
     "the future skill audits project state, project AGENTS.md boundaries, project.json, task index, non-done tasks, and testing-session indexes when the selected report type includes project scope",
     "the future skill reports foundry and project organization gaps as candidate tracker tasks instead of silently editing unrelated surfaces",
-    "the future workflow preserves Matt Pocock presentation style and ECC workflow architecture"
+    "the future workflow preserves previous workflow presentation style and ECC workflow architecture"
   ],
   "ecc_concepts_applied": [
     "workflow contract",
@@ -47,7 +45,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load workflow-foundry state, all non-done workflow-foundry tasks, existing foundry review/help skills, and Matt/ECC references before shaping the audit-foundry skill.",
+    "summary": "Load workflow-foundry state, all non-done workflow-foundry tasks, existing foundry review/help skills, and previous workflow/ECC references before shaping the audit-foundry skill.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -67,14 +65,14 @@
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-011-issue-001-skill-contract.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-011-issue-002-report-generation.md",
       "projects/workflow-foundry/artifacts/issues/workflow-foundry-011-issue-003-help-validation-review.md",
-      "references/matt-pocock-skills.md",
-      "/tmp/mattpocock-skills-inspect/skills/engineering/grill-with-docs/SKILL.md",
-      "/tmp/mattpocock-skills-inspect/skills/productivity/grilling/SKILL.md",
+      "AGENTS.md",
+      "/tmp/mattpocock-skills-inspect/skills/engineering/native Codex planning/SKILL.md",
+      "/tmp/mattpocock-skills-inspect/skills/productivity/planning/SKILL.md",
       "/tmp/mattpocock-skills-inspect/skills/productivity/writing-great-skills/SKILL.md",
       ".agents/skills/review-project-state/SKILL.md",
       ".agents/skills/workflow-help/SKILL.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       "scripts/query-workflow-state.mjs",
       "scripts/validate-workflow-state.mjs",
       "projects/workflow-foundry/tasks/workflow-foundry-012.json",
@@ -83,54 +81,6 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": ".agents/skills/audit-foundry/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to continue workflow-foundry-011 through implementation for the audit-foundry skill.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/audit-foundry/agents/openai.yaml",
-        "phase": "implement",
-        "approval_note": "Approved by user instruction to expose audit-foundry as a Codex-accessible skill.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": ".agents/skills/workflow-help/SKILL.md",
-        "phase": "implement",
-        "approval_note": "Approved to list audit-foundry in the canonical workflow help surface.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "scripts/validate-workflow-state.mjs",
-        "phase": "implement",
-        "approval_note": "Approved to include audit-foundry in canonical skill invocation validation.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/audit-foundry-2026-07-07-foundry.md",
-        "phase": "implement",
-        "approval_note": "Approved to verify audit-foundry behavior by writing a real foundry audit report artifact.",
-        "approved_at": "2026-07-07"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/audit-foundry-2026-07-08-foundry.md",
-        "phase": "implement",
-        "approval_note": "Tracked as a real audit-foundry foundry-only report artifact created while verifying the audit skill.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/audit-foundry-2026-07-08-foundry-projects.md",
-        "phase": "implement",
-        "approval_note": "Tracked as a real audit-foundry foundry-plus-projects report artifact created while verifying the audit skill.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
   },
   "dependencies": [
     "workflow-foundry-006"
@@ -156,15 +106,15 @@
   "session_log": [
     {
       "date": "2026-07-07",
-      "event": "Created intake task after user invoked initiate-task to create a skill that audits the foundry itself, keeps everything organized, and explicitly routes actual workflow search through the real-life-workflows project before integrating SME workflow material."
+      "event": "Created intake task after user invoked native Codex planning to create a skill that audits the foundry itself, keeps everything organized, and explicitly routes actual workflow search through the real-life-workflows project before integrating SME workflow material."
     },
     {
       "date": "2026-07-07",
-      "event": "Moved to grilling after user selected workflow-foundry-011 and clarified the two required capabilities: a one-way project integration flow where the foundry labels and connects to projects while projects remain isolated, and a full foundry audit covering the foundry plus connections to integrated projects."
+      "event": "Moved to planning after user selected workflow-foundry-011 and clarified the two required capabilities: a one-way project integration flow where the foundry labels and connects to projects while projects remain isolated, and a full foundry audit covering the foundry plus connections to integrated projects."
     },
     {
       "date": "2026-07-07",
-      "event": "Resolved first grilling decision: integrated projects need a foundry-owned connection registry or equivalent foundry-owned connection record, and the eventual implementation must be skill-first and aligned to ECC workflow concepts."
+      "event": "Resolved first planning decision: integrated projects need a foundry-owned connection registry or equivalent foundry-owned connection record, and the eventual implementation must be skill-first and aligned to ECC workflow concepts."
     },
     {
       "date": "2026-07-07",
@@ -172,7 +122,7 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Corrected skill split: the new callable skill should be audit-focused only. Project integration should be handled through the existing initiate-task flow when the operator explicitly says the task is for integration, rather than by creating a separate integrate-project skill."
+      "event": "Corrected skill split: the new callable skill should be audit-focused only. Project integration should be handled through the existing native Codex planning flow when the operator explicitly says the task is for integration, rather than by creating a separate integrate-project skill."
     },
     {
       "date": "2026-07-07",
@@ -208,11 +158,11 @@
     },
     {
       "date": "2026-07-07",
-      "event": "Wrote the audit-foundry PRD and moved the task to PRD phase with issues as the next action."
+      "event": "Wrote the audit-foundry PRD and moved the task to planning with issues as the next action."
     },
     {
       "date": "2026-07-07",
-      "event": "Published three local issue artifacts for the audit-foundry skill contract, audit report generation, and help/validation/review work; moved the task to issues phase with implement as the next action."
+      "event": "Published three local issue artifacts for the audit-foundry skill contract, audit report generation, and help/validation/review work; moved the task to work-item planning with implement as the next action."
     },
     {
       "date": "2026-07-07",

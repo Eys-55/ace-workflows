@@ -4,8 +4,6 @@
   "title": "Build companion UI for agentic workflow search",
   "task_kind": "workflow-change",
   "status": "in-progress",
-  "matt_phase": "grilling",
-  "explicit_next_action_required": true,
   "summary": "Design and build a user-facing UI in the standalone workflow-search-catalog product that complements the existing agentic workflow-search system. The UI should expose the current search, comparison, workflow-understanding, and agent handoff capabilities without replacing the search engine or implying that all 19,180 upstream source files are individually indexed.",
   "acceptance_criteria": [
     "the standalone <standalone-workflow-search-root> repository remains the product implementation boundary while ace-workflows owns task tracking and workflow accounting",
@@ -42,10 +40,10 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load the real-life-workflows tracker, completed finder and package tasks, stopped testing-session summary, count proof, and standalone workflow-search-catalog product state before grilling the companion UI. Preserve chat as the primary working surface, keep workflow discovery as the primary chat intent, and treat the UI as the structured read model of chat and agent activity.",
+    "summary": "Load the real-life-workflows tracker, completed finder and package tasks, stopped testing-session summary, count proof, and standalone workflow-search-catalog product state before planning the companion UI. Preserve chat as the primary working surface, keep workflow discovery as the primary chat intent, and treat the UI as the structured read model of chat and agent activity.",
     "must_load": [
       "AGENTS.md",
-      "references/matt-pocock-skills.md",
+      "AGENTS.md",
       "registry/agents-md.json",
       "projects/real-life-workflows/AGENTS.md",
       "projects/real-life-workflows/project.json",
@@ -64,11 +62,6 @@
       "<standalone-workflow-search-root>/package.json",
       "<standalone-workflow-search-root>/data/workflow-search-index.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "grilling",
-    "approved_artifacts": [],
-    "process_exceptions": []
   },
   "dependencies": [
     "real-life-workflows-002",
@@ -92,31 +85,31 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Inspected Matt Pocock grill-with-docs, grilling, and domain-modeling guidance at pinned upstream commit 66f92b61f5b1434a1c7422f6fbd8efc5ee0c0214 because the documented local inspection mirror was unavailable."
+      "event": "Inspected previous workflow native Codex planning, planning, and domain-modeling guidance at pinned upstream commit 66f92b61f5b1434a1c7422f6fbd8efc5ee0c0214 because the documented local inspection mirror was unavailable."
     },
     {
       "date": "2026-07-12",
-      "event": "Moved from intake to grilling after loading the existing agentic search contracts and confirming that the first unresolved design branch is the UI's primary interaction model."
+      "event": "Moved from intake to planning after loading the existing agentic search contracts and confirming that the first unresolved design branch is the UI's primary interaction model."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling decision: the primary experience is search-first. As the operator performs more searches through the CLI or agentic search surface, the UI should progressively gain and display more structured search activity and discoveries."
+      "event": "planning decision: the primary experience is search-first. As the operator performs more searches through the CLI or agentic search surface, the UI should progressively gain and display more structured search activity and discoveries."
     },
     {
       "date": "2026-07-12",
-      "event": "Repo finding for the next grilling branch: current ordinary searches are transient, while --save-search writes a JSON packet, Markdown report, and append-only ledger row; persistence and deduplication behavior remain unresolved."
+      "event": "Repo finding for the next planning branch: current ordinary searches are transient, while --save-search writes a JSON packet, Markdown report, and append-only ledger row; persistence and deduplication behavior remain unresolved."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling direction: automatic search history is important, and the UI should also show a log of what the system is doing. Canonical terms are Search History for past queries and structured results, and Activity Log for the broader chronological work timeline; exact Activity Log depth remains unresolved."
+      "event": "planning direction: automatic search history is important, and the UI should also show a log of what the system is doing. Canonical terms are Search History for past queries and structured results, and Activity Log for the broader chronological work timeline; exact Activity Log depth remains unresolved."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling decision: the Activity Log shows meaningful product events with expandable technical details, while hidden reasoning, credentials, and sensitive command data remain excluded."
+      "event": "planning decision: the Activity Log shows meaningful product events with expandable technical details, while hidden reasoning, credentials, and sensitive command data remain excluded."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling decision: Search History, Activity Log events, and UI state are saved locally with no cloud account or remote database required. SQLite versus JSON/JSONL remains open."
+      "event": "planning decision: Search History, Activity Log events, and UI state are saved locally with no cloud account or remote database required. SQLite versus JSON/JSONL remains open."
     },
     {
       "date": "2026-07-12",
@@ -124,7 +117,7 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling correction: defer SQLite versus JSON/JSONL and stay focused on the UI. The opening state must not be blank; it leads with search and shows useful capabilities or starter actions before any history exists."
+      "event": "planning correction: defer SQLite versus JSON/JSONL and stay focused on the UI. The opening state must not be blank; it leads with search and shows useful capabilities or starter actions before any history exists."
     },
     {
       "date": "2026-07-12",
@@ -132,15 +125,15 @@
     },
     {
       "date": "2026-07-12",
-      "event": "UI guidance applied during grilling: frontend-skill favors a restrained app workspace with one primary action, minimal chrome, utility copy, and cards only when the card itself is the interaction; interface-craft will govern later motion and polish."
+      "event": "UI guidance applied during planning: frontend-skill favors a restrained app workspace with one primary action, minimal chrome, utility copy, and cards only when the card itself is the interaction; interface-craft will govern later motion and polish."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling correction: chat is the primary working surface. Workflow search, pattern comparison, packet creation, refinement, and follow-up should work in chat as much as possible; search-first now means the primary intent encouraged within chat."
+      "event": "planning correction: chat is the primary working surface. Workflow search, pattern comparison, packet creation, refinement, and follow-up should work in chat as much as possible; search-first now means the primary intent encouraged within chat."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling decision: the UI is a structured reflection or read model of what happens in chat and the agent runtime. It displays activity, history, results, packets, sources, and state without becoming a second independent command system."
+      "event": "planning decision: the UI is a structured reflection or read model of what happens in chat and the agent runtime. It displays activity, history, results, packets, sources, and state without becoming a second independent command system."
     },
     {
       "date": "2026-07-12",
@@ -153,14 +146,7 @@
   ],
   "created_at": "2026-07-12",
   "updated_at": "2026-07-12",
-  "deliverable_migration": {
-    "status": "pending",
-    "target_contract_version": 1,
-    "frozen_phase": "grilling",
-    "approved_at": null,
-    "approval_note": null
-  },
-  "deliverable_contracts": [],
   "artifact_bindings": [],
-  "behavior_evidence": []
+  "behavior_evidence": [],
+  "next_action": "Create or confirm the native Codex plan, then implement it."
 }

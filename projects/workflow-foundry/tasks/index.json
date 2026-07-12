@@ -6,7 +6,6 @@
       "title": "Connect workflow skills and handoffs",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -14,7 +13,6 @@
       "title": "Add tracker-edit tasks",
       "task_kind": "tracker-maintenance",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -22,7 +20,6 @@
       "title": "Expose workflow skills in Codex app",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -30,15 +27,13 @@
       "title": "Maintain workflow tracker state",
       "task_kind": "tracker-maintenance",
       "status": "in-progress",
-      "matt_phase": "implement",
-      "updated_at": "2026-07-08"
+      "updated_at": "2026-07-12"
     },
     {
       "task_id": "workflow-foundry-005",
       "title": "Create dark-mode project task tracker UI",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -46,7 +41,6 @@
       "title": "Design skill-first Workflow Foundry revamp",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-10"
     },
     {
@@ -54,7 +48,6 @@
       "title": "Checkpoint foundry repository to GitHub",
       "task_kind": "workflow-change",
       "status": "todo",
-      "matt_phase": "intake",
       "updated_at": "2026-07-07"
     },
     {
@@ -62,7 +55,6 @@
       "title": "Add project testing mode sessions",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-07"
     },
     {
@@ -70,7 +62,6 @@
       "title": "Create tracker UI runner skill and project workflow view",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -78,7 +69,6 @@
       "title": "Create foundry explainer Markdown",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-07"
     },
     {
@@ -86,15 +76,13 @@
       "title": "Create audit-foundry skill",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
       "task_id": "workflow-foundry-012",
-      "title": "Add capability dependencies to initiate-task",
+      "title": "Add capability dependencies to native Codex planning",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -102,7 +90,6 @@
       "title": "Create audit review and cleanup workflow skills",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-08"
     },
     {
@@ -110,7 +97,6 @@
       "title": "Create Markdown-first build-workflow-product skill",
       "task_kind": "workflow-change",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-10"
     },
     {
@@ -118,7 +104,6 @@
       "title": "Create personal ace-workflows README",
       "task_kind": "workflow-change",
       "status": "todo",
-      "matt_phase": "intake",
       "updated_at": "2026-07-09"
     },
     {
@@ -126,7 +111,6 @@
       "title": "Integrate workflow product builder and repair dependency state",
       "task_kind": "tracker-maintenance",
       "status": "done",
-      "matt_phase": "done",
       "updated_at": "2026-07-12"
     }
   ]

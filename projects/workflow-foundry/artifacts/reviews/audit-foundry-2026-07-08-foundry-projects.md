@@ -30,7 +30,7 @@ reports are present.
 ## Loaded Sources
 
 - `AGENTS.md`
-- `references/matt-pocock-skills.md`
+- `AGENTS.md`
 - `registry/agents-md.json`
 - `projects/workflow-foundry/AGENTS.md`
 - `projects/workflow-foundry/project.json`
@@ -81,11 +81,11 @@ Task state:
 - 9 open: 5 todo at intake, 4 in progress.
 - 3 in code review: `workflow-foundry-005`, `workflow-foundry-009`,
   `workflow-foundry-011`.
-- 1 in grilling: `workflow-foundry-006`.
+- 1 in planning: `workflow-foundry-006`.
 - 0 blocked.
 
 The root/project boundary is still clear: root `AGENTS.md` owns repo mechanics,
-Matt/ECC process, validation, tracker policy, and file policy. The
+previous workflow/ECC process, validation, tracker policy, and file policy. The
 `workflow-foundry` project `AGENTS.md` stays focused on workflow-system
 maintenance vocabulary and ownership notes.
 
@@ -112,8 +112,8 @@ post generation workflow.
 Active `.agents/skills` directories:
 
 - `audit-foundry`
-- `continue-task`
-- `initiate-task`
+- `native Codex planning`
+- `native Codex planning`
 - `review-project-state`
 - `setup-workflow-project`
 - `testing-session`
@@ -210,9 +210,9 @@ is changed but not linked to a non-done task.
 Impact: the repo cannot reach a clean validation checkpoint until the report
 artifact policy and task linkage are reconciled.
 
-Recommended next tracker action: `$continue-task project:workflow-foundry task:workflow-foundry-011`
+Recommended next tracker action: `native Codex planning project:workflow-foundry task:workflow-foundry-011`
 to finish the audit-foundry code-review/report-artifact policy, or
-`$continue-task project:workflow-foundry task:workflow-foundry-004` if the fix
+`native Codex planning project:workflow-foundry task:workflow-foundry-004` if the fix
 is classified as tracker maintenance.
 
 ### medium: Foundry has several mature tasks waiting in code review
@@ -241,7 +241,7 @@ artifacts.
 Impact: the project is usable, but its setup lifecycle is not closed, which can
 confuse future continuation and checkpoint summaries.
 
-Recommended next tracker action: `$continue-task project:linkedin-posts task:linkedin-posts-001`
+Recommended next tracker action: `native Codex planning project:linkedin-posts task:linkedin-posts-001`
 to review and close the setup tracker task, then continue
 `linkedin-posts-002` into implementation.
 
@@ -257,7 +257,7 @@ Impact: operators asking "what skills exist" may miss the tracker UI runner,
 even though the skill is present and valid.
 
 Recommended next tracker action: update help through
-`$continue-task project:workflow-foundry task:workflow-foundry-009` or
+`native Codex planning project:workflow-foundry task:workflow-foundry-009` or
 `workflow-foundry-001` after deciding whether `workflow-tracker-ui` is a core
 operator skill or an auxiliary runner.
 
@@ -292,13 +292,13 @@ and keep future promotion/rewrite work behind explicit tracked tasks.
 
 ## Recommended Next Tracker Actions
 
-1. `$continue-task project:workflow-foundry task:workflow-foundry-011`
+1. `native Codex planning project:workflow-foundry task:workflow-foundry-011`
    to resolve audit-foundry/report validation and close the audit skill lane.
-2. `$continue-task project:linkedin-posts task:linkedin-posts-001`
+2. `native Codex planning project:linkedin-posts task:linkedin-posts-001`
    to close the newly created project setup tracker task.
-3. `$continue-task project:real-life-workflows task:real-life-workflows-003`
+3. `native Codex planning project:real-life-workflows task:real-life-workflows-003`
    to finish the quarantined imported skill surface code-review lane.
-4. `$continue-task project:workflow-foundry task:workflow-foundry-009`
+4. `native Codex planning project:workflow-foundry task:workflow-foundry-009`
    to align the tracker UI runner with workflow help and validation.
 
 ## Boundaries And Deferred Work
@@ -308,5 +308,5 @@ project files, validation scripts, generated UI, or testing-session state.
 
 The only write from this invocation is this Markdown report artifact.
 
-Deferred work must happen through `$continue-task` or `$initiate-task`, not
+Deferred work must happen through `native Codex planning` or `native Codex planning`, not
 through audit-foundry directly.

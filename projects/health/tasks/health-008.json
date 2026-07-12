@@ -4,8 +4,6 @@
   "title": "Build a people-first UI for the standalone Philippines health coverage product",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Design and build a beginner-facing web UI over the standalone Philippines health coverage product's coverage-intake and coverage-research-packet workflow. Help Filipinos understand coverage categories, inspect source-grounded information, and prepare safe human handoffs without making medical, eligibility, coverage, claims, ranking, or purchase decisions. Preserve `<standalone-health-product-root>` as the product boundary and coordinate implementation with the reviewed Health v2 contract from health-007.",
   "acceptance_criteria": [
     "The UI is built within the standalone `<standalone-health-product-root>` product boundary; `ace-workflows` contains only tracker, PRD, issue, review, and handoff evidence.",
@@ -20,7 +18,7 @@
     "The UI clearly displays source provenance, source freshness, evidence gaps, confidence boundaries, blocked decisions, required human review, and the next safe user action.",
     "The UI does not make medical, eligibility, coverage, claims, provider-network, ranking, or purchase decisions.",
     "The UI does not collect or persist unnecessary protected health information or other sensitive personal data.",
-    "The exact screens, framework, deployment model, data flow, and visual direction are resolved during grilling and recorded in an approved PRD before implementation.",
+    "The exact screens, framework, deployment model, data flow, and visual direction are resolved during planning and recorded in an approved PRD before implementation.",
     "The implemented UI is responsive and accessible across the approved critical user journeys.",
     "Unit, integration, and end-to-end tests cover the approved critical user journeys with at least 80 percent coverage where the selected UI harness supports coverage reporting.",
     "Standalone product release checks and `node scripts/validate-workflow-state.mjs` pass before any completion checkpoint."
@@ -39,7 +37,7 @@
     "summary": "Health-008 is complete. The beginner learning hub, typed CLI-routed employer-HMO tracer, loopback safety boundary, open-health-ui lifecycle skill, responsive browser evidence, and final review are adopted on standalone main through e0d3348. All task readiness contracts and completion conditions pass.",
     "must_load": [
       "AGENTS.md",
-      "references/matt-pocock-skills.md",
+      "AGENTS.md",
       "registry/agents-md.json",
       "projects/health/AGENTS.md",
       "projects/health/project.json",
@@ -47,104 +45,6 @@
       "projects/health/tasks/health-003.json",
       "projects/health/tasks/health-007.json",
       "projects/health/tasks/health-008.json"
-    ]
-  },
-  "phase_guard": {
-    "selected_next_action": "code-review",
-    "approved_artifacts": [
-      {
-        "path": "projects/health/artifacts/prds/health-008-foundational-ui.md",
-        "phase": "prd",
-        "deliverable_id": "health-ui-lifecycle-evidence",
-        "artifact_id": "health-ui-prd",
-        "artifact_role": "primary",
-        "approval_note": "Operator instructed the agent to self-grill remaining decisions and build through the PRD without further user-facing grilling. This approval is limited to the declared Health UI PRD artifact.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-008/",
-        "phase": "issues",
-        "deliverable_id": "health-ui-lifecycle-evidence",
-        "artifact_id": "health-ui-issues",
-        "artifact_role": "support",
-        "approval_note": "Operator instructed the agent to build the approved Health UI through a pushed checkpoint. This approval covers Matt-style tracer-bullet issue synthesis only; standalone product writes remain gated.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/ui/",
-        "phase": "implement",
-        "deliverable_id": "health-foundational-ui",
-        "artifact_id": "health-ui-source",
-        "artifact_role": "primary",
-        "approval_note": "Operator instructed the agent to build the approved foundational UI through a pushed checkpoint. Implementation is isolated on codex/health-008-foundational-ui from reviewed dependency commit 2230a33.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/runtime/",
-        "phase": "implement",
-        "deliverable_id": "health-foundational-ui",
-        "artifact_id": "health-ui-runtime",
-        "artifact_role": "support",
-        "approval_note": "Approved for the typed on-demand loopback companion only.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/evals/ui/",
-        "phase": "implement",
-        "deliverable_id": "health-foundational-ui",
-        "artifact_id": "health-ui-evals",
-        "artifact_role": "support",
-        "approval_note": "Approved for unit, integration, browser, accessibility, security, package, screenshot, and trace evidence.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/package.json",
-        "phase": "implement",
-        "deliverable_id": "health-foundational-ui",
-        "artifact_id": "health-ui-package-manifest",
-        "artifact_role": "support",
-        "approval_note": "Approved for explicit UI build, test, lifecycle, and release scripts; npm remains distribution and developer validation rather than the workflow interface.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/package-lock.json",
-        "phase": "implement",
-        "deliverable_id": "health-foundational-ui",
-        "artifact_id": "health-ui-package-lock",
-        "artifact_role": "support",
-        "approval_note": "Approved as the reproducible dependency lock for the standalone UI, runtime, browser, accessibility, and security toolchain.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/skills/open-health-ui/",
-        "phase": "implement",
-        "deliverable_id": "health-ui-opening-skill",
-        "artifact_id": "health-ui-opening-skill-bundle",
-        "artifact_role": "primary",
-        "approval_note": "Approved as the separate callable start, reuse, report, and stop skill bundle.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/health/artifacts/reviews/health-008-foundational-ui-review.md",
-        "phase": "code-review",
-        "deliverable_id": "health-ui-lifecycle-evidence",
-        "artifact_id": "health-ui-review",
-        "artifact_role": "support",
-        "approval_note": "Approved to record the final in-app Standards, Spec, visual, accessibility, safety, package, and release review evidence.",
-        "approved_at": "2026-07-12"
-      }
-    ],
-    "process_exceptions": [
-      {
-        "path": "projects/health/artifacts/prds/health-008-foundational-ui.md",
-        "reason": "Operator explicitly waived additional interactive grilling and authorized evidence-based self-grilling through PRD synthesis only.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "/Users/acecanacan/Documents/philippines-health-coverage/skills/open-health-ui/",
-        "reason": "Operator explicitly required continued implementation and verification inside the Codex app rather than a separate codex exec runner. The fresh-agent opener eval was replaced with deterministic lifecycle integration plus live in-app browser review, without claiming independent-agent provenance.",
-        "approved_at": "2026-07-12"
-      }
     ]
   },
   "capability_dependencies": [
@@ -226,8 +126,7 @@
       "supported_artifact_id": "health-ui-source",
       "artifact_role": "primary",
       "required_outcome": "Create and verify the approved foundational Health UI while preserving the independent callable Health workflow and CLI authority boundary.",
-      "completion_condition_id": "health-ui-source-valid"
-      ,
+      "completion_condition_id": "health-ui-source-valid",
       "dependency_write_plan": {
         "external_product_root": "/Users/acecanacan/Documents/philippines-health-coverage",
         "expected_output_paths": [
@@ -286,7 +185,6 @@
       "artifact_role": "primary",
       "dependency_project": "workflow-foundry",
       "source_skill": "build-workflow-product",
-      "phase": "implement",
       "purpose": "Provide the canonical browser-companion architecture, typed action boundary, lifecycle skill, and verification gates for the standalone Health UI.",
       "artifact_status": "promoted",
       "promotion_metadata": {
@@ -319,7 +217,6 @@
       "dependency_project": "workflow-foundry",
       "selected_skill": "build-workflow-product",
       "dependency_write_plan": "health-008 dependency_steps dep-step-001 dependency_write_plan",
-      "phase": "implement",
       "timestamp": "2026-07-12T11:53:30+08:00",
       "artifact_status": "promoted",
       "source_revision": "workflow-foundry-015 integrated on remote main bb3dcd3",
@@ -374,27 +271,27 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Advanced from intake to Matt grilling after the operator explicitly asked to start grilling. Loaded the standalone health-007 v2 worktree and confirmed that the first unresolved decision is the UI's primary user journey."
+      "event": "Advanced from intake to previous workflow planning after the operator explicitly asked to start planning. Loaded the standalone health-007 v2 worktree and confirmed that the first unresolved decision is the UI's primary user journey."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling decision: the homepage should combine a guided beginner journey with useful browsable content. It must not be an empty chatbot screen, and visitors should be able to navigate coverage information without completing the guided flow first."
+      "event": "planning decision: the homepage should combine a guided beginner journey with useful browsable content. It must not be an empty chatbot screen, and visitors should be able to navigate coverage information without completing the guided flow first."
     },
     {
       "date": "2026-07-12",
-      "event": "Grilling decision: use the hybrid homepage, add Learn the basics and a browsable map of possible safe workflows, and route every interactive action back to the existing CLI and Health skill contracts. The browser remains a companion UI rather than an independent agent or raw shell."
+      "event": "planning decision: use the hybrid homepage, add Learn the basics and a browsable map of possible safe workflows, and route every interactive action back to the existing CLI and Health skill contracts. The browser remains a companion UI rather than an independent agent or raw shell."
     },
     {
       "date": "2026-07-12",
-      "event": "Operator approved workflow-foundry build-workflow-product as an explicit capability dependency. Recorded a gated dependency step: workflow-foundry-015 is the reusable builder task, not the Health UI, and Health cannot call it until the capability is active, a dependency write plan is approved, and exact Health artifact paths are phase-approved."
+      "event": "Operator approved workflow-foundry build-workflow-product as an explicit capability dependency. Recorded a gated dependency step: workflow-foundry-015 is the reusable builder task, not the Health UI, and Health cannot call it until the capability is active, a dependency write plan is approved, and exact Health artifact paths are approved."
     },
     {
       "date": "2026-07-12",
-      "event": "Operator approved version-1 deliverable classification and the standalone product root, then narrowed the first milestone to a foundational tracer-bullet UI for observing real function before expansion. Migrated health-008 at its frozen grilling phase with separate UI application, callable UI-opening skill, and foundry evidence contracts; no implementation artifacts were approved."
+      "event": "Operator approved version-1 deliverable classification and the standalone product root, then narrowed the first milestone to a foundational tracer-bullet UI for observing real function before expansion. Migrated health-008 at its frozen planning phase with separate UI application, callable UI-opening skill, and foundry evidence contracts; no implementation artifacts were approved."
     },
     {
       "date": "2026-07-12",
-      "event": "Operator ended user-facing grilling and authorized evidence-based self-grilling through PRD only. Compared a beginner learning hub, wizard-first flow, and technical tool dashboard; selected the beginner learning hub because it satisfies the approved browsable-plus-guided homepage without exposing an empty chat or internal skill taxonomy."
+      "event": "Operator ended user-facing planning and authorized evidence-based self-planning through PRD only. Compared a beginner learning hub, wizard-first flow, and technical tool dashboard; selected the beginner learning hub because it satisfies the approved browsable-plus-guided homepage without exposing an empty chat or internal skill taxonomy."
     },
     {
       "date": "2026-07-12",
@@ -402,11 +299,11 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Operator requested implementation through push. Advanced to Matt issues and approved projects/health/artifacts/issues/health-008/ for vertical tracer-bullet issue artifacts. Sol runner availability was verified; standalone writes remain blocked until health-007 dependency review and implement-phase approvals are complete."
+      "event": "Operator requested implementation through push. Advanced to previous workflow issues and approved projects/health/artifacts/issues/health-008/ for vertical tracer-bullet issue artifacts. Sol runner availability was verified; standalone writes remain blocked until health-007 dependency review and implement-approvals are complete."
     },
     {
       "date": "2026-07-12",
-      "event": "Completed six Matt tracer-bullet issues. Independent Standards and Spec reviews passed the corrected Health v2 baseline; committed and pushed dependency revision 2230a33. Replaced the open task-level dependency with that immutable reviewed artifact, approved the build-workflow-product dependency write plan and exact standalone artifacts, and advanced Health 008 to implement on codex/health-008-foundational-ui."
+      "event": "Completed six previous workflow tracer-bullet issues. Independent Standards and Spec reviews passed the corrected Health v2 baseline; committed and pushed dependency revision 2230a33. Replaced the open task-level dependency with that immutable reviewed artifact, approved the build-workflow-product dependency write plan and exact standalone artifacts, and advanced Health 008 to implement on codex/health-008-foundational-ui."
     },
     {
       "date": "2026-07-12",
@@ -418,18 +315,11 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Completion readiness returned ready with zero blockers for the UI application, opener skill, dependency output, browser flow, manual review, and PRD trace. Closed Health 008 at Matt done."
+      "event": "Completion readiness returned ready with zero blockers for the UI application, opener skill, dependency output, browser flow, manual review, and PRD trace. Closed Health 008 at previous workflow done."
     }
   ],
   "created_at": "2026-07-12",
   "updated_at": "2026-07-12",
-  "deliverable_migration": {
-    "status": "approved",
-    "target_contract_version": 1,
-    "frozen_phase": "grilling",
-    "approved_at": "2026-07-12",
-    "approval_note": "Operator approved the proposed v1 UI application, callable UI-opening skill, supporting evidence contracts, and the standalone philippines-health-coverage product root while keeping the task in grilling."
-  },
   "deliverable_contracts": [
     {
       "deliverable_id": "health-foundational-ui",
@@ -666,9 +556,9 @@
       ],
       "required_guidance": [
         {
-          "guidance_id": "matt-product-flow",
-          "source": "references/matt-pocock-skills.md",
-          "evidence": "Grilling decisions flow into PRD, issues, TDD implementation, and code review without skipping phases."
+          "guidance_id": "previous workflow-product-flow",
+          "source": "AGENTS.md",
+          "evidence": "planning decisions flow into PRD, issues, TDD implementation, and code review without skipping phases."
         }
       ],
       "eval_plan": [
@@ -771,19 +661,44 @@
       "completed_at": "2026-07-12T11:52:32+08:00",
       "raw_output": "7 UI tests and 27 runtime tests passed; coverage thresholds, typecheck, lint, build, legacy validators, package checks, and zero-vulnerability audits passed.",
       "expected_route": "The standalone UI and runtime satisfy their typed contracts without weakening the existing seven-skill release surface.",
-      "observed_contract_ids": ["health-foundational-ui"],
-      "observed_artifacts": ["/Users/acecanacan/Documents/philippines-health-coverage/ui/"],
-      "observed_route": ["ui-application"],
-      "observed_ownership": ["standalone-product"],
-      "observed_visibility": ["standalone-only"],
-      "observed_phase_result": "pass: all deterministic contract and release gates passed",
-      "observed_diff": [{"path": "/Users/acecanacan/Documents/philippines-health-coverage/ui/", "change": "created"}],
-      "validation_results": [{"check_id": "health-ui-contract-validation", "result": "pass", "grader_id": "vitest-coverage-and-release-validator", "grader_mode": "deterministic-validator", "grader_session_id": "health-008-contract-grader-r1", "independent_of_runner": true, "evidence": "Executable thresholds and legacy validators independently accepted the UI, runtime, packet, skill, and package surfaces."}],
+      "observed_contract_ids": [
+        "health-foundational-ui"
+      ],
+      "observed_artifacts": [
+        "/Users/acecanacan/Documents/philippines-health-coverage/ui/"
+      ],
+      "observed_route": [
+        "ui-application"
+      ],
+      "observed_ownership": [
+        "standalone-product"
+      ],
+      "observed_visibility": [
+        "standalone-only"
+      ],
+      "observed_diff": [
+        {
+          "path": "/Users/acecanacan/Documents/philippines-health-coverage/ui/",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "health-ui-contract-validation",
+          "result": "pass",
+          "grader_id": "vitest-coverage-and-release-validator",
+          "grader_mode": "deterministic-validator",
+          "grader_session_id": "health-008-contract-grader-r1",
+          "independent_of_runner": true,
+          "evidence": "Executable thresholds and legacy validators independently accepted the UI, runtime, packet, skill, and package surfaces."
+        }
+      ],
       "first_attempt": true,
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-12T11:52:32+08:00",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: all deterministic contract and release gates passed"
     },
     {
       "evidence_id": "health-008-critical-flow-r1",
@@ -798,19 +713,44 @@
       "completed_at": "2026-07-12T11:52:29+08:00",
       "raw_output": "3/3 Chromium critical flows passed and retained beginner-success.png plus mobile-refusal.png.",
       "expected_route": "A beginner can reach a canonical packet, inspect a safe handoff, and receive a non-reflective refusal on a usable mobile layout.",
-      "observed_contract_ids": ["health-foundational-ui"],
-      "observed_artifacts": ["/Users/acecanacan/Documents/philippines-health-coverage/evals/ui/"],
-      "observed_route": ["ui-application"],
-      "observed_ownership": ["standalone-product"],
-      "observed_visibility": ["standalone-only"],
-      "observed_phase_result": "pass: 3 of 3 production browser flows passed",
-      "observed_diff": [{"path": "/Users/acecanacan/Documents/philippines-health-coverage/evals/ui/", "change": "created"}],
-      "validation_results": [{"check_id": "health-ui-critical-flow", "result": "pass", "grader_id": "axe-and-screenshot-assertions", "grader_mode": "e2e-runner", "grader_session_id": "health-008-browser-grader-r1", "independent_of_runner": true, "evidence": "Role, text, packet, handoff, refusal, viewport, and axe assertions passed against the production loopback surface."}],
+      "observed_contract_ids": [
+        "health-foundational-ui"
+      ],
+      "observed_artifacts": [
+        "/Users/acecanacan/Documents/philippines-health-coverage/evals/ui/"
+      ],
+      "observed_route": [
+        "ui-application"
+      ],
+      "observed_ownership": [
+        "standalone-product"
+      ],
+      "observed_visibility": [
+        "standalone-only"
+      ],
+      "observed_diff": [
+        {
+          "path": "/Users/acecanacan/Documents/philippines-health-coverage/evals/ui/",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "health-ui-critical-flow",
+          "result": "pass",
+          "grader_id": "axe-and-screenshot-assertions",
+          "grader_mode": "e2e-runner",
+          "grader_session_id": "health-008-browser-grader-r1",
+          "independent_of_runner": true,
+          "evidence": "Role, text, packet, handoff, refusal, viewport, and axe assertions passed against the production loopback surface."
+        }
+      ],
       "first_attempt": true,
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-12T11:52:29+08:00",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: 3 of 3 production browser flows passed"
     },
     {
       "evidence_id": "health-008-visual-safety-review-r1",
@@ -825,19 +765,44 @@
       "completed_at": "2026-07-12T11:53:20+08:00",
       "raw_output": "Pass with no open critical, high, or medium findings; desktop and mobile had no horizontal overflow and browser console inspection was clean.",
       "expected_route": "The product feels like a calm beginner guide while keeping claims, medical, enrollment, purchase, and coverage authority outside the browser.",
-      "observed_contract_ids": ["health-foundational-ui"],
-      "observed_artifacts": ["/Users/acecanacan/Documents/philippines-health-coverage/ui/"],
-      "observed_route": ["ui-application"],
-      "observed_ownership": ["standalone-product"],
-      "observed_visibility": ["standalone-only"],
-      "observed_phase_result": "pass: visual, accessibility, safety, and authority review passed",
-      "observed_diff": [{"path": "/Users/acecanacan/Documents/philippines-health-coverage/ui/", "change": "created"}],
-      "validation_results": [{"check_id": "health-ui-visual-and-safety-review", "result": "pass", "grader_id": "browser-metrics-and-security-suite", "grader_mode": "deterministic-validator", "grader_session_id": "health-008-review-grader-r1", "independent_of_runner": true, "evidence": "Viewport metrics, console inspection, axe scans, refusal fixtures, security integration tests, package scan, and audit results independently corroborated the manual review."}],
+      "observed_contract_ids": [
+        "health-foundational-ui"
+      ],
+      "observed_artifacts": [
+        "/Users/acecanacan/Documents/philippines-health-coverage/ui/"
+      ],
+      "observed_route": [
+        "ui-application"
+      ],
+      "observed_ownership": [
+        "standalone-product"
+      ],
+      "observed_visibility": [
+        "standalone-only"
+      ],
+      "observed_diff": [
+        {
+          "path": "/Users/acecanacan/Documents/philippines-health-coverage/ui/",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "health-ui-visual-and-safety-review",
+          "result": "pass",
+          "grader_id": "browser-metrics-and-security-suite",
+          "grader_mode": "deterministic-validator",
+          "grader_session_id": "health-008-review-grader-r1",
+          "independent_of_runner": true,
+          "evidence": "Viewport metrics, console inspection, axe scans, refusal fixtures, security integration tests, package scan, and audit results independently corroborated the manual review."
+        }
+      ],
       "first_attempt": true,
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-12T11:53:20+08:00",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: visual, accessibility, safety, and authority review passed"
     },
     {
       "evidence_id": "health-008-opener-lifecycle-r1",
@@ -852,26 +817,51 @@
       "completed_at": "2026-07-12T11:59:25+08:00",
       "raw_output": "6/6 lifecycle integration tests passed; public start, reuse, and status output excludes the owner token.",
       "expected_route": "The opener starts or reuses only this project, reports a loopback URL, refuses conflicts, and stops only its verified process.",
-      "observed_contract_ids": ["health-ui-opening-skill"],
-      "observed_artifacts": ["/Users/acecanacan/Documents/philippines-health-coverage/skills/open-health-ui/"],
-      "observed_route": ["standalone-skill"],
-      "observed_ownership": ["standalone-product"],
-      "observed_visibility": ["standalone-only"],
-      "observed_phase_result": "pass: all owned lifecycle cases passed without credential output",
-      "observed_diff": [{"path": "/Users/acecanacan/Documents/philippines-health-coverage/skills/open-health-ui/", "change": "created"}],
-      "validation_results": [{"check_id": "health-ui-opening-skill-lifecycle", "result": "pass", "grader_id": "lifecycle-contract-assertions", "grader_mode": "deterministic-validator", "grader_session_id": "health-008-lifecycle-grader-r1", "independent_of_runner": true, "evidence": "Independent assertions verified PID ownership, project identity, conflict refusal, stale-state replacement, secret-free public output, and safe stop."}],
+      "observed_contract_ids": [
+        "health-ui-opening-skill"
+      ],
+      "observed_artifacts": [
+        "/Users/acecanacan/Documents/philippines-health-coverage/skills/open-health-ui/"
+      ],
+      "observed_route": [
+        "standalone-skill"
+      ],
+      "observed_ownership": [
+        "standalone-product"
+      ],
+      "observed_visibility": [
+        "standalone-only"
+      ],
+      "observed_diff": [
+        {
+          "path": "/Users/acecanacan/Documents/philippines-health-coverage/skills/open-health-ui/",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "health-ui-opening-skill-lifecycle",
+          "result": "pass",
+          "grader_id": "lifecycle-contract-assertions",
+          "grader_mode": "deterministic-validator",
+          "grader_session_id": "health-008-lifecycle-grader-r1",
+          "independent_of_runner": true,
+          "evidence": "Independent assertions verified PID ownership, project identity, conflict refusal, stale-state replacement, secret-free public output, and safe stop."
+        }
+      ],
       "first_attempt": true,
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-12T11:59:25+08:00",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: all owned lifecycle cases passed without credential output"
     },
     {
       "evidence_id": "health-008-prd-review-r1",
       "eval_id": "health-ui-prd-review",
       "scenario_id": "health-008-prd-to-release-trace",
       "raw_prompt": "Review the approved PRD and six tracer-bullet issues against the final standalone product and release evidence.",
-      "repository_context": "Health 008 followed grilling to PRD to issues to TDD implementation to code review with the standalone product boundary preserved.",
+      "repository_context": "Health 008 followed planning to PRD to issues to TDD implementation to code review with the standalone product boundary preserved.",
       "runner_id": "codex-app-spec-review",
       "runner_mode": "manual-review",
       "runner_session_id": "health-008-prd-review-r1",
@@ -879,19 +869,44 @@
       "completed_at": "2026-07-12T12:00:00+08:00",
       "raw_output": "Pass: every foundational PRD requirement maps to implemented source, executable evidence, or an explicit retained human boundary.",
       "expected_route": "The beginner home, typed employer-HMO action, loopback boundary, opener lifecycle, accessible critical flow, and release review are all traceable.",
-      "observed_contract_ids": ["health-ui-lifecycle-evidence"],
-      "observed_artifacts": ["projects/health/artifacts/prds/health-008-foundational-ui.md"],
-      "observed_route": ["documentation-handoff"],
-      "observed_ownership": ["project-packaged"],
-      "observed_visibility": ["not-applicable"],
-      "observed_phase_result": "pass: PRD, issues, implementation, and review evidence are traceable",
-      "observed_diff": [{"path": "projects/health/artifacts/prds/health-008-foundational-ui.md", "change": "created"}],
-      "validation_results": [{"check_id": "health-ui-prd-review", "result": "pass", "grader_id": "release-evidence-cross-check", "grader_mode": "human-review", "grader_session_id": "health-008-prd-grader-r1", "independent_of_runner": true, "evidence": "The final review artifact cross-checks every issue slice against tests, browser evidence, security boundaries, package results, and the adopted product revision."}],
+      "observed_contract_ids": [
+        "health-ui-lifecycle-evidence"
+      ],
+      "observed_artifacts": [
+        "projects/health/artifacts/prds/health-008-foundational-ui.md"
+      ],
+      "observed_route": [
+        "documentation-handoff"
+      ],
+      "observed_ownership": [
+        "project-packaged"
+      ],
+      "observed_visibility": [
+        "not-applicable"
+      ],
+      "observed_diff": [
+        {
+          "path": "projects/health/artifacts/prds/health-008-foundational-ui.md",
+          "change": "created"
+        }
+      ],
+      "validation_results": [
+        {
+          "check_id": "health-ui-prd-review",
+          "result": "pass",
+          "grader_id": "release-evidence-cross-check",
+          "grader_mode": "human-review",
+          "grader_session_id": "health-008-prd-grader-r1",
+          "independent_of_runner": true,
+          "evidence": "The final review artifact cross-checks every issue slice against tests, browser evidence, security boundaries, package results, and the adopted product revision."
+        }
+      ],
       "first_attempt": true,
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-12T12:00:00+08:00",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: PRD, issues, implementation, and review evidence are traceable"
     }
   ]
 }

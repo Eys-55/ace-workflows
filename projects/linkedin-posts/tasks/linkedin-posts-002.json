@@ -4,15 +4,13 @@
   "title": "Create LinkedIn post generation workflow",
   "task_kind": "workflow-change",
   "status": "in-progress",
-  "matt_phase": "issues",
-  "explicit_next_action_required": true,
   "summary": "Create a workflow for generating LinkedIn posts from arbitrary selected context scopes, including foundry-level context, one project, multiple projects, one task, multiple tasks, or whole-system context, while preserving source boundaries and requiring human approval before any publishing action.",
   "acceptance_criteria": [
     "the workflow accepts arbitrary selected context scopes and preserves provenance for each included project, task, or system source",
     "the first version is draft-only and distinguishes local draft generation from external LinkedIn publishing",
     "the workflow produces multiple candidate post drafts with distinct angles before any final selection",
-    "the workflow includes a post-level grilling step that captures the user's intent, framing, and wording before drafting",
-    "the workflow treats the user's wording during grilling as voice source material for matching style without fabricating claims",
+    "the workflow includes a post-level planning step that captures the user's intent, framing, and wording before drafting",
+    "the workflow treats the user's wording during planning as voice source material for matching style without fabricating claims",
     "the workflow creates and reuses a durable voice profile for the user while still allowing current-run wording to influence each draft",
     "the workflow only updates the reusable voice profile after explicit manual approval",
     "each candidate draft includes a provenance block showing the projects, tasks, and context claims that informed it",
@@ -24,16 +22,16 @@
     "each candidate draft includes quality scores for credibility, voice match, evidence/provenance, specificity, and LinkedIn readability",
     "the workflow recommends one winning draft with rationale after generating and scoring candidate drafts",
     "the workflow runs a red-team pass for cringe, overclaiming, vague bragging, and unsupported hype before recommending a winning draft",
-    "each draft run requires a target audience during grilling rather than silently inferring audience from selected context",
-    "each draft run asks for a low, medium, or high personalness level during grilling",
+    "each draft run requires a target audience during planning rather than silently inferring audience from selected context",
+    "each draft run asks for a low, medium, or high personalness level during planning",
     "draft runs do not require a desired reader action, though the workflow may suggest one when useful",
     "the workflow produces short-form LinkedIn drafts only, not long-form variants",
     "short-form drafts target 900-1300 characters with a hard maximum around 1500 characters",
-    "the workflow supports editing an existing rough draft as an input path in addition to generating drafts from context plus grilling",
+    "the workflow supports editing an existing rough draft as an input path in addition to generating drafts from context plus planning",
     "completed draft runs are stored as durable project artifacts instead of existing only in chat output",
     "the task records how source project or whole-system context is loaded without mutating source project trackers by default",
     "the task identifies fixture or eval examples that prove generated posts match the intended audience and evidence boundaries",
-    "the task reaches implementation only after Matt Pocock grilling, PRD, and issue shaping are complete"
+    "the task reaches implementation only after previous workflow planning, PRD, and issue shaping are complete"
   ],
   "ecc_concepts_applied": [
     "workflow contract",
@@ -44,7 +42,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Load the LinkedIn Posts project state, setup tracker task, and this task before grilling the LinkedIn post generation workflow.",
+    "summary": "Load the LinkedIn Posts project state, setup tracker task, and this task before planning the LinkedIn post generation workflow.",
     "must_load": [
       "AGENTS.md",
       "registry/agents-md.json",
@@ -57,7 +55,7 @@
       "projects/linkedin-posts/tasks/linkedin-posts-004.json",
       "projects/linkedin-posts/artifacts/prds/linkedin-posts-002-linkedin-post-generation-workflow.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-001-draft-run-contract.md",
-      "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-grilling.md",
+      "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-planning.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-003-voice-profile-approval.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-004-candidate-drafting-provenance-scoring.md",
       "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md",
@@ -65,26 +63,6 @@
       "projects/linkedin-posts/tasks/linkedin-posts-004.json"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "implement",
-    "approved_artifacts": [
-      {
-        "path": "projects/linkedin-posts/artifacts/draft-runs/linkedin-posts-002-health-insurance-philippines-draft.md",
-        "phase": "implement",
-        "approval_note": "User explicitly asked to save the current LinkedIn health insurance draft now.",
-        "approved_at": "2026-07-09T06:00:04Z"
-      }
-    ],
-    "process_exceptions": []
-  },
-  "deliverable_migration": {
-    "status": "pending",
-    "target_contract_version": 1,
-    "frozen_phase": "issues",
-    "approved_at": null,
-    "approval_note": null
-  },
-  "deliverable_contracts": [],
   "artifact_bindings": [],
   "behavior_evidence": [],
   "dependencies": [],
@@ -94,7 +72,7 @@
   "linked_artifacts": [
     "projects/linkedin-posts/artifacts/prds/linkedin-posts-002-linkedin-post-generation-workflow.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-001-draft-run-contract.md",
-    "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-grilling.md",
+    "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-002-intake-context-and-planning.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-003-voice-profile-approval.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-004-candidate-drafting-provenance-scoring.md",
     "projects/linkedin-posts/artifacts/issues/linkedin-posts-002-issue-005-red-team-winner-and-retention.md",
@@ -103,15 +81,15 @@
   "session_log": [
     {
       "date": "2026-07-08",
-      "event": "Created intake task after the user invoked initiate-task for the new LinkedIn Posts project."
+      "event": "Created intake task after the user invoked native Codex planning for the new LinkedIn Posts project."
     },
     {
       "date": "2026-07-08",
-      "event": "Moved task into Matt Pocock grilling after the user invoked continue-task and explicitly asked to go into grilling."
+      "event": "Moved task into previous workflow planning after the user invoked native Codex planning and explicitly asked to go into planning."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved first grilling decision: the primary workflow is draft-only. It may produce LinkedIn post drafts and provenance, but posting, scheduling, or external LinkedIn writes are out of scope unless a later approval-gated capability is created."
+      "event": "Resolved first planning decision: the primary workflow is draft-only. It may produce LinkedIn post drafts and provenance, but posting, scheduling, or external LinkedIn writes are out of scope unless a later approval-gated capability is created."
     },
     {
       "date": "2026-07-08",
@@ -123,7 +101,7 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Added post-level grilling requirement: each draft run should interview the user about intent and wording, then use the user's wording as voice source material so drafts better match the user's style while staying evidence-bound."
+      "event": "Added post-level planning requirement: each draft run should interview the user about intent and wording, then use the user's wording as voice source material so drafts better match the user's style while staying evidence-bound."
     },
     {
       "date": "2026-07-08",
@@ -155,7 +133,7 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved detail-level decision: candidate drafts should prefer specific implementation details over broad strategic narrative, while explaining why the details matter."
+      "event": "Resolved detail-level decision: candidate drafts should prefer specific implementation details over broad strategic narrative, while explaining why the details previous workflower."
     },
     {
       "date": "2026-07-08",
@@ -171,11 +149,11 @@
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved audience-input decision: each draft run should require a target audience during grilling instead of silently inferring audience from selected context."
+      "event": "Resolved audience-input decision: each draft run should require a target audience during planning instead of silently inferring audience from selected context."
     },
     {
       "date": "2026-07-08",
-      "event": "Resolved personalness decision: each draft run should ask for a low, medium, or high personalness level during grilling."
+      "event": "Resolved personalness decision: each draft run should ask for a low, medium, or high personalness level during planning."
     },
     {
       "date": "2026-07-08",
@@ -211,5 +189,6 @@
     }
   ],
   "created_at": "2026-07-08",
-  "updated_at": "2026-07-09"
+  "updated_at": "2026-07-09",
+  "next_action": "Create or confirm the native Codex plan, then implement it."
 }

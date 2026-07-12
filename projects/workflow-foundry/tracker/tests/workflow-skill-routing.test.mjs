@@ -62,13 +62,13 @@ Read the repository policy, selected task, typed deliverable contract, artifact 
 
 ## Input Contract
 
-Require resolved ownership, an exact target surface, role-bound approvals, runtime visibility, and a deterministic evaluation plan.
+Require resolved ownership, an exact target surface, runtime visibility, and a deterministic evaluation plan.
 
 ## Workflow
 
 1. Read and classify the selected contract, ownership boundary, and required user-visible outcome.
 2. Create the smallest complete approved bundle while preserving every human and external-write boundary.
-3. Validate the bundle, catalog projection, evidence, dependency outcomes, and phase readiness before handoff.
+3. Validate the bundle, catalog projection, evidence, dependency outcomes, and completion readiness before handoff.
 
 ## Decision Points
 
@@ -231,7 +231,6 @@ function evidenceFor(contract) {
     observed_route: [contract.kind],
     observed_ownership: [contract.ownership_boundary],
     observed_visibility: [contract.runtime_visibility],
-    observed_phase_result: "advanced after deterministic validation",
     observed_contract_ids: [contract.deliverable_id],
     observed_artifacts: [artifact.locator],
     result: "pass",
@@ -240,32 +239,13 @@ function evidenceFor(contract) {
   };
 }
 
-function makeTask(contracts, { phase = "implement", taskKind = "workflow-change", dependency = {} } = {}) {
+function makeTask(contracts, { includeEvidence = true, taskKind = "workflow-change", dependency = {} } = {}) {
   const allArtifacts = contracts.flatMap((contract) => contractArtifacts(contract));
-  const approvals = phase === "implement"
-    ? contracts.flatMap((contract) => contract.required_artifacts.map((artifact) => ({
-        path: artifact.locator,
-        phase: "implement",
-        deliverable_id: contract.deliverable_id,
-        artifact_id: artifact.artifact_id,
-        artifact_role: artifact.artifact_role,
-        approval_note: "Approve the exact disposable scenario artifact.",
-        approved_at: "2026-07-10",
-      })))
-    : [];
   return {
     task_id: "deterministic-route-001",
     project_slug: "workflow-foundry",
     task_kind: taskKind,
     status: "in-progress",
-    matt_phase: phase,
-    deliverable_migration: {
-      status: "native",
-      target_contract_version: 1,
-      frozen_phase: null,
-      approved_at: "2026-07-10",
-      approval_note: "Approve the deterministic route contract.",
-    },
     deliverable_contracts: contracts,
     artifact_bindings: contracts.flatMap((contract) => contractArtifacts(contract).map((artifact) => ({
       deliverable_id: contract.deliverable_id,
@@ -274,13 +254,8 @@ function makeTask(contracts, { phase = "implement", taskKind = "workflow-change"
       locator_type: artifact.locator_type,
       locator: artifact.locator,
     }))),
-    behavior_evidence: phase === "implement" ? contracts.map(evidenceFor) : [],
+    behavior_evidence: includeEvidence ? contracts.map(evidenceFor) : [],
     linked_artifacts: allArtifacts.map((artifact) => artifact.locator),
-    phase_guard: {
-      selected_next_action: phase === "implement" ? "code-review" : "grilling",
-      approved_artifacts: approvals,
-      process_exceptions: [],
-    },
     ...dependency,
   };
 }
@@ -410,27 +385,21 @@ async function materializeRouteFixture({ routeKey, suiteRoot }) {
   const catalog = await deriveCanonicalSkillCatalog({ root });
   if (definition.expectBlocked) {
     const task = {
-      task_id: "ambiguous", project_slug: "workflow-foundry", status: "in-progress", matt_phase: "intake",
-      deliverable_migration: { status: "pending", target_contract_version: 1, frozen_phase: "intake", approved_at: null, approval_note: null },
-      deliverable_contracts: [], artifact_bindings: [], behavior_evidence: [], linked_artifacts: [],
-      phase_guard: { selected_next_action: "grilling", approved_artifacts: [], process_exceptions: [] },
+      task_id: "ambiguous", project_slug: "workflow-foundry", status: "blocked", linked_artifacts: [],
     };
     assert.deepEqual(validateTaskDeliverableState(task), []);
     const readiness = projectDeliverableReadiness({ task, root, catalog });
-    assert.equal(readiness.next_phase_ready, false);
-    assert.deepEqual(readiness.blockers.map((blocker) => blocker.code), ["migration-pending"]);
+    assert.equal(readiness.completion_ready, false);
     return { ...definition, root, task, readiness, intakeReadiness: readiness, catalog };
   }
 
   const task = makeTask(definition.contracts, { taskKind: definition.taskKind, dependency: definition.dependency });
   assert.deepEqual(validateTaskDeliverableState(task), []);
   const readiness = projectDeliverableReadiness({ task, root, catalog });
-  const intakeTask = makeTask(definition.contracts, { phase: "intake", taskKind: definition.taskKind, dependency: definition.dependency });
+  const intakeTask = makeTask(definition.contracts, { includeEvidence: false, taskKind: definition.taskKind, dependency: definition.dependency });
   assert.deepEqual(validateTaskDeliverableState(intakeTask), []);
   const intakeReadiness = projectDeliverableReadiness({ task: intakeTask, root, catalog });
-  assert.equal(intakeReadiness.next_phase_ready, true);
   assert.equal(intakeReadiness.completion_ready, false);
-  assert.equal(intakeTask.phase_guard.approved_artifacts.length, 0);
 
   if (definition.expectRejected) {
     assert.equal(readiness.completion_ready, false);
@@ -438,7 +407,6 @@ async function materializeRouteFixture({ routeKey, suiteRoot }) {
   } else {
     assert.deepEqual(catalog.errors, []);
     assert.equal(readiness.completion_ready, true, `${routeKey}: ${JSON.stringify(readiness.blockers)}`);
-    assert.equal(readiness.next_phase_ready, true);
     assert.ok(definition.contracts.some((contract) => contract.role === "primary"));
     assert.ok(readiness.deliverables.flatMap((deliverable) => deliverable.artifact_readiness).every((artifact) => artifact.ready));
   }
@@ -494,10 +462,10 @@ async function executeDeterministicScenarioGate({ fixture, t }) {
     if (scenario.stage === "implementation-ready-construction") {
       assert.equal(outcome.readiness.completion_ready, true);
     } else if (outcome.expectBlocked) {
-      assert.equal(outcome.intakeReadiness.next_phase_ready, false);
+      assert.equal(outcome.intakeReadiness.completion_ready, false);
     } else {
-      assert.equal(outcome.intakeTask.matt_phase, "intake");
-      assert.equal(outcome.intakeReadiness.next_phase_ready, true);
+      assert.equal(outcome.intakeTask.status, "in-progress");
+      assert.equal(outcome.intakeReadiness.completion_ready, false);
     }
   }
   assert.equal(consumed.size, deterministicCases.length);

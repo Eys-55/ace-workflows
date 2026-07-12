@@ -4,8 +4,6 @@
   "title": "Integrate workflow product builder and repair dependency state",
   "task_kind": "tracker-maintenance",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Safely integrate the completed workflow-foundry-006 and workflow-foundry-015 feature branch into main, reconcile stale and dirty tracker state without losing unrelated work, activate the canonical $build-workflow-product capability from main, and prove that downstream workflows can resolve the capability before any final push checkpoint.",
   "acceptance_criteria": [
     "the completed codex/build-workflow-product branch and its remote commit identities are verified before integration",
@@ -43,9 +41,9 @@
       "projects/workflow-foundry/tasks/workflow-foundry-014.json",
       "projects/workflow-foundry/tasks/workflow-foundry-015.json",
       "projects/workflow-foundry/tasks/workflow-foundry-016.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md",
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md",
       ".agents/skills/audit-review/SKILL.md",
       ".agents/skills/audit-cleanup/SKILL.md",
       "scripts/query-workflow-state.mjs",
@@ -53,136 +51,6 @@
       "projects/health/tasks/health-008.json",
       "projects/real-life-workflows/tasks/real-life-workflows-006.json"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "none",
-    "approved_artifacts": [
-      {
-        "path": "projects/workflow-foundry/artifacts/prds/workflow-foundry-016-integrate-workflow-product-builder.md",
-        "phase": "prd",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-prd",
-        "artifact_role": "support",
-        "approval_note": "The operator approved direct full PRD synthesis for workflow-foundry-016 without user-facing grilling and authorized evidence-based self-grilling.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-016-issue-001-isolated-candidate-and-inventory.md",
-        "phase": "issues",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-issues",
-        "artifact_role": "support",
-        "approval_note": "Approved as the blocker-first isolated candidate and inventory slice for the integration plan.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-016-issue-002-versioned-tracker-reconciliation.md",
-        "phase": "issues",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-issues",
-        "artifact_role": "support",
-        "approval_note": "Approved as the versioned tracker reconciliation and minimal migration slice.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-016-issue-003-readiness-validation-and-review.md",
-        "phase": "issues",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-issues",
-        "artifact_role": "support",
-        "approval_note": "Approved as the downstream readiness, complete verification, and independent review slice.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/issues/workflow-foundry-016-issue-004-adoption-and-push.md",
-        "phase": "issues",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-issues",
-        "artifact_role": "support",
-        "approval_note": "Approved as the explicit adoption, remote verification, and push slice.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-016-integration-evidence.md",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-evidence",
-        "artifact_role": "primary",
-        "approval_note": "Approved as the primary durable integration, validation, adoption, and rollback evidence.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-016-source-inventory.json",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "source-inventory",
-        "artifact_role": "support",
-        "approval_note": "Approved as the immutable path-by-path source disposition and hash manifest required by Issue 001.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-integration-readiness.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "integration-test",
-        "artifact_role": "support",
-        "approval_note": "Approved as the narrow regression seam for completed foundry capabilities and downstream readiness.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/package.json",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "test-registration",
-        "artifact_role": "support",
-        "approval_note": "Approved to register the integration readiness regression in canonical tracker verification.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": ".agents/skills/testing-session/SKILL.md",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "testing-session-privacy-skill",
-        "artifact_role": "support",
-        "approval_note": "Approved to add a publishability and redaction boundary after security review found private health context in a durable testing session.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "scripts/testing-session-state.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "testing-session-privacy-helper",
-        "artifact_role": "support",
-        "approval_note": "Approved to reject sensitive free text and absolute paths before durable testing-session writes.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/testing-session-state.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "testing-session-privacy-tests",
-        "artifact_role": "support",
-        "approval_note": "Approved for write-time and validation-time privacy regression coverage.",
-        "approved_at": "2026-07-12"
-      },
-      {
-        "path": "projects/workflow-foundry/tracker/tests/workflow-product-skill.test.mjs",
-        "phase": "implement",
-        "deliverable_id": "wf016-integration-repair",
-        "artifact_id": "historical-scope-test-repair",
-        "artifact_role": "support",
-        "approval_note": "Approved to replace current-worktree coupling with stable historical workflow-foundry-015 commit-scope verification.",
-        "approved_at": "2026-07-12"
-      }
-    ],
-    "process_exceptions": []
-  },
-  "deliverable_migration": {
-    "status": "native",
-    "target_contract_version": 1,
-    "frozen_phase": null,
-    "approved_at": "2026-07-12",
-    "approval_note": "The operator approved a dedicated task to resolve workflow-foundry-015 integration drift and requested direct PRD synthesis without grilling."
   },
   "deliverable_contracts": [
     {
@@ -235,7 +103,7 @@
           "artifact_role": "support",
           "locator_type": "path",
           "locator": "projects/workflow-foundry/tasks/workflow-foundry-016.json",
-          "purpose": "Record phase approvals, execution evidence, and completion state."
+          "purpose": "Record approvals, execution evidence, and completion state."
         },
         {
           "artifact_id": "integration-test",
@@ -468,7 +336,6 @@
       "observed_visibility": [
         "not-applicable"
       ],
-      "observed_phase_result": "pass: isolated integration candidate satisfies the deterministic state and privacy regressions",
       "observed_diff": [
         {
           "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-016-integration-evidence.md",
@@ -490,7 +357,8 @@
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-11T17:38:40.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: isolated integration candidate satisfies the deterministic state and privacy regressions"
     },
     {
       "evidence_id": "wf016-integration-review-pass-1",
@@ -520,7 +388,6 @@
       "observed_visibility": [
         "not-applicable"
       ],
-      "observed_phase_result": "pass: independent correctness and security re-reviews found no unresolved critical or high blockers",
       "observed_diff": [
         {
           "path": "projects/workflow-foundry/artifacts/reviews/workflow-foundry-016-integration-evidence.md",
@@ -542,7 +409,8 @@
       "retry_of": null,
       "result": "pass",
       "timestamp": "2026-07-11T17:40:00.000Z",
-      "builder_contract_version": 1
+      "builder_contract_version": 1,
+      "observed_result": "pass: independent correctness and security re-reviews found no unresolved critical or high blockers"
     }
   ],
   "dependencies": [
@@ -577,7 +445,7 @@
   "session_log": [
     {
       "date": "2026-07-12",
-      "event": "Created a dedicated tracker-maintenance task after the operator identified that the completed workflow-foundry-015 branch remained unmerged and was confusing or blocking downstream workflow-product tasks. The operator requested direct full PRD synthesis without grilling."
+      "event": "Created a dedicated tracker-maintenance task after the operator identified that the completed workflow-foundry-015 branch remained unmerged and was confusing or blocking downstream workflow-product tasks. The operator requested direct full PRD synthesis without planning."
     },
     {
       "date": "2026-07-12",
@@ -585,7 +453,7 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Advanced directly from intake to PRD at the operator's instruction to skip user-facing grilling. The next action is issue decomposition; no integration branch, merge, reconciliation, commit, main update, or push is approved in the PRD phase."
+      "event": "Advanced directly from intake to PRD at the operator's instruction to skip user-facing planning. The next action is issue decomposition; no integration branch, merge, reconciliation, commit, main update, or push is approved in the planning."
     },
     {
       "date": "2026-07-12",

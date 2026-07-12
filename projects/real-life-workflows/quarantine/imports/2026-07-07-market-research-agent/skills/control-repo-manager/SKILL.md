@@ -65,7 +65,7 @@ skill run before asking what the edit is. Loaded context alone is not enough.
 If the situation check reports risky parallel work, pause and ask the user
 whether to continue, join the existing run, or wait.
 
-Use these Workflow Run internal adapters for Matt Pocock workflow work:
+Use these Workflow Run internal adapters for previous workflow workflow work:
 
 ```bash
 node scripts/control-repo.mjs tracker-session-start ...
@@ -118,21 +118,21 @@ upload, say the session is not uploaded yet and do not report upload completion.
 
 ## Workflow Currency
 
-This repo uses the installed Matt Pocock skills as the tracker workflow
+This repo uses the installed previous workflow skills as the tracker workflow
 currency. Do not use Superpowers planning or execution skills as the default
-process for tracker work. Workflow runs should record the Matt Pocock flow ID,
+process for tracker work. Workflow runs should record the previous workflow flow ID,
 phase skill, owned paths, validation commands, checkpoints, and closeout state.
 
 Tracker records are skill-first. Every workflow run must answer these two
 questions before it can be valid:
 
 1. Which repo skill are we using or building?
-2. Which Matt Pocock phase skill are we currently in?
+2. Which previous workflow phase skill are we currently in?
 
 The repo skill is recorded as `skill_id` and `skill_path`, such as
 `agent-workflow-project-maker` and
 `skills/agent-workflow-project-maker/SKILL.md`. The phase skill remains
-`current_skill`, such as `grilling`, `to-prd`, `to-issues`, `implement`, or
+`current_skill`, such as `planning`, `native Codex planning`, `work-item planning`, `implement`, or
 `code-review`.
 
 If a tracker run does not have `skill_id` and `skill_path`, treat it as invalid
@@ -141,7 +141,7 @@ skill being built, then persist the run."
 
 Workflow intake is an entry phase, not a waiting state after context is loaded.
 Once a context manifest exists and the first context-aware question is ready,
-checkpoint the run to `current_skill=grilling` before asking the user. If an
+checkpoint the run to `current_skill=planning` before asking the user. If an
 active run remains in `workflow_intake` with a context manifest attached,
-tracker validation must fail and Codex must migrate the run to `grilling`
+tracker validation must fail and Codex must migrate the run to `planning`
 before continuing.

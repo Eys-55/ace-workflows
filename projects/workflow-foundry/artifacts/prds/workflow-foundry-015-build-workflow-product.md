@@ -61,7 +61,7 @@ whether the result is genuinely useful and visually intentional.
 
 1. As a Foundry operator, I want natural-language UI requests to invoke one canonical skill, so that I do not need to remember a pack of overlapping builder skills.
 2. As a Foundry operator, I want `$build-workflow-product` to remain distinct from the canonical skill-bundle authoring authority, so that product building and skill construction do not collide.
-3. As a Foundry operator, I want the builder to create or select a tracked target-project task, so that product work respects Matt phases and explicit artifact approvals.
+3. As a Foundry operator, I want the builder to create or select a tracked target-project task, so that product work respects previous workflow phases and explicit artifact approvals.
 4. As a Foundry operator, I want the builder to consume the Foundry's typed deliverable contracts, so that UI, skill, runtime, package, and support artifacts retain distinct completion rules.
 5. As a workflow author, I want the builder to read the complete target workflow and unfinished project state, so that the UI reflects the actual workflow rather than a generic interpretation.
 6. As a workflow author, I want the builder to identify the primary user and job before choosing a layout, so that form follows the workflow's real use.
@@ -208,8 +208,8 @@ fallback. Current OpenAI guidance supports concise task-relevant prompts,
 explicit authority boundaries, representative evals, and browser-based visual
 verification, which this bundle preserves across supported harness surfaces.
 
-The primary upstream process references are Matt Pocock's `to-prd`,
-`to-issues`, `implement`, `tdd`, `code-review`, and `writing-great-skills`
+The primary upstream process references are previous workflow's `native Codex planning`,
+`work-item planning`, `implement`, `tdd`, `code-review`, and `writing-great-skills`
 skills. The primary construction references are ECC frontend, eval, security,
 end-to-end testing, coding, and verification guidance, plus OpenAI's current
 model and Codex frontend guidance.

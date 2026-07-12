@@ -1,4 +1,4 @@
-# Issue 002: Intake Context And Post Grilling
+# Issue 002: Intake Context And Planning
 
 ## Parent
 
@@ -7,7 +7,7 @@
 ## What to build
 
 Build the intake path that turns an arbitrary selected context set plus
-post-level grilling answers into a ready-to-draft run record. The workflow
+post-level planning choices into a ready-to-draft run record. The workflow
 should accept any mix of project, task, foundry, whole-system, and rough-draft
 inputs while preserving source boundaries and provenance.
 
@@ -20,9 +20,9 @@ draft, and optional reader action without drafting or publishing anything.
 - [ ] A draft run can include one project, multiple projects, one task, multiple tasks, foundry context, whole-system context, or any mix of those scopes.
 - [ ] Source project trackers remain read-only by default during intake.
 - [ ] Every selected source is represented in the run record with enough provenance for later claim tracing.
-- [ ] The post-level grilling step requires target audience.
-- [ ] The post-level grilling step requires low, medium, or high personalness level.
-- [ ] The post-level grilling step captures the user's intent, framing, wording, and phrasing.
+- [ ] The post-level planning step requires target audience.
+- [ ] The post-level planning step requires low, medium, or high personalness level.
+- [ ] The post-level planning step captures the user's intent, framing, wording, and phrasing.
 - [ ] Desired reader action is optional and must not be forced into every run.
 - [ ] Existing rough draft input is accepted and stored when provided.
 - [ ] The intake path does not generate drafts, post externally, or mutate a reusable voice profile.
@@ -38,7 +38,7 @@ draft, and optional reader action without drafting or publishing anything.
 - 3. Select multiple tasks.
 - 4. Provide a rough draft.
 - 5. Generate from context without a rough draft.
-- 6. Grilling before drafting.
+- 6. Planning before drafting.
 - 7. User wording influences the post.
 - 12. Ask for target audience.
 - 13. Set personalness level.

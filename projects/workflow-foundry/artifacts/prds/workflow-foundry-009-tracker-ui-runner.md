@@ -31,7 +31,7 @@ Refine the tracker into a read-only project workflow console:
   mobile
 - linked artifacts grouped by type with human-readable labels first and raw
   paths disclosed only when needed
-- explicit `$continue-task project:<slug> task:<task-id>` command copy, with no
+- explicit `native Codex planning project:<slug> task:<task-id>` command copy, with no
   direct Codex app handoff in this version
 
 The tracker remains read-only. Browser state may remember the selected project
@@ -65,7 +65,7 @@ and selected task in `localStorage`, but it must not write to workflow JSON.
 24. As the foundry operator, I want a lifecycle rail from intake/preflight through done, so that each task's process position is obvious.
 25. As the foundry operator, I want lifecycle rail chips to filter tasks by phase, so that phase navigation does not require a separate control.
 26. As the foundry operator, I want the selected task's current phase highlighted in the rail, so that detail context stays visible.
-27. As the foundry operator, I want intake, project preload, and phase-guard readiness noted separately from later Matt phases, so that pre-Matt work is not flattened into implementation status.
+27. As the foundry operator, I want intake, project preload, and phase-guard readiness noted separately from later previous workflow phases, so that pre-previous workflow work is not flattened into implementation status.
 28. As the foundry operator, I want task search scoped to the selected project, so that search does not jump across product lines unexpectedly.
 29. As the foundry operator, I want task search to cover title, id, status, phase, and artifact title, so that I can find work by any common handle.
 30. As the foundry operator, I want linked artifacts grouped by type, so that PRDs, issues, skills, tracker files, tests, and other files are easier to scan.
@@ -93,7 +93,7 @@ and selected task in `localStorage`, but it must not write to workflow JSON.
 - Keep search/filter behavior entirely client-side against already-rendered
   read-only HTML.
 - Use `localStorage` only for selected project and selected task.
-- Generate exact continue commands in the form `$continue-task project:<slug>
+- Generate exact continue commands in the form `native Codex planning project:<slug>
   task:<task-id>`.
 - Do not add Codex deep-link/app handoff in this version.
 - Create a model-invoked `workflow-tracker-ui` skill because the user wants a

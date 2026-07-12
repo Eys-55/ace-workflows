@@ -30,7 +30,7 @@ signals:
 When one of these intents appears, do not present a terminal command. Load ECC,
 load this skill and the relevant project/workflow context, create or lock the
 tracker run internally, write the context manifest internally, then answer with
-the ECC proof, premise lock, and first context-aware grilling question.
+the ECC proof, premise lock, and first context-aware planning question.
 If tracker command capability is needed, use the skills-owned callable command
 suite documented by `skills/control-repo-manager/SKILL.md`; do not invent a new
 operator-facing command surface.
@@ -82,26 +82,26 @@ Required sequence:
 2. Record `skill_id` and `skill_path` for the repo skill being built or
    operated.
 3. Set the first phase to `workflow_intake`.
-4. Load ECC, Matt Pocock flow, tracker status, workflow-specific skill files,
+4. Load ECC, previous workflow flow, tracker status, workflow-specific skill files,
    status/handoff docs, tests, validators, and relevant workflow-run logs.
 5. If the report names ECC concepts such as loop, gate, lane, eval, handoff,
    source evidence, or human boundary, load the local docs for that concept.
 6. Write or attach a context manifest under `ops/workflow-runs/`.
-7. Immediately checkpoint the run from `workflow_intake` to `grilling`.
-   The first context-aware question is a grilling question, so the tracker must
-   record `current_skill=grilling` before asking the user.
-8. Show visible ECC proof before grilling:
+7. Immediately checkpoint the run from `workflow_intake` to `planning`.
+   The first context-aware question is a planning question, so the tracker must
+   record `current_skill=planning` before asking the user.
+8. Show visible ECC proof before planning:
    - ECC files loaded;
    - workflow/concept files loaded;
    - ECC concept meaning from the loaded files;
    - repo skill being built or operated;
    - premise lock;
-   - first context-aware grilling question.
+   - first context-aware planning question.
 9. Grill only after the loaded-context proof exists.
 
-While the run is in `grilling`, ask one question at a time and wait for the
-answer. A user answer to the first grilling question does not authorize
-implementation. Continue grilling until the user explicitly confirms shared
+While the run is in `planning`, ask one question at a time and wait for the
+answer. A user answer to the first planning question does not authorize
+implementation. Continue planning until the user explicitly confirms shared
 understanding or asks to move to PRD, issues, implementation, or code review.
 
 Do not ask blank questions. Do not rely on generic Codex assumptions about
@@ -116,7 +116,7 @@ validation must fail before the session can be treated as safe to continue,
 close, or upload.
 Active workflow-intake runs with context manifests must not remain in
 `workflow_intake`. If validation reports that intake must checkpoint to
-`grilling`, update the run phase before continuing the conversation.
+`planning`, update the run phase before continuing the conversation.
 
 New workflow creation requires explicit confirmation, such as:
 

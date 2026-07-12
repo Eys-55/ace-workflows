@@ -3,8 +3,9 @@
 This file contains live project/domain instructions for the
 `real-life-workflows` workflow project only.
 
-Root `AGENTS.md` owns task tracking, JSON state, Matt Pocock flow, ECC workflow
-rules, validation, and repo-wide safety. Do not redefine those mechanics here.
+Root `AGENTS.md` owns repository workflow architecture, optional status-ledger
+conventions, ECC guidance, validation, and repo-wide safety. Do not redefine
+those mechanics here.
 
 Use this project for workflow products that start from real operator jobs in
 the world and turn them into inspectable, reusable agent workflows.
@@ -23,8 +24,8 @@ source evidence only.
 
 Do not describe imported `SKILL.md` files as active `real-life-workflows`
 skills. They are not callable, not active, not discoverable as project skills,
-and not promotable as-is. If an imported workflow idea is useful, rewrite it
-for this project through a tracked task before treating it as active.
+and not promotable as-is. If an imported workflow idea is useful, rewrite and
+validate it for this project before treating it as active.
 
 When asked what skills exist, answer from the active repo skill surface first.
 Mention quarantine imports only as quarantined source evidence.

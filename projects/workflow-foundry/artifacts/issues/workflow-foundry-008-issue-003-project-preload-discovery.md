@@ -23,7 +23,7 @@ they make workflow decisions.
 - [x] Project preload does not load full event streams by default.
 - [x] The query workflow state helper can surface testing-session index
       summaries for a project.
-- [x] Continue-task and initiate-task instructions mention testing-session
+- [x] native Codex planning and native Codex planning instructions mention testing-session
       discovery during preload.
 - [x] Existing projects without a testing-session index continue to load
       normally.

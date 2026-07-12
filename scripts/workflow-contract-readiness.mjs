@@ -6,7 +6,6 @@ import process from "node:process";
 import {
   arrayOrEmpty,
   artifactValidations,
-  isHistoricalCompatibleTask,
   isRecord,
   isWithinPath,
   issue,
@@ -277,7 +276,6 @@ function identityReadinessFor(task, contract, root, invalidEvidenceIndexes) {
     existingTarget = false;
     unsafeTarget = true;
   }
-  const preImplementation = ["intake", "grilling", "prd", "issues"].includes(task?.matt_phase);
   const expectedChanges = contract.operation === "update" ? new Set(["update", "updated", "modify", "modified"]) : new Set(["create", "created", "add", "added"]);
   const diffProvesOperation = arrayOrEmpty(task?.behavior_evidence).some(
     (evidence, index) =>
@@ -291,10 +289,8 @@ function identityReadinessFor(task, contract, root, invalidEvidenceIndexes) {
   const ready =
     !unsafeTarget &&
     (contract.operation === "update"
-      ? existingTarget && (preImplementation || diffProvesOperation)
-      : preImplementation
-        ? !existingTarget
-        : existingTarget && diffProvesOperation);
+      ? existingTarget
+      : !existingTarget || diffProvesOperation);
   return {
     applicable: true,
     ready,
@@ -493,49 +489,11 @@ function dependencyReadinessFor(task, contract, root) {
   return results;
 }
 
-function approvalExistsForArtifact(task, contract, artifact) {
-  const bindings = arrayOrEmpty(task?.artifact_bindings).filter(
-    (binding) =>
-      isRecord(binding) && binding.deliverable_id === contract.deliverable_id && binding.artifact_id === artifact.artifact_id && binding.artifact_role === artifact.artifact_role,
-  );
-  return arrayOrEmpty(task?.phase_guard?.approved_artifacts).some((approval) => {
-    if (!isRecord(approval) || approval.phase !== "implement" || approval.deliverable_id !== contract.deliverable_id || approval.artifact_role !== artifact.artifact_role) {
-      return false;
-    }
-    const artifactIdMatches =
-      approval.artifact_id === artifact.artifact_id || (task?.deliverable_migration?.status === "approved" && !nonEmptyString(approval.artifact_id) && bindings.length === 1);
-    if (!artifactIdMatches) return false;
-    if (artifact.locator_type === "task-evidence") {
-      return approval.evidence_id === artifact.locator;
-    }
-    return bindings.some((binding) => {
-      if (binding.locator_type === "path") return approval.path === binding.locator;
-      if (binding.locator_type === "path-prefix") {
-        const prefix = binding.locator.replace(/[\\/]+$/, "");
-        return approval.path === prefix || approval.path?.startsWith(`${prefix}/`) || approval.path?.startsWith(`${prefix}\\`);
-      }
-      return false;
-    });
-  });
-}
-
 function uniqueIssues(blockers) {
   return blockers.filter((blocker, index, all) => all.findIndex((candidate) => candidate.code === blocker.code && candidate.message === blocker.message) === index);
 }
 
 export function projectDeliverableReadiness({ task, root = process.cwd(), catalog = null } = {}) {
-  if (isHistoricalCompatibleTask(task)) {
-    return {
-      migration: { status: "historical-compatible" },
-      contracts: [],
-      state: "historical-compatible",
-      next_phase_ready: true,
-      completion_ready: true,
-      blockers: [],
-      deliverables: [],
-    };
-  }
-
   const validationErrors = validateTaskDeliverableState(task);
   const invalidEvidenceIndexes = new Set(
     validationErrors
@@ -543,19 +501,6 @@ export function projectDeliverableReadiness({ task, root = process.cwd(), catalo
       .filter((index) => index !== undefined)
       .map(Number),
   );
-  const migration = task?.deliverable_migration ?? { status: "missing" };
-  if (migration.status === "pending") {
-    return {
-      migration,
-      contracts: [],
-      state: "blocked",
-      next_phase_ready: false,
-      completion_ready: false,
-      blockers: [issue("migration-pending", "Classify and approve deliverables before advancing.")],
-      deliverables: [],
-    };
-  }
-
   const globalBlockers = [...validationErrors];
   const deliverables = [];
   for (const contract of arrayOrEmpty(task?.deliverable_contracts).filter(isRecord)) {
@@ -641,15 +586,6 @@ export function projectDeliverableReadiness({ task, root = process.cwd(), catalo
       blockers.push(...discovery.blockers);
     }
 
-    const implementationApprovalsReady =
-      identityReadiness.ready && arrayOrEmpty(contract.required_artifacts).every((artifact) => isRecord(artifact) && approvalExistsForArtifact(task, contract, artifact));
-    const codeReviewEntryReady =
-      artifactReadiness.every((artifact) => artifact.ready) &&
-      evalReadiness.filter((evaluation) => evaluation.kind !== "manual-review").every((evaluation) => evaluation.ready) &&
-      dependencyReadiness.every((dependency) => dependency.ready) &&
-      conditionReadiness.filter((condition) => condition.type !== "review-passed").every((condition) => condition.ready) &&
-      identityReadiness.ready &&
-      discovery.ready;
     const deliverableBlockers = uniqueIssues(blockers);
     deliverables.push({
       deliverable_id: contract.deliverable_id,
@@ -662,8 +598,6 @@ export function projectDeliverableReadiness({ task, root = process.cwd(), catalo
       dependency_readiness: dependencyReadiness,
       completion_condition_readiness: conditionReadiness,
       identity_readiness: identityReadiness,
-      implementation_approvals_ready: implementationApprovalsReady,
-      code_review_entry_ready: codeReviewEntryReady,
       discovery,
       blockers: deliverableBlockers,
       ready: deliverableBlockers.length === 0,
@@ -679,22 +613,10 @@ export function projectDeliverableReadiness({ task, root = process.cwd(), catalo
     primaryDeliverables.length > 0 &&
     primaryDeliverables.every((deliverable) => deliverable.ready) &&
     blockingDeliverables.every((deliverable) => deliverable.ready);
-  let nextPhaseReady;
-  if (["intake", "grilling", "prd"].includes(task?.matt_phase)) {
-    nextPhaseReady = validationErrors.length === 0;
-  } else if (task?.matt_phase === "issues") {
-    nextPhaseReady = validationErrors.length === 0 && blockingDeliverables.every((deliverable) => deliverable.implementation_approvals_ready);
-  } else if (task?.matt_phase === "implement") {
-    nextPhaseReady = validationErrors.length === 0 && blockingDeliverables.every((deliverable) => deliverable.code_review_entry_ready);
-  } else {
-    nextPhaseReady = completionReady;
-  }
 
   return {
-    migration,
     contracts: task?.deliverable_contracts ?? [],
-    state: nextPhaseReady ? "ready" : "blocked",
-    next_phase_ready: nextPhaseReady,
+    state: completionReady ? "ready" : "blocked",
     completion_ready: completionReady,
     blockers: uniqueBlockers,
     deliverables,

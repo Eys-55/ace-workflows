@@ -348,7 +348,7 @@ artifact, and timestamp provenance. The standalone repo receives promoted
 product decisions and self-contained artifacts, never dependency-project paths
 or runtime calls.
 
-The next Matt phase should split this PRD into independently verifiable issues
+The next previous workflow phase should split this PRD into independently verifiable issues
 in the eval-first order. Issue boundaries should follow observable workflow
 contracts and risk, not simply one issue per file or one issue per existing
 skill.

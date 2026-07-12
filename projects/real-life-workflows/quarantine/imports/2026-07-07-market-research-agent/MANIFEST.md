@@ -27,7 +27,7 @@ Imported on: 2026-07-07
 ## Initial Counts
 
 - Quarantine files copied: 223
-- Imported `SKILL.md` files: 18
+- Imported `SKILL.md` files after removing obsolete process helpers: 9
 - Imported `workflow-classifications-all.json` row count: 171 workflow doors
 - Imported `workflow-classifications-all.json` unique workflow ids: 171
 

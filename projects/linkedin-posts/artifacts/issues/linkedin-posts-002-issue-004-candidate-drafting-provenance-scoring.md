@@ -33,7 +33,7 @@ without yet choosing a winner.
 ## Blocked by
 
 - `linkedin-posts-002-issue-001-draft-run-contract`
-- `linkedin-posts-002-issue-002-intake-context-and-grilling`
+- `linkedin-posts-002-issue-002-intake-context-and-planning`
 - `linkedin-posts-002-issue-003-voice-profile-approval`
 
 ## User stories covered

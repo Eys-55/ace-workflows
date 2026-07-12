@@ -32,6 +32,6 @@ contract in chat.
 Workflow-router work must start from ECC-loaded intake. A reported workflow bug
 or workflow problem creates or locks a tracked workflow run, loads ECC and
 workflow-specific context, writes a context manifest, shows visible ECC proof,
-then asks the first context-aware grilling question.
+then asks the first context-aware planning question.
 
 Do not use these commands to skip into implementation.

@@ -3,8 +3,9 @@
 This file contains live project/domain instructions for the `health` workflow
 project only.
 
-Root `AGENTS.md` owns task tracking, JSON state, Matt Pocock flow, ECC workflow
-rules, validation, and repo-wide safety. Do not redefine those mechanics here.
+Root `AGENTS.md` owns repository workflow architecture, optional status-ledger
+conventions, ECC guidance, validation, and repo-wide safety. Do not redefine
+those mechanics here.
 
 Use this project to build health workflow packs that help an agentic engineer
 understand real healthcare work before designing agents around it.

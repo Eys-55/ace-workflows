@@ -20,7 +20,7 @@ This looks like stale generated UI/test expectation after
 
 The second operating risk is tracker backlog clarity. The foundry has 12 tasks:
 3 done, 4 in-progress, and 5 todo. Three in-progress tasks are already in
-`code-review`, one task remains in `grilling`, and several older todo/intake
+`code-review`, one task remains in `planning`, and several older todo/intake
 tasks contain substantial completed history. The next safest tracker action is
 to continue the owning code-review task for the tracker UI before treating the
 UI as checkpoint-ready.
@@ -28,7 +28,7 @@ UI as checkpoint-ready.
 ## Loaded Sources
 
 - `AGENTS.md`
-- `references/matt-pocock-skills.md`
+- `AGENTS.md`
 - `registry/agents-md.json`
 - `projects/workflow-foundry/AGENTS.md`
 - `projects/workflow-foundry/project.json`
@@ -79,12 +79,12 @@ The task index currently reports:
   `workflow-foundry-012`
 - `in-progress/code-review`: `workflow-foundry-005`,
   `workflow-foundry-009`, `workflow-foundry-011`
-- `in-progress/grilling`: `workflow-foundry-006`
+- `in-progress/planning`: `workflow-foundry-006`
 - `todo/intake`: `workflow-foundry-001`, `workflow-foundry-002`,
   `workflow-foundry-003`, `workflow-foundry-004`, `workflow-foundry-007`
 
 The control-plane split is clear in current instructions. Root `AGENTS.md`
-owns task mechanics, validation, Matt Pocock flow, file policy, and checkpoint
+owns task mechanics, validation, previous workflow flow, file policy, and checkpoint
 policy. `projects/workflow-foundry/AGENTS.md` stays project-domain focused and
 does not redefine root mechanics.
 
@@ -109,8 +109,8 @@ entrypoints are present with matching `SKILL.md` frontmatter and
 `agents/openai.yaml` metadata:
 
 - `audit-foundry`
-- `continue-task`
-- `initiate-task`
+- `native Codex planning`
+- `native Codex planning`
 - `review-project-state`
 - `setup-workflow-project`
 - `testing-session`
@@ -201,7 +201,7 @@ Evidence: `npm run verify`; `projects/workflow-foundry/tracker/tests/workflow-st
 Impact: The tracker UI cannot be treated as verification-clean or
 checkpoint-ready even though the repo-wide workflow-state validator passes.
 
-Recommended next tracker action: `$continue-task project:workflow-foundry task:workflow-foundry-009`
+Recommended next tracker action: `native Codex planning project:workflow-foundry task:workflow-foundry-009`
 to review whether the test expectation should be updated or the derived open
 count logic is wrong.
 
@@ -219,7 +219,7 @@ for `workflow-foundry-001` through `workflow-foundry-004` and
 Impact: Operators may choose the wrong continuation task, and tracker counts
 can overstate unfinished intake work.
 
-Recommended next tracker action: `$continue-task project:workflow-foundry task:workflow-foundry-004`
+Recommended next tracker action: `native Codex planning project:workflow-foundry task:workflow-foundry-004`
 as tracker maintenance to reconcile stale task status, phase, and next-action
 metadata after the tracker UI verification issue is resolved.
 
@@ -235,7 +235,7 @@ Impact: Any checkpoint or push from the foundry would mix foundry audit output
 with unrelated project tracker work unless the operator deliberately scopes the
 checkpoint.
 
-Recommended next tracker action: Use `$continue-task` on the owning project
+Recommended next tracker action: Use `native Codex planning` on the owning project
 tasks before checkpointing, or create a scoped tracker-maintenance task if the
 registry/linkedin-posts changes need cleanup.
 
@@ -270,9 +270,9 @@ wants a captured project-scoped run; do not create one from this audit.
 
 ## Recommended Next Tracker Actions
 
-1. `$continue-task project:workflow-foundry task:workflow-foundry-009`
+1. `native Codex planning project:workflow-foundry task:workflow-foundry-009`
    to fix or re-baseline the tracker UI verification failure.
-2. After verification is clean, `$continue-task project:workflow-foundry task:workflow-foundry-004`
+2. After verification is clean, `native Codex planning project:workflow-foundry task:workflow-foundry-004`
    to reconcile stale foundry tracker state and task statuses.
 3. Before any checkpoint, inspect and deliberately scope the existing dirty
    worktree across `real-life-workflows`, `registry/agents-md.json`, and

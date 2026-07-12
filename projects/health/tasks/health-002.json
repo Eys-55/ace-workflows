@@ -4,12 +4,10 @@
   "title": "Discover health workflow candidates from real-life workflows",
   "task_kind": "workflow-change",
   "status": "done",
-  "matt_phase": "done",
-  "explicit_next_action_required": true,
   "summary": "Build the first milestone for a Philippines insurance and HMO navigator agent: a canonical PhilHealth, HMO, and major-insurance registry that later skills can use without duplicate entities.",
   "acceptance_criteria": [
     "The task starts from a source-grounded workflow-understanding packet rather than generic healthcare assumptions.",
-    "The grilling phase identifies Philippines insurance and HMO understanding as the first health workflow family to understand deeply.",
+    "The planning phase identifies Philippines insurance and HMO understanding as the first health workflow family to understand deeply.",
     "The task includes a PRD and implementation issue before registry implementation.",
     "The implementation plan covers source discovery, canonical HMO/insurer registry design, deduplication, provider/product extraction, navigator drilling, comparison, deep-dive workflows, and evaluation gates.",
     "The first build milestone is the canonical HMO/insurance registry before any user-facing navigator workflow.",
@@ -28,10 +26,10 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "Continue the health workflow discovery task from Matt grilling. Use the approved real-life-workflows dependency step to create workflow-understanding packets during grilling, then ask one blocking question at a time.",
+    "summary": "Continue the health workflow discovery task from previous workflow planning. Use the approved real-life-workflows dependency step to create workflow-understanding packets during planning, then ask one blocking question at a time.",
     "must_load": [
       "AGENTS.md",
-      "references/matt-pocock-skills.md",
+      "AGENTS.md",
       "registry/agents-md.json",
       "projects/health/AGENTS.md",
       "projects/health/project.json",
@@ -60,78 +58,18 @@
       "projects/real-life-workflows/skills/real-life-workflow-search/SKILL.md"
     ]
   },
-  "phase_guard": {
-    "selected_next_action": "implement",
-    "approved_artifacts": [
-      {
-        "path": "projects/health/artifacts/workflow-packets/health-workflow-candidates.md",
-        "phase": "implement",
-        "approval_note": "Approved by operator for dependency-created grilling evidence from real-life-workflow-search; keep as evidence unless later promoted by PRD.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/workflow-packets/philippines-insurance-hmo-workflows.md",
-        "phase": "implement",
-        "approval_note": "Approved by operator for dependency-created grilling evidence focused on Philippine insurance and HMO workflow understanding.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/registries/philippines-health-coverage-registry.json",
-        "phase": "implement",
-        "approval_note": "Approved after operator changed scope from planning-only to building the first canonical registry milestone.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/registries/philippines-health-coverage-registry.schema.json",
-        "phase": "implement",
-        "approval_note": "Approved schema for validating the first canonical registry milestone.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/registries/validate-philippines-health-coverage-registry.mjs",
-        "phase": "implement",
-        "approval_note": "Approved deterministic validator for the first canonical registry milestone.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/issues/health-002-issue-002-product-extraction-seed.md",
-        "phase": "implement",
-        "approval_note": "Approved issue artifact for the next vertical slice: product and benefit extraction seed catalog.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.json",
-        "phase": "implement",
-        "approval_note": "Approved seed catalog that normalizes PhilHealth benefits, HMO product surfaces, and insurer health-protection surfaces against the canonical registry.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/product-catalog/philippines-health-coverage-product-catalog.schema.json",
-        "phase": "implement",
-        "approval_note": "Approved schema for validating the product and benefit extraction seed catalog.",
-        "approved_at": "2026-07-08"
-      },
-      {
-        "path": "projects/health/artifacts/product-catalog/validate-philippines-health-coverage-product-catalog.mjs",
-        "phase": "implement",
-        "approval_note": "Approved deterministic validator for the product and benefit extraction seed catalog.",
-        "approved_at": "2026-07-08"
-      }
-    ],
-    "process_exceptions": []
-  },
   "capability_dependencies": [
     {
       "dependency_id": "real-life-workflows-health-packets",
       "dependency_project": "real-life-workflows",
-      "purpose": "Discover and prepare source-grounded health workflow packet candidates for the primary health task during grilling.",
+      "purpose": "Discover and prepare source-grounded health workflow packet candidates for the primary health task during planning.",
       "source": "operator-explicit",
       "status": "confirmed",
       "selected_skills": [
         {
           "skill": "real-life-workflow-search",
           "purpose": "Search the Real Life Workflows source universe and write workflow-understanding packets for health workflow discovery.",
-          "call_boundary": "Use only for this health task's approved dependency steps during intake or grilling.",
+          "call_boundary": "Use only for this health task's approved dependency steps during intake or planning.",
           "expected_artifacts": [
             "workflow-understanding packet",
             "ranked health workflow candidates",
@@ -157,7 +95,7 @@
       "capability_dependency_id": "real-life-workflows-health-packets",
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
-      "purpose": "Create a broad candidate packet for health workflows so grilling can start from concrete workflow doors and source boundaries.",
+      "purpose": "Create a broad candidate packet for health workflows so planning can start from concrete workflow doors and source boundaries.",
       "expected_inputs": [
         "healthcare workflow discovery for an agentic engineer",
         "need to learn real health workflows one by one",
@@ -201,7 +139,7 @@
           "projects/real-life-workflows/quarantine/"
         ],
         "promotion_rules": [
-          "Keep the packet as grilling evidence unless a later PRD names it as an official artifact.",
+          "Keep the packet as planning evidence unless a later PRD names it as an official artifact.",
           "Do not promote recommendations into active skills without a later tracked implement phase."
         ],
         "provenance_requirements": [
@@ -225,7 +163,7 @@
       "capability_dependency_id": "real-life-workflows-health-packets",
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
-      "purpose": "Create a candidate packet for Philippine insurance and HMO understanding workflows so grilling can focus on consumer education, coverage navigation, provider/HMO comparison, and claims/reimbursement workflow boundaries.",
+      "purpose": "Create a candidate packet for Philippine insurance and HMO understanding workflows so planning can focus on consumer education, coverage navigation, provider/HMO comparison, and claims/reimbursement workflow boundaries.",
       "expected_inputs": [
         "Philippines insurance and HMO consumer education",
         "Filipinos need to understand insurance types and HMOs",
@@ -269,7 +207,7 @@
           "projects/real-life-workflows/quarantine/"
         ],
         "promotion_rules": [
-          "Keep the packet as grilling evidence unless a later PRD names it as an official artifact.",
+          "Keep the packet as planning evidence unless a later PRD names it as an official artifact.",
           "Use live public Philippine sources before treating packet recommendations as current market or regulatory facts."
         ],
         "provenance_requirements": [
@@ -296,9 +234,8 @@
       "dependency_step_id": "dep-step-001",
       "dependency_project": "real-life-workflows",
       "source_skill": "real-life-workflow-search",
-      "phase": "grilling",
       "purpose": "Broad source-grounded candidate packet for deciding which health workflow family to grill first.",
-      "artifact_status": "grilling-evidence",
+      "artifact_status": "planning-evidence",
       "generated_files": [
         "projects/health/artifacts/workflow-packets/health-workflow-candidates.md"
       ],
@@ -316,9 +253,8 @@
       "dependency_step_id": "dep-step-002",
       "dependency_project": "real-life-workflows",
       "source_skill": "real-life-workflow-search",
-      "phase": "grilling",
       "purpose": "Philippines insurance and HMO workflow candidate packet for consumer education and workflow-shape discovery.",
-      "artifact_status": "grilling-evidence",
+      "artifact_status": "planning-evidence",
       "generated_files": [
         "projects/health/artifacts/workflow-packets/philippines-insurance-hmo-workflows.md"
       ],
@@ -339,9 +275,8 @@
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
       "dependency_write_plan": "dependency_steps[0].dependency_write_plan",
-      "phase": "grilling",
       "timestamp": "2026-07-08T05:49:38Z",
-      "artifact_status": "grilling-evidence",
+      "artifact_status": "planning-evidence",
       "helper_skills_used": [],
       "inputs": [
         "query: healthcare workflow discovery clinical referral care coordination billing compliance scheduling pharmacy laboratory insurance public health patient intake",
@@ -359,9 +294,8 @@
       "dependency_project": "real-life-workflows",
       "selected_skill": "real-life-workflow-search",
       "dependency_write_plan": "dependency_steps[1].dependency_write_plan",
-      "phase": "grilling",
       "timestamp": "2026-07-08T05:53:22Z",
-      "artifact_status": "grilling-evidence",
+      "artifact_status": "planning-evidence",
       "helper_skills_used": [],
       "inputs": [
         "query: Philippines insurance HMO health maintenance organization health insurance claims reimbursement coverage navigation PhilHealth Maxicare Medicard Intellicare Pacific Cross Filipino consumer education",
@@ -404,15 +338,15 @@
   "session_log": [
     {
       "date": "2026-07-08",
-      "event": "Created after operator approved using real-life-workflows skill calls during health grilling."
+      "event": "Created after operator approved using real-life-workflows skill calls during health planning."
     },
     {
       "date": "2026-07-08",
-      "event": "Entered Matt grilling with an approved dependency step for real-life-workflow-search."
+      "event": "Entered previous workflow planning with an approved dependency step for real-life-workflow-search."
     },
     {
       "date": "2026-07-08",
-      "event": "Ran real-life-workflow-search as a dependency during grilling and wrote projects/health/artifacts/workflow-packets/health-workflow-candidates.md as evidence."
+      "event": "Ran real-life-workflow-search as a dependency during planning and wrote projects/health/artifacts/workflow-packets/health-workflow-candidates.md as evidence."
     },
     {
       "date": "2026-07-08",

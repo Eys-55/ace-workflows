@@ -43,7 +43,7 @@ real questions.
 - Read-only catalog queries for insurance/claims/reimbursement evidence,
   public-source comparison audit, and human-review workflow patterns.
 
-## Self-Grilling Decisions
+## Self-planning Decisions
 
 Question: Who is this for?
 Answer: People trying to understand Philippine health coverage, plus the agent

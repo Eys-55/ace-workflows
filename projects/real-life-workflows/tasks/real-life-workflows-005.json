@@ -4,8 +4,6 @@
   "title": "Maintain tracker for companion UI task",
   "task_kind": "tracker-maintenance",
   "status": "in-progress",
-  "matt_phase": "implement",
-  "explicit_next_action_required": true,
   "summary": "Own the tracker-only changes required to initiate and maintain the companion UI workflow task, including the project task index, cross-task context snapshots, and validation linkage.",
   "acceptance_criteria": [
     "the companion UI workflow task is created from the operator-approved draft",
@@ -31,15 +29,10 @@
       "projects/real-life-workflows/tasks/real-life-workflows-005.json",
       "projects/real-life-workflows/tasks/real-life-workflows-006.json",
       "projects/real-life-workflows/artifacts/testing-sessions/index.json",
-      "references/matt-pocock-skills.md",
-      ".agents/skills/initiate-task/SKILL.md",
-      ".agents/skills/continue-task/SKILL.md"
+      "AGENTS.md",
+      ".agents/skills/native Codex planning/SKILL.md",
+      ".agents/skills/native Codex planning/SKILL.md"
     ]
-  },
-  "phase_guard": {
-    "selected_next_action": "implement",
-    "approved_artifacts": [],
-    "process_exceptions": []
   },
   "dependencies": [],
   "related_tasks": [
@@ -66,15 +59,15 @@
     },
     {
       "date": "2026-07-12",
-      "event": "Updated real-life-workflows-006 from intake to grilling after loading its search contract, linked finder artifacts, count proof, standalone product guidance, and current 171-row index model."
+      "event": "Updated real-life-workflows-006 from intake to planning after loading its search contract, linked finder artifacts, count proof, standalone product guidance, and current 171-row index model."
     },
     {
       "date": "2026-07-12",
-      "event": "Recorded the first UI grilling decision in real-life-workflows-006: the experience is search-first and progressively reflects searches performed through the CLI or agentic search surface."
+      "event": "Recorded the first UI planning decision in real-life-workflows-006: the experience is search-first and progressively reflects searches performed through the CLI or agentic search surface."
     },
     {
       "date": "2026-07-12",
-      "event": "Recorded the next UI grilling direction in real-life-workflows-006: automatic Search History and a visible Activity Log are distinct product concepts, while log depth remains unresolved."
+      "event": "Recorded the next UI planning direction in real-life-workflows-006: automatic Search History and a visible Activity Log are distinct product concepts, while log depth remains unresolved."
     },
     {
       "date": "2026-07-12",
@@ -91,14 +84,7 @@
   ],
   "created_at": "2026-07-12",
   "updated_at": "2026-07-12",
-  "deliverable_migration": {
-    "status": "pending",
-    "target_contract_version": 1,
-    "frozen_phase": "implement",
-    "approved_at": null,
-    "approval_note": null
-  },
-  "deliverable_contracts": [],
   "artifact_bindings": [],
-  "behavior_evidence": []
+  "behavior_evidence": [],
+  "next_action": "Finish implementation and validate the result."
 }
