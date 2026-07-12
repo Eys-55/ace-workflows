@@ -53,7 +53,7 @@
     "project state preload"
   ],
   "context_snapshot": {
-    "summary": "All 12 implementation slices are present on the isolated codex/health-007-people-first-v2 worktree branch and the standalone v0.2.0 release gate passes. Review the diff on separate standards and PRD/spec axes, resolve all material findings, rerun fresh verification, and only then close the task.",
+    "summary": "The reviewed seven-skill v0.2.0 implementation is now durable at standalone commit 2230a33 on pushed branch codex/health-007-people-first-v2. Release, Standards, and Spec gates pass after resolving packet strictness, route, source-claim-fit, and evidence-audit gaps. The task remains frozen in implement only because its separate version-1 deliverable migration still requires a complete member-level workflow-pack contract; Health 008 may bind the immutable reviewed commit as its implementation dependency artifact.",
     "must_load": [
       "AGENTS.md",
       "references/matt-pocock-skills.md",
@@ -394,6 +394,10 @@
     {
       "date": "2026-07-12",
       "event": "Corrected Health 007 from code-review back to implement during integration review. The standalone v0.2.0 worktree passes its release check but remains uncommitted and lacks a durable review artifact, so code-review completion readiness was not claimed. Frozen pending migration preserves the task without granting new authority."
+    },
+    {
+      "date": "2026-07-12",
+      "event": "Resolved independent Standards and Spec review findings with test-first contract hardening, claim-specific regulator citations, navigator cross-validation, typed skill-section validation, and an independent example evidence-audit lane. npm run release:check and git diff --check passed; committed 2230a33 and pushed codex/health-007-people-first-v2. The task remains frozen pending a separate complete member-level deliverable migration."
     }
   ],
   "created_at": "2026-07-10",
