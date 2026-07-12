@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "project_slug": "health",
+  "updated_at": "2026-07-09T05:47:53.641Z",
+  "sessions": [
+    {
+      "session_id": "health-20260709T054105Z",
+      "project_slug": "health",
+      "status": "active",
+      "goal": "Test the Philippines insurance/HMO workflow in the health project",
+      "actor": "testing-session",
+      "started_at": "2026-07-09T05:41:05.625Z",
+      "updated_at": "2026-07-09T05:47:53.641Z",
+      "stopped_at": null,
+      "path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z",
+      "session_path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z/session.json",
+      "events_path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z/events.jsonl",
+      "notes_path": "projects/health/artifacts/testing-sessions/health-20260709T054105Z/notes.md",
+      "event_count": 6
+    }
+  ]
+}
