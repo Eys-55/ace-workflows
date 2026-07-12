@@ -1,7 +1,7 @@
 # Foundational Philippines Health Coverage UI PRD
 
-Task: `health-008`  
-Generated: 2026-07-12  
+Task: `health-008`
+Generated: 2026-07-12
 Status: PRD
 
 ## Problem Statement
